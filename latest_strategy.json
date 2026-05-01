@@ -1,0 +1,45 @@
+{
+  "analysis": "Early May 2026 context: Entering the historically mixed 'sell in May' period, but momentum from Q1 earnings season and moderate Fed posture keeps near-term bias cautiously bullish. Strategy is trend-following on large-cap tech and broad market ETF with tight stops, targeting swift 2%+ moves within the 5-day window. With a $5,000 max position size constraint per trade, hitting the full 1% account gain requires multiple setups working in concert. Portfolio heat is nearly zero so full deployment across 2-3 positions is appropriate. Prioritizing liquid, high-volume names with clear technical levels to minimize slippage. TSLA position is small and can stay open.",
+  "confidence_target_pct": 55,
+  "trades": [
+    {
+      "symbol": "QQQ",
+      "direction": "BUY",
+      "entry_strategy": "Buy at or near the 20-day MA confluence around $489-491. Look for a morning dip to support in the first 30 minutes of Monday's session, then enter on a 5-min candle close back above $490.",
+      "entry_price": 490.0,
+      "stop_loss": 480.2,
+      "target": 500.3,
+      "stop_loss_risk_pct": 0.02,
+      "target_gain_pct": 0.021,
+      "conviction": 62,
+      "rationale": "QQQ has been consolidating after a Q1 earnings-driven run. The 20-day MA acts as dynamic support. Seasonal tech buying ahead of summer positioning, strong mega-cap earnings (MSFT, META, AMZN) provide a fundamental tailwind. A clean bounce off the $490 level with volume confirmation signals continuation. Tight 2% stop keeps risk controlled while targeting the prior resistance zone near $500.",
+      "risk_reward_ratio": 1.05
+    },
+    {
+      "symbol": "AAPL",
+      "direction": "BUY",
+      "entry_strategy": "Enter on a pullback to the $204-206 support zone, ideally on Monday-Tuesday. AAPL reports earnings late in the week \u2014 enter early to capture pre-earnings run-up, then EXIT BEFORE earnings report to avoid binary event risk.",
+      "entry_price": 205.5,
+      "stop_loss": 201.4,
+      "target": 209.6,
+      "stop_loss_risk_pct": 0.02,
+      "target_gain_pct": 0.02,
+      "conviction": 58,
+      "rationale": "AAPL typically sees a pre-earnings drift higher as options premiums build and institutional buyers position ahead of the print. The $204 level has been respected as support across recent sessions. Exit target of $209-210 aligns with the prior swing high. Hard exit rule before earnings announcement removes binary gap risk, making this a technically clean 3-4 day hold.",
+      "risk_reward_ratio": 1.0
+    },
+    {
+      "symbol": "GLD",
+      "direction": "BUY",
+      "entry_strategy": "Buy GLD on any weakness to the $238-240 range, representing a short-term mean reversion to the 10-day EMA after recent volatility. Enter limit order at $239.50.",
+      "entry_price": 239.5,
+      "stop_loss": 234.7,
+      "target": 245.3,
+      "stop_loss_risk_pct": 0.02,
+      "target_gain_pct": 0.024,
+      "conviction": 60,
+      "rationale": "Gold remains in a macro uptrend supported by de-dollarization flows, central bank demand, and residual safe-haven positioning. A brief pullback to the 10-day EMA provides a clean mean-reversion entry. GLD is non-correlated to the equity trades above, providing portfolio diversification. The weekly trend structure remains bullish and a move back to recent highs near $245 is achievable within the 5-day window.",
+      "risk_reward_ratio": 1.21
+    }
+  ]
+}

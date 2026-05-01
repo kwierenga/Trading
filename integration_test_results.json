@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-05-01T00:07:43.045569+00:00",
+  "results": {
+    "imports": {
+      "requests": true,
+      "dotenv": true,
+      "alpaca_client": true,
+      "config": true,
+      "trade_journal": true,
+      "position_sizer": true,
+      "portfolio_metrics": true,
+      "backtest_engine": true,
+      "ai_strategy_enhanced": true,
+      "portfolio_monitor": true
+    },
+    "environment": {
+      "alpaca_key": true,
+      "alpaca_secret": true,
+      "alpaca_url": true,
+      "anthropic_key": true,
+      "all_set": true
+    },
+    "alpaca_connection": true,
+    "features": {
+      "Trade Journal": true,
+      "Position Sizer": true,
+      "Portfolio Metrics": true,
+      "Backtest Engine": true,
+      "AI Strategy": true,
+      "Portfolio Monitor": true
+    }
+  }
+}
