@@ -34,5 +34,23 @@
         "unrealized_pl": -2.68
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-01T00:56:33.053247+00:00",
+    "account": {
+      "equity": 99997.08,
+      "buying_power": 199612.9,
+      "cash": 99615.82,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "TSLA",
+        "qty": 1.0,
+        "avg_entry_price": 384.18,
+        "current_price": 381.26,
+        "unrealized_pl": -2.92
+      }
+    ]
   }
 ]
