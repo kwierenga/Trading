@@ -12,6 +12,17 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-04-21 → 2026-05-02
+
+**What worked / what didn't.** There were no trades this week — the single open position is a $2 NNDM stub that appears to predate the new strategy entirely. What did happen was infrastructure: the quality+momentum framework got built, debugged, and dry-run end-to-end. The token-budget fix and the MIN_STOP_PCT correction both worked once identified. What didn't work was the scheduled automation — the Friday run was manual at 6:49pm, not the intended 6am pre-market routine, which means the system has never actually operated as designed under real conditions. The three setups (PYPL, FTNT, ADBE) produced by the fresh screen are still hypothetical; none were entered.
+
+**What's puzzling or worth watching.** The gap between the strategy Klaas designed and the portfolio it has produced so far is total — $100K in cash, one trivial legacy position, zero closed trades. That's not necessarily wrong for a first week of infrastructure work, but it means every conviction about how the rules will behave under pressure (the 15% drawdown tolerance, the loss-management difficulty Klaas himself flagged) remains untested. The MIN_STOP_PCT constant is worth taking seriously as a symptom: if one silent override existed in the risk path, the honest assumption is there are others. The code sweep was identified but not yet done.
+
+**Reflective prompts for Klaas.** The journal notes you find loss management harder than profit-taking — given that no position has gone against you yet, what specific condition or drawdown level do you expect will be the first real test of that, and have you pre-committed a response before it happens? The NNDM position doesn't fit the S&P 500 quality filter you designed — is it still open because of an active decision to hold it, or because closing it hasn't been prioritized? The three setups from Friday's screen were generated after market close with limit prices that may already be stale — when Monday's re-run produces a revised list, how will you decide whether the original thesis still holds or whether you're rationalizing entry into a setup that has already moved?
+
+
+---
+
 ## [EOD] 2026-05-01 Friday
 **What happened.** No trades closed today; end equity $100,003, cash $100,001, 1 trivial NNDM position. First morning_routine fired and emailed FAILED — debugged to root cause: `max_tokens=4000` plus `thinking={"type":"adaptive"}` on a 250-candidate prompt burned the entire output budget on thinking, returned an empty text block, surfaced as "JSON parse error". Shipped fixes (max_tokens 16000, explicit empty-text diagnostic, save-before-display, UTF-8 stdout in 3 scripts) and updated CLAUDE.md Task Scheduler notes for local-timezone trigger + `.venv` interpreter; ran a fresh strategy that produced 3 high-conviction setups (PYPL/FTNT/ADBE, 48% confidence) and dry-ran `execute_strategy.py` end-to-end — sizing came back clean once the spurious 8% MIN_STOP_PCT floor was relaxed to 4% to align with the ATR-based stop rule.
 
@@ -21,16 +32,3 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 **Tomorrow's plan.** Actually Monday: (1) at ~9:00 EDT re-run `python ai_strategy_enhanced.py --refresh` to get a fresh screen with weekend news priced in; (2) interactively run `python execute_strategy.py` (no `--yes`) before/at 9:30 EDT and confirm per trade; (3) verify Task Scheduler is wired with the local-timezone trigger from CLAUDE.md and that the AM email arrives at the right wall-clock time. Also: commit + push the day's work (still uncommitted — this entire session would be lost if disk failed).
 
----
-
-## 2026-05-01 (Friday)
-
-**What happened.** Designed and implemented a full strategy upgrade: locked in stocks-only with S&P 500 universe, hard quality filter, 25% concentration cap, ~15% ATR-based stops, no buying into downtrends, weeks-to-months holds, and US tax awareness. Built `market_data.py` (per-symbol technicals + fundamentals + quality filter + universe screening with 24h cache) and `sp500_universe.py`; rewrote `ai_strategy_enhanced.py` to feed Claude only screened candidates with the new prompt rules; updated `position_sizer.py` (25% hard cap, ATR-based stops, `validate_concentration()`), added pre-trade check in `claude_trader.py`, added LTCG holding-period awareness to `trade_journal.py`, and added turnover + tax-drag metrics to `performance_tracker.py`. Also set up the memory + journal system: `CLAUDE.md` for project rules, 6 memory files for accumulated learning + open hypotheses, `JOURNAL.md` (this file) for daily review.
-
-**What we learned.** Whenever offered a looser default, Klaas chose the stricter option — hard filter over hybrid, full S&P 500 over watchlist, 25% concentration over 33% — he's designing this for real money, not paper. He explicitly named loss management as harder than profit-taking, which is the most likely failure mode to watch. Loose `except:` blocks in the original codebase were silently swallowing JSON/IO errors; replaced with specific exception types in every file we touched.
-
-**Open questions.** Will the hard quality filter leave 30-150 S&P 500 candidates (target range), or too few/many — first run of `python market_data.py --screen` will tell us. Will yfinance reliably handle 500 calls without rate-limiting issues. Will the 15% drawdown tolerance hold under real screen-pain when a position is bleeding.
-
-**Tomorrow's plan.** Run `pip install -r requirements.txt` to add yfinance, then `python market_data.py --screen` end-to-end to validate the screen produces sensible candidates and surface any data quality issues. After that: design the 6am EST scheduled morning routine (Windows Task Scheduler + a `claude -p` prompt) to read JOURNAL.md + memory, run the screen, and append tomorrow's entry. Push today's commits to GitHub so the new files (CLAUDE.md, JOURNAL.md, market_data.py, sp500_universe.py, edits to 5 others) are visible there.
-
----
