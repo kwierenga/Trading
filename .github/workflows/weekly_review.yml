@@ -1,0 +1,72 @@
+name: Weekly review
+
+# Sunday afternoon synthesis: closed trades + open positions + week's JOURNAL
+# entries → Claude-generated review → email + [WEEK] JOURNAL entry committed back.
+#
+# Schedule: 18:00 UTC Sundays.
+#   = 14:00 ET (EDT, summer)
+#   = 13:00 ET (EST, winter)
+# Sunday is intentional — markets closed, end-of-week state is final, gives Klaas
+# a Sunday afternoon prompt to spend 15 min reflecting before the week starts.
+#
+# Why this matters: see memory/trading_learning_loop.md. Without weekly synthesis,
+# the daily AM/EOD emails are write-only — events disappear into aggregate P&L
+# without any pattern extraction. This is the active part of "memorize all we
+# learned."
+
+on:
+  schedule:
+    - cron: '0 18 * * 0'  # Sunday 18:00 UTC
+  workflow_dispatch:
+
+concurrency:
+  group: weekly-review
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    environment: paper
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run weekly review
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_API_BASE_URL: ${{ secrets.ALPACA_API_BASE_URL }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python weekly_review.py
+
+      - name: Commit journal updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add JOURNAL.md
+          if git diff --cached --quiet; then
+            echo "No journal changes."
+          else
+            git commit -m "[WEEK] Weekly review $(date -u +'%Y-%m-%d')"
+            git push
+          fi
