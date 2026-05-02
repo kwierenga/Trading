@@ -28,10 +28,18 @@ class AlpacaClient:
         return response.json()
 
     def _delete(self, endpoint):
-        """Make DELETE request to Alpaca API"""
+        """Make DELETE request to Alpaca API.
+
+        Alpaca returns 204 No Content on successful cancel/close — no JSON body.
+        Calling .json() on an empty body raises JSONDecodeError, which made
+        successful cancellations look like failures. Treat empty bodies as
+        an empty dict so callers can rely on a dict return.
+        """
         url = f"{self.base_url}{endpoint}"
         response = requests.delete(url, headers=self.headers)
         response.raise_for_status()
+        if response.status_code == 204 or not response.content:
+            return {}
         return response.json()
 
     def get_account(self):
