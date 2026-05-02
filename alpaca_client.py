@@ -46,15 +46,43 @@ class AlpacaClient:
         """Get orders with specified status"""
         return self._get(f'/orders?status={status}')
 
-    def submit_order(self, symbol, qty, side, order_type='market', time_in_force='day'):
-        """Submit a new order"""
+    def submit_order(
+        self,
+        symbol,
+        qty,
+        side,
+        order_type='market',
+        time_in_force='day',
+        limit_price=None,
+        stop_price=None,
+        take_profit=None,
+        stop_loss_price=None,
+    ):
+        """
+        Submit an order. Supports plain market/limit/stop and bracket orders.
+
+        Bracket order: pass BOTH take_profit (limit price for the take-profit leg)
+        AND stop_loss_price (stop trigger for the stop-loss leg). Bracket orders
+        require time_in_force='gtc' or 'day' (gtc recommended so the protective
+        legs persist across days after the parent fills).
+        """
         data = {
             'symbol': symbol,
             'qty': str(qty),
             'side': side,
             'type': order_type,
-            'time_in_force': time_in_force
+            'time_in_force': time_in_force,
         }
+        if limit_price is not None:
+            data['limit_price'] = str(limit_price)
+        if stop_price is not None:
+            data['stop_price'] = str(stop_price)
+
+        if take_profit is not None and stop_loss_price is not None:
+            data['order_class'] = 'bracket'
+            data['take_profit'] = {'limit_price': str(take_profit)}
+            data['stop_loss'] = {'stop_price': str(stop_loss_price)}
+
         return self._post('/orders', data)
 
     def get_barset(self, symbols, timeframe='1D', limit=100):
@@ -66,7 +94,7 @@ class AlpacaClient:
                 try:
                     bars = self._get(f'/stocks/{symbol}/bars?timeframe={timeframe}&limit={limit}')
                     result[symbol] = bars['bars'] if 'bars' in bars else []
-                except:
+                except (requests.RequestException, KeyError, ValueError):
                     result[symbol] = []
             return result
         else:

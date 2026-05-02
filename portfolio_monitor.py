@@ -25,11 +25,11 @@ class PortfolioMonitor:
         """Load alert history"""
         if not os.path.exists(PortfolioMonitor.ALERT_FILE):
             return []
-        
+
         try:
             with open(PortfolioMonitor.ALERT_FILE, 'r') as f:
                 return json.load(f)
-        except:
+        except (OSError, json.JSONDecodeError):
             return []
     
     @staticmethod

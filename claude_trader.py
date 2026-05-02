@@ -81,7 +81,7 @@ def get_trade_signal(user_instructions):
 
 
 def execute_trade(signal):
-    """Submit the trade to Alpaca if the signal indicates a buy or sell."""
+    """Submit the trade to Alpaca after pre-trade concentration check."""
     client = AlpacaClient()
 
     if signal['action'] == 'hold':
@@ -93,6 +93,41 @@ def execute_trade(signal):
 
     if signal['qty'] <= 0:
         raise ValueError('Quantity must be greater than zero')
+
+    # Pre-trade concentration check — BUY orders only (sells can't breach the cap).
+    if signal['side'] == 'buy':
+        from position_sizer import validate_concentration, MAX_POSITION_PCT
+        from market_data import latest_price
+
+        account = client.get_account()
+        positions = client.get_positions()
+        equity = float(account['equity'])
+
+        # Best available estimate of fill price for the dollar-value check.
+        if signal.get('order_type') == 'limit' and signal.get('limit_price'):
+            est_price = float(signal['limit_price'])
+        else:
+            est_price = latest_price(signal['symbol'])
+
+        if est_price is None:
+            raise ValueError(
+                f"Cannot estimate fill price for {signal['symbol']} — concentration check requires a price. "
+                f"Use a limit order or check connectivity to yfinance."
+            )
+
+        proposed_value = signal['qty'] * est_price
+        check = validate_concentration(
+            symbol=signal['symbol'],
+            proposed_value=proposed_value,
+            account_equity=equity,
+            current_positions=positions,
+        )
+
+        if not check['ok']:
+            raise ValueError(f"Pre-trade concentration check FAILED: {check['reason']}")
+
+        print(f"Pre-trade check OK: {check['reason']}")
+        print(f"  Estimated fill price: ${est_price:.2f}, proposed value: ${proposed_value:,.2f}")
 
     print(f"Placing {signal['side']} order: {signal['qty']} shares of {signal['symbol']} ({signal['order_type']}, {signal['time_in_force']})")
     order = client.submit_order(

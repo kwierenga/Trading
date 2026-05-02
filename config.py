@@ -14,6 +14,15 @@ ALPACA_ENVIRONMENT = os.getenv('ALPACA_ENVIRONMENT', 'paper')
 ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
 CLAUDE_MODEL = os.getenv('CLAUDE_MODEL', 'claude-sonnet-4-6')
 
+# Email Configuration (Gmail SMTP by default — used by morning_routine.py / eod_routine.py)
+# Generate an app password at https://myaccount.google.com/apppasswords
+# (requires 2-Step Verification enabled). For Outlook.com, set EMAIL_SMTP_HOST=smtp-mail.outlook.com.
+EMAIL_USER = os.getenv('EMAIL_USER')
+EMAIL_APP_PASSWORD = os.getenv('EMAIL_APP_PASSWORD')
+EMAIL_TO = os.getenv('EMAIL_TO', EMAIL_USER)
+EMAIL_SMTP_HOST = os.getenv('EMAIL_SMTP_HOST', 'smtp.gmail.com')
+EMAIL_SMTP_PORT = int(os.getenv('EMAIL_SMTP_PORT', '587'))
+
 # Validate required credentials
 if not ALPACA_API_KEY or not ALPACA_API_SECRET:
     raise ValueError("Missing required Alpaca API credentials in .env file")

@@ -5,6 +5,7 @@ Calculate portfolio heat, drawdown, diversification, and risk exposure
 
 import json
 import os
+import statistics as _statistics_module
 from typing import Dict, List, Tuple
 from datetime import datetime
 from alpaca_client import AlpacaClient
@@ -111,9 +112,9 @@ class PortfolioMetrics:
                     max_dd = drawdown
             
             return max_dd
-        except:
+        except (OSError, json.JSONDecodeError, KeyError, ValueError, ZeroDivisionError):
             return 0
-    
+
     @staticmethod
     def calculate_volatility(portfolio_history_file: str = 'portfolio_history.json') -> float:
         """
@@ -143,9 +144,9 @@ class PortfolioMetrics:
             volatility = statistics.stdev(returns) if len(returns) > 1 else 0
             
             return volatility * (252 ** 0.5)  # Annualized
-        except:
+        except (OSError, json.JSONDecodeError, KeyError, ValueError, ZeroDivisionError, _statistics_module.StatisticsError):
             return 0
-    
+
     @staticmethod
     def calculate_sortino_ratio(portfolio_history_file: str = 'portfolio_history.json',
                                risk_free_rate: float = 0.04) -> float:
@@ -184,9 +185,9 @@ class PortfolioMetrics:
             
             excess_return = total_return - risk_free_rate
             sortino = excess_return / downside_std if downside_std > 0 else 0
-            
+
             return sortino
-        except:
+        except (OSError, json.JSONDecodeError, KeyError, ValueError, ZeroDivisionError, _statistics_module.StatisticsError):
             return 0
     
     @staticmethod

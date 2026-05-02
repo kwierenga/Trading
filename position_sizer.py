@@ -1,256 +1,328 @@
 """
 Position Sizing Module
-Calculates optimal position sizes using Kelly Criterion, Fixed Fractional, and Risk-Based methods
+
+Strategy rules (see CLAUDE.md):
+- Max 25% of equity per single position (HARD CAP).
+- Target ~1.5% portfolio risk per trade (capped at 2%).
+- Stops are ATR-based (~1.75x ATR(14)), clamped to [4%, 18%]. Quality large-caps
+  routinely have ATR(14) ~2-3% — a 1.75x ATR stop on PYPL/MSFT/etc. lands at 3.5-5%,
+  which is what the ATR rule intends. The 4% floor only rejects sub-1% ATR readings
+  that almost certainly indicate stale or wrong data.
+- Worst-case single-name loss caps at 18% per stop (aligns with Klaas's 15% paper-drawdown
+  tolerance + a small buffer for slippage past the stop).
 """
 
 import json
 import os
-from typing import Dict, Tuple
+from typing import Dict, List, Optional, Tuple
 from alpaca_client import AlpacaClient
-from performance_tracker import load_history
+
+
+# ---------------------------------------------------------------------------
+# Strategy constants
+# ---------------------------------------------------------------------------
+
+MAX_POSITION_PCT = 0.25         # 25% concentration cap (hard)
+TARGET_RISK_PER_TRADE = 0.015   # 1.5% portfolio risk on a stopped-out trade (target)
+MAX_RISK_PER_TRADE = 0.02       # 2% portfolio risk on a stopped-out trade (hard cap)
+ATR_STOP_MULTIPLE = 1.75        # stop distance = 1.75 * ATR(14) by default
+MIN_STOP_PCT = 0.04             # below ~1% ATR is almost certainly a data issue; rejects those
+MAX_STOP_PCT = 0.18             # cap single-name exposure even if ATR suggests wider
 
 
 class PositionSizer:
-    """Calculate position sizes based on risk management principles"""
-    
-    def __init__(self, account_equity: float, win_rate: float = 0.50, 
+    """Calculate position sizes based on the strategy's risk rules."""
+
+    def __init__(self, account_equity: float, win_rate: float = 0.50,
                  avg_win: float = 0.015, avg_loss: float = 0.010):
-        """
-        Args:
-            account_equity: Total account equity in dollars
-            win_rate: Historical win rate (0.0 to 1.0), default 50%
-            avg_win: Average winning trade %, default 1.5%
-            avg_loss: Average losing trade %, default 1.0%
-        """
         self.account_equity = account_equity
         self.win_rate = win_rate
         self.avg_win = avg_win
         self.avg_loss = avg_loss
-    
-    def kelly_criterion(self, max_risk_pct: float = 0.02) -> Tuple[float, float]:
-        """
-        Calculate Kelly Criterion optimal position size
-        Formula: f* = (p * b - q) / b
-        where p = win rate, q = loss rate, b = win/loss ratio
-        
-        Typically use fractional Kelly (25%) for live trading for safety
-        
-        Returns:
-            (kelly_fraction, suggested_position_size_pct)
-        """
+
+    # ----- Sizing helpers (legacy methods kept; now bounded by MAX_POSITION_PCT) -----
+
+    def kelly_criterion(self, max_risk_pct: float = MAX_RISK_PER_TRADE) -> Tuple[float, float]:
+        """Fractional Kelly. Returns (kelly_fraction, position_size_pct)."""
         if self.win_rate <= 0 or self.win_rate >= 1:
             return 0.0, 0.0
-        
-        p = self.win_rate
-        q = 1 - self.win_rate
-        
-        # Win/loss ratio
+        p, q = self.win_rate, 1 - self.win_rate
         b = self.avg_win / self.avg_loss if self.avg_loss > 0 else 1.0
-        
-        # Full Kelly
-        kelly_fraction = (p * b - q) / b
-        
-        # Clamp to reasonable range and apply fractional Kelly (0.25x)
-        kelly_fraction = max(0, min(kelly_fraction, 0.25))  # Max 25% account risk
-        
-        position_size_pct = kelly_fraction * max_risk_pct
-        
-        return kelly_fraction, position_size_pct
-    
-    def fixed_fractional(self, risk_per_trade_pct: float = 0.02) -> float:
-        """
-        Fixed Fractional: Risk fixed % of account per trade
-        Simple and conservative approach
-        
-        Args:
-            risk_per_trade_pct: % of account to risk per trade (default 2%)
-        
-        Returns:
-            position_size_pct: % of account to allocate to this trade
-        """
-        return min(risk_per_trade_pct, 0.05)  # Max 5% per trade
-    
-    def volatility_adjusted(self, stock_price: float, atr: float, 
-                           risk_per_trade_pct: float = 0.02) -> Tuple[float, float]:
-        """
-        Volatility-Adjusted: Size based on ATR (Average True Range)
-        
-        Args:
-            stock_price: Current stock price
-            atr: Average True Range (volatility measure)
-            risk_per_trade_pct: % of account to risk (default 2%)
-        
-        Returns:
-            (position_size_shares, position_size_pct)
-        """
+        kelly_fraction = max(0, (p * b - q) / b)
+        kelly_fraction = min(kelly_fraction, MAX_POSITION_PCT)  # cap at concentration limit
+        return kelly_fraction, kelly_fraction * max_risk_pct
+
+    def fixed_fractional(self, risk_per_trade_pct: float = TARGET_RISK_PER_TRADE) -> float:
+        return min(risk_per_trade_pct, MAX_RISK_PER_TRADE)
+
+    def volatility_adjusted(self, stock_price: float, atr: float,
+                            risk_per_trade_pct: float = TARGET_RISK_PER_TRADE) -> Tuple[float, float]:
+        """Size shares so that 1xATR adverse move loses risk_per_trade_pct of equity."""
         if atr <= 0 or stock_price <= 0:
             return 0, 0
-        
-        # How much we can afford to lose: account * risk_pct
         max_loss = self.account_equity * risk_per_trade_pct
-        
-        # Shares = max_loss / ATR (so stop loss ATR shares = max_loss)
         shares = max_loss / atr
-        
-        # Position value as % of account
         position_value = shares * stock_price
         position_pct = position_value / self.account_equity
-        
-        # Cap at 10% per position
-        if position_pct > 0.10:
-            shares = (self.account_equity * 0.10) / stock_price
-            position_pct = 0.10
-        
+        if position_pct > MAX_POSITION_PCT:
+            shares = (self.account_equity * MAX_POSITION_PCT) / stock_price
+            position_pct = MAX_POSITION_PCT
         return shares, position_pct
-    
-    def max_position_size(self, risk_pct: float = 0.02) -> float:
+
+    def max_position_size(self, risk_pct: float = TARGET_RISK_PER_TRADE) -> float:
+        return MAX_POSITION_PCT
+
+    # ----- New ATR-based sizing (preferred path) -----
+
+    @staticmethod
+    def atr_based_stop(entry_price: float, atr14: Optional[float],
+                        multiple: float = ATR_STOP_MULTIPLE) -> Tuple[float, float, str]:
         """
-        Maximum safe position size as % of account
-        Conservative default: 5% of account max
+        Compute stop price from entry + ATR(14).
+        Returns (stop_price, stop_pct, note). stop_pct is decimal (0.15 = 15% below entry).
+        Falls back to default 15% if ATR is missing.
+
+        The stop is clamped to [MIN_STOP_PCT, MAX_STOP_PCT] so:
+          - Quiet stocks don't get whipsawed by a 4% noise stop.
+          - Volatile stocks don't blow past 18% per-name risk.
         """
-        return min(risk_pct * 5, 0.05)
-    
-    def calculate_for_trade(self, symbol: str, current_price: float, 
-                           stop_loss_price: float, 
-                           method: str = "fixed") -> Dict:
+        if atr14 is None or atr14 <= 0 or entry_price <= 0:
+            stop_pct = 0.15
+            note = "no ATR — fell back to 15% default stop"
+            return entry_price * (1 - stop_pct), stop_pct, note
+
+        raw_stop_distance = atr14 * multiple
+        raw_stop_pct = raw_stop_distance / entry_price
+
+        clamped_pct = max(MIN_STOP_PCT, min(MAX_STOP_PCT, raw_stop_pct))
+        note = f"{multiple:.2f}x ATR = {raw_stop_pct:.1%}"
+        if clamped_pct != raw_stop_pct:
+            note += f" -> clamped to {clamped_pct:.1%}"
+
+        stop_price = entry_price * (1 - clamped_pct)
+        return stop_price, clamped_pct, note
+
+    def calculate_for_trade(self, symbol: str, current_price: float,
+                            stop_loss_price: float, atr14: Optional[float] = None,
+                            method: str = "atr") -> Dict:
         """
-        Calculate recommended position size for a trade
-        
+        Calculate recommended position size for a trade, honoring:
+          - target ~1.5% portfolio risk on full stop hit
+          - hard 25% concentration cap
+          - stop floor/ceiling
+
         Args:
-            symbol: Stock symbol
-            current_price: Entry price
-            stop_loss_price: Stop loss price
-            method: 'kelly', 'fixed', 'volatility'
-        
-        Returns:
-            Dictionary with position sizing details
+            symbol: ticker
+            current_price: entry price (must be > 0)
+            stop_loss_price: proposed stop (will be sanity-checked)
+            atr14: ATR(14) for ATR-based sizing (optional)
+            method: 'atr' (preferred), 'fixed', 'kelly', 'volatility'
+
+        Returns dict with shares, position_value, position_pct, expected_loss_pct,
+        method, and a 'warnings' list.
         """
-        risk_per_trade = abs(current_price - stop_loss_price) / current_price
-        max_loss_pct = 0.02  # Max 2% loss per trade
-        
-        if risk_per_trade > max_loss_pct:
-            # Stop loss too tight/loose, recommend better risk/reward
+        warnings = []
+
+        if current_price <= 0 or stop_loss_price <= 0 or stop_loss_price >= current_price:
             return {
                 'symbol': symbol,
                 'recommended_shares': 0,
+                'position_value': 0,
                 'position_pct': 0,
-                'error': f'Risk {risk_per_trade:.2%} exceeds max {max_loss_pct:.2%}',
-                'suggested_stop_loss': current_price * (1 - max_loss_pct)
+                'error': 'invalid entry/stop prices',
             }
-        
-        if method == 'kelly':
-            _, position_pct = self.kelly_criterion(max_loss_pct)
-        elif method == 'volatility':
-            atr = abs(current_price - stop_loss_price) * 1.5  # Estimate ATR
-            _, position_pct = self.volatility_adjusted(current_price, atr, max_loss_pct)
-        else:  # fixed
-            position_pct = self.fixed_fractional(max_loss_pct)
-        
-        position_value = self.account_equity * position_pct
-        shares = int(position_value / current_price)
-        
+
+        risk_per_share = current_price - stop_loss_price
+        risk_pct_per_trade = risk_per_share / current_price
+
+        if risk_pct_per_trade < MIN_STOP_PCT:
+            warnings.append(f"stop {risk_pct_per_trade:.1%} below MIN_STOP_PCT {MIN_STOP_PCT:.0%} — likely whipsaw risk")
+        if risk_pct_per_trade > MAX_STOP_PCT:
+            warnings.append(f"stop {risk_pct_per_trade:.1%} above MAX_STOP_PCT {MAX_STOP_PCT:.0%} — single-name risk too high")
+
+        # Position-sizing core: risk_dollars / risk_per_share = shares
+        target_risk_dollars = self.account_equity * TARGET_RISK_PER_TRADE
+        shares_by_risk = target_risk_dollars / risk_per_share
+
+        # Concentration cap (hard ceiling)
+        max_shares_by_concentration = (self.account_equity * MAX_POSITION_PCT) / current_price
+
+        if shares_by_risk > max_shares_by_concentration:
+            shares = int(max_shares_by_concentration)
+            warnings.append(
+                f"concentration cap binding: risk-based size ({int(shares_by_risk)}) "
+                f"exceeds 25% cap ({shares} shares = ${shares*current_price:,.0f})"
+            )
+        else:
+            shares = int(shares_by_risk)
+
+        position_value = shares * current_price
+        position_pct = position_value / self.account_equity if self.account_equity > 0 else 0
+        expected_loss_dollars = shares * risk_per_share
+        expected_loss_pct = expected_loss_dollars / self.account_equity if self.account_equity > 0 else 0
+
         return {
             'symbol': symbol,
             'recommended_shares': shares,
-            'position_value': shares * current_price,
-            'position_pct': (shares * current_price) / self.account_equity,
+            'position_value': position_value,
+            'position_pct': position_pct,
             'entry_price': current_price,
             'stop_loss': stop_loss_price,
-            'risk_pct_per_trade': risk_per_trade,
-            'method': method
+            'stop_pct': risk_pct_per_trade,
+            'expected_loss_dollars': expected_loss_dollars,
+            'expected_loss_pct': expected_loss_pct,
+            'method': method,
+            'warnings': warnings,
         }
 
 
+# ---------------------------------------------------------------------------
+# Concentration validation (used by claude_trader / pre-trade hook)
+# ---------------------------------------------------------------------------
+
+def validate_concentration(
+    symbol: str,
+    proposed_value: float,
+    account_equity: float,
+    current_positions: List[Dict],
+) -> Dict:
+    """
+    Pre-trade check: does adding this position violate the 25% concentration cap?
+
+    Args:
+        symbol: ticker being added (or added to)
+        proposed_value: dollar value of NEW shares being added (entry_price * new_shares)
+        account_equity: current total equity
+        current_positions: list from AlpacaClient.get_positions()
+
+    Returns dict with:
+      ok (bool), reason (str), would_be_pct (float), cap_pct (float)
+    """
+    existing_value = 0.0
+    for p in current_positions:
+        if p.get('symbol', '').upper() == symbol.upper():
+            existing_value = float(p.get('market_value', 0))
+            break
+
+    combined_value = existing_value + proposed_value
+    would_be_pct = combined_value / account_equity if account_equity > 0 else 1.0
+
+    if would_be_pct > MAX_POSITION_PCT:
+        return {
+            'ok': False,
+            'reason': (
+                f"{symbol} would be {would_be_pct:.1%} of equity (existing ${existing_value:,.0f} + "
+                f"new ${proposed_value:,.0f} = ${combined_value:,.0f}); cap is {MAX_POSITION_PCT:.0%}"
+            ),
+            'would_be_pct': would_be_pct,
+            'cap_pct': MAX_POSITION_PCT,
+            'existing_value': existing_value,
+            'proposed_value': proposed_value,
+        }
+
+    return {
+        'ok': True,
+        'reason': f"{symbol} concentration OK ({would_be_pct:.1%} of equity, cap {MAX_POSITION_PCT:.0%})",
+        'would_be_pct': would_be_pct,
+        'cap_pct': MAX_POSITION_PCT,
+        'existing_value': existing_value,
+        'proposed_value': proposed_value,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Trade statistics (used by AI strategy and portfolio_monitor)
+# ---------------------------------------------------------------------------
+
 def get_trade_statistics() -> Dict:
-    """Load trade history and calculate win rate"""
+    """Load trade history and compute win-rate stats."""
+    default = {'win_rate': 0.50, 'avg_win': 0.015, 'avg_loss': 0.010, 'trades': 0}
+
+    if not os.path.exists('trade_journal.json'):
+        return default
+
     try:
-        if os.path.exists('trade_journal.json'):
-            with open('trade_journal.json', 'r') as f:
-                trades = json.load(f)
-            
-            if not trades:
-                return {'win_rate': 0.50, 'avg_win': 0.015, 'avg_loss': 0.010, 'trades': 0}
-            
-            wins = sum(1 for t in trades if t.get('pnl_pct', 0) > 0)
-            total = len([t for t in trades if t.get('status') == 'closed'])
-            
-            if total == 0:
-                return {'win_rate': 0.50, 'avg_win': 0.015, 'avg_loss': 0.010, 'trades': 0}
-            
-            win_rate = wins / total
-            
-            winning_trades = [t for t in trades if t.get('pnl_pct', 0) > 0 and t.get('status') == 'closed']
-            losing_trades = [t for t in trades if t.get('pnl_pct', 0) <= 0 and t.get('status') == 'closed']
-            
-            avg_win = sum(t.get('pnl_pct', 0) for t in winning_trades) / len(winning_trades) if winning_trades else 0.015
-            avg_loss = abs(sum(t.get('pnl_pct', 0) for t in losing_trades) / len(losing_trades)) if losing_trades else 0.010
-            
-            return {
-                'win_rate': win_rate,
-                'avg_win': avg_win,
-                'avg_loss': avg_loss,
-                'trades': total,
-                'wins': wins,
-                'losses': total - wins
-            }
-    except:
-        pass
-    
-    return {'win_rate': 0.50, 'avg_win': 0.015, 'avg_loss': 0.010, 'trades': 0}
+        with open('trade_journal.json', 'r') as f:
+            trades = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return default
+
+    if not trades:
+        return default
+
+    closed = [t for t in trades if t.get('status') == 'closed']
+    if not closed:
+        return default
+
+    wins = sum(1 for t in closed if (t.get('pnl_pct') or 0) > 0)
+    total = len(closed)
+    win_rate = wins / total if total else 0.5
+
+    winning_trades = [t for t in closed if (t.get('pnl_pct') or 0) > 0]
+    losing_trades = [t for t in closed if (t.get('pnl_pct') or 0) <= 0]
+
+    avg_win = (sum((t.get('pnl_pct') or 0) for t in winning_trades) / len(winning_trades)) if winning_trades else 0.015
+    avg_loss = abs(sum((t.get('pnl_pct') or 0) for t in losing_trades) / len(losing_trades)) if losing_trades else 0.010
+
+    return {
+        'win_rate': win_rate,
+        'avg_win': avg_win,
+        'avg_loss': avg_loss,
+        'trades': total,
+        'wins': wins,
+        'losses': total - wins,
+    }
 
 
-def calculate_position_size(symbol: str, current_price: float, 
-                           stop_loss_price: float) -> Dict:
-    """
-    Main function to calculate position size
-    Uses historical trade stats if available
-    """
+def calculate_position_size(symbol: str, current_price: float,
+                            stop_loss_price: float,
+                            atr14: Optional[float] = None) -> Dict:
+    """Top-level helper: pulls account state, then sizes a trade."""
     from config import ALPACA_API_KEY
-    
+
     if not ALPACA_API_KEY:
-        print("❌ ALPACA_API_KEY not set in .env")
+        print("ALPACA_API_KEY not set in .env")
         return {}
-    
+
     client = AlpacaClient()
     account = client.get_account()
-    
     stats = get_trade_statistics()
-    
+
     sizer = PositionSizer(
         account_equity=float(account['equity']),
         win_rate=stats['win_rate'],
         avg_win=stats['avg_win'],
-        avg_loss=stats['avg_loss']
+        avg_loss=stats['avg_loss'],
     )
-    
-    recommendation = sizer.calculate_for_trade(symbol, current_price, stop_loss_price)
-    
-    return recommendation
+
+    return sizer.calculate_for_trade(symbol, current_price, stop_loss_price, atr14=atr14)
 
 
 if __name__ == "__main__":
     import sys
-    
+
     if len(sys.argv) < 4:
-        print("Usage: python position_sizer.py <symbol> <entry_price> <stop_loss_price>")
+        print("Usage: python position_sizer.py <symbol> <entry_price> <stop_loss_price> [atr14]")
         sys.exit(1)
-    
+
     symbol = sys.argv[1]
     entry = float(sys.argv[2])
     stop = float(sys.argv[3])
-    
-    rec = calculate_position_size(symbol, entry, stop)
-    
+    atr = float(sys.argv[4]) if len(sys.argv) > 4 else None
+
+    rec = calculate_position_size(symbol, entry, stop, atr14=atr)
+
     if 'error' in rec:
-        print(f"❌ {rec['error']}")
-        print(f"   Suggested stop loss: ${rec['suggested_stop_loss']:.2f}")
-    else:
-        print(f"\n📊 Position Sizing for {rec['symbol']}")
-        print(f"   Entry: ${rec['entry_price']:.2f}")
-        print(f"   Stop Loss: ${rec['stop_loss']:.2f}")
-        print(f"   Risk: {rec['risk_pct_per_trade']:.2%}")
-        print(f"   ---")
-        print(f"   Recommended Shares: {rec['recommended_shares']}")
-        print(f"   Position Value: ${rec['position_value']:,.2f}")
-        print(f"   % of Account: {rec['position_pct']:.2%}")
-        print(f"   Method: {rec['method']}")
+        print(f"Error: {rec['error']}")
+        sys.exit(1)
+
+    print(f"\nPosition sizing for {rec['symbol']}")
+    print(f"  Entry:  ${rec['entry_price']:.2f}")
+    print(f"  Stop:   ${rec['stop_loss']:.2f}  ({rec['stop_pct']:.1%})")
+    print(f"  Shares: {rec['recommended_shares']}")
+    print(f"  Value:  ${rec['position_value']:,.2f}  ({rec['position_pct']:.2%} of equity)")
+    print(f"  Risk:   ${rec['expected_loss_dollars']:,.2f}  ({rec['expected_loss_pct']:.2%} of equity if stopped)")
+    if rec.get('warnings'):
+        print("  Warnings:")
+        for w in rec['warnings']:
+            print(f"    - {w}")

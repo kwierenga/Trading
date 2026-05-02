@@ -1,6 +1,15 @@
 import json
 from datetime import datetime, timedelta, timezone
+from typing import Dict, List
 from alpaca_client import AlpacaClient
+
+
+# US tax rates (rough estimates for an active trader at moderate income).
+# Adjust if Klaas's effective rate differs materially. These produce a rough
+# "tax-drag" estimate, not actual tax owed.
+TAX_RATE_SHORT_TERM = 0.32   # ordinary income — varies by bracket; 32% is a moderate-to-high active-trader assumption
+TAX_RATE_LTCG = 0.15         # most filers fall in the 15% LTCG bracket
+LTCG_THRESHOLD_DAYS = 365
 
 
 def calculate_weekly_returns(account_history):
@@ -57,14 +66,14 @@ def save_snapshot(snapshot, filename='portfolio_history.json'):
     try:
         with open(filename, 'r') as f:
             history = json.load(f)
-    except:
+    except (OSError, json.JSONDecodeError):
         history = []
-    
+
     history.append(snapshot)
-    
+
     with open(filename, 'w') as f:
         json.dump(history, f, indent=2)
-    
+
     return history
 
 
@@ -73,8 +82,99 @@ def load_history(filename='portfolio_history.json'):
     try:
         with open(filename, 'r') as f:
             return json.load(f)
-    except:
+    except (OSError, json.JSONDecodeError):
         return []
+
+
+def get_turnover_stats(period_days: int = 30) -> Dict:
+    """
+    Compute trade turnover + tax-drag estimates for the trailing period.
+
+    "Tax drag" here = how much MORE tax was owed because gains were short-term
+    vs the counterfactual where the same gains were long-term (LTCG). It's a
+    rough estimate to surface the cost of frequent trading, not actual tax owed.
+
+    Returns: dict with trades, avg_holding_days, short_term_gains, long_term_gains,
+    estimated_tax_owed, tax_drag (vs all-LTCG counterfactual).
+    """
+    from trade_journal import TradeJournal
+
+    closed = [t for t in TradeJournal.load_trades() if t.get('status') == 'closed']
+
+    cutoff = datetime.now(timezone.utc) - timedelta(days=period_days)
+    recent = []
+    for t in closed:
+        try:
+            exit_dt = datetime.fromisoformat(t['exit_time'])
+            if exit_dt.tzinfo is None:
+                exit_dt = exit_dt.replace(tzinfo=timezone.utc)
+            if exit_dt >= cutoff:
+                recent.append(t)
+        except (ValueError, TypeError):
+            continue
+
+    if not recent:
+        return {
+            'period_days': period_days,
+            'trades': 0,
+            'avg_holding_days': 0.0,
+            'short_term_gains': 0.0,
+            'long_term_gains': 0.0,
+            'realized_gain': 0.0,
+            'estimated_tax_owed': 0.0,
+            'tax_drag': 0.0,
+        }
+
+    short_term_gains = 0.0
+    long_term_gains = 0.0
+    total_pnl = 0.0
+    holding_days_list = []
+
+    for t in recent:
+        pnl = float(t.get('pnl') or 0)
+        total_pnl += pnl
+
+        duration_minutes = float(t.get('duration_minutes') or 0)
+        days_held = duration_minutes / (60 * 24)
+        holding_days_list.append(days_held)
+
+        if pnl > 0:
+            if days_held >= LTCG_THRESHOLD_DAYS:
+                long_term_gains += pnl
+            else:
+                short_term_gains += pnl
+
+    avg_days = sum(holding_days_list) / len(holding_days_list) if holding_days_list else 0
+
+    estimated_tax_owed = short_term_gains * TAX_RATE_SHORT_TERM + long_term_gains * TAX_RATE_LTCG
+    counterfactual_all_LTCG = (short_term_gains + long_term_gains) * TAX_RATE_LTCG
+    tax_drag = estimated_tax_owed - counterfactual_all_LTCG
+
+    return {
+        'period_days': period_days,
+        'trades': len(recent),
+        'avg_holding_days': avg_days,
+        'short_term_gains': short_term_gains,
+        'long_term_gains': long_term_gains,
+        'realized_gain': total_pnl,
+        'estimated_tax_owed': estimated_tax_owed,
+        'tax_drag': tax_drag,
+    }
+
+
+def display_turnover_report(period_days: int = 30) -> None:
+    stats = get_turnover_stats(period_days)
+    print(f"\nTurnover (last {period_days} days):")
+    print(f"  Trades closed: {stats['trades']}")
+    print(f"  Avg holding period: {stats['avg_holding_days']:.1f} days")
+    print(f"  Realized gains (gross): ${stats['realized_gain']:+,.2f}")
+    print(f"    Short-term: ${stats['short_term_gains']:+,.2f}")
+    print(f"    Long-term:  ${stats['long_term_gains']:+,.2f}")
+    print(f"  Estimated tax owed: ${stats['estimated_tax_owed']:,.2f}  "
+          f"(@ {TAX_RATE_SHORT_TERM:.0%} short / {TAX_RATE_LTCG:.0%} long)")
+    if stats['short_term_gains'] > 0:
+        print(f"  Tax DRAG (vs counterfactual all-LTCG): ${stats['tax_drag']:,.2f}")
+        print(f"    -> short-term turnover cost ~${stats['tax_drag']:,.0f} more in tax this period")
 
 
 def get_weekly_performance():
@@ -152,7 +252,9 @@ def display_performance_report():
         print(f"  Total Unrealized P&L: ${total_pl:,.2f}")
     else:
         print("No open positions")
-    
+
+    display_turnover_report(period_days=30)
+
     print("="*60 + "\n")
 
 

@@ -1,6 +1,9 @@
 """
 Trade Journal Module
-Log and analyze every trade with entry/exit, P&L, win rate, and performance metrics
+Log and analyze every trade with entry/exit, P&L, win rate, and performance metrics.
+
+Includes US LTCG awareness: tracks days held per open trade and flags positions
+approaching the 1-year long-term capital gains threshold (so we don't sell at day 364).
 """
 
 import json
@@ -10,9 +13,15 @@ from typing import List, Dict, Optional
 import statistics
 
 
+# US tax: gains on positions held >= 365 days are taxed at LTCG rates
+# (much lower than short-term gains, which are taxed as ordinary income up to ~37%).
+LTCG_THRESHOLD_DAYS = 365
+LTCG_APPROACHING_WINDOW_DAYS = 30  # flag positions within 30 days of LTCG
+
+
 class TradeJournal:
     """Maintain detailed trade log with analytics"""
-    
+
     FILE = 'trade_journal.json'
     
     @staticmethod
@@ -20,12 +29,65 @@ class TradeJournal:
         """Load all trades from journal"""
         if not os.path.exists(TradeJournal.FILE):
             return []
-        
+
         try:
             with open(TradeJournal.FILE, 'r') as f:
                 return json.load(f)
-        except:
+        except (OSError, json.JSONDecodeError):
             return []
+
+    # ----- LTCG / holding-period helpers (US tax) -----
+
+    @staticmethod
+    def days_held(entry_time_iso: str) -> int:
+        """Days elapsed since entry. UTC-aware."""
+        entry = datetime.fromisoformat(entry_time_iso)
+        if entry.tzinfo is None:
+            entry = entry.replace(tzinfo=timezone.utc)
+        return (datetime.now(timezone.utc) - entry).days
+
+    @staticmethod
+    def holding_period_status(days: int) -> Dict:
+        """
+        Classify a holding period for US LTCG purposes.
+        Returns dict with status, days_held, days_to_LTCG, and a short message.
+        """
+        days_remaining = max(0, LTCG_THRESHOLD_DAYS - days)
+
+        if days >= LTCG_THRESHOLD_DAYS:
+            return {
+                'status': 'LTCG',
+                'days_held': days,
+                'days_to_LTCG': 0,
+                'message': 'LTCG eligible — long-term capital gains rate applies',
+            }
+
+        if days_remaining <= LTCG_APPROACHING_WINDOW_DAYS:
+            return {
+                'status': 'approaching_LTCG',
+                'days_held': days,
+                'days_to_LTCG': days_remaining,
+                'message': f'{days_remaining} days to LTCG — consider holding through threshold to save tax',
+            }
+
+        return {
+            'status': 'short_term',
+            'days_held': days,
+            'days_to_LTCG': days_remaining,
+            'message': f'short-term gains ({days_remaining} days to LTCG)',
+        }
+
+    @staticmethod
+    def get_open_trades_with_holding_status() -> List[Dict]:
+        """Open trades enriched with days_held and LTCG status. Used by morning routine."""
+        trades = TradeJournal.load_trades()
+        open_trades = [t for t in trades if t.get('status') == 'open']
+
+        for t in open_trades:
+            days = TradeJournal.days_held(t['entry_time'])
+            t['holding_status'] = TradeJournal.holding_period_status(days)
+
+        return open_trades
     
     @staticmethod
     def save_trades(trades: List[Dict]):
@@ -223,10 +285,17 @@ class TradeJournal:
         
         open_trades = [t for t in trades if t['status'] == 'open']
         if open_trades:
-            print(f"\n🔓 Open Positions: {len(open_trades)}")
+            print(f"\nOpen Positions: {len(open_trades)}")
             for t in open_trades:
-                print(f"  {t['symbol']}: {t['shares']} @ ${t['entry_price']:.2f} (SL: ${t['stop_loss']:.2f})")
-        
+                days = TradeJournal.days_held(t['entry_time'])
+                hold = TradeJournal.holding_period_status(days)
+                marker = ""
+                if hold['status'] == 'LTCG':
+                    marker = "  [LTCG eligible]"
+                elif hold['status'] == 'approaching_LTCG':
+                    marker = f"  [approaching LTCG: {hold['days_to_LTCG']}d]"
+                print(f"  {t['symbol']}: {t['shares']} @ ${t['entry_price']:.2f} (SL: ${t['stop_loss']:.2f})  held {days}d{marker}")
+
         print("="*70 + "\n")
 
 
