@@ -37,6 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: main  # see morning.yml — get latest main at run time, not trigger time
           fetch-depth: 1
 
       - name: Set up Python 3.13

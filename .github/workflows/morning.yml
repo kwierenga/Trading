@@ -46,8 +46,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Need a real token, not the default GITHUB_TOKEN, only if branch protection
-          # blocks bot pushes. For an unprotected main branch, default token is fine.
+          # Explicit ref: main so this checks out the LATEST main when the job
+          # actually runs (after any concurrency-group queue). Default checkout
+          # uses github.sha from trigger time, which is stale when the queue
+          # delays our run by minutes.
+          ref: main
           fetch-depth: 1
 
       - name: Set up Python 3.13
