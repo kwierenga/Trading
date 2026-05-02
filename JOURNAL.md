@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [EOD] 2026-05-02 Saturday
+**What happened.** No trades closed today. End equity $100,003, cash $100,001 (100% of equity), 1 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+
+---
+
 ## [WEEK] 2026-04-21 → 2026-05-02
 
 **What worked / what didn't**
@@ -26,10 +32,4 @@ Two things stand out. First, the Saturday journal was duplicated almost verbatim
 
 What caused the FTNT and MSFT candidates to be dropped in favor of ADBE and APP between the two Saturday entries, and is that reasoning written down anywhere? The journal asks whether limit orders will fill, but the orders were never placed — what actually stopped execution from happening on a Saturday when you had a dry-run plan ready? NNDM is up 10.9% on a $2 stake, which means roughly $0.22 of gain: at what position size would this thesis have been worth acting on, and does the current sizing reflect conviction or something else?
 
-
----
-
-## [AM] 2026-05-02 Saturday
-**Open questions.** Will the 3 proposed entries (PYPL, FTNT, MSFT) fill at limit, or run away pre-market? What's the one thing that could derail the 52% confidence target? Any overnight news on these names worth checking before placing orders? 
-**Today's plan.** Run `python execute_strategy.py --dry-run` to preview sizing, then `python execute_strategy.py` to place bracket orders. Monitor 1 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
 
