@@ -13,12 +13,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 ---
 
 ## [AM] 2026-05-02 Saturday
-**Open questions.** Will the 3 proposed entries (PYPL, ADBE, APP) fill at limit, or run away pre-market? What's the one thing that could derail the 52% confidence target? Any overnight news on these names worth checking before placing orders? 
+**Open questions.** Will the 3 proposed entries (PYPL, FTNT, MSFT) fill at limit, or run away pre-market? What's the one thing that could derail the 52% confidence target? Any overnight news on these names worth checking before placing orders? 
 **Today's plan.** Run `python execute_strategy.py --dry-run` to preview sizing, then `python execute_strategy.py` to place bracket orders. Monitor 1 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
 
 ---
 
-## [EOD] 2026-05-02 Saturday
-**What happened.** No trades closed today. End equity $100,003, cash $100,001 (100% of equity), 1 open position(s). 
-**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+## [AM] 2026-05-02 Saturday
+**Open questions.** Will the 3 proposed entries (PYPL, ADBE, APP) fill at limit, or run away pre-market? What's the one thing that could derail the 52% confidence target? Any overnight news on these names worth checking before placing orders? 
+**Today's plan.** Run `python execute_strategy.py --dry-run` to preview sizing, then `python execute_strategy.py` to place bracket orders. Monitor 1 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
 
