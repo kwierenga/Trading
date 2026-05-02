@@ -76,5 +76,11 @@ jobs:
             echo "No journal changes (no orders placed, or orders failed pre-log)."
           else
             git commit -m "[EXEC] Execute strategy $(date -u +'%Y-%m-%d')"
-            git push
+            for attempt in 1 2 3; do
+              if git push; then echo "Pushed on attempt $attempt"; exit 0; fi
+              echo "Push attempt $attempt failed; rebasing on origin/main and retrying..."
+              git pull --rebase origin main
+            done
+            echo "Push failed after 3 attempts."
+            exit 1
           fi
