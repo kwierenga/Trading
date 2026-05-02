@@ -1,0 +1,76 @@
+name: Execute strategy
+
+# Reads latest_strategy.json (committed by morning.yml earlier in the day),
+# sizes each trade, and submits bracket orders to Alpaca with --yes (auto-approve
+# all per-trade prompts). The HUMAN GATE is at the workflow level: this workflow
+# targets the `paper-execute` GitHub environment which has Required Reviewers
+# enabled, so the run pauses until you tap Approve in the GitHub mobile app.
+#
+# Schedule: 16:00 UTC weekdays.
+#   = 12:00 ET (EDT, summer) — mid-morning, well after market open
+#   = 11:00 ET (EST, winter) — same, well after market open
+# Always lands post-market-open in both seasons. Alpaca rejects bracket orders
+# outside market hours, so safely post-open is required.
+#
+# You'll receive a GitHub notification when the run is waiting. Approve any time
+# before market close (16:00 ET); after that the orders would be rejected as
+# extended-hours, so an approval-after-close just means the day is skipped.
+
+on:
+  schedule:
+    - cron: '0 16 * * 1-5'
+  workflow_dispatch:  # manual fire from Actions tab
+
+# Don't let two execute runs overlap (defensive — shouldn't happen with one cron/day).
+concurrency:
+  group: execute-strategy
+  cancel-in-progress: false
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    environment: paper-execute  # MUST have Required Reviewers enabled in GH
+    permissions:
+      contents: write  # to commit trade_journal.json updates back to main
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Show strategy that will execute
+        run: |
+          echo "=== latest_strategy.json (will be executed) ==="
+          cat latest_strategy.json | python -m json.tool
+
+      - name: Execute strategy (--yes, auto-approve per-trade)
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_API_BASE_URL: ${{ secrets.ALPACA_API_BASE_URL }}
+          # Anthropic key not needed — execute_strategy.py only reads the JSON,
+          # it doesn't call Claude. Including it would expand blast radius for nothing.
+        run: python execute_strategy.py --yes
+
+      - name: Commit trade journal updates
+        if: always()  # commit even if --yes path failed mid-trade (partial fills)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add trade_journal.json
+          if git diff --cached --quiet; then
+            echo "No journal changes (no orders placed, or orders failed pre-log)."
+          else
+            git commit -m "[EXEC] Execute strategy $(date -u +'%Y-%m-%d')"
+            git push
+          fi

@@ -1,0 +1,67 @@
+name: Morning routine
+
+# Runs the S&P 500 screen, asks Claude for trades, emails the plan,
+# and commits the updated latest_strategy.json + JOURNAL.md back to main.
+#
+# Schedule: 10:00 UTC weekdays.
+#   = 06:00 ET (EDT, summer) — ideal
+#   = 05:00 ET (EST, winter) — runs an hour early; better than running an hour late.
+# UTC cron does not shift with DST. To always hit 06:00 ET exactly, run at 10:00 UTC
+# in EDT and 11:00 UTC in EST and gate by month — overkill for the upside.
+
+on:
+  schedule:
+    - cron: '0 10 * * 1-5'
+  workflow_dispatch:  # manual fire from Actions tab
+
+# Don't let two runs overlap (rare; defensive).
+concurrency:
+  group: morning-routine
+  cancel-in-progress: false
+
+jobs:
+  morning:
+    runs-on: ubuntu-latest
+    environment: paper
+    permissions:
+      contents: write  # to commit latest_strategy.json + JOURNAL.md back to main
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Need a real token, not the default GITHUB_TOKEN, only if branch protection
+          # blocks bot pushes. For an unprotected main branch, default token is fine.
+          fetch-depth: 1
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run morning routine
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_API_BASE_URL: ${{ secrets.ALPACA_API_BASE_URL }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python morning_routine.py
+
+      - name: Commit strategy + journal updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add latest_strategy.json JOURNAL.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit (likely a US holiday or screen produced nothing)."
+          else
+            git commit -m "[AM] Morning routine $(date -u +'%Y-%m-%d')"
+            git push
+          fi

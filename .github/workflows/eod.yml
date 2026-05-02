@@ -1,0 +1,63 @@
+name: EOD routine
+
+# Captures today's portfolio state, closed trades, turnover, tax drag,
+# emails the review, and commits the [EOD] JOURNAL.md entry back to main.
+#
+# Schedule: 21:15 UTC weekdays.
+#   = 17:15 ET (EDT, summer) — runs an hour after market close
+#   = 16:15 ET (EST, winter) — ideal, 15 min after market close
+# UTC cron does not shift with DST. Leaning late ensures we always run AFTER the
+# 16:00 ET market close — running before close would miss today's late closures.
+
+on:
+  schedule:
+    - cron: '15 21 * * 1-5'
+  workflow_dispatch:  # manual fire from Actions tab
+
+concurrency:
+  group: eod-routine
+  cancel-in-progress: false
+
+jobs:
+  eod:
+    runs-on: ubuntu-latest
+    environment: paper
+    permissions:
+      contents: write  # to commit JOURNAL.md back to main
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run EOD routine
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_API_BASE_URL: ${{ secrets.ALPACA_API_BASE_URL }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python eod_routine.py
+
+      - name: Commit journal updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add JOURNAL.md
+          if git diff --cached --quiet; then
+            echo "No journal changes (likely a US holiday)."
+          else
+            git commit -m "[EOD] EOD routine $(date -u +'%Y-%m-%d')"
+            git push
+          fi
