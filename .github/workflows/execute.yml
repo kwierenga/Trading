@@ -26,6 +26,10 @@ concurrency:
   group: execute-strategy
   cancel-in-progress: false
 
+# See morning.yml for rationale; remove once Node 24 is bundled by default.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   execute:
     runs-on: ubuntu-latest

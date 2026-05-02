@@ -113,41 +113,76 @@ breakouts. Don't propose entries that violate this without flagging the deviatio
 `claude_trader.py` is the older interactive flow (single-trade signal). It also runs
 the concentration check now, but the screened-strategy flow above is preferred.
 
-## Daily routines
+## Daily routines (cloud-side)
 
-Two scheduled scripts deliver email summaries to klaaswierenga@gmail.com on weekdays:
+Three GitHub Actions workflows in `.github/workflows/` run the daily cycle without
+the laptop being on. Repo is public, secrets live in GitHub Environments.
 
-- **`python morning_routine.py`** — runs at 6am EST. Forces a fresh S&P 500 screen,
-  generates today's plan, appends an `[AM]` entry to JOURNAL.md (open questions +
-  today's plan), saves `latest_strategy.json`, emails a brief summary.
-- **`python eod_routine.py`** — runs at 4:15pm EST. Captures today's closed trades,
-  open-position state, turnover, and tax drag. Appends an `[EOD]` entry to JOURNAL.md
-  with a manual "what we learned" prompt. Emails a 15-min review.
+| Workflow | Cron (UTC) | Wall-clock | What it does | Env |
+|---|---|---|---|---|
+| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | Fresh S&P 500 screen → Claude strategy → email plan → commit `latest_strategy.json` + `[AM]` JOURNAL entry to main | `paper` |
+| `execute.yml` | `0 16 * * 1-5` | 12:00 EDT / 11:00 EST | Reads `latest_strategy.json` → sizes → submits bracket orders to Alpaca → commits `trade_journal.json` to main | `paper-execute` (gated) |
+| `eod.yml` | `15 21 * * 1-5` | 17:15 EDT / 16:15 EST | Portfolio review email + `[EOD]` JOURNAL entry → commit to main | `paper` |
 
-Email is sent via SMTP (`email_notifier.py`). Defaults to Gmail SMTP; override
-`EMAIL_SMTP_HOST` / `EMAIL_SMTP_PORT` for Outlook.com or others. Setup (Gmail):
-1. Enable 2-Step Verification on the Gmail account.
+UTC cron does not shift with DST. Each cron leans toward the safe side: morning
+runs early in winter (5 AM is fine), execute runs late enough that it's always
+post-market-open, EOD runs late enough that it's always post-close.
+
+### The execute approval gate
+
+`execute.yml` targets the `paper-execute` GitHub environment, which has
+**Required reviewers** enabled (only `kwierenga` can approve). When the cron
+fires, the workflow pauses and emails an approval request. Tapping Approve in
+the GitHub mobile app or web UI resumes the run, which then submits orders.
+**One phone tap per day = one trading day.** No approval = no orders that day,
+no consequence beyond skipping the day.
+
+Self-approval is allowed (`prevent_self_review: false`) — required since the
+trader is solo. If the team grows, flip this and require a different reviewer.
+
+### Secrets
+
+Stored in GitHub Environments, not committed. `.env` stays gitignored for local use.
+
+- **`paper` env** (used by morning + eod): `ANTHROPIC_API_KEY`, `ALPACA_API_KEY`,
+  `ALPACA_API_SECRET`, `ALPACA_API_BASE_URL`, `EMAIL_USER`, `EMAIL_APP_PASSWORD`,
+  `EMAIL_TO`.
+- **`paper-execute` env** (used by execute): `ALPACA_API_KEY`, `ALPACA_API_SECRET`,
+  `ALPACA_API_BASE_URL`. (No Anthropic key — the script only reads the JSON.
+  No email — execute doesn't currently send.)
+
+`ALPACA_ENVIRONMENT`, `CLAUDE_MODEL`, `EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT` use
+defaults from `config.py` and are not set as secrets unless overriding.
+
+### Email
+
+Email is sent via Gmail SMTP using the credentials above. Setup (one-time):
+1. Enable 2-Step Verification on the sender Gmail account.
 2. Generate an app password at https://myaccount.google.com/apppasswords.
-3. Add `EMAIL_USER`, `EMAIL_APP_PASSWORD`, `EMAIL_TO` to `.env` (see `.env.example`).
-4. Test: `python email_notifier.py "test" "hello"`.
+3. Add `EMAIL_USER`, `EMAIL_APP_PASSWORD`, `EMAIL_TO` to GitHub secrets (and
+   `.env` for local testing).
 
-Note: Yahoo no longer reliably supports SMTP app passwords on consumer accounts —
-the option has been removed from the security UI even with 2FA enabled.
+**Sender ≠ recipient gotcha**: Gmail silently drops same-account self-sends sent
+via SMTP. `EMAIL_USER` and `EMAIL_TO` must be different addresses, or the daily
+emails just disappear with no error. (Discovered 2026-05-01 — first AM email
+went to a self-send and vanished.)
 
-To wire the schedules: Windows Task Scheduler → Create Basic Task →
-- Trigger: Daily, Weekdays only. **Set the time in your machine's local timezone, not EST.**
-  Task Scheduler triggers fire in the local timezone, so convert:
-  - 6:00 AM EST → 12:00 PM CET (winter) / 12:00 PM CEST (summer, ie EDT)
-  - 4:15 PM EST → 10:15 PM CET (winter) / 10:15 PM CEST (summer, ie EDT)
-  After every DST transition (US and EU don't switch on the same day), re-check the trigger.
-- Action: Start a program → use the `.venv` interpreter so `yfinance`/`anthropic`/`pytz` resolve:
-  `C:\Users\klaas\Trading\.venv\Scripts\python.exe` with arguments
-  `C:\Users\klaas\Trading\morning_routine.py` (set "Start in" to `C:\Users\klaas\Trading`).
-- Conditions: only run if network is available
+Yahoo no longer reliably supports SMTP app passwords on consumer accounts —
+use Gmail or Outlook.com.
 
-Sanity check: when the routine runs, the body of the email shows the dispatch timestamp
-with offset (e.g. `2026-05-01T06:00:00-04:00`). If the offset isn't `-05:00` (winter)
-or `-04:00` (summer), the trigger time is wrong.
+### Local backup (currently disabled)
+
+Windows Task Scheduler tasks `\Trading\MorningRoutine` and `\Trading\EODRoutine`
+exist but are **disabled** since 2026-05-02 (when GitHub Actions took over).
+They're left in place for re-activation if cloud-side ever fails. To re-enable:
+
+```powershell
+Enable-ScheduledTask -TaskPath "\Trading\" -TaskName "MorningRoutine"
+Enable-ScheduledTask -TaskPath "\Trading\" -TaskName "EODRoutine"
+```
+
+**Don't enable both cloud and local at the same time** — they'll double-fire
+the screen, double-email, and produce duplicate JOURNAL entries.
 
 ---
 

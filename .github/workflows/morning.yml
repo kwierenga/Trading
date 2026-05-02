@@ -19,6 +19,13 @@ concurrency:
   group: morning-routine
   cancel-in-progress: false
 
+# Opt into Node.js 24 for actions/* steps. GitHub deprecates Node 20 from
+# 2026-06-02; this avoids the warning now and is forward-compatible when
+# Node 24 becomes the default. Remove this once actions/checkout & setup-python
+# bundle Node 24 natively.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   morning:
     runs-on: ubuntu-latest
