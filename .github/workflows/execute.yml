@@ -21,9 +21,8 @@ on:
     - cron: '0 16 * * 1-5'
   workflow_dispatch:  # manual fire from Actions tab
 
-# Don't let two execute runs overlap (defensive — shouldn't happen with one cron/day).
 concurrency:
-  group: execute-strategy
+  group: trading-write  # shared with morning/eod/weekly_review — see morning.yml
   cancel-in-progress: false
 
 # See morning.yml for rationale; remove once Node 24 is bundled by default.

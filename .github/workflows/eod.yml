@@ -21,7 +21,7 @@ on:
         type: boolean
 
 concurrency:
-  group: eod-routine
+  group: trading-write  # shared with morning/execute/weekly_review — see morning.yml
   cancel-in-progress: false
 
 # See morning.yml for rationale; remove once Node 24 is bundled by default.

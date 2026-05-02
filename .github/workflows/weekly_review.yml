@@ -20,7 +20,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: weekly-review
+  group: trading-write  # shared with morning/eod/execute — see morning.yml
   cancel-in-progress: false
 
 env:

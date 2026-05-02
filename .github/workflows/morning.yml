@@ -20,9 +20,12 @@ on:
         default: false
         type: boolean
 
-# Don't let two runs overlap (rare; defensive).
+# Serialize across ALL trading workflows that write to main (morning/eod/execute/weekly_review).
+# This avoids merge conflicts on JOURNAL.md when multiple workflows fire concurrently
+# (e.g. during testing, or rare cron drift). In normal weekday operation they fire 4-6
+# hours apart, so the serialization adds negligible latency.
 concurrency:
-  group: morning-routine
+  group: trading-write
   cancel-in-progress: false
 
 # Opt into Node.js 24 for actions/* steps. GitHub deprecates Node 20 from
