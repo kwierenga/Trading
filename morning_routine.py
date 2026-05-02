@@ -10,6 +10,7 @@ Time budget: a few minutes for Klaas to read.
 """
 
 import json
+import os
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -147,9 +148,12 @@ def main() -> int:
     today_label = today.strftime("%Y-%m-%d %A")
     print(f"Morning routine starting at {today.isoformat()}")
 
-    if not is_us_trading_day():
-        print(f"  {today_label} is a weekend — skipping.")
+    force = os.getenv("FORCE_RUN", "false").lower() == "true"
+    if not is_us_trading_day() and not force:
+        print(f"  {today_label} is a weekend — skipping. (Set FORCE_RUN=true to override.)")
         return 0
+    if force and not is_us_trading_day():
+        print(f"  {today_label} is a weekend — running anyway because FORCE_RUN=true.")
 
     try:
         client = AlpacaClient()

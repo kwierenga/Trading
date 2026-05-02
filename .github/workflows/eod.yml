@@ -13,6 +13,12 @@ on:
   schedule:
     - cron: '15 21 * * 1-5'
   workflow_dispatch:  # manual fire from Actions tab
+    inputs:
+      force:
+        description: 'Bypass weekday/holiday skip (test fire on weekends)'
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: eod-routine
@@ -52,6 +58,7 @@ jobs:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          FORCE_RUN: ${{ github.event.inputs.force || 'false' }}
         run: python eod_routine.py
 
       - name: Commit journal updates
