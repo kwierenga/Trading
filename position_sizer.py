@@ -4,12 +4,14 @@ Position Sizing Module
 Strategy rules (see CLAUDE.md):
 - Max 25% of equity per single position (HARD CAP).
 - Target ~1.5% portfolio risk per trade (capped at 2%).
-- Stops are ATR-based (~1.75x ATR(14)), clamped to [4%, 18%]. Quality large-caps
+- Stops are ATR-based (~1.75x ATR(14)), clamped to [4%, 15%]. Quality large-caps
   routinely have ATR(14) ~2-3% — a 1.75x ATR stop on PYPL/MSFT/etc. lands at 3.5-5%,
   which is what the ATR rule intends. The 4% floor only rejects sub-1% ATR readings
-  that almost certainly indicate stale or wrong data.
-- Worst-case single-name loss caps at 18% per stop (aligns with Klaas's 15% paper-drawdown
-  tolerance + a small buffer for slippage past the stop).
+  that almost certainly indicate stale or wrong data. The 15% ceiling matches Klaas's
+  per-name drawdown tolerance from CLAUDE.md exactly.
+- If ATR is missing or zero, REFUSE to size the trade (return error). Previous
+  behavior fell back to a hard 15% default stop, which silently applied the
+  ceiling-case stop to trades with insufficient data. Better to skip than guess.
 """
 
 import json
@@ -27,7 +29,7 @@ TARGET_RISK_PER_TRADE = 0.015   # 1.5% portfolio risk on a stopped-out trade (ta
 MAX_RISK_PER_TRADE = 0.02       # 2% portfolio risk on a stopped-out trade (hard cap)
 ATR_STOP_MULTIPLE = 1.75        # stop distance = 1.75 * ATR(14) by default
 MIN_STOP_PCT = 0.04             # below ~1% ATR is almost certainly a data issue; rejects those
-MAX_STOP_PCT = 0.18             # cap single-name exposure even if ATR suggests wider
+MAX_STOP_PCT = 0.15             # cap matches CLAUDE.md 15% per-name drawdown tolerance exactly
 
 
 class PositionSizer:
@@ -87,9 +89,10 @@ class PositionSizer:
           - Volatile stocks don't blow past 18% per-name risk.
         """
         if atr14 is None or atr14 <= 0 or entry_price <= 0:
-            stop_pct = 0.15
-            note = "no ATR — fell back to 15% default stop"
-            return entry_price * (1 - stop_pct), stop_pct, note
+            # Refuse to fabricate a stop when ATR data is missing. A trade without
+            # ATR is a trade without enough information; let the caller skip it.
+            note = "no ATR data — cannot compute ATR-based stop; trade should be skipped"
+            return 0.0, 0.0, note
 
         raw_stop_distance = atr14 * multiple
         raw_stop_pct = raw_stop_distance / entry_price

@@ -214,7 +214,12 @@ HARD RULES (do not violate)
 
 3. POSITION SIZING & RISK
    - HARD CAP: 25% of equity per position. Smaller is fine; larger is forbidden.
-   - Stop loss: ~15% below entry. Express as 1.5-2x ATR(14) of the candidate.
+   - Stop loss: 1.5-2x ATR(14) of the candidate. For quality large-caps with
+     ATR around 2-3%, this typically produces stops 4-8% below entry. The
+     15% level is a CEILING (Klaas's per-name drawdown tolerance), NOT a
+     target — never set a stop at exactly 15% as a default.
+   - Stops below 4% are rejected as data anomalies; stops above 15% are
+     forbidden (they exceed Klaas's drawdown tolerance).
    - Position size such that worst case (full stop hit) costs 1-2% of total equity.
      Formula: shares = (equity * 0.015) / (entry_price - stop_loss).
      Then verify shares * entry <= equity * 0.25 (the concentration cap).

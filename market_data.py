@@ -49,6 +49,7 @@ class Technicals:
     is_basing: bool                    # No new 20-day low in last 10 sessions
     in_uptrend: bool                   # Price > SMA50 and SMA50 slope >= 0
     in_downtrend: bool                 # Price < SMA50 and SMA50 slope < 0
+    is_falling_knife: bool             # SMA50 slope < -3% per 20 sessions (steep descent)
 
 
 @dataclass
@@ -160,6 +161,13 @@ def get_technicals(symbol: str) -> Optional[Technicals]:
 
     in_uptrend = bool(sma50 and price > sma50 and (sma50_slope_pct or 0) >= 0)
     in_downtrend = bool(sma50 and price < sma50 and (sma50_slope_pct or 0) < 0)
+    # Falling knife — broader than in_downtrend. Catches Stage 3 → Stage 4 transitions
+    # where the SMA50 is falling steeply even if price hasn't broken below it yet.
+    # CLAUDE.md mantra: "buy the basing knife, not the falling knife." The original
+    # in_downtrend filter only blocks active Stage 4 (price already below SMA50);
+    # this catches the dangerous transition territory before it. -3% per 20 sessions
+    # = ~-15% annualized SMA50 trajectory, which is a clearly falling knife.
+    is_falling_knife = bool(sma50_slope_pct is not None and sma50_slope_pct < -3.0)
 
     return Technicals(
         symbol=symbol,
@@ -178,6 +186,7 @@ def get_technicals(symbol: str) -> Optional[Technicals]:
         is_basing=is_basing,
         in_uptrend=in_uptrend,
         in_downtrend=in_downtrend,
+        is_falling_knife=is_falling_knife,
     )
 
 
@@ -444,6 +453,7 @@ def screen_universe(
     survivors = []
     quality_failures = 0
     downtrend_failures = 0
+    falling_knife_failures = 0
     fetch_failures = 0
 
     n = len(tickers)
@@ -451,7 +461,11 @@ def screen_universe(
 
     for i, sym in enumerate(tickers):
         if verbose and i % progress_step == 0:
-            print(f"  Screening {i}/{n}  |  survivors: {len(survivors)}  |  q_fail: {quality_failures}  |  trend_fail: {downtrend_failures}")
+            print(
+                f"  Screening {i}/{n}  |  survivors: {len(survivors)}  |  "
+                f"q_fail: {quality_failures}  |  trend_fail: {downtrend_failures}  |  "
+                f"knife_fail: {falling_knife_failures}"
+            )
 
         snap = get_snapshot_cached(sym, cache=cache)
         if not snap:
@@ -466,6 +480,12 @@ def screen_universe(
             downtrend_failures += 1
             continue
 
+        # CLAUDE.md "buy the basing knife, not the falling knife" — exclude steep
+        # SMA50 descents even if price hasn't broken through yet (Stage 3 → Stage 4).
+        if snap["technicals"].get("is_falling_knife"):
+            falling_knife_failures += 1
+            continue
+
         survivors.append(snap)
 
     _save_snapshot_cache(cache)
@@ -473,7 +493,8 @@ def screen_universe(
     if verbose:
         print(
             f"\n  Screen complete: {len(survivors)} survivors / {n} screened  "
-            f"(quality_fail={quality_failures}, downtrend_fail={downtrend_failures}, fetch_fail={fetch_failures})"
+            f"(quality_fail={quality_failures}, downtrend_fail={downtrend_failures}, "
+            f"falling_knife_fail={falling_knife_failures}, fetch_fail={fetch_failures})"
         )
 
     ranked = sorted(survivors, key=_setup_score, reverse=True)
