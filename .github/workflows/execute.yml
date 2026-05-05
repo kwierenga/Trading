@@ -70,6 +70,35 @@ jobs:
           fi
           echo "latest_strategy.json was committed $((AGE_S / 60))m ago — fresh, proceeding."
 
+      - name: Verify RTH dispatch window
+        # Refuses dispatches outside the safe Regular Trading Hours window.
+        # Without this check, a late-night manual dispatch (e.g. for testing)
+        # silently submits GTC bracket orders that queue for the NEXT day's
+        # open at stale limit prices — exactly what happened on 2026-05-04
+        # 21:24 ET when this workflow auto-fired live and 3 orders went out.
+        # Allowed window: 04:00 ET (early enough for a 7am breakfast tap; the
+        # wait-for-open step holds the run until 09:35 ET) through 15:30 ET
+        # (leaves 30min margin before close so fills have time).
+        if: ${{ inputs.test_mode != 'true' }}
+        run: |
+          DOW=$(TZ=America/New_York date +%u)  # 1=Mon, 7=Sun
+          if [ $DOW -gt 5 ]; then
+            echo "ERROR: today is a weekend (DOW=$DOW). Bracket orders only fill RTH."
+            echo "Re-dispatch on a weekday morning."
+            exit 1
+          fi
+          HOUR_NY=$(TZ=America/New_York date +%H)
+          MIN_NY=$(TZ=America/New_York date +%M)
+          NOW_MIN_OF_DAY=$((10#$HOUR_NY * 60 + 10#$MIN_NY))
+          if [ $NOW_MIN_OF_DAY -lt 240 ] || [ $NOW_MIN_OF_DAY -gt 930 ]; then
+            CLOCK=$(TZ=America/New_York date +%H:%M)
+            echo "ERROR: now is $CLOCK ET — outside the safe RTH dispatch window (04:00-15:30 ET)."
+            echo "Bracket orders submitted now would either queue overnight on stale prices,"
+            echo "or hit close before fills. Re-dispatch tomorrow morning."
+            exit 1
+          fi
+          echo "RTH window check passed: $(TZ=America/New_York date +%H:%M) ET on weekday."
+
       - name: Show AM strategy that will be re-evaluated
         run: |
           echo "=== latest_strategy.json (AM plan, before re-evaluation) ==="
