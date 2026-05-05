@@ -124,7 +124,11 @@ def call_claude(strategy: dict) -> dict | None:
         print("  ANTHROPIC_API_KEY not set — falling back to mechanical")
         return None
 
-    model = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-6")
+    # `or` (not the os.getenv default) so an empty-string env var also falls back.
+    # Workflow misconfigs that pipe a non-existent secret can leave CLAUDE_MODEL=""
+    # rather than unset, which the SDK rejects with `model: String should have at
+    # least 1 character`. Defensive default.
+    model = os.getenv("CLAUDE_MODEL") or "claude-sonnet-4-6"
     client = anthropic.Anthropic()
     prompt = build_prompt(strategy)
 

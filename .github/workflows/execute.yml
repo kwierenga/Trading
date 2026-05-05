@@ -76,7 +76,9 @@ jobs:
       - name: Re-evaluate strategy with current prices
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          CLAUDE_MODEL: ${{ secrets.CLAUDE_MODEL }}
+          # CLAUDE_MODEL intentionally not set — re_evaluate.py uses the
+          # claude-sonnet-4-6 default. Setting it via a non-existent secret
+          # resolves to empty string, which the SDK rejects with a 400.
         run: python re_evaluate.py
 
       - name: Show post-open strategy that will execute

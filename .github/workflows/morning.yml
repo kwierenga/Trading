@@ -113,22 +113,24 @@ jobs:
           echo "Dispatching execute.yml (test_mode=$TEST_MODE)..."
           gh workflow run execute.yml -f test_mode=$TEST_MODE -r main
 
-          # Poll briefly for the just-created run to register, then capture its URL
+          # Poll for the just-created run to register, then capture its URL.
+          # GitHub's API can lag 30-60s before showing a freshly-dispatched run
+          # in `gh run list`, so we poll patiently. 12 * 6s = 72s budget.
           APPROVE_URL=""
-          for attempt in 1 2 3 4 5 6; do
-            sleep 4
+          for attempt in $(seq 1 12); do
+            sleep 6
             APPROVE_URL=$(gh run list --workflow=execute.yml --limit=3 \
               --json url,status,createdAt --jq \
               '[.[] | select(.status == "waiting" or .status == "queued" or .status == "in_progress")] | sort_by(.createdAt) | last | .url // empty')
             if [ -n "$APPROVE_URL" ]; then
-              echo "Captured execute run URL: $APPROVE_URL"
+              echo "Captured execute run URL: $APPROVE_URL (attempt $attempt)"
               break
             fi
-            echo "  attempt $attempt: run not yet visible, retrying..."
+            echo "  attempt $attempt/12: run not yet visible, retrying..."
           done
 
           if [ -z "$APPROVE_URL" ]; then
-            echo "Could not capture execute run URL after 6 attempts — email will use generic actions link."
+            echo "Could not capture execute run URL after 12 attempts — email will use generic actions link."
           fi
           echo "approve_url=$APPROVE_URL" >> $GITHUB_OUTPUT
 
