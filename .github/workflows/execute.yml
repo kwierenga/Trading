@@ -1,46 +1,48 @@
 name: Execute strategy
 
-# Reads latest_strategy.json (committed by morning.yml earlier in the day),
-# sizes each trade, and submits bracket orders to Alpaca with --yes (auto-approve
-# all per-trade prompts). The HUMAN GATE is at the workflow level: this workflow
-# targets the `paper-execute` GitHub environment which has Required Reviewers
-# enabled, so the run pauses until you tap Approve in the GitHub mobile app.
+# Triggered by morning.yml (via gh workflow run) immediately after the AM plan
+# is committed. Pauses on the paper-execute Required Reviewers gate. After
+# approval: waits until 09:35 ET, re-calls Claude with current prices for a
+# per-ticker submit/adjust/skip verdict, then submits the surviving trades as
+# bracket orders to Alpaca.
 #
-# Schedule: 16:00 UTC weekdays.
-#   = 12:00 ET (EDT, summer) — mid-morning, well after market open
-#   = 11:00 ET (EST, winter) — same, well after market open
-# Always lands post-market-open in both seasons. Alpaca rejects bracket orders
-# outside market hours, so safely post-open is required.
+# No cron schedule — morning.yml is the sole trigger. workflow_dispatch is kept
+# for manual one-offs (rare).
 #
-# You'll receive a GitHub notification when the run is waiting. Approve any time
-# before market close (16:00 ET); after that the orders would be rejected as
-# extended-hours, so an approval-after-close just means the day is skipped.
+# The HUMAN GATE is at the workflow level: this workflow targets the
+# `paper-execute` GitHub environment which has Required Reviewers enabled.
+# The waiting-for-approval URL is emailed to Klaas in the AM email.
+# If not approved by ~09:30 ET, the cancel_stale workflow cancels this run.
 
 on:
-  schedule:
-    - cron: '0 16 * * 1-5'
-  workflow_dispatch:  # manual fire from Actions tab
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'Test mode: skip wait-for-open + force --dry-run'
+        required: false
+        default: 'false'
+        type: string  # gh CLI passes inputs as strings
 
 concurrency:
-  group: trading-write  # shared with morning/eod/weekly_review — see morning.yml
+  group: trading-write
   cancel-in-progress: false
 
-# See morning.yml for rationale; remove once Node 24 is bundled by default.
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
   execute:
     runs-on: ubuntu-latest
-    environment: paper-execute  # MUST have Required Reviewers enabled in GH
+    environment: paper-execute  # Required Reviewers gate
     permissions:
-      contents: write  # to commit trade_journal.json updates back to main
+      contents: write  # commit trade_journal.json updates
+    timeout-minutes: 240  # 4h — accommodates approval wait + market-open wait
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main  # see morning.yml — get latest main at run time, not trigger time
+          ref: main  # latest main at run-time, not trigger-time
           fetch-depth: 1
 
       - name: Set up Python 3.13
@@ -52,28 +54,57 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Show strategy that will execute
+      - name: Show AM strategy that will be re-evaluated
         run: |
-          echo "=== latest_strategy.json (will be executed) ==="
+          echo "=== latest_strategy.json (AM plan, before re-evaluation) ==="
           cat latest_strategy.json | python -m json.tool
 
-      - name: Execute strategy (--yes, auto-approve per-trade)
+      - name: Wait until 09:35 ET (market open + 5 min)
+        if: ${{ inputs.test_mode != 'true' }}
+        run: |
+          # Compute seconds until 09:35 America/New_York. If already past, no wait.
+          TARGET_EPOCH=$(TZ=America/New_York date -d "today 09:35" +%s)
+          NOW_EPOCH=$(date +%s)
+          SLEEP=$((TARGET_EPOCH - NOW_EPOCH))
+          if [ $SLEEP -le 0 ]; then
+            echo "Already past 09:35 ET — proceeding immediately."
+          else
+            echo "Sleeping ${SLEEP}s until 09:35 ET..."
+            sleep $SLEEP
+          fi
+
+      - name: Re-evaluate strategy with current prices
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_MODEL: ${{ secrets.CLAUDE_MODEL }}
+        run: python re_evaluate.py
+
+      - name: Show post-open strategy that will execute
+        run: |
+          echo "=== latest_strategy_postopen.json (after Claude re-evaluation) ==="
+          cat latest_strategy_postopen.json | python -m json.tool
+
+      - name: Execute (live or dry-run depending on test_mode)
         env:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
           ALPACA_API_BASE_URL: ${{ secrets.ALPACA_API_BASE_URL }}
-          # Anthropic key not needed — execute_strategy.py only reads the JSON,
-          # it doesn't call Claude. Including it would expand blast radius for nothing.
-        run: python execute_strategy.py --yes
+        run: |
+          if [ "${{ inputs.test_mode }}" = "true" ]; then
+            echo "TEST MODE — running with --dry-run (no orders will be submitted)"
+            python execute_strategy.py --strategy latest_strategy_postopen.json --dry-run
+          else
+            python execute_strategy.py --strategy latest_strategy_postopen.json --yes
+          fi
 
       - name: Commit trade journal updates
-        if: always()  # commit even if --yes path failed mid-trade (partial fills)
+        if: always()  # commit even if --yes path failed mid-trade
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add trade_journal.json
           if git diff --cached --quiet; then
-            echo "No journal changes (no orders placed, or orders failed pre-log)."
+            echo "No journal changes (no orders placed, all skipped, or dry-run)."
           else
             git commit -m "[EXEC] Execute strategy $(date -u +'%Y-%m-%d')"
             for attempt in 1 2 3; do

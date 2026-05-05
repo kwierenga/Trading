@@ -1,13 +1,20 @@
 name: Morning routine
 
-# Runs the S&P 500 screen, asks Claude for trades, emails the plan,
-# and commits the updated latest_strategy.json + JOURNAL.md back to main.
+# Runs the S&P 500 screen, asks Claude for trades, dispatches execute.yml
+# (which pauses on the paper-execute approval gate), and emails Klaas a single
+# combined plan + tap-to-approve link.
 #
 # Schedule: 10:00 UTC weekdays.
 #   = 06:00 ET (EDT, summer) — ideal
 #   = 05:00 ET (EST, winter) — runs an hour early; better than running an hour late.
-# UTC cron does not shift with DST. To always hit 06:00 ET exactly, run at 10:00 UTC
-# in EDT and 11:00 UTC in EST and gate by month — overkill for the upside.
+# UTC cron does not shift with DST.
+#
+# Step ordering (important — see morning_routine.py PHASE docstring):
+#   1. plan phase  — write latest_strategy.json + JOURNAL [AM] entry
+#   2. commit JSON+journal to main
+#   3. dispatch execute.yml + capture the URL of the resulting waiting run
+#   4. email phase — send ONE email containing the plan AND the approve URL
+# The split exists so the email contains the exact tap-to-approve link.
 
 on:
   schedule:
@@ -19,19 +26,17 @@ on:
         required: false
         default: false
         type: boolean
+      test_mode:
+        description: 'Test mode: dispatch execute with --dry-run + skip wait-for-open'
+        required: false
+        default: false
+        type: boolean
 
 # Serialize across ALL trading workflows that write to main (morning/eod/execute/weekly_review).
-# This avoids merge conflicts on JOURNAL.md when multiple workflows fire concurrently
-# (e.g. during testing, or rare cron drift). In normal weekday operation they fire 4-6
-# hours apart, so the serialization adds negligible latency.
 concurrency:
   group: trading-write
   cancel-in-progress: false
 
-# Opt into Node.js 24 for actions/* steps. GitHub deprecates Node 20 from
-# 2026-06-02; this avoids the warning now and is forward-compatible when
-# Node 24 becomes the default. Remove this once actions/checkout & setup-python
-# bundle Node 24 natively.
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
@@ -40,16 +45,13 @@ jobs:
     runs-on: ubuntu-latest
     environment: paper
     permissions:
-      contents: write  # to commit latest_strategy.json + JOURNAL.md back to main
+      contents: write  # commit latest_strategy.json + JOURNAL.md
+      actions: write   # gh workflow run execute.yml
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Explicit ref: main so this checks out the LATEST main when the job
-          # actually runs (after any concurrency-group queue). Default checkout
-          # uses github.sha from trigger time, which is stale when the queue
-          # delays our run by minutes.
           ref: main
           fetch-depth: 1
 
@@ -62,16 +64,19 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run morning routine
+      - name: Plan phase — screen + Claude + journal (no email yet)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
           ALPACA_API_BASE_URL: ${{ secrets.ALPACA_API_BASE_URL }}
+          # Email creds passed in case strategy-generation fails — that path
+          # sends an immediate failure email even in plan phase.
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           FORCE_RUN: ${{ github.event.inputs.force || 'false' }}
+          PHASE: plan
         run: python morning_routine.py
 
       - name: Commit strategy + journal updates
@@ -83,12 +88,59 @@ jobs:
             echo "No changes to commit (likely a US holiday or screen produced nothing)."
           else
             git commit -m "[AM] Morning routine $(date -u +'%Y-%m-%d')"
-            # Retry-with-rebase: handles the rare case of two workflows pushing concurrently
             for attempt in 1 2 3; do
-              if git push; then echo "Pushed on attempt $attempt"; exit 0; fi
+              if git push; then echo "Pushed on attempt $attempt"; break; fi
               echo "Push attempt $attempt failed; rebasing on origin/main and retrying..."
               git pull --rebase origin main
             done
-            echo "Push failed after 3 attempts."
-            exit 1
           fi
+
+      - name: Dispatch execute.yml + capture waiting run URL
+        id: dispatch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TEST_MODE: ${{ github.event.inputs.test_mode || 'false' }}
+        run: |
+          # If the screen produced no trades, latest_strategy.json has trades=[].
+          # In that case, don't bother dispatching execute — there's nothing to do.
+          TRADE_COUNT=$(python -c "import json; print(len(json.load(open('latest_strategy.json')).get('trades', [])))" 2>/dev/null || echo 0)
+          if [ "$TRADE_COUNT" = "0" ]; then
+            echo "No trades in plan — skipping execute dispatch."
+            echo "approve_url=" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "Dispatching execute.yml (test_mode=$TEST_MODE)..."
+          gh workflow run execute.yml -f test_mode=$TEST_MODE -r main
+
+          # Poll briefly for the just-created run to register, then capture its URL
+          APPROVE_URL=""
+          for attempt in 1 2 3 4 5 6; do
+            sleep 4
+            APPROVE_URL=$(gh run list --workflow=execute.yml --limit=3 \
+              --json url,status,createdAt --jq \
+              '[.[] | select(.status == "waiting" or .status == "queued" or .status == "in_progress")] | sort_by(.createdAt) | last | .url // empty')
+            if [ -n "$APPROVE_URL" ]; then
+              echo "Captured execute run URL: $APPROVE_URL"
+              break
+            fi
+            echo "  attempt $attempt: run not yet visible, retrying..."
+          done
+
+          if [ -z "$APPROVE_URL" ]; then
+            echo "Could not capture execute run URL after 6 attempts — email will use generic actions link."
+          fi
+          echo "approve_url=$APPROVE_URL" >> $GITHUB_OUTPUT
+
+      - name: Email phase — send plan + approve link
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_API_BASE_URL: ${{ secrets.ALPACA_API_BASE_URL }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          FORCE_RUN: ${{ github.event.inputs.force || 'false' }}
+          PHASE: email
+          APPROVE_URL: ${{ steps.dispatch.outputs.approve_url }}
+        run: python morning_routine.py

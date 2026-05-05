@@ -1,12 +1,22 @@
 """
 Morning Routine
-Runs at 6am EST via Windows Task Scheduler (weekdays only).
-- Forces a fresh S&P 500 screen via ai_strategy_enhanced
-- Appends an [AM] entry to JOURNAL.md (open questions + today's plan)
-- Emails a brief summary to klaaswierenga@gmail.com
-- Saves the strategy to latest_strategy.json so execute_strategy.py can use it
+Runs at 06:00 ET via .github/workflows/morning.yml on weekdays.
 
-Time budget: a few minutes for Klaas to read.
+Two-phase invocation (controlled by the PHASE env var):
+
+  PHASE=plan   (default) — run the S&P 500 screen, ask Claude for trades, write
+                            latest_strategy.json, append an [AM] JOURNAL entry.
+                            Does NOT send email. Used by morning.yml step 1.
+
+  PHASE=email             — load the just-written latest_strategy.json, fetch
+                            current open positions, and send the morning email
+                            with the APPROVE_URL (the GitHub Actions URL of the
+                            waiting Execute strategy run). Used by morning.yml
+                            step 2, after dispatching execute.yml.
+
+Splitting these phases lets the workflow dispatch execute.yml *between* them and
+include the resulting waiting-run URL in the email — so the email contains the
+exact tap-to-approve link instead of a generic actions-tab URL.
 """
 
 import json
@@ -25,6 +35,7 @@ from email_notifier import send_email
 EST = pytz.timezone("America/New_York")
 JOURNAL_PATH = Path("JOURNAL.md")
 STRATEGY_PATH = Path("latest_strategy.json")
+ACTIONS_FALLBACK_URL = "https://github.com/kwierenga/Trading/actions/workflows/execute.yml"
 
 
 def is_us_trading_day() -> bool:
@@ -74,11 +85,13 @@ def build_journal_entry(strategy: dict, open_positions: list, today_label: str) 
         )
     lines.append("\n")
 
-    # Today's plan
+    # Today's plan — describes the cloud-side flow Klaas actually uses now
     lines.append("**Today's plan.** ")
     if trades:
         lines.append(
-            f"Run `python execute_strategy.py --dry-run` to preview sizing, then `python execute_strategy.py` to place bracket orders. "
+            "Tap **Approve** on the GitHub email (subject `[Trading AM]`) before 09:25 ET. "
+            "Approval triggers the post-open re-evaluation; if Claude still likes the setups, "
+            "bracket orders go in at 09:35 ET. No tap = day skipped, no harm. "
         )
     else:
         lines.append("Hold cash today — no high-conviction setups passed the screen. Patience is a position. ")
@@ -93,10 +106,11 @@ def build_journal_entry(strategy: dict, open_positions: list, today_label: str) 
     return "".join(lines)
 
 
-def build_email(strategy: dict, open_positions: list, today_label: str) -> tuple:
+def build_email(strategy: dict, open_positions: list, today_label: str,
+                approve_url: str = "") -> tuple:
     trades = strategy.get("trades", [])
 
-    lines = [f"Morning plan — {today_label} EST\n"]
+    lines = [f"Morning plan — {today_label} ET\n"]
     lines.append(f"Confidence: {strategy.get('confidence_target_pct', 0)}%")
     lines.append("")
 
@@ -129,12 +143,80 @@ def build_email(strategy: dict, open_positions: list, today_label: str) -> tuple
         lines.append("OPEN POSITIONS: none (fully in cash)")
 
     if trades:
+        url = approve_url or ACTIONS_FALLBACK_URL
         lines.append("")
-        lines.append("To execute: `python execute_strategy.py --dry-run` then `python execute_strategy.py`")
+        lines.append("=" * 60)
+        lines.append("ACTION REQUIRED — to place these orders today:")
+        lines.append("")
+        lines.append(f"  TAP TO APPROVE:  {url}")
+        lines.append("")
+        lines.append("  Approve before 09:25 ET. After you tap:")
+        lines.append("    - Claude re-evaluates each ticker against the actual open")
+        lines.append("    - Orders that still look good are submitted at 09:35 ET")
+        lines.append("    - Orders that gapped up or broke down are skipped automatically")
+        lines.append("  No tap = day skipped, no harm.")
+        lines.append("=" * 60)
 
     body = "\n".join(lines)
-    subject = f"[Trading AM] {today_label} — {'cash' if not trades else f'{len(trades)} setup(s)'}"
+    action_hint = "approval needed by 09:25 ET" if trades else "cash"
+    subject = f"[Trading AM] {today_label} — {len(trades)} setup(s) — {action_hint}" if trades \
+        else f"[Trading AM] {today_label} — cash"
     return subject, body
+
+
+def run_plan_phase(today_label: str) -> int:
+    """Generate strategy + journal, write latest_strategy.json. No email."""
+    print("  Generating strategy (forcing fresh screen)...")
+    strategy = get_enhanced_strategy(force_refresh_candidates=True)
+
+    if not strategy:
+        # Email a failure notice immediately — don't wait for the email phase.
+        send_email(
+            f"[Trading AM] {today_label} — FAILED",
+            f"Strategy generation failed.\nCheck logs and yfinance/Anthropic connectivity.",
+        )
+        return 1
+
+    try:
+        client = AlpacaClient()
+        open_positions = client.get_positions()
+    except (OSError, ValueError, KeyError) as e:
+        print(f"  Could not fetch positions: {e}")
+        open_positions = []
+
+    with open(STRATEGY_PATH, "w") as f:
+        json.dump(strategy, f, indent=2)
+
+    entry = build_journal_entry(strategy, open_positions, today_label)
+    append_to_journal(entry)
+
+    print(f"Plan phase complete: {len(strategy.get('trades', []))} trade(s) written to {STRATEGY_PATH}.")
+    return 0
+
+
+def run_email_phase(today_label: str) -> int:
+    """Load latest_strategy.json + send email with APPROVE_URL."""
+    if not STRATEGY_PATH.exists():
+        print(f"  {STRATEGY_PATH} missing — plan phase didn't run? Skipping email.")
+        return 1
+
+    strategy = json.loads(STRATEGY_PATH.read_text(encoding="utf-8"))
+
+    try:
+        client = AlpacaClient()
+        open_positions = client.get_positions()
+    except (OSError, ValueError, KeyError) as e:
+        print(f"  Could not fetch positions: {e}")
+        open_positions = []
+
+    approve_url = os.getenv("APPROVE_URL", "").strip()
+    if not approve_url:
+        print(f"  APPROVE_URL not provided — falling back to {ACTIONS_FALLBACK_URL}")
+
+    subject, body = build_email(strategy, open_positions, today_label, approve_url)
+    send_email(subject, body)
+    print("Email phase complete.")
+    return 0
 
 
 def main() -> int:
@@ -146,7 +228,8 @@ def main() -> int:
 
     today = datetime.now(EST)
     today_label = today.strftime("%Y-%m-%d %A")
-    print(f"Morning routine starting at {today.isoformat()}")
+    phase = os.getenv("PHASE", "plan").lower()
+    print(f"Morning routine ({phase}) starting at {today.isoformat()}")
 
     force = os.getenv("FORCE_RUN", "false").lower() == "true"
     if not is_us_trading_day() and not force:
@@ -155,37 +238,9 @@ def main() -> int:
     if force and not is_us_trading_day():
         print(f"  {today_label} is a weekend — running anyway because FORCE_RUN=true.")
 
-    try:
-        client = AlpacaClient()
-        open_positions = client.get_positions()
-    except Exception as e:
-        print(f"  Could not fetch positions: {e}")
-        open_positions = []
-
-    print("  Generating strategy (forcing fresh screen)...")
-    strategy = get_enhanced_strategy(force_refresh_candidates=True)
-
-    if not strategy:
-        send_email(
-            f"[Trading AM] {today_label} — FAILED",
-            f"Strategy generation failed at {today.isoformat()}.\nCheck logs and yfinance/Anthropic connectivity.",
-        )
-        return 1
-
-    # Persist for execute_strategy.py
-    with open(STRATEGY_PATH, "w") as f:
-        json.dump(strategy, f, indent=2)
-
-    # Journal
-    entry = build_journal_entry(strategy, open_positions, today_label)
-    append_to_journal(entry)
-
-    # Email
-    subject, body = build_email(strategy, open_positions, today_label)
-    send_email(subject, body)
-
-    print("Morning routine complete.")
-    return 0
+    if phase == "email":
+        return run_email_phase(today_label)
+    return run_plan_phase(today_label)
 
 
 if __name__ == "__main__":

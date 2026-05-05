@@ -115,30 +115,61 @@ the concentration check now, but the screened-strategy flow above is preferred.
 
 ## Daily routines (cloud-side)
 
-Three GitHub Actions workflows in `.github/workflows/` run the daily cycle without
+GitHub Actions workflows in `.github/workflows/` run the daily cycle without
 the laptop being on. Repo is public, secrets live in GitHub Environments.
 
-| Workflow | Cron (UTC) | Wall-clock | What it does | Env |
-|---|---|---|---|---|
-| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | Fresh S&P 500 screen → Claude strategy → email plan → commit `latest_strategy.json` + `[AM]` JOURNAL entry to main | `paper` |
-| `execute.yml` | `0 16 * * 1-5` | 12:00 EDT / 11:00 EST | Reads `latest_strategy.json` → sizes → submits bracket orders to Alpaca → commits `trade_journal.json` to main | `paper-execute` (gated) |
-| `eod.yml` | `15 21 * * 1-5` | 17:15 EDT / 16:15 EST | Portfolio review email + `[EOD]` JOURNAL entry → commit to main | `paper` |
+| Workflow | Cron (UTC) | Wall-clock | Trigger | What it does | Env |
+|---|---|---|---|---|---|
+| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | schedule | Fresh S&P 500 screen → Claude AM plan → commits `latest_strategy.json` + `[AM]` JOURNAL → dispatches `execute.yml` → emails Klaas the plan **with a tap-to-approve link** | `paper` |
+| `execute.yml` | — (chained) | runs ~immediately, holds for approval, then waits until 09:35 ET | dispatched by `morning.yml` | Pauses on `paper-execute` Required Reviewers gate. After approval: waits for 09:35 ET, re-calls Claude with current prices for a per-ticker submit/adjust/skip verdict (`re_evaluate.py`), then submits surviving trades as bracket orders to Alpaca → commits `[EXEC]` to main | `paper-execute` (gated) |
+| `cancel_stale.yml` | `30 13 * * 1-5` | 09:30 EDT / 08:30 EST | schedule | Cancels any `execute.yml` run still waiting on approval — closes the loop if Klaas didn't approve in time | — |
+| `eod.yml` | `15 21 * * 1-5` | 17:15 EDT / 16:15 EST | schedule | Portfolio review email + `[EOD]` JOURNAL entry → commit to main | `paper` |
 
-UTC cron does not shift with DST. Each cron leans toward the safe side: morning
-runs early in winter (5 AM is fine), execute runs late enough that it's always
-post-market-open, EOD runs late enough that it's always post-close.
+UTC cron does not shift with DST.
+
+### The daily flow (one email, one tap)
+
+```
+06:00 ET  morning.yml fires (cron)
+  ├── runs S&P 500 screen + Claude AM plan
+  ├── commits latest_strategy.json + [AM] journal
+  ├── dispatches execute.yml → captures the waiting run's URL
+  └── sends ONE email: plan + APPROVE link
+
+07:00 ET  Klaas reads email at breakfast, taps Approve link from phone
+
+09:30 ET  cancel_stale.yml fires (cron) — auto-cancels if not approved by now
+
+09:35 ET  execute.yml resumes (assuming approved earlier)
+  ├── re_evaluate.py: re-calls Claude with current prices
+  │   per-ticker verdict: submit / adjust / skip
+  │   (mechanical fallback if LLM call fails)
+  ├── execute_strategy.py --strategy latest_strategy_postopen.json --yes
+  └── commits [EXEC] journal entry
+```
+
+**One tap per day = one trading day.** Skipping the tap = day skipped, no harm.
 
 ### The execute approval gate
 
 `execute.yml` targets the `paper-execute` GitHub environment, which has
-**Required reviewers** enabled (only `kwierenga` can approve). When the cron
-fires, the workflow pauses and emails an approval request. Tapping Approve in
-the GitHub mobile app or web UI resumes the run, which then submits orders.
-**One phone tap per day = one trading day.** No approval = no orders that day,
-no consequence beyond skipping the day.
+**Required reviewers** enabled (only `kwierenga` can approve). The gate is
+opened by `morning.yml`'s dispatch step at ~06:05 ET, and the AM email contains
+the direct URL to that waiting run. Tap → Approve → orders submit at 09:35 ET.
 
 Self-approval is allowed (`prevent_self_review: false`) — required since the
 trader is solo. If the team grows, flip this and require a different reviewer.
+
+### Re-evaluation at market open
+
+The AM plan is generated with prior-close prices. By 09:35 ET, prices have
+moved. `re_evaluate.py` re-calls Claude (same model, same key) with the AM
+plan + current prices and asks for `submit / adjust / skip` per ticker.
+Adds ~$0.05/day in API cost on top of the morning call. If the LLM call fails,
+falls back to a mechanical filter: skip if price > entry × 1.03 (gapped) or
+price < stop (already broken); else submit at original limit. The filtered
+result is written to `latest_strategy_postopen.json` and that's what
+`execute_strategy.py` consumes.
 
 ### Secrets
 
@@ -147,9 +178,9 @@ Stored in GitHub Environments, not committed. `.env` stays gitignored for local 
 - **`paper` env** (used by morning + eod): `ANTHROPIC_API_KEY`, `ALPACA_API_KEY`,
   `ALPACA_API_SECRET`, `ALPACA_API_BASE_URL`, `EMAIL_USER`, `EMAIL_APP_PASSWORD`,
   `EMAIL_TO`.
-- **`paper-execute` env** (used by execute): `ALPACA_API_KEY`, `ALPACA_API_SECRET`,
-  `ALPACA_API_BASE_URL`. (No Anthropic key — the script only reads the JSON.
-  No email — execute doesn't currently send.)
+- **`paper-execute` env** (used by execute): `ANTHROPIC_API_KEY` (for re-evaluation
+  at open), `ALPACA_API_KEY`, `ALPACA_API_SECRET`, `ALPACA_API_BASE_URL`.
+  No email — execute doesn't currently send.
 
 `ALPACA_ENVIRONMENT`, `CLAUDE_MODEL`, `EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT` use
 defaults from `config.py` and are not set as secrets unless overriding.
@@ -166,6 +197,16 @@ Email is sent via Gmail SMTP using the credentials above. Setup (one-time):
 via SMTP. `EMAIL_USER` and `EMAIL_TO` must be different addresses, or the daily
 emails just disappear with no error. (Discovered 2026-05-01 — first AM email
 went to a self-send and vanished.)
+
+**`+tag` workaround for one-mailbox setups** (added 2026-05-02): If you want
+all daily emails to land in the same Gmail inbox you send from, use a `+tag`
+on the recipient. Current config: `EMAIL_USER=trading.klaaswierenga@gmail.com`,
+`EMAIL_TO=trading.klaaswierenga+daily@gmail.com`. Gmail treats the `+tag`
+address as distinct for delivery (so the self-send drop doesn't trigger) but
+routes it back to the same mailbox, and `to:trading.klaaswierenga+daily@gmail.com`
+is filterable. **Note:** Alpaca account stays on `klaaswierenga@gmail.com` (the
+recovery/alert channel — separation of credential mailbox from digest mailbox is
+deliberate).
 
 Yahoo no longer reliably supports SMTP app passwords on consumer accounts —
 use Gmail or Outlook.com.
