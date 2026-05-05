@@ -37,7 +37,16 @@ JOURNAL_PATH = Path("JOURNAL.md")
 STRATEGY_PATH = Path("latest_strategy.json")
 # Tappable from the AM email → opens execute.yml's workflow_dispatch page in
 # the GitHub mobile app. Klaas taps "Run Workflow" → confirms → approval done.
-DISPATCH_URL = "https://github.com/kwierenga/Trading/actions/workflows/execute.yml"
+#
+# We use the numeric workflow ID rather than the `execute.yml` filename URL.
+# Reason: iOS Safari hard-codes `.yml` as a downloadable extension and will
+# attempt to download the response instead of rendering the GitHub Actions UI,
+# even though the response is text/html with 200 OK. The numeric URL avoids
+# that interception entirely. (Discovered 2026-05-04 during Phase 2 testing.)
+# If execute.yml is ever deleted and recreated, this ID will change — refresh
+# with: gh api repos/kwierenga/Trading/actions/workflows --jq '.workflows[]
+# | select(.name=="Execute strategy") | .id'
+DISPATCH_URL = "https://github.com/kwierenga/Trading/actions/workflows/269961669"
 
 
 def is_us_trading_day() -> bool:
