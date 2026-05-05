@@ -12,13 +12,13 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
-## [EOD] 2026-05-04 Monday
-**What happened.** No trades closed today. End equity $100,003, cash $100,003 (100% of equity), 0 open position(s). 
-**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+## [AM] 2026-05-04 Monday
+**Open questions.** Will the 3 proposed entries (PYPL, FDS, ROP) fill at limit, or run away pre-market? What's the one thing that could derail the 54% confidence target? Any overnight news on these names worth checking before placing orders? 
+**Today's plan.** Tap **Approve** on the GitHub email (subject `[Trading AM]`) before 09:25 ET. Approval triggers the post-open re-evaluation; if Claude still likes the setups, bracket orders go in at 09:35 ET. No tap = day skipped, no harm. No open positions to monitor. 
 
 ---
 
-## [AM] 2026-05-04 Monday
-**Open questions.** Will the 3 proposed entries (PYPL, MSFT, CI) fill at limit, or run away pre-market? What's the one thing that could derail the 58% confidence target? Any overnight news on these names worth checking before placing orders? 
-**Today's plan.** Run `python execute_strategy.py --dry-run` to preview sizing, then `python execute_strategy.py` to place bracket orders. Monitor 1 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
+## [EOD] 2026-05-04 Monday
+**What happened.** No trades closed today. End equity $100,003, cash $100,003 (100% of equity), 0 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
 
