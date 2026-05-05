@@ -10,13 +10,13 @@ Two-phase invocation (controlled by the PHASE env var):
 
   PHASE=email             — load the just-written latest_strategy.json, fetch
                             current open positions, and send the morning email
-                            with the APPROVE_URL (the GitHub Actions URL of the
-                            waiting Execute strategy run). Used by morning.yml
-                            step 2, after dispatching execute.yml.
+                            containing the plan + a tap-to-run-workflow link.
+                            Used by morning.yml step 2.
 
-Splitting these phases lets the workflow dispatch execute.yml *between* them and
-include the resulting waiting-run URL in the email — so the email contains the
-exact tap-to-approve link instead of a generic actions-tab URL.
+Phase 2 design: morning.yml does NOT auto-dispatch execute.yml. Instead, the
+email links Klaas to execute.yml's workflow_dispatch page in the GitHub mobile
+app — the Required Reviewers approval flow doesn't work in iOS (only Run
+Workflow does), so the act of tapping Run Workflow IS the approval.
 """
 
 import json
@@ -35,7 +35,9 @@ from email_notifier import send_email
 EST = pytz.timezone("America/New_York")
 JOURNAL_PATH = Path("JOURNAL.md")
 STRATEGY_PATH = Path("latest_strategy.json")
-ACTIONS_FALLBACK_URL = "https://github.com/kwierenga/Trading/actions/workflows/execute.yml"
+# Tappable from the AM email → opens execute.yml's workflow_dispatch page in
+# the GitHub mobile app. Klaas taps "Run Workflow" → confirms → approval done.
+DISPATCH_URL = "https://github.com/kwierenga/Trading/actions/workflows/execute.yml"
 
 
 def is_us_trading_day() -> bool:
@@ -89,9 +91,10 @@ def build_journal_entry(strategy: dict, open_positions: list, today_label: str) 
     lines.append("**Today's plan.** ")
     if trades:
         lines.append(
-            "Tap **Approve** on the GitHub email (subject `[Trading AM]`) before 09:25 ET. "
-            "Approval triggers the post-open re-evaluation; if Claude still likes the setups, "
-            "bracket orders go in at 09:35 ET. No tap = day skipped, no harm. "
+            "Tap the link in the AM email (subject `[Trading AM]`), then tap **Run Workflow** "
+            "in the GitHub mobile app. The act of running it is the approval. "
+            "Then Claude re-evaluates at 09:35 ET against the actual open and submits the survivors. "
+            "No tap = day skipped, no harm. "
         )
     else:
         lines.append("Hold cash today — no high-conviction setups passed the screen. Patience is a position. ")
@@ -106,8 +109,7 @@ def build_journal_entry(strategy: dict, open_positions: list, today_label: str) 
     return "".join(lines)
 
 
-def build_email(strategy: dict, open_positions: list, today_label: str,
-                approve_url: str = "") -> tuple:
+def build_email(strategy: dict, open_positions: list, today_label: str) -> tuple:
     trades = strategy.get("trades", [])
 
     lines = [f"Morning plan — {today_label} ET\n"]
@@ -143,14 +145,15 @@ def build_email(strategy: dict, open_positions: list, today_label: str,
         lines.append("OPEN POSITIONS: none (fully in cash)")
 
     if trades:
-        url = approve_url or ACTIONS_FALLBACK_URL
         lines.append("")
         lines.append("=" * 60)
-        lines.append("ACTION REQUIRED — to place these orders today:")
+        lines.append("TO PLACE THESE ORDERS TODAY:")
         lines.append("")
-        lines.append(f"  TAP TO APPROVE:  {url}")
+        lines.append(f"  1. Tap:  {DISPATCH_URL}")
+        lines.append("  2. In the GitHub mobile app, tap the blue 'Run Workflow' button")
+        lines.append("  3. Confirm 'main' branch + tap 'Run workflow'")
         lines.append("")
-        lines.append("  Approve before 09:25 ET. After you tap:")
+        lines.append("  Tap before 09:25 ET. After you tap:")
         lines.append("    - Claude re-evaluates each ticker against the actual open")
         lines.append("    - Orders that still look good are submitted at 09:35 ET")
         lines.append("    - Orders that gapped up or broke down are skipped automatically")
@@ -158,7 +161,7 @@ def build_email(strategy: dict, open_positions: list, today_label: str,
         lines.append("=" * 60)
 
     body = "\n".join(lines)
-    action_hint = "approval needed by 09:25 ET" if trades else "cash"
+    action_hint = "tap to run by 09:25 ET" if trades else "cash"
     subject = f"[Trading AM] {today_label} — {len(trades)} setup(s) — {action_hint}" if trades \
         else f"[Trading AM] {today_label} — cash"
     return subject, body
@@ -209,11 +212,7 @@ def run_email_phase(today_label: str) -> int:
         print(f"  Could not fetch positions: {e}")
         open_positions = []
 
-    approve_url = os.getenv("APPROVE_URL", "").strip()
-    if not approve_url:
-        print(f"  APPROVE_URL not provided — falling back to {ACTIONS_FALLBACK_URL}")
-
-    subject, body = build_email(strategy, open_positions, today_label, approve_url)
+    subject, body = build_email(strategy, open_positions, today_label)
     send_email(subject, body)
     print("Email phase complete.")
     return 0

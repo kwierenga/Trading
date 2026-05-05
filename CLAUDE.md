@@ -120,27 +120,29 @@ the laptop being on. Repo is public, secrets live in GitHub Environments.
 
 | Workflow | Cron (UTC) | Wall-clock | Trigger | What it does | Env |
 |---|---|---|---|---|---|
-| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | schedule | Fresh S&P 500 screen → Claude AM plan → commits `latest_strategy.json` + `[AM]` JOURNAL → dispatches `execute.yml` → emails Klaas the plan **with a tap-to-approve link** | `paper` |
-| `execute.yml` | — (chained) | runs ~immediately, holds for approval, then waits until 09:35 ET | dispatched by `morning.yml` | Pauses on `paper-execute` Required Reviewers gate. After approval: waits for 09:35 ET, re-calls Claude with current prices for a per-ticker submit/adjust/skip verdict (`re_evaluate.py`), then submits surviving trades as bracket orders to Alpaca → commits `[EXEC]` to main | `paper-execute` (gated) |
-| `cancel_stale.yml` | `30 13 * * 1-5` | 09:30 EDT / 08:30 EST | schedule | Cancels any `execute.yml` run still waiting on approval — closes the loop if Klaas didn't approve in time | — |
+| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | schedule | Fresh S&P 500 screen → Claude AM plan → commits `latest_strategy.json` + `[AM]` JOURNAL → emails Klaas the plan **with a tap-to-Run-Workflow link** | `paper` |
+| `execute.yml` | — | fired by Klaas tapping Run Workflow in mobile app, then waits until 09:35 ET | manual `workflow_dispatch` from email link | Freshness check (refuses plans >6h old). Waits for 09:35 ET. Re-calls Claude with current prices for per-ticker submit/adjust/skip verdict (`re_evaluate.py`). Submits surviving trades as bracket orders to Alpaca → commits `[EXEC]` to main | `paper` |
+| `cancel_stale.yml` | `30 13 * * 1-5` | 09:30 EDT / 08:30 EST | schedule | Legacy from Phase 1 — kept as a safety net, no longer the primary cleanup mechanism | — |
 | `eod.yml` | `15 21 * * 1-5` | 17:15 EDT / 16:15 EST | schedule | Portfolio review email + `[EOD]` JOURNAL entry → commit to main | `paper` |
 
 UTC cron does not shift with DST.
 
-### The daily flow (one email, one tap)
+### The daily flow (one email, one tap-to-run)
 
 ```
 06:00 ET  morning.yml fires (cron)
   ├── runs S&P 500 screen + Claude AM plan
   ├── commits latest_strategy.json + [AM] journal
-  ├── dispatches execute.yml → captures the waiting run's URL
-  └── sends ONE email: plan + APPROVE link
+  └── sends ONE email: plan + tap-to-Run-Workflow link
 
-07:00 ET  Klaas reads email at breakfast, taps Approve link from phone
+07:00 ET  Klaas reads email at breakfast on phone
+  ├── taps the link → opens execute.yml workflow page in GitHub mobile app
+  ├── taps "Run Workflow" → confirms branch=main → taps "Run workflow"
+  └── execute.yml run is dispatched
 
-09:30 ET  cancel_stale.yml fires (cron) — auto-cancels if not approved by now
+(execute.yml runs: freshness check → wait until 09:35 ET → re-evaluate → submit)
 
-09:35 ET  execute.yml resumes (assuming approved earlier)
+09:35 ET  execute.yml resumes from the wait
   ├── re_evaluate.py: re-calls Claude with current prices
   │   per-ticker verdict: submit / adjust / skip
   │   (mechanical fallback if LLM call fails)
@@ -148,17 +150,28 @@ UTC cron does not shift with DST.
   └── commits [EXEC] journal entry
 ```
 
-**One tap per day = one trading day.** Skipping the tap = day skipped, no harm.
+**One tap-to-run per day = one trading day.** Skipping the tap = day skipped, no harm.
 
-### The execute approval gate
+### Why no Required Reviewers gate
 
-`execute.yml` targets the `paper-execute` GitHub environment, which has
-**Required reviewers** enabled (only `kwierenga` can approve). The gate is
-opened by `morning.yml`'s dispatch step at ~06:05 ET, and the AM email contains
-the direct URL to that waiting run. Tap → Approve → orders submit at 09:35 ET.
+We tried the standard "Environment with Required Reviewers" approval pattern in
+Phase 1 (2026-05-04). It failed in production: GitHub's iOS app does NOT show
+the "Approve and deploy" button on environment-gated runs — only "Cancel
+workflow." Approving from mobile required the long-press "Open in Safari"
+workaround, which is unreliable at 7 AM.
 
-Self-approval is allowed (`prevent_self_review: false`) — required since the
-trader is solo. If the team grows, flip this and require a different reviewer.
+Phase 2 (2026-05-04 evening) replaced this with manual `workflow_dispatch` from
+the AM email link. The "Run Workflow" button works cleanly in the GitHub mobile
+app, so this is the only primitive that's actually mobile-friendly for a
+single-user repo.
+
+Safety story without the gate:
+- Only `kwierenga` has write/dispatch access to the repo.
+- Freshness check inside `execute.yml` rejects any plan >6h old, so an
+  accidental dispatch at 16:00 ET (or the next morning before `morning.yml`
+  fires) fails fast.
+- `re_evaluate.py` can refuse to submit any/all trades if conditions don't hold.
+- Per-trade concentration cap + ATR-sized stops still apply unchanged.
 
 ### Re-evaluation at market open
 
@@ -175,12 +188,12 @@ result is written to `latest_strategy_postopen.json` and that's what
 
 Stored in GitHub Environments, not committed. `.env` stays gitignored for local use.
 
-- **`paper` env** (used by morning + eod): `ANTHROPIC_API_KEY`, `ALPACA_API_KEY`,
-  `ALPACA_API_SECRET`, `ALPACA_API_BASE_URL`, `EMAIL_USER`, `EMAIL_APP_PASSWORD`,
-  `EMAIL_TO`.
-- **`paper-execute` env** (used by execute): `ANTHROPIC_API_KEY` (for re-evaluation
-  at open), `ALPACA_API_KEY`, `ALPACA_API_SECRET`, `ALPACA_API_BASE_URL`.
-  No email — execute doesn't currently send.
+- **`paper` env** (used by morning + execute + eod): `ANTHROPIC_API_KEY`,
+  `ALPACA_API_KEY`, `ALPACA_API_SECRET`, `ALPACA_API_BASE_URL`, `EMAIL_USER`,
+  `EMAIL_APP_PASSWORD`, `EMAIL_TO`. Phase 2 collapsed everything into one env
+  since there's no longer a separate gated environment.
+- **`paper-execute` env**: legacy from Phase 1, no longer used by any workflow.
+  Safe to delete in the GitHub UI when convenient.
 
 `ALPACA_ENVIRONMENT`, `CLAUDE_MODEL`, `EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT` use
 defaults from `config.py` and are not set as secrets unless overriding.

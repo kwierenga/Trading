@@ -1,38 +1,32 @@
 name: Morning routine
 
-# Runs the S&P 500 screen, asks Claude for trades, dispatches execute.yml
-# (which pauses on the paper-execute approval gate), and emails Klaas a single
-# combined plan + tap-to-approve link.
+# Runs the S&P 500 screen, asks Claude for trades, commits the plan, and emails
+# Klaas a single combined plan + tap-to-run link.
 #
 # Schedule: 10:00 UTC weekdays.
 #   = 06:00 ET (EDT, summer) — ideal
 #   = 05:00 ET (EST, winter) — runs an hour early; better than running an hour late.
 # UTC cron does not shift with DST.
 #
-# Step ordering (important — see morning_routine.py PHASE docstring):
-#   1. plan phase  — write latest_strategy.json + JOURNAL [AM] entry
-#   2. commit JSON+journal to main
-#   3. dispatch execute.yml + capture the URL of the resulting waiting run
-#   4. email phase — send ONE email containing the plan AND the approve URL
-# The split exists so the email contains the exact tap-to-approve link.
+# Phase 2 design (2026-05-04): morning.yml does NOT auto-dispatch execute.yml.
+# Instead, the email contains a link to the execute.yml workflow_dispatch page,
+# which Klaas opens in the GitHub mobile app and taps "Run Workflow" — the only
+# environment-gate primitive that actually works in the iOS app.
+# Safety: execute.yml has a freshness check (latest_strategy.json must be <6h
+# old) so a stale plan can't be re-run later.
 
 on:
   schedule:
     - cron: '0 10 * * 1-5'
-  workflow_dispatch:  # manual fire from Actions tab
+  workflow_dispatch:
     inputs:
       force:
         description: 'Bypass weekday/holiday skip (test fire on weekends)'
         required: false
         default: false
         type: boolean
-      test_mode:
-        description: 'Test mode: dispatch execute with --dry-run + skip wait-for-open'
-        required: false
-        default: false
-        type: boolean
 
-# Serialize across ALL trading workflows that write to main (morning/eod/execute/weekly_review).
+# Serialize across ALL trading workflows that write to main.
 concurrency:
   group: trading-write
   cancel-in-progress: false
@@ -46,7 +40,6 @@ jobs:
     environment: paper
     permissions:
       contents: write  # commit latest_strategy.json + JOURNAL.md
-      actions: write   # gh workflow run execute.yml
 
     steps:
       - name: Checkout
@@ -95,46 +88,7 @@ jobs:
             done
           fi
 
-      - name: Dispatch execute.yml + capture waiting run URL
-        id: dispatch
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TEST_MODE: ${{ github.event.inputs.test_mode || 'false' }}
-        run: |
-          # If the screen produced no trades, latest_strategy.json has trades=[].
-          # In that case, don't bother dispatching execute — there's nothing to do.
-          TRADE_COUNT=$(python -c "import json; print(len(json.load(open('latest_strategy.json')).get('trades', [])))" 2>/dev/null || echo 0)
-          if [ "$TRADE_COUNT" = "0" ]; then
-            echo "No trades in plan — skipping execute dispatch."
-            echo "approve_url=" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-
-          echo "Dispatching execute.yml (test_mode=$TEST_MODE)..."
-          gh workflow run execute.yml -f test_mode=$TEST_MODE -r main
-
-          # Poll for the just-created run to register, then capture its URL.
-          # GitHub's API can lag 30-60s before showing a freshly-dispatched run
-          # in `gh run list`, so we poll patiently. 12 * 6s = 72s budget.
-          APPROVE_URL=""
-          for attempt in $(seq 1 12); do
-            sleep 6
-            APPROVE_URL=$(gh run list --workflow=execute.yml --limit=3 \
-              --json url,status,createdAt --jq \
-              '[.[] | select(.status == "waiting" or .status == "queued" or .status == "in_progress")] | sort_by(.createdAt) | last | .url // empty')
-            if [ -n "$APPROVE_URL" ]; then
-              echo "Captured execute run URL: $APPROVE_URL (attempt $attempt)"
-              break
-            fi
-            echo "  attempt $attempt/12: run not yet visible, retrying..."
-          done
-
-          if [ -z "$APPROVE_URL" ]; then
-            echo "Could not capture execute run URL after 12 attempts — email will use generic actions link."
-          fi
-          echo "approve_url=$APPROVE_URL" >> $GITHUB_OUTPUT
-
-      - name: Email phase — send plan + approve link
+      - name: Email phase — send plan + run-workflow link
         env:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
@@ -144,5 +98,4 @@ jobs:
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           FORCE_RUN: ${{ github.event.inputs.force || 'false' }}
           PHASE: email
-          APPROVE_URL: ${{ steps.dispatch.outputs.approve_url }}
         run: python morning_routine.py

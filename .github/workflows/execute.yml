@@ -1,27 +1,25 @@
 name: Execute strategy
 
-# Triggered by morning.yml (via gh workflow run) immediately after the AM plan
-# is committed. Pauses on the paper-execute Required Reviewers gate. After
-# approval: waits until 09:35 ET, re-calls Claude with current prices for a
-# per-ticker submit/adjust/skip verdict, then submits the surviving trades as
+# Triggered by Klaas tapping "Run Workflow" on this workflow's page in the
+# GitHub mobile app (linked from the AM email). After firing: checks the AM
+# plan is fresh, waits until 09:35 ET, re-calls Claude with current prices for
+# a per-ticker submit/adjust/skip verdict, then submits surviving trades as
 # bracket orders to Alpaca.
 #
-# No cron schedule — morning.yml is the sole trigger. workflow_dispatch is kept
-# for manual one-offs (rare).
-#
-# The HUMAN GATE is at the workflow level: this workflow targets the
-# `paper-execute` GitHub environment which has Required Reviewers enabled.
-# The waiting-for-approval URL is emailed to Klaas in the AM email.
-# If not approved by ~09:30 ET, the cancel_stale workflow cancels this run.
+# Phase 2 design (2026-05-04): no Required Reviewers gate — the act of tapping
+# "Run Workflow" IS the approval. Only Klaas has write access to the repo, so
+# the safety story is: (a) freshness check rejects stale plans, (b) Claude
+# re-evaluation can refuse to submit any/all trades, (c) per-trade
+# concentration cap + ATR sizing apply unchanged.
 
 on:
   workflow_dispatch:
     inputs:
       test_mode:
-        description: 'Test mode: skip wait-for-open + force --dry-run'
+        description: 'Test mode: skip freshness check + skip wait-for-open + force --dry-run'
         required: false
         default: 'false'
-        type: string  # gh CLI passes inputs as strings
+        type: string
 
 concurrency:
   group: trading-write
@@ -33,17 +31,17 @@ env:
 jobs:
   execute:
     runs-on: ubuntu-latest
-    environment: paper-execute  # Required Reviewers gate
+    environment: paper  # all secrets we need (Alpaca + Anthropic) live here
     permissions:
       contents: write  # commit trade_journal.json updates
-    timeout-minutes: 240  # 4h — accommodates approval wait + market-open wait
+    timeout-minutes: 90  # wait-for-open (~2.5h max) + run; no more 4h approval wait
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main  # latest main at run-time, not trigger-time
-          fetch-depth: 1
+          ref: main
+          fetch-depth: 0  # need full history for `git log` freshness check
 
       - name: Set up Python 3.13
         uses: actions/setup-python@v5
@@ -54,6 +52,24 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Freshness check — refuse stale plans (>6h old)
+        if: ${{ inputs.test_mode != 'true' }}
+        run: |
+          if [ ! -f latest_strategy.json ]; then
+            echo "ERROR: latest_strategy.json missing — run morning.yml first."
+            exit 1
+          fi
+          COMMIT_EPOCH=$(git log -1 --format=%ct latest_strategy.json)
+          NOW_EPOCH=$(date +%s)
+          AGE_S=$(( NOW_EPOCH - COMMIT_EPOCH ))
+          AGE_H=$(( AGE_S / 3600 ))
+          if [ $AGE_S -gt 21600 ]; then
+            echo "ERROR: latest_strategy.json was committed ${AGE_H}h ago (>6h limit)."
+            echo "Refusing to execute on a stale plan. Run morning.yml first."
+            exit 1
+          fi
+          echo "latest_strategy.json was committed $((AGE_S / 60))m ago — fresh, proceeding."
+
       - name: Show AM strategy that will be re-evaluated
         run: |
           echo "=== latest_strategy.json (AM plan, before re-evaluation) ==="
@@ -62,7 +78,6 @@ jobs:
       - name: Wait until 09:35 ET (market open + 5 min)
         if: ${{ inputs.test_mode != 'true' }}
         run: |
-          # Compute seconds until 09:35 America/New_York. If already past, no wait.
           TARGET_EPOCH=$(TZ=America/New_York date -d "today 09:35" +%s)
           NOW_EPOCH=$(date +%s)
           SLEEP=$((TARGET_EPOCH - NOW_EPOCH))
