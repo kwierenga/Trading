@@ -3,3 +3,4 @@ requests==2.31.0
 pytz>=2024.1
 anthropic>=0.40.0
 yfinance>=0.2.40
+pandas-market-calendars>=4.4.0

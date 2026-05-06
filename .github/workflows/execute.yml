@@ -31,6 +31,11 @@ on:
         required: false
         default: 'false'
         type: string
+  repository_dispatch:
+    # Backup trigger fired by external cron (cron-job.org) at ~14:50 UTC.
+    # Belt-and-suspenders for GitHub Actions hosted-runner cron drops.
+    # Idempotency check below skips if today's [EXEC] commit already exists.
+    types: [execute-strategy]
 
 concurrency:
   group: trading-write
@@ -67,8 +72,53 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Determine if we should run today
+        # Combined gate: NYSE trading day + SKIP_TODAY.flag + idempotency.
+        # Sets steps.shouldrun.outputs.should_run = 'true' or 'false'. Downstream
+        # steps gate on this output and skip cleanly when false (no failure email).
+        # test_mode bypasses all checks so manual test dispatches always proceed.
+        id: shouldrun
+        run: |
+          SHOULD_RUN=true
+          REASON=""
+
+          if [ "${{ inputs.test_mode }}" = "true" ]; then
+            echo "test_mode=true — bypassing all skip checks"
+          else
+            # 1. NYSE trading-day check (skip US market holidays)
+            if ! python market_calendar.py; then
+              SHOULD_RUN=false
+              REASON="not a NYSE trading day"
+            fi
+
+            # 2. SKIP_TODAY.flag check (single-day opt-out)
+            if [ -f SKIP_TODAY.flag ] && grep -q "$(date -u +%Y-%m-%d)" SKIP_TODAY.flag; then
+              SHOULD_RUN=false
+              REASON="SKIP_TODAY.flag matches today's UTC date"
+            fi
+
+            # 3. Idempotency — skip if today's [EXEC] commit already exists.
+            #    Only applies to schedule + repository_dispatch (backup trigger);
+            #    workflow_dispatch is intentional manual and should not be blocked
+            #    by an earlier same-day commit.
+            if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+              TODAY=$(date -u +%Y-%m-%d)
+              if git log --oneline --grep="^\[EXEC\] Execute strategy ${TODAY}" -1 | grep -q .; then
+                SHOULD_RUN=false
+                REASON="[EXEC] commit for ${TODAY} already exists (idempotency vs backup trigger)"
+              fi
+            fi
+          fi
+
+          echo "should_run=$SHOULD_RUN" >> $GITHUB_OUTPUT
+          if [ "$SHOULD_RUN" = "false" ]; then
+            echo "::notice::Skipping execute today: $REASON"
+          else
+            echo "Proceeding with execute (event=${{ github.event_name }})"
+          fi
+
       - name: Freshness check — refuse stale plans (>6h old)
-        if: ${{ inputs.test_mode != 'true' }}
+        if: ${{ steps.shouldrun.outputs.should_run == 'true' && inputs.test_mode != 'true' }}
         run: |
           if [ ! -f latest_strategy.json ]; then
             echo "ERROR: latest_strategy.json missing — run morning.yml first."
@@ -95,7 +145,7 @@ jobs:
         # close so fills have time). Phase 3's cron fires at 14:35 UTC = 09:35
         # EST winter / 10:35 EDT summer, both inside the window. The 04:00 ET
         # lower bound is for manual workflow_dispatch on missed-cron days.
-        if: ${{ inputs.test_mode != 'true' }}
+        if: ${{ steps.shouldrun.outputs.should_run == 'true' && inputs.test_mode != 'true' }}
         run: |
           DOW=$(TZ=America/New_York date +%u)  # 1=Mon, 7=Sun
           if [ $DOW -gt 5 ]; then
@@ -116,11 +166,13 @@ jobs:
           echo "RTH window check passed: $(TZ=America/New_York date +%H:%M) ET on weekday."
 
       - name: Show AM strategy that will be re-evaluated
+        if: ${{ steps.shouldrun.outputs.should_run == 'true' }}
         run: |
           echo "=== latest_strategy.json (AM plan, before re-evaluation) ==="
           cat latest_strategy.json | python -m json.tool
 
       - name: Re-evaluate strategy with current prices
+        if: ${{ steps.shouldrun.outputs.should_run == 'true' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # CLAUDE_MODEL intentionally not set — re_evaluate.py uses the
@@ -129,11 +181,13 @@ jobs:
         run: python re_evaluate.py
 
       - name: Show post-open strategy that will execute
+        if: ${{ steps.shouldrun.outputs.should_run == 'true' }}
         run: |
           echo "=== latest_strategy_postopen.json (after Claude re-evaluation) ==="
           cat latest_strategy_postopen.json | python -m json.tool
 
       - name: Execute (live or dry-run depending on test_mode)
+        if: ${{ steps.shouldrun.outputs.should_run == 'true' }}
         id: execute
         env:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
@@ -148,7 +202,10 @@ jobs:
           fi
 
       - name: Commit trade journal updates
-        if: always()  # commit even if --yes path failed mid-trade
+        # Run if execute step ran (success or failure), but skip on should_run=false
+        # days (no journal changes possible). always() alone would try to commit
+        # on holiday-skipped days, which is harmless but noisy.
+        if: ${{ always() && steps.shouldrun.outputs.should_run == 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

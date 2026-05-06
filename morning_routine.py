@@ -1,6 +1,6 @@
 """
 Morning Routine
-Runs at 06:00 ET via .github/workflows/morning.yml on weekdays.
+Runs at ~06:00 ET via .github/workflows/morning.yml on NYSE trading days.
 
 Two-phase invocation (controlled by the PHASE env var):
 
@@ -9,14 +9,14 @@ Two-phase invocation (controlled by the PHASE env var):
                             Does NOT send email. Used by morning.yml step 1.
 
   PHASE=email             — load the just-written latest_strategy.json, fetch
-                            current open positions, and send the morning email
-                            containing the plan + a tap-to-run-workflow link.
+                            current open positions, and send the informational
+                            morning email summarising the day's plan.
                             Used by morning.yml step 2.
 
-Phase 2 design: morning.yml does NOT auto-dispatch execute.yml. Instead, the
-email links Klaas to execute.yml's workflow_dispatch page in the GitHub mobile
-app — the Required Reviewers approval flow doesn't work in iOS (only Run
-Workflow does), so the act of tapping Run Workflow IS the approval.
+Phase 3 design (2026-05-06): execute.yml fires on its own cron at 09:35 ET
+independently — no email-tap required. The morning email is purely
+informational. To skip a day, push SKIP_TODAY.flag containing today's UTC date
+before 09:35 ET, or disable execute.yml in GitHub Actions.
 """
 
 import json
@@ -30,28 +30,12 @@ import pytz
 from alpaca_client import AlpacaClient
 from ai_strategy_enhanced import get_enhanced_strategy
 from email_notifier import send_email
+from market_calendar import is_us_trading_day
 
 
 EST = pytz.timezone("America/New_York")
 JOURNAL_PATH = Path("JOURNAL.md")
 STRATEGY_PATH = Path("latest_strategy.json")
-# Tappable from the AM email → opens execute.yml's workflow_dispatch page in
-# the GitHub mobile app. Klaas taps "Run Workflow" → confirms → approval done.
-#
-# We use the numeric workflow ID rather than the `execute.yml` filename URL.
-# Reason: iOS Safari hard-codes `.yml` as a downloadable extension and will
-# attempt to download the response instead of rendering the GitHub Actions UI,
-# even though the response is text/html with 200 OK. The numeric URL avoids
-# that interception entirely. (Discovered 2026-05-04 during Phase 2 testing.)
-# If execute.yml is ever deleted and recreated, this ID will change — refresh
-# with: gh api repos/kwierenga/Trading/actions/workflows --jq '.workflows[]
-# | select(.name=="Execute strategy") | .id'
-DISPATCH_URL = "https://github.com/kwierenga/Trading/actions/workflows/269961669"
-
-
-def is_us_trading_day() -> bool:
-    """Skip weekends. (Holidays not implemented; rare and we'll just send empty plans.)"""
-    return datetime.now(EST).weekday() < 5  # Mon-Fri = 0-4
 
 
 def append_to_journal(entry_text: str) -> None:
@@ -96,14 +80,13 @@ def build_journal_entry(strategy: dict, open_positions: list, today_label: str) 
         )
     lines.append("\n")
 
-    # Today's plan — describes the cloud-side flow Klaas actually uses now
+    # Today's plan — Phase 3 (cron-driven, no human action required)
     lines.append("**Today's plan.** ")
     if trades:
         lines.append(
-            "Tap the link in the AM email (subject `[Trading AM]`), then tap **Run Workflow** "
-            "in the GitHub mobile app. The act of running it is the approval. "
-            "Then Claude re-evaluates at 09:35 ET against the actual open and submits the survivors. "
-            "No tap = day skipped, no harm. "
+            "execute.yml fires automatically at 09:35 ET — re-evaluates each setup against "
+            "the actual open and submits the survivors. To skip today, push SKIP_TODAY.flag "
+            "with today's UTC date before 09:35 ET. "
         )
     else:
         lines.append("Hold cash today — no high-conviction setups passed the screen. Patience is a position. ")
@@ -156,21 +139,20 @@ def build_email(strategy: dict, open_positions: list, today_label: str) -> tuple
     if trades:
         lines.append("")
         lines.append("=" * 60)
-        lines.append("TO PLACE THESE ORDERS TODAY:")
+        lines.append("AUTO-EXECUTION (no action required from you)")
         lines.append("")
-        lines.append(f"  1. Tap:  {DISPATCH_URL}")
-        lines.append("  2. In the GitHub mobile app, tap the blue 'Run Workflow' button")
-        lines.append("  3. Confirm 'main' branch + tap 'Run workflow'")
+        lines.append("  At 09:35 ET, execute.yml fires on its own cron schedule:")
+        lines.append("    - Re-calls Claude with current prices")
+        lines.append("    - Skips trades that gapped up or broke down")
+        lines.append("    - Submits the survivors as bracket orders to Alpaca")
+        lines.append("  You'll get a follow-up email with the outcome (success or failure).")
         lines.append("")
-        lines.append("  Tap before 09:25 ET. After you tap:")
-        lines.append("    - Claude re-evaluates each ticker against the actual open")
-        lines.append("    - Orders that still look good are submitted at 09:35 ET")
-        lines.append("    - Orders that gapped up or broke down are skipped automatically")
-        lines.append("  No tap = day skipped, no harm.")
+        lines.append("  To skip today: push SKIP_TODAY.flag containing today's UTC date")
+        lines.append("  to main before 09:35 ET, OR disable execute.yml in GitHub Actions.")
         lines.append("=" * 60)
 
     body = "\n".join(lines)
-    action_hint = "tap to run by 09:25 ET" if trades else "cash"
+    action_hint = "auto-exec at 09:35 ET" if trades else "cash"
     subject = f"[Trading AM] {today_label} — {len(trades)} setup(s) — {action_hint}" if trades \
         else f"[Trading AM] {today_label} — cash"
     return subject, body
@@ -241,10 +223,10 @@ def main() -> int:
 
     force = os.getenv("FORCE_RUN", "false").lower() == "true"
     if not is_us_trading_day() and not force:
-        print(f"  {today_label} is a weekend — skipping. (Set FORCE_RUN=true to override.)")
+        print(f"  {today_label} is not a NYSE trading day — skipping. (Set FORCE_RUN=true to override.)")
         return 0
     if force and not is_us_trading_day():
-        print(f"  {today_label} is a weekend — running anyway because FORCE_RUN=true.")
+        print(f"  {today_label} is not a NYSE trading day — running anyway because FORCE_RUN=true.")
 
     if phase == "email":
         return run_email_phase(today_label)
