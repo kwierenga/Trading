@@ -120,58 +120,71 @@ the laptop being on. Repo is public, secrets live in GitHub Environments.
 
 | Workflow | Cron (UTC) | Wall-clock | Trigger | What it does | Env |
 |---|---|---|---|---|---|
-| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | schedule | Fresh S&P 500 screen → Claude AM plan → commits `latest_strategy.json` + `[AM]` JOURNAL → emails Klaas the plan **with a tap-to-Run-Workflow link** | `paper` |
-| `execute.yml` | — | fired by Klaas tapping Run Workflow in mobile app, then waits until 09:35 ET | manual `workflow_dispatch` from email link | Freshness check (refuses plans >6h old). Waits for 09:35 ET. Re-calls Claude with current prices for per-ticker submit/adjust/skip verdict (`re_evaluate.py`). Submits surviving trades as bracket orders to Alpaca → commits `[EXEC]` to main | `paper` |
+| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | schedule | Fresh S&P 500 screen → Claude AM plan → commits `latest_strategy.json` + `[AM]` JOURNAL → emails Klaas the day's plan (informational) | `paper` |
+| `execute.yml` | `35 14 * * 1-5` | 09:35 EST / 10:35 EDT | schedule (+ `workflow_dispatch` escape hatch) | Freshness check (refuses plans >6h old). RTH window check. Re-calls Claude with current prices for per-ticker submit/adjust/skip verdict (`re_evaluate.py`). Submits surviving trades as bracket orders to Alpaca → commits `[EXEC]` to main. Success/failure email after. | `paper` |
 | `cancel_stale.yml` | `30 13 * * 1-5` | 09:30 EDT / 08:30 EST | schedule | Legacy from Phase 1 — kept as a safety net, no longer the primary cleanup mechanism | — |
 | `eod.yml` | `15 21 * * 1-5` | 17:15 EDT / 16:15 EST | schedule | Portfolio review email + `[EOD]` JOURNAL entry → commit to main | `paper` |
 
 UTC cron does not shift with DST.
 
-### The daily flow (one email, one tap-to-run)
+### The daily flow (Phase 3 — fully cron-driven, no human action required)
 
 ```
-06:00 ET  morning.yml fires (cron)
+06:00 ET  morning.yml fires (cron at 10:00 UTC; ~85min drift typical)
   ├── runs S&P 500 screen + Claude AM plan
   ├── commits latest_strategy.json + [AM] journal
-  └── sends ONE email: plan + tap-to-Run-Workflow link
+  └── sends ONE informational email with the day's plan
 
-07:00 ET  Klaas reads email at breakfast on phone
-  ├── taps the link → opens execute.yml workflow page in GitHub mobile app
-  ├── taps "Run Workflow" → confirms branch=main → taps "Run workflow"
-  └── execute.yml run is dispatched
-
-(execute.yml runs: freshness check → wait until 09:35 ET → re-evaluate → submit)
-
-09:35 ET  execute.yml resumes from the wait
+09:35 ET  execute.yml fires (cron at 14:35 UTC; INDEPENDENT of morning)
+  ├── freshness check: refuse if latest_strategy.json > 6h old
+  ├── RTH window check
   ├── re_evaluate.py: re-calls Claude with current prices
   │   per-ticker verdict: submit / adjust / skip
   │   (mechanical fallback if LLM call fails)
   ├── execute_strategy.py --strategy latest_strategy_postopen.json --yes
-  └── commits [EXEC] journal entry
+  ├── commits [EXEC] journal entry
+  └── success/failure email — every outcome visible within seconds
+
+17:15 ET  eod.yml fires (cron) — portfolio review email + [EOD] commit
 ```
 
-**One tap-to-run per day = one trading day.** Skipping the tap = day skipped, no harm.
+**No daily tap required.** Both workflows are cron-driven and independent. If
+morning.yml's cron drops, execute.yml fires anyway, freshness check refuses
+the stale plan, failure email surfaces it. Recovery: manually fire morning.yml
+via `gh workflow run morning.yml --ref main`, then manually dispatch execute.yml
+via `gh workflow run execute.yml --ref main` (or the GitHub UI escape hatch).
 
-### Why no Required Reviewers gate
+### Trigger history (Phase 1 → 2 → 3)
 
-We tried the standard "Environment with Required Reviewers" approval pattern in
-Phase 1 (2026-05-04). It failed in production: GitHub's iOS app does NOT show
-the "Approve and deploy" button on environment-gated runs — only "Cancel
-workflow." Approving from mobile required the long-press "Open in Safari"
-workaround, which is unreliable at 7 AM.
+**Phase 1 (2026-05-04 morning, retired):** GitHub Environment with Required
+Reviewers gate. Failed in production: GitHub's iOS app does NOT show the
+"Approve and deploy" button on environment-gated runs — only "Cancel workflow."
+Approving from mobile required the long-press "Open in Safari" workaround,
+which is unreliable at 7 AM.
 
-Phase 2 (2026-05-04 evening) replaced this with manual `workflow_dispatch` from
-the AM email link. The "Run Workflow" button works cleanly in the GitHub mobile
-app, so this is the only primitive that's actually mobile-friendly for a
-single-user repo.
+**Phase 2 (2026-05-04 evening, retired):** manual `workflow_dispatch` from the
+AM email link, with an in-workflow `sleep` until 09:35 ET. The "Run Workflow"
+button works cleanly in GitHub mobile, so this was the most mobile-friendly
+primitive. Failed in two ways that drove Phase 3:
+- 2026-05-05: GitHub Actions hosted runner queue stalled 7h, plan went stale,
+  freshness check refused, no orders.
+- 2026-05-06: `timeout-minutes=90` < ~2.5h sleep step; workflow killed before
+  submit. Also iOS app cached the workflow page as "manually disabled" despite
+  the API state being active, blocking the tap.
 
-Safety story without the gate:
+**Phase 3 (2026-05-06, current):** cron-scheduled execute.yml at 14:35 UTC.
+No tap, no in-workflow sleep, no email/iOS dependency on the trade path.
+Email becomes purely informational. The 2 workflows fire on independent cron
+schedules and communicate via the committed `latest_strategy.json` file.
+
+Safety story (unchanged through all phases):
 - Only `kwierenga` has write/dispatch access to the repo.
-- Freshness check inside `execute.yml` rejects any plan >6h old, so an
-  accidental dispatch at 16:00 ET (or the next morning before `morning.yml`
-  fires) fails fast.
+- Freshness check inside `execute.yml` rejects any plan >6h old, so a missed
+  morning cron or a manual mis-dispatch fails fast.
+- RTH window check refuses out-of-hours dispatches.
 - `re_evaluate.py` can refuse to submit any/all trades if conditions don't hold.
 - Per-trade concentration cap + ATR-sized stops still apply unchanged.
+- Success/failure emails (`notify_execute.py`) make every outcome visible.
 
 ### Re-evaluation at market open
 

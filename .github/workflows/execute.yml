@@ -1,22 +1,33 @@
 name: Execute strategy
 
-# Triggered by Klaas tapping "Run Workflow" on this workflow's page in the
-# GitHub mobile app (linked from the AM email). After firing: checks the AM
-# plan is fresh, waits until 09:35 ET, re-calls Claude with current prices for
-# a per-ticker submit/adjust/skip verdict, then submits surviving trades as
-# bracket orders to Alpaca.
+# Phase 3 design (2026-05-06): cron-scheduled at 09:35 EST / 10:35 EDT. No
+# more email tap, no more in-workflow wait step. morning.yml generates the
+# plan independently; this workflow fires on its own schedule and reads
+# whatever plan morning.yml committed today. Freshness check (≤6h) is the
+# safety net for missed-cron days — it refuses stale plans and the failure
+# email surfaces it immediately.
 #
-# Phase 2 design (2026-05-04): no Required Reviewers gate — the act of tapping
-# "Run Workflow" IS the approval. Only Klaas has write access to the repo, so
-# the safety story is: (a) freshness check rejects stale plans, (b) Claude
-# re-evaluation can refuse to submit any/all trades, (c) per-trade
-# concentration cap + ATR sizing apply unchanged.
+# Phase 2 (2026-05-04, retired): tapped from AM email → workflow_dispatch →
+# in-workflow sleep until 09:35 ET → submit. Failed in two ways that drove
+# Phase 3: (1) GitHub Actions runner queue stalled 7h on 2026-05-05;
+# (2) timeout-minutes=90 < the ~2.5h sleep step, killing the workflow before
+# submit on 2026-05-06.
+#
+# Safety story unchanged: (a) freshness check rejects stale plans, (b) RTH
+# window check refuses out-of-hours, (c) Claude re-evaluation can refuse any/
+# all trades, (d) per-trade concentration cap + ATR sizing apply, (e)
+# success/failure emails make every outcome visible within seconds.
 
 on:
+  schedule:
+    # 14:35 UTC = 09:35 EST (winter, ideal: 5min after open)
+    #            = 10:35 EDT (summer, 1h after open: tighter spreads, more intraday data)
+    - cron: '35 14 * * 1-5'
   workflow_dispatch:
+    # Manual escape hatch for missed-cron days or testing.
     inputs:
       test_mode:
-        description: 'Test mode: skip freshness check + skip wait-for-open + force --dry-run'
+        description: 'Test mode: skip freshness check + force --dry-run'
         required: false
         default: 'false'
         type: string
@@ -34,7 +45,11 @@ jobs:
     environment: paper  # all secrets we need (Alpaca + Anthropic) live here
     permissions:
       contents: write  # commit trade_journal.json updates
-    timeout-minutes: 90  # wait-for-open (~2.5h max) + run; no more 4h approval wait
+    # 25 minutes is enough for: queue contention behind a still-running morning.yml
+    # (~6min typical), Anthropic re-evaluation call (~30s), Alpaca submits (~10s
+    # per trade), and journal commit. Was 90min in Phase 2 to accommodate the
+    # in-workflow sleep, which Phase 3 eliminates.
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
@@ -51,26 +66,6 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Queue-delay check — refuse stale runner pickups (>20 min)
-        # GitHub-hosted runner queues can have multi-hour delays during peak times
-        # (2026-05-05: 7-hour delay on a tap that should have run within minutes).
-        # By the time a delayed runner picks up, prices have moved hours past the
-        # AM plan. Email Klaas + halt before submitting on stale info. Threshold
-        # of 20 min is well under the downstream 6h freshness limit but tight
-        # enough to surface real pickup problems before they bite.
-        id: queuedelay
-        if: ${{ inputs.test_mode != 'true' }}
-        env:
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
-        run: |
-          python notify_execute.py \
-            --mode queue-delay \
-            --created-at "${{ github.event.created_at }}" \
-            --threshold-min 20 \
-            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Freshness check — refuse stale plans (>6h old)
         if: ${{ inputs.test_mode != 'true' }}
@@ -96,9 +91,10 @@ jobs:
         # silently submits GTC bracket orders that queue for the NEXT day's
         # open at stale limit prices — exactly what happened on 2026-05-04
         # 21:24 ET when this workflow auto-fired live and 3 orders went out.
-        # Allowed window: 04:00 ET (early enough for a 7am breakfast tap; the
-        # wait-for-open step holds the run until 09:35 ET) through 15:30 ET
-        # (leaves 30min margin before close so fills have time).
+        # Allowed window: 04:00 ET through 15:30 ET (leaves 30min margin before
+        # close so fills have time). Phase 3's cron fires at 14:35 UTC = 09:35
+        # EST winter / 10:35 EDT summer, both inside the window. The 04:00 ET
+        # lower bound is for manual workflow_dispatch on missed-cron days.
         if: ${{ inputs.test_mode != 'true' }}
         run: |
           DOW=$(TZ=America/New_York date +%u)  # 1=Mon, 7=Sun
@@ -123,19 +119,6 @@ jobs:
         run: |
           echo "=== latest_strategy.json (AM plan, before re-evaluation) ==="
           cat latest_strategy.json | python -m json.tool
-
-      - name: Wait until 09:35 ET (market open + 5 min)
-        if: ${{ inputs.test_mode != 'true' }}
-        run: |
-          TARGET_EPOCH=$(TZ=America/New_York date -d "today 09:35" +%s)
-          NOW_EPOCH=$(date +%s)
-          SLEEP=$((TARGET_EPOCH - NOW_EPOCH))
-          if [ $SLEEP -le 0 ]; then
-            echo "Already past 09:35 ET — proceeding immediately."
-          else
-            echo "Sleeping ${SLEEP}s until 09:35 ET..."
-            sleep $SLEEP
-          fi
 
       - name: Re-evaluate strategy with current prices
         env:
@@ -199,11 +182,11 @@ jobs:
             --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Failure email — workflow failed before orders submitted
-        # Fires on any step failure EXCEPT when queue-delay was the cause
-        # (queue-delay step already emails; suppress double-notification).
-        # This is the safety net: if anything else breaks (freshness, RTH check,
-        # re-evaluation, Alpaca submit), Klaas finds out within seconds.
-        if: ${{ failure() && steps.queuedelay.outcome != 'failure' }}
+        # Fires on any step failure. Phase 3 removes the queue-delay check, so
+        # there's no longer a queue-delay-was-the-cause exclusion to worry about.
+        # If anything breaks (freshness on missed-cron day, RTH, re-evaluation,
+        # Alpaca submit), Klaas finds out within seconds.
+        if: ${{ failure() }}
         env:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
