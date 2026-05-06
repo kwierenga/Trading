@@ -52,6 +52,26 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Queue-delay check — refuse stale runner pickups (>20 min)
+        # GitHub-hosted runner queues can have multi-hour delays during peak times
+        # (2026-05-05: 7-hour delay on a tap that should have run within minutes).
+        # By the time a delayed runner picks up, prices have moved hours past the
+        # AM plan. Email Klaas + halt before submitting on stale info. Threshold
+        # of 20 min is well under the downstream 6h freshness limit but tight
+        # enough to surface real pickup problems before they bite.
+        id: queuedelay
+        if: ${{ inputs.test_mode != 'true' }}
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python notify_execute.py \
+            --mode queue-delay \
+            --created-at "${{ github.event.created_at }}" \
+            --threshold-min 20 \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       - name: Freshness check — refuse stale plans (>6h old)
         if: ${{ inputs.test_mode != 'true' }}
         run: |
@@ -131,6 +151,7 @@ jobs:
           cat latest_strategy_postopen.json | python -m json.tool
 
       - name: Execute (live or dry-run depending on test_mode)
+        id: execute
         env:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
@@ -161,3 +182,34 @@ jobs:
             echo "Push failed after 3 attempts."
             exit 1
           fi
+
+      - name: Success email — orders submitted (or 0-trade confirmation)
+        # Fires only when Execute completed without error AND we're not in test mode.
+        # The notification reads trade_journal.json, summarises today's new entries,
+        # and emails Klaas. If 0 entries, the email confirms the workflow ran but
+        # all trades got skipped (re-evaluation rejected them, or strategy was cash).
+        if: ${{ steps.execute.conclusion == 'success' && inputs.test_mode != 'true' }}
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python notify_execute.py \
+            --mode success \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Failure email — workflow failed before orders submitted
+        # Fires on any step failure EXCEPT when queue-delay was the cause
+        # (queue-delay step already emails; suppress double-notification).
+        # This is the safety net: if anything else breaks (freshness, RTH check,
+        # re-evaluation, Alpaca submit), Klaas finds out within seconds.
+        if: ${{ failure() && steps.queuedelay.outcome != 'failure' }}
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python notify_execute.py \
+            --mode failure \
+            --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --failed-step "(see run URL — exact step in the timeline)"
