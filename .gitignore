@@ -30,3 +30,5 @@ latest_strategy_raw.txt
 # Local caches (regenerate every 24h — too large/noisy to track)
 market_snapshots_cache.json
 sp500_constituents_cache.json
+sec_company_tickers_cache.json
+form4_xml_cache/
