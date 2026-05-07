@@ -214,5 +214,41 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 13,
+    "symbol": "MSFT",
+    "shares": 60,
+    "entry_price": 413.96,
+    "entry_time": "2026-05-07T14:51:00.877591+00:00",
+    "stop_loss": 393.68,
+    "target_price": 520.0,
+    "rationale": "Fundamental: Microsoft is arguably the highest-quality business in the S&P 500 \u2014 $3T market cap, 46% operating margins, $37B FCF, 34% ROE, 18% revenue growth driven by Azure cloud and AI monetization.",
+    "source": "claude",
+    "status": "open",
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
+  },
+  {
+    "id": 14,
+    "symbol": "V",
+    "shares": 78,
+    "entry_price": 318.8,
+    "entry_time": "2026-05-07T14:51:00.984614+00:00",
+    "stop_loss": 305.41,
+    "target_price": 365.0,
+    "rationale": "Fundamental: Visa is an elite, near-monopoly payment network with 67.3% operating margins, 60.3% ROE, $20.8B FCF, and 17.1% revenue growth \u2014 compounding quietly while macro noise distracts. Fwd P/E of",
+    "source": "claude",
+    "status": "open",
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
