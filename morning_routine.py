@@ -189,7 +189,7 @@ def run_plan_phase(today_label: str) -> int:
 
 
 def run_email_phase(today_label: str) -> int:
-    """Load latest_strategy.json + send email with APPROVE_URL."""
+    """Load latest_strategy.json + send the informational morning email (Phase 3)."""
     if not STRATEGY_PATH.exists():
         print(f"  {STRATEGY_PATH} missing — plan phase didn't run? Skipping email.")
         return 1

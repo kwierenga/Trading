@@ -120,10 +120,10 @@ the laptop being on. Repo is public, secrets live in GitHub Environments.
 
 | Workflow | Cron (UTC) | Wall-clock | Trigger | What it does | Env |
 |---|---|---|---|---|---|
-| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | schedule | Fresh S&P 500 screen → Claude AM plan → commits `latest_strategy.json` + `[AM]` JOURNAL → emails Klaas the day's plan (informational) | `paper` |
-| `execute.yml` | `35 14 * * 1-5` | 09:35 EST / 10:35 EDT | schedule (+ `workflow_dispatch` escape hatch) | Freshness check (refuses plans >6h old). RTH window check. Re-calls Claude with current prices for per-ticker submit/adjust/skip verdict (`re_evaluate.py`). Submits surviving trades as bracket orders to Alpaca → commits `[EXEC]` to main. Success/failure email after. | `paper` |
+| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | schedule | NYSE trading-day check (skips holidays via `market_calendar.py`). Fresh S&P 500 screen → Claude AM plan → commits `latest_strategy.json` + `[AM]` JOURNAL → emails the day's plan (informational) | `paper` |
+| `execute.yml` | `35 14 * * 1-5` | 09:35 EST / 10:35 EDT | schedule + `repository_dispatch` (cron-job.org backup at 14:50 UTC) + `workflow_dispatch` (manual escape) | `shouldrun` gate (holiday + `SKIP_TODAY.flag` + idempotency vs backup). Freshness check (refuses plans >6h old). RTH window check. Re-calls Claude with current prices for per-ticker submit/adjust/skip verdict (`re_evaluate.py`). Submits surviving trades as bracket orders to Alpaca → commits `[EXEC]` to main. Success/failure email after. | `paper` |
 | `cancel_stale.yml` | `30 13 * * 1-5` | 09:30 EDT / 08:30 EST | schedule | Legacy from Phase 1 — kept as a safety net, no longer the primary cleanup mechanism | — |
-| `eod.yml` | `15 21 * * 1-5` | 17:15 EDT / 16:15 EST | schedule | Portfolio review email + `[EOD]` JOURNAL entry → commit to main | `paper` |
+| `eod.yml` | `15 21 * * 1-5` | 17:15 EDT / 16:15 EST | schedule | Portfolio review email + `[EOD]` JOURNAL entry → commit to main. **No holiday filter** — fires on US holidays too (open follow-up). | `paper` |
 
 UTC cron does not shift with DST.
 
@@ -177,6 +177,23 @@ No tap, no in-workflow sleep, no email/iOS dependency on the trade path.
 Email becomes purely informational. The 2 workflows fire on independent cron
 schedules and communicate via the committed `latest_strategy.json` file.
 
+**Phase 3+ (2026-05-06 evening, current):** added on top of Phase 3 the same
+day, addresses follow-ups identified post-Phase-3:
+- **NYSE trading-day filter** (`market_calendar.py`): skips US market holidays
+  in both morning.yml (Python-side check) and execute.yml (`shouldrun` step).
+- **`SKIP_TODAY.flag` mechanism**: push a file containing today's UTC date
+  before 14:35 UTC and execute.yml exits cleanly with no email. Auditable in
+  git, works from any client incl. iOS Working Copy.
+- **Idempotency check**: skips execute.yml if today's `[EXEC]` commit already
+  exists. Prevents the backup trigger from double-submitting after a
+  successful primary run.
+- **`repository_dispatch` backup trigger**: cron-job.org fires `execute.yml`
+  at ~14:50 UTC (15min after primary). Belt-and-suspenders for
+  GitHub-hosted-runner cron drops. Idempotency above keeps it a no-op on
+  successful primary days.
+- **AM email rewritten**: removed tap-to-run instructions, became purely
+  informational summarising today's plan + auto-execution timing.
+
 Safety story (unchanged through all phases):
 - Only `kwierenga` has write/dispatch access to the repo.
 - Freshness check inside `execute.yml` rejects any plan >6h old, so a missed
@@ -185,6 +202,19 @@ Safety story (unchanged through all phases):
 - `re_evaluate.py` can refuse to submit any/all trades if conditions don't hold.
 - Per-trade concentration cap + ATR-sized stops still apply unchanged.
 - Success/failure emails (`notify_execute.py`) make every outcome visible.
+
+### Skip a single day (Phase 3+)
+
+Push a flag file containing today's UTC date to `main` before 14:35 UTC:
+```
+echo "$(date -u +%Y-%m-%d)" > SKIP_TODAY.flag
+git add SKIP_TODAY.flag && git commit -m "skip today" && git push
+```
+The `shouldrun` step matches the date in the file against today's UTC date.
+On non-matching dates, the flag is ignored (so a stale flag from yesterday
+doesn't silently block today). Delete the flag after the day passes (or let
+EOD do it — currently a manual chore; adding auto-clear to eod.yml is a
+deferred follow-up).
 
 ### Re-evaluation at market open
 
