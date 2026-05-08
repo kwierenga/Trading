@@ -66,9 +66,24 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Housekeeping: clear SKIP_TODAY.flag if dated today or earlier.
+          # Future-dated flags are preserved so a planned skip isn't undone.
+          if [ -f SKIP_TODAY.flag ]; then
+            TODAY=$(date -u +%Y-%m-%d)
+            FLAG_DATE=$(tr -d '[:space:]' < SKIP_TODAY.flag)
+            if [[ "$FLAG_DATE" < "$TODAY" || "$FLAG_DATE" == "$TODAY" ]]; then
+              rm SKIP_TODAY.flag
+              git add SKIP_TODAY.flag
+              echo "Cleared SKIP_TODAY.flag (was dated $FLAG_DATE)"
+            else
+              echo "SKIP_TODAY.flag dated $FLAG_DATE — kept (future date)"
+            fi
+          fi
+
           git add JOURNAL.md
           if git diff --cached --quiet; then
-            echo "No journal changes (likely a US holiday)."
+            echo "No staged changes (likely a US holiday with no flag to clear)."
           else
             git commit -m "[EOD] EOD routine $(date -u +'%Y-%m-%d')"
             for attempt in 1 2 3; do

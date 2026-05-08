@@ -122,8 +122,7 @@ the laptop being on. Repo is public, secrets live in GitHub Environments.
 |---|---|---|---|---|---|
 | `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | schedule | NYSE trading-day check (skips holidays via `market_calendar.py`). Fresh S&P 500 screen → Claude AM plan → commits `latest_strategy.json` + `[AM]` JOURNAL → emails the day's plan (informational) | `paper` |
 | `execute.yml` | `35 14 * * 1-5` | 09:35 EST / 10:35 EDT | schedule + `repository_dispatch` (cron-job.org backup at 14:50 UTC) + `workflow_dispatch` (manual escape) | `shouldrun` gate (holiday + `SKIP_TODAY.flag` + idempotency vs backup). Freshness check (refuses plans >6h old). RTH window check. Re-calls Claude with current prices for per-ticker submit/adjust/skip verdict (`re_evaluate.py`). Submits surviving trades as bracket orders to Alpaca → commits `[EXEC]` to main. Success/failure email after. | `paper` |
-| `cancel_stale.yml` | `30 13 * * 1-5` | 09:30 EDT / 08:30 EST | schedule | Legacy from Phase 1 — kept as a safety net, no longer the primary cleanup mechanism | — |
-| `eod.yml` | `15 21 * * 1-5` | 17:15 EDT / 16:15 EST | schedule | Portfolio review email + `[EOD]` JOURNAL entry → commit to main. **No holiday filter** — fires on US holidays too (open follow-up). | `paper` |
+| `eod.yml` | `15 21 * * 1-5` | 17:15 EDT / 16:15 EST | schedule | Portfolio review email + `[EOD]` JOURNAL entry → commit to main. Also auto-clears `SKIP_TODAY.flag` if dated today or earlier. **No holiday filter** — fires on US holidays too (open follow-up). | `paper` |
 
 UTC cron does not shift with DST.
 
@@ -212,9 +211,9 @@ git add SKIP_TODAY.flag && git commit -m "skip today" && git push
 ```
 The `shouldrun` step matches the date in the file against today's UTC date.
 On non-matching dates, the flag is ignored (so a stale flag from yesterday
-doesn't silently block today). Delete the flag after the day passes (or let
-EOD do it — currently a manual chore; adding auto-clear to eod.yml is a
-deferred follow-up).
+doesn't silently block today). `eod.yml` auto-clears the flag at 21:15 UTC
+if its date is today or earlier; future-dated flags are preserved so a
+planned skip isn't undone.
 
 ### Re-evaluation at market open
 
@@ -235,8 +234,6 @@ Stored in GitHub Environments, not committed. `.env` stays gitignored for local 
   `ALPACA_API_KEY`, `ALPACA_API_SECRET`, `ALPACA_API_BASE_URL`, `EMAIL_USER`,
   `EMAIL_APP_PASSWORD`, `EMAIL_TO`. Phase 2 collapsed everything into one env
   since there's no longer a separate gated environment.
-- **`paper-execute` env**: legacy from Phase 1, no longer used by any workflow.
-  Safe to delete in the GitHub UI when convenient.
 
 `ALPACA_ENVIRONMENT`, `CLAUDE_MODEL`, `EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT` use
 defaults from `config.py` and are not set as secrets unless overriding.
