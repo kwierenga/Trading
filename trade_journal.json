@@ -304,5 +304,23 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 18,
+    "symbol": "UBER",
+    "shares": 323,
+    "entry_price": 75.0,
+    "entry_time": "2026-05-11T14:33:52.061322+00:00",
+    "stop_loss": 70.38,
+    "target_price": 93.0,
+    "rationale": "FUNDAMENTAL: Uber is the dominant two-sided platform in mobility and food delivery \u2014 near-impossible to replicate network effects. FCF of $6.5B growing rapidly, ROE 35.3%, and a P/E of 18.7x is inexpe",
+    "source": "claude",
+    "status": "open",
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
