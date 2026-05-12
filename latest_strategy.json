@@ -1,22 +1,22 @@
 {
-  "analysis": "Market context: Portfolio is well-positioned with 4 quality names (ADSK, APP, MSFT, V) consuming ~88% of equity. All current holdings are in confirmed uptrend-basing patterns and within 1% of entry \u2014 no thesis breaks, no exits warranted. Available cash is ~$11.3K (~11% of equity). The screened list offers 30 candidates but most are MIXED/SIDEWAYS with negative SMA50 slopes \u2014 not ideal Stage 1\u21922 entries. A few standouts: UBER is at just 20% of its 52-week range with a confirmed uptrend basing pattern, not extended above SMA50 (+1.6%), and SMA50 slope turning positive \u2014 a textbook low-risk entry. Fundamentals are compelling: $6.5B FCF, 35.3% ROE, dominant platform duopoly in ride-share and delivery, P/E 18.7x is cheap for this quality. AFL and NTAP are near 52w highs (80-82% range) \u2014 too extended for the strategy. AMP and RJF have negative SMA50 slopes \u2014 not confirmed basing yet. CEG has good momentum but higher ATR at 4.5% makes position sizing tight with limited cash. UBER wins on combination of range position, trend quality, and fundamental value. Adding as a 5th position uses the available cash constructively without violating any hard rules. Position is sized by available cash (~150 shares), slightly below the formula-optimal size but appropriate given the cash constraint. Portfolio heat remains controlled at ~2.5% total after this addition.",
-  "confidence_target_pct": 52,
+  "analysis": "Portfolio currently holds 3 quality positions (APP, MSFT, V) with ~$10,181 cash and $89,596 deployed. Portfolio heat is light at 1.80%, well below the 6% ceiling for 3-5 positions. All three existing positions are in reasonable shape \u2014 APP is the standout with +3.2%, MSFT is treading water near cost, and V is slightly ahead. The primary task now is evaluating whether to add a 4th position with available cash. Scanning the 30 candidates: the best setups combine (1) basing in the lower 40% of 52-week range, (2) confirmed uptrend or positive SMA50 slope, and (3) exceptional fundamental quality. MCO stands out \u2014 it is in a confirmed uptrend/basing phase, just 29% off its 52-week lows, sitting right at SMA50 with a positive slope, while operating one of the most durable moats in finance (credit ratings duopoly). ROE of 71%, op margin of 45.7%, and $2.3B FCF at fwd P/E 24 is attractive for a business this quality. Cash is constrained to ~$10K so position will be smaller than ideal, but the setup is asymmetric enough to justify deployment. UBER is the next-best candidate (23% range, uptrend basing, improving financials) but would require margin and is less dominant competitively than MCO. ADSK at 16% range and PEG 0.95 is intriguing but sits below SMA50 \u2014 no trend confirmation yet, better to wait. AMP and RJF both have negative SMA50 slopes, disfavoring entry now. Recommending 1 new trade (MCO) to bring portfolio to 4 positions. No forced trades beyond that \u2014 remaining candidates either lack trend confirmation or have negative slope momentum.",
+  "confidence_target_pct": 58,
   "trades": [
     {
-      "symbol": "UBER",
+      "symbol": "MCO",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $75.00 or better during intraday consolidation near SMA50. If price gaps up above $77, wait for a pullback to $75-76 before entering. No chasing.",
-      "entry_price": 75.0,
-      "stop_loss": 70.38,
-      "stop_loss_pct": 0.0616,
-      "atr_multiple": 1.75,
-      "target": 93.0,
-      "target_gain_pct": 0.24,
-      "risk_reward_ratio": 3.9,
-      "conviction": 72,
+      "entry_strategy": "Limit order at $446-450, ideally on a slight intraday pullback to or near the SMA50 (~$447). If market opens above $452, wait for a retest of SMA50 support before entry.",
+      "entry_price": 448.39,
+      "stop_loss": 426.0,
+      "stop_loss_pct": 0.05,
+      "atr_multiple": 1.78,
+      "target": 522.0,
+      "target_gain_pct": 0.164,
+      "risk_reward_ratio": 3.28,
+      "conviction": 70,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Uber is the dominant two-sided platform in mobility and food delivery \u2014 near-impossible to replicate network effects. FCF of $6.5B growing rapidly, ROE 35.3%, and a P/E of 18.7x is inexpensive for a business with this competitive moat and optionality (autonomous vehicle partnerships, advertising, freight). Revenue growing 14.5% with improving margins. TECHNICAL: Price is at just 20% of its 52-week range ($69.18-$100.10) \u2014 deep value territory technically. Confirmed UPTREND basing with SMA50 slope turning positive (+0.7%), price only +1.6% above SMA50 (not extended), and SMA200 only -11% away. This is the Stage 1\u21922 transition entry the strategy targets. ATR-based stop at 1.75x sits at $70.38, just below recent lows, giving the trade room to breathe without excessive risk.",
-      "exit_plan": "Exit if: (1) price closes below stop $70.38 on volume (stop hit); (2) SMA50 slope turns decisively negative for 3+ weeks without recovery (trend break); (3) revenue growth decelerates below 8% or FCF margins compress materially (fundamental break); (4) price reaches $93 target \u2014 reassess for continuation vs. trim; (5) time stop: if no progress after 3 months and thesis unclear, exit to redeploy. Prefer to hold toward LTCG if thesis intact past 11 months."
+      "rationale": "FUNDAMENTAL: Moody's is a near-irreplaceable toll-road on global capital markets \u2014 issuers must get rated, creating recurring, high-margin revenue with minimal capital requirements. 71% ROE, 45.7% operating margin, and $2.3B in annual FCF speak to exceptional business quality. At fwd P/E ~24 with 8%+ revenue growth and a re-acceleration catalyst from capital market activity normalization, MCO is at a historically fair-to-cheap entry. TECHNICAL: Stock is basing at 29% of its 52-week range, sitting right at SMA50 with a slightly positive slope (+0.1%). The confirmed UPTREND with basing designation is exactly the Stage 1\u21922 transition preferred by this strategy. Notably, the stock is still 6.7% below SMA200, meaning there is meaningful room to recover before becoming extended. This is a patient, quality entry \u2014 not chasing momentum.",
+      "exit_plan": "Exit thesis-break if: (1) revenue growth decelerates below 5% for two consecutive quarters, (2) credit market volumes collapse due to a sustained risk-off environment, or (3) SMA50 slope turns sharply negative and price breaches $426 stop. Time stop: re-evaluate at 3 months if price has gone nowhere and SMA50 slope is flat or negative. Target trim at $520 (near prior 52-week high cluster); if thesis remains intact above $520, hold remaining shares toward LTCG."
     }
   ]
 }
