@@ -1,22 +1,22 @@
 {
-  "analysis": "Portfolio currently holds 3 quality positions (APP, MSFT, V) with ~$10,181 cash and $89,596 deployed. Portfolio heat is light at 1.80%, well below the 6% ceiling for 3-5 positions. All three existing positions are in reasonable shape \u2014 APP is the standout with +3.2%, MSFT is treading water near cost, and V is slightly ahead. The primary task now is evaluating whether to add a 4th position with available cash. Scanning the 30 candidates: the best setups combine (1) basing in the lower 40% of 52-week range, (2) confirmed uptrend or positive SMA50 slope, and (3) exceptional fundamental quality. MCO stands out \u2014 it is in a confirmed uptrend/basing phase, just 29% off its 52-week lows, sitting right at SMA50 with a positive slope, while operating one of the most durable moats in finance (credit ratings duopoly). ROE of 71%, op margin of 45.7%, and $2.3B FCF at fwd P/E 24 is attractive for a business this quality. Cash is constrained to ~$10K so position will be smaller than ideal, but the setup is asymmetric enough to justify deployment. UBER is the next-best candidate (23% range, uptrend basing, improving financials) but would require margin and is less dominant competitively than MCO. ADSK at 16% range and PEG 0.95 is intriguing but sits below SMA50 \u2014 no trend confirmation yet, better to wait. AMP and RJF both have negative SMA50 slopes, disfavoring entry now. Recommending 1 new trade (MCO) to bring portfolio to 4 positions. No forced trades beyond that \u2014 remaining candidates either lack trend confirmation or have negative slope momentum.",
-  "confidence_target_pct": 58,
+  "analysis": "Portfolio snapshot: four positions (APP +7.2%, MSFT -1.4%, UBER +1.95%, V +1.6%) totaling ~$114K against $100K equity \u2014 we're already running modest margin (-$14K cash). Portfolio heat is low at 2.28%, but negative cash means any new position adds margin exposure. The macro backdrop remains a US-China trade-truce bounce; market sentiment has swung positive but many names are now extended (QCOM +45% above SMA50, TER +64% above SMA200 \u2014 hard avoids). Screened universe has 30 quality candidates, but most basing setups have SMA50 slopes still negative (ADP -2.4%, AMP -2.2%, RJF -1.5%), suggesting the base hasn't fully formed. The few genuine uptrend-basing candidates worth new capital: MCO stands out \u2014 oligopoly pricing power, 71% ROE, 45% operating margins, recovering in an uptrend at 32% of its 52-week range, just above SMA50 with slope turning positive. RJF (fwd P/E 11.5, PEG 0.97) is attractive on value but slope still declining \u2014 wait. Given we already carry 4 positions and negative cash, discipline says maximum one incremental addition. MCO qualifies as a high-conviction 5th position at modest size. Everything else (COIN, HOOD, PSKY) is either speculative or extended. Cash remains a large implicit position given margin; no forcing trades beyond one clear setup.",
+  "confidence_target_pct": 52,
   "trades": [
     {
       "symbol": "MCO",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $446-450, ideally on a slight intraday pullback to or near the SMA50 (~$447). If market opens above $452, wait for a retest of SMA50 support before entry.",
-      "entry_price": 448.39,
-      "stop_loss": 426.0,
-      "stop_loss_pct": 0.05,
-      "atr_multiple": 1.78,
-      "target": 522.0,
-      "target_gain_pct": 0.164,
-      "risk_reward_ratio": 3.28,
+      "entry_strategy": "Limit order at $448-452, ideally on a 1-2 day pullback to SMA50 or flat-base support. If no pullback within 5 sessions and price holds above $450, enter at market.",
+      "entry_price": 451.75,
+      "stop_loss": 430.0,
+      "stop_loss_pct": 0.048,
+      "atr_multiple": 1.85,
+      "target": 515.0,
+      "target_gain_pct": 0.14,
+      "risk_reward_ratio": 2.9,
       "conviction": 70,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Moody's is a near-irreplaceable toll-road on global capital markets \u2014 issuers must get rated, creating recurring, high-margin revenue with minimal capital requirements. 71% ROE, 45.7% operating margin, and $2.3B in annual FCF speak to exceptional business quality. At fwd P/E ~24 with 8%+ revenue growth and a re-acceleration catalyst from capital market activity normalization, MCO is at a historically fair-to-cheap entry. TECHNICAL: Stock is basing at 29% of its 52-week range, sitting right at SMA50 with a slightly positive slope (+0.1%). The confirmed UPTREND with basing designation is exactly the Stage 1\u21922 transition preferred by this strategy. Notably, the stock is still 6.7% below SMA200, meaning there is meaningful room to recover before becoming extended. This is a patient, quality entry \u2014 not chasing momentum.",
-      "exit_plan": "Exit thesis-break if: (1) revenue growth decelerates below 5% for two consecutive quarters, (2) credit market volumes collapse due to a sustained risk-off environment, or (3) SMA50 slope turns sharply negative and price breaches $426 stop. Time stop: re-evaluate at 3 months if price has gone nowhere and SMA50 slope is flat or negative. Target trim at $520 (near prior 52-week high cluster); if thesis remains intact above $520, hold remaining shares toward LTCG."
+      "rationale": "FUNDAMENTAL: Moody's operates in a structural duopoly (with SPGI) in credit ratings \u2014 an irreplaceable toll-booth on global debt issuance. ROE of 71%, op margin 46%, and pricing power that compounds through credit cycles. Revenue growing 8% with accelerating analytics segment. Fwd P/E of 24x is a fair price for this quality, especially 16% below 52-week high. TECHNICAL: Confirmed uptrend, basing pattern at 32% of 52-week range ($411-$538). Price sits just above SMA50 (+1%), SMA50 slope turned slightly positive (+0.4% over 20 days). ATR is a manageable 2.6%. This is a Stage 1\u21922 transition setup \u2014 not chasing, buying the base.",
+      "exit_plan": "Exit if: (1) price closes below stop $430 (thesis break / failed base); (2) credit market conditions deteriorate materially (spike in IG spreads, debt issuance freeze); (3) position reaches target ~$515 and momentum stalls \u2014 trail stop to breakeven; (4) 90-day time stop if price fails to make progress above SMA200 ($480). Consider holding past 1-year mark for LTCG treatment if thesis intact at month 11."
     }
   ]
 }
