@@ -238,6 +238,36 @@ Stored in GitHub Environments, not committed. `.env` stays gitignored for local 
 `ALPACA_ENVIRONMENT`, `CLAUDE_MODEL`, `EMAIL_SMTP_HOST`, `EMAIL_SMTP_PORT` use
 defaults from `config.py` and are not set as secrets unless overriding.
 
+### Data caches & disaster recovery
+
+Local caches live in `backtest_cache/` (gitignored). One of them is paid and
+non-trivial to re-fetch; the rest are free.
+
+| File | Source | Size | Replaceable? |
+|---|---|---|---|
+| `sharadar_sf1_2018_2025.pkl` | **Sharadar SF1** ($49/mo subscription) | ~13 MB | **No — costs $49 to re-fetch.** Back up. |
+| `sharadar_tickers.pkl` | Sharadar TICKERS table (same sub) | ~few MB | Same — needs active Sharadar sub. Back up. |
+| `universe_2010_2025.pkl` | yfinance bulk price download | ~75 MB | Free (re-download takes ~10 min) |
+| `spy_2010_2025.pkl`, `usmv_2011_2025.pkl` | yfinance | <1 MB | Free |
+| `spx_current.pkl`, `spx_changes.pkl` | Wikipedia scrape | <100 KB | Free (re-scrape ~10 sec) |
+
+**Backup location for paid caches**: `C:\Users\klaas\OneDrive\TradingBacktestCache\`.
+OneDrive auto-syncs to cloud. After any bulk Sharadar download:
+```powershell
+Copy-Item backtest_cache\sharadar_*.pkl "$env:USERPROFILE\OneDrive\TradingBacktestCache\"
+```
+Or set `BACKTEST_CACHE_DIR=C:\Users\klaas\OneDrive\TradingBacktestCache` in `.env`
+to make all future caches land in OneDrive directly (the cache modules read this env var).
+
+**Recovery if laptop dies**:
+- Sharadar caches still subscribed → re-download from a new machine (free, uses same API key)
+- Sharadar caches subscription cancelled → restore from OneDrive (free if backed up; $49 if not)
+- yfinance caches → free re-download regardless
+
+**Sharadar terms**: data you downloaded during your subscription window stays yours
+to keep and use; you just can't *redistribute* (so private OneDrive is fine, public
+GitHub is not — `.gitignore` enforces this for `backtest_cache/`).
+
 ### Email
 
 Email is sent via Gmail SMTP using the credentials above. Setup (one-time):

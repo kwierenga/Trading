@@ -22,12 +22,35 @@ from pathlib import Path
 
 import anthropic
 
+from alpaca_client import AlpacaClient
 from market_data import latest_price
 
 
 STRATEGY_IN = Path("latest_strategy.json")
 STRATEGY_OUT = Path("latest_strategy_postopen.json")
 GAP_UP_SKIP_THRESHOLD = 0.03  # current > entry * (1 + this) -> skip
+
+
+def _current_price(symbol: str, client: AlpacaClient) -> tuple[float | None, str]:
+    """
+    Return (price, source). Prefers Alpaca real-time bid/ask midpoint; falls back
+    to yfinance if the Alpaca call fails or returns an unusable quote.
+
+    yfinance prints at 09:35 ET can be 15-90 minutes stale (prior close /
+    pre-market last / early-session print depending on which endpoint hits).
+    Alpaca quotes are real-time on the paper feed.
+    """
+    q = client.get_latest_quote(symbol)
+    if q:
+        try:
+            bid = float(q.get('bp') or 0)
+            ask = float(q.get('ap') or 0)
+            if bid > 0 and ask > 0 and ask >= bid:
+                return (bid + ask) / 2, "alpaca_quote"
+        except (TypeError, ValueError):
+            pass
+    fallback = latest_price(symbol)
+    return fallback, ("yfinance_fallback" if fallback is not None else "unavailable")
 
 
 REEVAL_SCHEMA = {
@@ -53,10 +76,12 @@ REEVAL_SCHEMA = {
 
 
 def attach_current_prices(trades: list) -> None:
+    client = AlpacaClient()
     for t in trades:
         sym = t["symbol"]
-        price = latest_price(sym)
+        price, source = _current_price(sym, client)
         t["current_price"] = price
+        t["price_source"] = source
         entry = float(t.get("entry_price", 0)) or None
         t["overnight_pct"] = (price - entry) / entry if (price is not None and entry) else None
 
@@ -185,6 +210,7 @@ def apply_decisions(strategy: dict, decisions: list) -> dict:
         # Strip transient snapshot fields before persisting
         t.pop("current_price", None)
         t.pop("overnight_pct", None)
+        t.pop("price_source", None)
         new_trades.append(t)
 
     return {**strategy, "trades": new_trades, "reeval_at_open": True}
@@ -213,7 +239,8 @@ def main() -> int:
         cur_s = f"${cur:.2f}" if cur is not None else "n/a"
         ov = t.get("overnight_pct")
         ov_s = f"{ov:+.1%}" if ov is not None else "n/a"
-        print(f"  {t['symbol']}: AM entry ${t['entry_price']:.2f}, current {cur_s} ({ov_s})")
+        src = t.get("price_source", "?")
+        print(f"  {t['symbol']}: AM entry ${t['entry_price']:.2f}, current {cur_s} ({ov_s}) [{src}]")
 
     print("Asking Claude for per-ticker submit/adjust/skip verdict...")
     result = call_claude(strategy)

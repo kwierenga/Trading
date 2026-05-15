@@ -72,6 +72,10 @@ class Fundamentals:
     free_cash_flow: Optional[float]
     operating_cash_flow: Optional[float]
     dividend_yield: Optional[float]
+    # Analyst estimate revisions (60-day change in next-fiscal-year EPS estimate).
+    # Positive = analysts revising up = bullish post-earnings-announcement-drift signal.
+    # Source: yfinance Ticker.eps_trend['+1y'] row, (current - 60daysAgo) / 60daysAgo.
+    eps_estimate_60d_change: Optional[float] = None
 
 
 def latest_price(symbol: str) -> Optional[float]:
@@ -190,16 +194,47 @@ def get_technicals(symbol: str) -> Optional[Technicals]:
     )
 
 
+def _fetch_eps_estimate_60d_change(ticker) -> Optional[float]:
+    """
+    60-day change in the +1y (next fiscal year) analyst-mean EPS estimate.
+    Returns a decimal (0.05 = +5%) or None if data unavailable.
+
+    Source: yfinance Ticker.eps_trend, which gives current vs 7/30/60/90 days ago.
+    Using the +1y row because it captures structural revisions to the company's
+    earnings power — the strongest post-earnings-announcement-drift signal in
+    50+ years of academic research (Bernard & Thomas; Chordia et al).
+    """
+    try:
+        trend = ticker.eps_trend
+    except Exception:
+        return None
+    if trend is None or getattr(trend, "empty", True):
+        return None
+    if "+1y" not in trend.index:
+        return None
+    try:
+        cur = float(trend.loc["+1y", "current"])
+        prev = float(trend.loc["+1y", "60daysAgo"])
+    except (KeyError, TypeError, ValueError):
+        return None
+    if not prev or prev <= 0:
+        return None
+    return (cur - prev) / prev
+
+
 def get_fundamentals(symbol: str) -> Optional[Fundamentals]:
     """Fetch fundamental snapshot from yfinance .info."""
     try:
-        info = yf.Ticker(symbol).info
+        ticker = yf.Ticker(symbol)
+        info = ticker.info
     except Exception as e:
         print(f"  yfinance fundamentals error for {symbol}: {e}")
         return None
 
     if not info or not info.get("symbol") and not info.get("shortName"):
         return None
+
+    eps_change = _fetch_eps_estimate_60d_change(ticker)
 
     return Fundamentals(
         symbol=symbol,
@@ -220,6 +255,7 @@ def get_fundamentals(symbol: str) -> Optional[Fundamentals]:
         free_cash_flow=_safe_float(info.get("freeCashflow")),
         operating_cash_flow=_safe_float(info.get("operatingCashflow")),
         dividend_yield=_safe_float(info.get("dividendYield")),
+        eps_estimate_60d_change=eps_change,
     )
 
 
@@ -328,8 +364,17 @@ def format_snapshot_for_prompt(snap: Dict) -> str:
         lines.append(
             f"  D/E: {fmt_num(f['debt_to_equity'])}  |  FCF: {fmt_money(f['free_cash_flow'])}  |  Op CF: {fmt_money(f['operating_cash_flow'])}"
         )
+        eps_chg = f.get("eps_estimate_60d_change")
+        if eps_chg is not None:
+            arrow = "↑" if eps_chg > 0.01 else ("↓" if eps_chg < -0.01 else "→")
+            lines.append(f"  Analyst +1y EPS revision (60d): {eps_chg:+.1%} {arrow}")
 
     lines.append(f"  Quality filter: {'PASS' if q['passes'] else 'FAIL — ' + '; '.join(q['reasons'])}")
+
+    earn = snap.get("earnings") or {}
+    if earn.get("next_date"):
+        lines.append(f"  Next earnings: {earn['next_date']} ({earn.get('days_until')}d out)")
+
     return "\n".join(lines)
 
 
@@ -426,6 +471,19 @@ def _setup_score(snap: Dict) -> float:
     if op_margin is not None and op_margin > 0.20:
         score += 1
 
+    # Analyst estimate revisions (60-day change in +1y EPS forecast).
+    # Post-earnings-announcement drift is one of the most robust equity factors
+    # in academic literature — analysts revising estimates up tends to lead
+    # outperformance for 60+ days.
+    eps_chg = f.get("eps_estimate_60d_change")
+    if eps_chg is not None:
+        if eps_chg > 0.05:
+            score += 5
+        elif eps_chg > 0:
+            score += 2
+        elif eps_chg < -0.02:
+            score -= 3
+
     return score
 
 
@@ -442,18 +500,24 @@ def screen_universe(
       1. Fetch snapshot for each (cached, 24h TTL)
       2. Hard quality filter (market cap, op CF, debt, margin)
       3. Hard trend filter (exclude confirmed downtrends)
-      4. Rank survivors by setup score
-      5. Return top max_candidates
+      4. Hard earnings-proximity filter (no candidates within 7 calendar days
+         of earnings — see earnings_calendar.py)
+      5. Rank survivors by setup score
+      6. Return top max_candidates
 
     Note: 500 yfinance calls is slow on first run (~5-15 minutes). Subsequent runs
     use cache. Failed fetches are skipped silently and retried next call.
     """
+    from earnings_calendar import passes_earnings_filter, _load_cache as _load_earnings_cache, save_earnings_cache
+
     cache = {} if force_refresh else _load_snapshot_cache()
+    earnings_cache = {} if force_refresh else _load_earnings_cache()
 
     survivors = []
     quality_failures = 0
     downtrend_failures = 0
     falling_knife_failures = 0
+    earnings_failures = 0
     fetch_failures = 0
 
     n = len(tickers)
@@ -464,7 +528,7 @@ def screen_universe(
             print(
                 f"  Screening {i}/{n}  |  survivors: {len(survivors)}  |  "
                 f"q_fail: {quality_failures}  |  trend_fail: {downtrend_failures}  |  "
-                f"knife_fail: {falling_knife_failures}"
+                f"knife_fail: {falling_knife_failures}  |  earnings_fail: {earnings_failures}"
             )
 
         snap = get_snapshot_cached(sym, cache=cache)
@@ -486,15 +550,27 @@ def screen_universe(
             falling_knife_failures += 1
             continue
 
+        # Earnings-proximity filter: skip names with a binary event in the next week.
+        earn = passes_earnings_filter(sym, cache=earnings_cache)
+        snap["earnings"] = {
+            "next_date": earn.get("next_date"),
+            "days_until": earn.get("days_until"),
+        }
+        if not earn["passes"]:
+            earnings_failures += 1
+            continue
+
         survivors.append(snap)
 
     _save_snapshot_cache(cache)
+    save_earnings_cache(earnings_cache)
 
     if verbose:
         print(
             f"\n  Screen complete: {len(survivors)} survivors / {n} screened  "
             f"(quality_fail={quality_failures}, downtrend_fail={downtrend_failures}, "
-            f"falling_knife_fail={falling_knife_failures}, fetch_fail={fetch_failures})"
+            f"falling_knife_fail={falling_knife_failures}, earnings_fail={earnings_failures}, "
+            f"fetch_fail={fetch_failures})"
         )
 
     ranked = sorted(survivors, key=_setup_score, reverse=True)

@@ -1,6 +1,13 @@
 import requests
 from config import TRADING_CONFIG
 
+
+# Alpaca splits its API into a trading host (paper-api.alpaca.markets / api.alpaca.markets)
+# and a market-data host. /account, /positions, /orders live on the trading host (configured
+# via ALPACA_API_BASE_URL); /stocks/{symbol}/quotes/latest etc. live on the data host below.
+ALPACA_DATA_URL = "https://data.alpaca.markets/v2"
+
+
 class AlpacaClient:
     """Direct Alpaca API client using requests"""
 
@@ -17,6 +24,13 @@ class AlpacaClient:
         """Make GET request to Alpaca API"""
         url = f"{self.base_url}{endpoint}"
         response = requests.get(url, headers=self.headers)
+        response.raise_for_status()
+        return response.json()
+
+    def _get_data(self, endpoint):
+        """Make GET request to the Alpaca market-data API host."""
+        url = f"{ALPACA_DATA_URL}{endpoint}"
+        response = requests.get(url, headers=self.headers, timeout=10)
         response.raise_for_status()
         return response.json()
 
@@ -117,3 +131,27 @@ class AlpacaClient:
     def close_position(self, symbol):
         """Close a position for a symbol"""
         return self._delete(f'/positions/{symbol}')
+
+    def get_open_orders_for_symbol(self, symbol):
+        """
+        Return the list of open orders for `symbol`. Used by position_manager
+        to find the live take-profit and stop-loss legs of a filled bracket
+        so they can be cancelled / re-submitted on scale-out and stop raises.
+        """
+        orders = self.get_orders(status='open')
+        return [o for o in orders if (o.get('symbol') or '').upper() == symbol.upper()]
+
+    def get_latest_quote(self, symbol):
+        """
+        Real-time bid/ask quote from the Alpaca market-data API.
+
+        Returns a dict like {'bp': 195.32, 'ap': 195.35, 'bs': 100, 'as': 200,
+        't': ISO-timestamp, ...} or None on any failure (caller falls back to
+        yfinance). Used by re_evaluate.py at 09:35 ET, where yfinance prints
+        can be 15-90 minutes stale.
+        """
+        try:
+            data = self._get_data(f'/stocks/{symbol}/quotes/latest')
+            return data.get('quote')
+        except (requests.RequestException, ValueError, KeyError):
+            return None

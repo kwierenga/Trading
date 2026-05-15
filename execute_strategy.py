@@ -19,11 +19,37 @@ from pathlib import Path
 
 from alpaca_client import AlpacaClient
 from position_sizer import (
-    PositionSizer, validate_concentration,
-    MAX_POSITION_PCT, MIN_STOP_PCT, MAX_STOP_PCT,
+    PositionSizer, validate_concentration, validate_sector_concentration,
+    MAX_POSITION_PCT, MAX_PYRAMID_PCT, MAX_SECTOR_PCT, MIN_STOP_PCT, MAX_STOP_PCT,
 )
 from trade_journal import TradeJournal
 from market_data import latest_price
+
+
+# ---------------------------------------------------------------------------
+# Conviction -> position-size mapping (RECOMMENDATIONS_top10 #2)
+# Claude emits a conviction percentage on every proposed trade. Previously
+# every approved trade got the full risk-target size regardless of conviction.
+# Apply the multiplier so a 70%-conviction trade is sized smaller than a 90%-
+# conviction one, and < 60% is skipped entirely.
+# ---------------------------------------------------------------------------
+
+CONVICTION_TIERS = [
+    (80, 1.00),   # >= 80%: full size
+    (70, 0.75),   # 70-79%: 3/4 size
+    (60, 0.50),   # 60-69%: half size
+]
+MIN_CONVICTION_TO_TRADE = 60
+
+
+def conviction_size_multiplier(conviction: float) -> float:
+    """Return the sizing multiplier for a given conviction %. 0.0 means skip."""
+    if conviction is None:
+        return 0.0
+    for threshold, mult in CONVICTION_TIERS:
+        if conviction >= threshold:
+            return mult
+    return 0.0
 
 
 def load_strategy(path: str) -> dict:
@@ -75,8 +101,12 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         symbol = trade['symbol']
         direction = trade['direction']
 
+        is_pyramid = bool(trade.get('is_pyramid'))
+        trade_cap_pct = MAX_PYRAMID_PCT if is_pyramid else MAX_POSITION_PCT
+
         print("=" * 70)
-        print(f"TRADE {i}/{len(trades)}: {symbol} {direction}  [{trade.get('holding_period', '?')}]")
+        tag = f" [PYRAMID t{trade.get('tranche', '?')}]" if is_pyramid else ""
+        print(f"TRADE {i}/{len(trades)}: {symbol} {direction}  [{trade.get('holding_period', '?')}]{tag}")
         print("=" * 70)
         print(f"  Rationale:      {trade.get('rationale', '')}")
         print(f"  Entry strategy: {trade.get('entry_strategy', '')}")
@@ -120,33 +150,64 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         if stop_pct > MAX_STOP_PCT:
             print(f"  WARNING: stop {stop_pct:.1%} wider than {MAX_STOP_PCT:.0%} ceiling — single-name risk too high")
 
-        # Compute position size (risk-targeted, concentration-capped)
-        rec = sizer.calculate_for_trade(symbol, entry, stop)
+        # Conviction gate (sized down below the LLM's stated certainty)
+        conviction = float(trade.get('conviction', 0) or 0)
+        mult = conviction_size_multiplier(conviction)
+        if mult <= 0:
+            print(f"  [SKIPPING] conviction {conviction:.0f}% below {MIN_CONVICTION_TO_TRADE}% floor — too uncertain to risk capital")
+            skipped.append(symbol)
+            continue
+
+        # Compute position size (risk-targeted, concentration-capped).
+        # Pyramid trades get the relaxed 30% cap on confirmed winners.
+        rec = sizer.calculate_for_trade(symbol, entry, stop, max_position_pct=trade_cap_pct)
         if 'error' in rec or rec['recommended_shares'] <= 0:
             print(f"  ERROR: cannot size — {rec.get('error', 'zero shares recommended')}")
             skipped.append(symbol)
             continue
 
-        shares = rec['recommended_shares']
+        full_shares = rec['recommended_shares']
+        shares = int(full_shares * mult)
+        if shares <= 0:
+            print(f"  [SKIPPING] sized-down shares would round to 0 (full={full_shares}, mult={mult:.2f})")
+            skipped.append(symbol)
+            continue
         proposed_value = shares * entry
+        adjusted_position_pct = proposed_value / equity if equity > 0 else 0
+        adjusted_loss_dollars = shares * (entry - stop)
+        adjusted_loss_pct = adjusted_loss_dollars / equity if equity > 0 else 0
 
         print("\n  Sizing:")
         print(f"    Entry:  ${entry:.2f}")
         print(f"    Stop:   ${stop:.2f}  ({stop_pct:.1%} below entry)")
         print(f"    Target: ${target:.2f}  ({(target - entry) / entry:+.1%})")
-        print(f"    Shares: {shares}")
-        print(f"    Position value:  ${proposed_value:,.2f}  ({rec['position_pct']:.1%} of equity)")
-        print(f"    Risk if stopped: ${rec['expected_loss_dollars']:,.2f}  ({rec['expected_loss_pct']:.2%} of equity)")
+        if mult < 1.0:
+            print(f"    Conviction {conviction:.0f}% -> {mult:.0%} sizing  (full={full_shares} -> {shares} shares)")
+        else:
+            print(f"    Conviction {conviction:.0f}% -> full size ({shares} shares)")
+        print(f"    Position value:  ${proposed_value:,.2f}  ({adjusted_position_pct:.1%} of equity)")
+        print(f"    Risk if stopped: ${adjusted_loss_dollars:,.2f}  ({adjusted_loss_pct:.2%} of equity)")
         for w in rec.get('warnings', []):
             print(f"    WARNING: {w}")
 
-        # Concentration check (catches the case where existing same-symbol position pushes us over the cap)
-        check = validate_concentration(symbol, proposed_value, equity, positions)
+        # Per-name concentration check (catches existing same-symbol pushing us over the cap)
+        check = validate_concentration(symbol, proposed_value, equity, positions, cap_pct=trade_cap_pct)
         if not check['ok']:
             print(f"\n  CONCENTRATION CHECK FAILED: {check['reason']}")
             skipped.append(symbol)
             continue
         print(f"  Concentration check OK: {check['would_be_pct']:.1%} of equity (cap {check['cap_pct']:.0%})")
+
+        # Sector concentration check (catches the "3 names, all software" failure mode)
+        sec_check = validate_sector_concentration(symbol, proposed_value, equity, positions)
+        if not sec_check['ok']:
+            print(f"\n  SECTOR CONCENTRATION CHECK FAILED: {sec_check['reason']}")
+            skipped.append(symbol)
+            continue
+        sec_label = sec_check.get('sector') or '?'
+        pct = sec_check.get('would_be_pct')
+        pct_s = f"{pct:.1%}" if pct is not None else "n/a"
+        print(f"  Sector check OK ({sec_label}): {pct_s} of equity (cap {sec_check['cap_pct']:.0%})")
 
         if dry_run:
             print(f"\n  [DRY RUN] would place BRACKET BUY {shares} {symbol} @ ${entry:.2f}  "
@@ -179,6 +240,14 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
             print(f"  ORDER ERROR: {e}")
             skipped.append(symbol)
             continue
+
+        # Reflect the new exposure into the running positions list so subsequent
+        # trades in the same pass see the per-name and per-sector commitment.
+        positions.append({
+            'symbol': symbol,
+            'market_value': proposed_value,
+            'qty': shares,
+        })
 
         # Log the trade in our journal (compact rationale; full text already in latest_strategy.json)
         TradeJournal.log_entry(

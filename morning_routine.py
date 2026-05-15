@@ -178,6 +178,18 @@ def run_plan_phase(today_label: str) -> int:
         print(f"  Could not fetch positions: {e}")
         open_positions = []
 
+    # Pyramid candidates: scan open positions for confirmed winners that
+    # qualify for an add tranche, append to today's trade list.
+    try:
+        from pyramid import find_pyramid_candidates
+        pyramid_trades = find_pyramid_candidates(verbose=True)
+    except Exception as e:
+        print(f"  Pyramid scan failed: {e}")
+        pyramid_trades = []
+    if pyramid_trades:
+        strategy.setdefault("trades", []).extend(pyramid_trades)
+        print(f"  Appended {len(pyramid_trades)} pyramid trade(s) to today's plan.")
+
     with open(STRATEGY_PATH, "w") as f:
         json.dump(strategy, f, indent=2)
 

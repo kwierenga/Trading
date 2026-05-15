@@ -1,0 +1,161 @@
+{
+  "params": {
+    "max_concurrent_positions": 3,
+    "max_position_pct": 0.25,
+    "target_risk_per_trade": 0.015,
+    "atr_stop_multiple": 1.75,
+    "min_stop_pct": 0.04,
+    "max_stop_pct": 0.15,
+    "scale_out_fraction": 0.25,
+    "atr_trail_multiple": 1.5,
+    "setup_score_threshold": 8.0,
+    "earnings_filter": false,
+    "max_hold_days": 180
+  },
+  "in_sample": {
+    "available": true,
+    "duration_years": 8.988364134154688,
+    "initial": 100000.0,
+    "final_pre_tax": 191027.32597240154,
+    "final_post_tax": 158240.5774578976,
+    "tax_dollars": 32786.74851450395,
+    "cagr_pre_tax": 0.07466539702592434,
+    "cagr_post_tax": 0.05238608822701707,
+    "max_drawdown": 0.27496075040445267,
+    "vol_annualized": 0.11444482950981205,
+    "sharpe": 0.6869188039627507,
+    "trade_cohorts": 323,
+    "partial_exits": 564,
+    "win_rate": 0.6897163120567376,
+    "equity_curve": null,
+    "trades_count": 323
+  },
+  "out_of_sample": {
+    "available": true,
+    "duration_years": 6.992470910335387,
+    "initial": 100000.0,
+    "final_pre_tax": 98826.4636196006,
+    "final_post_tax": 88334.99295743607,
+    "tax_dollars": 10491.470662164535,
+    "cagr_pre_tax": -0.001686786829204645,
+    "cagr_post_tax": -0.0175818060693661,
+    "max_drawdown": 0.3249285775865607,
+    "vol_annualized": 0.14073510794341734,
+    "sharpe": 0.05823236163431635,
+    "trade_cohorts": 301,
+    "partial_exits": 504,
+    "win_rate": 0.6686507936507936,
+    "equity_curve": null,
+    "trades_count": 301
+  },
+  "spy_oos": {
+    "available": true,
+    "cagr": 0.17308703046902996,
+    "max_drawdown": 0.33717258165650904
+  },
+  "usmv_oos": {
+    "available": true,
+    "cagr": 0.10924177004973745,
+    "max_drawdown": 0.3309888090516779
+  },
+  "perturbations": [
+    {
+      "available": true,
+      "duration_years": 6.992470910335387,
+      "initial": 100000.0,
+      "final_pre_tax": 71994.41176752938,
+      "final_post_tax": 64843.09834809525,
+      "tax_dollars": 7151.313419434134,
+      "cagr_pre_tax": -0.04590380870147204,
+      "cagr_post_tax": -0.060072286469345815,
+      "max_drawdown": 0.4878583368034328,
+      "vol_annualized": 0.1471562421511272,
+      "sharpe": -0.24653779263578837,
+      "trade_cohorts": 378,
+      "partial_exits": 623,
+      "win_rate": 0.6436597110754414,
+      "label": "atr_stop_multiple=1.50"
+    },
+    {
+      "available": true,
+      "duration_years": 6.992470910335387,
+      "initial": 100000.0,
+      "final_pre_tax": 157379.73481189559,
+      "final_post_tax": 130338.68039827002,
+      "tax_dollars": 27041.054413625563,
+      "cagr_pre_tax": 0.06700348745803608,
+      "cagr_post_tax": 0.03862015553442366,
+      "max_drawdown": 0.3194373334436526,
+      "vol_annualized": 0.13625985400388552,
+      "sharpe": 0.5451132738897622,
+      "trade_cohorts": 246,
+      "partial_exits": 433,
+      "win_rate": 0.7020785219399538,
+      "label": "atr_stop_multiple=2.00"
+    },
+    {
+      "available": true,
+      "duration_years": 6.992470910335387,
+      "initial": 100000.0,
+      "final_pre_tax": 100265.29984965692,
+      "final_post_tax": 91200.30586892478,
+      "tax_dollars": 9064.993980732135,
+      "cagr_pre_tax": 0.00037897726821523037,
+      "cagr_post_tax": -0.01308663210662342,
+      "max_drawdown": 0.2838426536155396,
+      "vol_annualized": 0.12342191267015948,
+      "sharpe": 0.06467709995565835,
+      "trade_cohorts": 301,
+      "partial_exits": 504,
+      "win_rate": 0.6686507936507936,
+      "label": "max_position_pct=0.20"
+    },
+    {
+      "available": true,
+      "duration_years": 6.992470910335387,
+      "initial": 100000.0,
+      "final_pre_tax": 98826.4636196006,
+      "final_post_tax": 88334.99295743607,
+      "tax_dollars": 10491.470662164535,
+      "cagr_pre_tax": -0.001686786829204645,
+      "cagr_post_tax": -0.0175818060693661,
+      "max_drawdown": 0.3249285775865607,
+      "vol_annualized": 0.14073510794341734,
+      "sharpe": 0.05823236163431635,
+      "trade_cohorts": 301,
+      "partial_exits": 504,
+      "win_rate": 0.6686507936507936,
+      "label": "setup_score_threshold=10.0"
+    }
+  ],
+  "gates": {
+    "gate1_cagr_vs_spy_plus_1pct": {
+      "passed": false,
+      "strategy_cagr_net": -0.0325818060693661,
+      "spy_cagr_plus_1pct": 0.18308703046902997
+    },
+    "gate2_dd_le_80pct_spy": {
+      "passed": false,
+      "strategy_max_dd": 0.3249285775865607,
+      "spy_max_dd_x_0.8": 0.2697380653252072
+    },
+    "gate3_rolling_3y_vs_spy_55pct": {
+      "passed": false,
+      "outperform_fraction": 0.0,
+      "threshold": 0.55
+    },
+    "gate4_rolling_3y_vs_usmv_45pct": {
+      "passed": false,
+      "outperform_fraction": 0.0,
+      "threshold": 0.45
+    },
+    "gate5_param_sensitivity_le_3pct": {
+      "passed": false,
+      "cagr_spread": 0.09869244200376948,
+      "threshold": 0.03
+    },
+    "gates_passed": "0",
+    "verdict": "STOP \u2014 buy SPY+USMV blend instead"
+  },
+  "ran_at": "2026-05-13T19:12:58.061144"
+}

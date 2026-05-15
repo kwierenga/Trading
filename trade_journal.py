@@ -96,37 +96,49 @@ class TradeJournal:
             json.dump(trades, f, indent=2, default=str)
     
     @staticmethod
-    def log_entry(symbol: str, shares: int, entry_price: float, 
-                  stop_loss: float, target_price: float = None, 
+    def log_entry(symbol: str, shares: int, entry_price: float,
+                  stop_loss: float, target_price: float = None,
                   rationale: str = "", source: str = "manual") -> Dict:
         """
         Log a trade entry
-        
+
         Args:
             symbol: Stock symbol
             shares: Number of shares
             entry_price: Entry price
-            stop_loss: Stop loss price
+            stop_loss: Stop loss price (initial — preserved as `initial_stop`
+                even when position_manager raises the live stop later)
             target_price: Take profit target (optional)
             rationale: Why this trade (source: AI, support/resistance, etc)
             source: 'claude', 'manual', 'scheduled', 'strategy'
-        
+
         Returns:
             Trade record
         """
         trades = TradeJournal.load_trades()
-        
+
+        # R = entry - initial stop. The position manager scales out at +1R
+        # and +2R unrealized, then trails. R is computed once at entry time
+        # and frozen so subsequent stop raises don't change the +1R/+2R levels.
+        r_value = max(0.0, entry_price - stop_loss) if (stop_loss and entry_price) else 0.0
+
         trade = {
             'id': len(trades) + 1,
             'symbol': symbol,
             'shares': shares,
+            'original_shares': shares,
             'entry_price': entry_price,
             'entry_time': datetime.now(timezone.utc).isoformat(),
             'stop_loss': stop_loss,
+            'initial_stop': stop_loss,
+            'R': r_value,
+            'current_stop': stop_loss,
             'target_price': target_price,
             'rationale': rationale,
             'source': source,
             'status': 'open',
+            'scaled_25_at_1r': False,
+            'scaled_25_at_2r': False,
             'exit_price': None,
             'exit_time': None,
             'pnl': None,
@@ -134,10 +146,10 @@ class TradeJournal:
             'duration_minutes': None,
             'reason_exit': None
         }
-        
+
         trades.append(trade)
         TradeJournal.save_trades(trades)
-        
+
         return trade
     
     @staticmethod

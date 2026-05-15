@@ -32,3 +32,13 @@ market_snapshots_cache.json
 sp500_constituents_cache.json
 sec_company_tickers_cache.json
 form4_xml_cache/
+
+# Backtest data caches (large; Sharadar SF1 license forbids redistribution)
+backtest_cache/
+earnings_dates_cache.json
+phase0_backtest_llm_checkpoint.pkl
+phase0_backtest_llm_slice.json
+*.bak
+
+# Claude Code local config
+.claude/

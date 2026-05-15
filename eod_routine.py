@@ -18,8 +18,18 @@ import pytz
 
 from alpaca_client import AlpacaClient
 from email_notifier import send_email
+from journal_reconcile import reconcile as reconcile_journal, report_block as reconcile_report_block
+from position_manager import run_eod_pass as run_position_manager, report_block as position_report_block
+from shadow_benchmark import update_shadow, report_block as shadow_report_block
 from trade_journal import TradeJournal
 from performance_tracker import get_turnover_stats
+
+
+# Position manager safety: starts in dry-run so we can observe the planned
+# actions in the EOD email for a few days before going live. Flip to False
+# (or set POSITION_MANAGER_LIVE=true in env) once dry-run output looks right
+# on at least one full state transition (+1R or +2R event).
+POSITION_MANAGER_DRY_RUN = os.getenv("POSITION_MANAGER_LIVE", "false").lower() != "true"
 
 
 EST = pytz.timezone("America/New_York")
@@ -96,7 +106,8 @@ def build_journal_entry(equity, cash, n_positions, today_closed, open_with_statu
     return "".join(lines)
 
 
-def build_email(account, positions, today_closed, open_with_status, turnover, today_label) -> tuple:
+def build_email(account, positions, today_closed, open_with_status, turnover, today_label,
+                reconcile_report=None, shadow_report=None, position_report=None) -> tuple:
     equity = float(account.get("equity", 0))
     cash = float(account.get("cash", 0))
 
@@ -151,6 +162,18 @@ def build_email(account, positions, today_closed, open_with_status, turnover, to
 
     lines.append("→ Open JOURNAL.md and add 1-2 sentences under 'What we learned' if anything surprised you today.")
 
+    if shadow_report:
+        lines.append("")
+        lines.append(shadow_report_block(shadow_report))
+
+    if position_report:
+        lines.append("")
+        lines.append(position_report_block(position_report))
+
+    if reconcile_report:
+        lines.append("")
+        lines.append(reconcile_report_block(reconcile_report))
+
     body = "\n".join(lines)
     subject = (
         f"[Trading EOD] {today_label} — "
@@ -193,16 +216,42 @@ def main() -> int:
     equity = float(account["equity"])
     cash = float(account["cash"])
 
+    # Reconcile journal against Alpaca's filled-orders history. Must run before
+    # `trades_closed_today` / `get_open_trades_with_holding_status` so they read
+    # the corrected state. Defensive: failure here is logged but not fatal —
+    # the rest of EOD still runs.
+    try:
+        reconcile_report = reconcile_journal(write=True, verbose=False)
+    except Exception as e:
+        print(f"  Journal reconciliation failed: {e}")
+        reconcile_report = {}
+
     today_closed = trades_closed_today()
     open_with_status = TradeJournal.get_open_trades_with_holding_status()
     turnover = get_turnover_stats(period_days=30)
+
+    # Shadow benchmark (SPY 70% + USMV 30%) — measurement, not edge.
+    try:
+        shadow_report = update_shadow(strategy_equity=equity)
+    except Exception as e:
+        print(f"  Shadow benchmark update failed: {e}")
+        shadow_report = {"available": False, "reason": str(e)}
+
+    # Position manager (trail stops + scale-out at +1R/+2R). Dry-run by default.
+    try:
+        position_report = run_position_manager(dry_run=POSITION_MANAGER_DRY_RUN, verbose=False)
+    except Exception as e:
+        print(f"  Position manager pass failed: {e}")
+        position_report = {"available": False, "reason": str(e)}
 
     # Journal entry
     entry = build_journal_entry(equity, cash, len(positions), today_closed, open_with_status, today_label)
     append_to_journal(entry)
 
     # Email
-    subject, body = build_email(account, positions, today_closed, open_with_status, turnover, today_label)
+    subject, body = build_email(account, positions, today_closed, open_with_status, turnover, today_label,
+                                reconcile_report=reconcile_report, shadow_report=shadow_report,
+                                position_report=position_report)
     send_email(subject, body)
 
     print("EOD routine complete.")

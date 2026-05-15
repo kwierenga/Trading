@@ -24,7 +24,9 @@ from alpaca_client import AlpacaClient
 # Strategy constants
 # ---------------------------------------------------------------------------
 
-MAX_POSITION_PCT = 0.25         # 25% concentration cap (hard)
+MAX_POSITION_PCT = 0.25         # 25% concentration cap for fresh entries (hard)
+MAX_PYRAMID_PCT = 0.30          # 30% cap for pyramid-add tranches (already-confirmed winner = different risk profile)
+MAX_SECTOR_PCT = 0.35           # 35% per GICS sector cap (hard) — see validate_sector_concentration
 TARGET_RISK_PER_TRADE = 0.015   # 1.5% portfolio risk on a stopped-out trade (target)
 MAX_RISK_PER_TRADE = 0.02       # 2% portfolio risk on a stopped-out trade (hard cap)
 ATR_STOP_MULTIPLE = 1.75        # stop distance = 1.75 * ATR(14) by default
@@ -107,7 +109,8 @@ class PositionSizer:
 
     def calculate_for_trade(self, symbol: str, current_price: float,
                             stop_loss_price: float, atr14: Optional[float] = None,
-                            method: str = "atr") -> Dict:
+                            method: str = "atr",
+                            max_position_pct: Optional[float] = None) -> Dict:
         """
         Calculate recommended position size for a trade, honoring:
           - target ~1.5% portfolio risk on full stop hit
@@ -147,14 +150,16 @@ class PositionSizer:
         target_risk_dollars = self.account_equity * TARGET_RISK_PER_TRADE
         shares_by_risk = target_risk_dollars / risk_per_share
 
-        # Concentration cap (hard ceiling)
-        max_shares_by_concentration = (self.account_equity * MAX_POSITION_PCT) / current_price
+        # Concentration cap (hard ceiling). Pyramid adds may pass a larger cap
+        # since they're going into already-confirmed winners (different risk profile).
+        cap_pct = max_position_pct if max_position_pct is not None else MAX_POSITION_PCT
+        max_shares_by_concentration = (self.account_equity * cap_pct) / current_price
 
         if shares_by_risk > max_shares_by_concentration:
             shares = int(max_shares_by_concentration)
             warnings.append(
                 f"concentration cap binding: risk-based size ({int(shares_by_risk)}) "
-                f"exceeds 25% cap ({shares} shares = ${shares*current_price:,.0f})"
+                f"exceeds {cap_pct:.0%} cap ({shares} shares = ${shares*current_price:,.0f})"
             )
         else:
             shares = int(shares_by_risk)
@@ -188,19 +193,24 @@ def validate_concentration(
     proposed_value: float,
     account_equity: float,
     current_positions: List[Dict],
+    cap_pct: Optional[float] = None,
 ) -> Dict:
     """
-    Pre-trade check: does adding this position violate the 25% concentration cap?
+    Pre-trade check: does adding this position violate the concentration cap?
 
     Args:
         symbol: ticker being added (or added to)
         proposed_value: dollar value of NEW shares being added (entry_price * new_shares)
         account_equity: current total equity
         current_positions: list from AlpacaClient.get_positions()
+        cap_pct: override for the cap (defaults to MAX_POSITION_PCT 25%; pass
+                 MAX_PYRAMID_PCT 30% for pyramid trades on confirmed winners)
 
     Returns dict with:
       ok (bool), reason (str), would_be_pct (float), cap_pct (float)
     """
+    effective_cap = cap_pct if cap_pct is not None else MAX_POSITION_PCT
+
     existing_value = 0.0
     for p in current_positions:
         if p.get('symbol', '').upper() == symbol.upper():
@@ -210,26 +220,123 @@ def validate_concentration(
     combined_value = existing_value + proposed_value
     would_be_pct = combined_value / account_equity if account_equity > 0 else 1.0
 
-    if would_be_pct > MAX_POSITION_PCT:
+    if would_be_pct > effective_cap:
         return {
             'ok': False,
             'reason': (
                 f"{symbol} would be {would_be_pct:.1%} of equity (existing ${existing_value:,.0f} + "
-                f"new ${proposed_value:,.0f} = ${combined_value:,.0f}); cap is {MAX_POSITION_PCT:.0%}"
+                f"new ${proposed_value:,.0f} = ${combined_value:,.0f}); cap is {effective_cap:.0%}"
             ),
             'would_be_pct': would_be_pct,
-            'cap_pct': MAX_POSITION_PCT,
+            'cap_pct': effective_cap,
             'existing_value': existing_value,
             'proposed_value': proposed_value,
         }
 
     return {
         'ok': True,
-        'reason': f"{symbol} concentration OK ({would_be_pct:.1%} of equity, cap {MAX_POSITION_PCT:.0%})",
+        'reason': f"{symbol} concentration OK ({would_be_pct:.1%} of equity, cap {effective_cap:.0%})",
         'would_be_pct': would_be_pct,
-        'cap_pct': MAX_POSITION_PCT,
+        'cap_pct': effective_cap,
         'existing_value': existing_value,
         'proposed_value': proposed_value,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Sector concentration validation (RECOMMENDATIONS_top10 #6)
+# ---------------------------------------------------------------------------
+
+def _resolve_sector(symbol: str) -> Optional[str]:
+    """
+    Look up the GICS sector for `symbol`. Reads the snapshot cache first
+    (instant if the symbol was screened recently), falls back to a fresh
+    yfinance call otherwise. Returns None on any failure.
+    """
+    try:
+        from market_data import _load_snapshot_cache, get_fundamentals
+    except ImportError:
+        return None
+
+    cache = _load_snapshot_cache()
+    entry = cache.get(symbol)
+    if entry and entry.get("snapshot"):
+        fund = entry["snapshot"].get("fundamentals") or {}
+        sec = fund.get("sector")
+        if sec:
+            return sec
+
+    fund = get_fundamentals(symbol)
+    return fund.sector if fund else None
+
+
+def validate_sector_concentration(
+    symbol: str,
+    proposed_value: float,
+    account_equity: float,
+    current_positions: List[Dict],
+    sector_lookup=None,
+) -> Dict:
+    """
+    Pre-trade check: would adding `proposed_value` of `symbol` push that sector's
+    share of equity over MAX_SECTOR_PCT?
+
+    Args:
+        symbol: ticker being added
+        proposed_value: dollar value of NEW shares being added
+        account_equity: current total equity
+        current_positions: list from AlpacaClient.get_positions()
+        sector_lookup: optional callable str -> Optional[str] (e.g. for tests
+                       or to share a pre-built cache). Defaults to _resolve_sector.
+
+    Returns dict with: ok (bool), reason (str), sector (str), would_be_pct (float),
+    cap_pct (float). On sector lookup failure, returns ok=True with reason noting
+    the lookup couldn't resolve — better to allow than to block on data error,
+    since per-name concentration is still enforced separately.
+    """
+    lookup = sector_lookup or _resolve_sector
+    new_sector = lookup(symbol)
+    if not new_sector:
+        return {
+            "ok": True,
+            "reason": f"sector lookup failed for {symbol} — sector cap not enforced (per-name cap still binds)",
+            "sector": None,
+            "would_be_pct": None,
+            "cap_pct": MAX_SECTOR_PCT,
+        }
+
+    existing_by_sector: Dict[str, float] = {}
+    for p in current_positions:
+        sym = (p.get("symbol") or "").upper()
+        if not sym:
+            continue
+        sec = lookup(sym)
+        if not sec:
+            continue
+        existing_by_sector[sec] = existing_by_sector.get(sec, 0.0) + float(p.get("market_value", 0))
+
+    combined_sector_value = existing_by_sector.get(new_sector, 0.0) + proposed_value
+    would_be_pct = combined_sector_value / account_equity if account_equity > 0 else 1.0
+
+    if would_be_pct > MAX_SECTOR_PCT:
+        return {
+            "ok": False,
+            "reason": (
+                f"{new_sector} sector would be {would_be_pct:.1%} of equity "
+                f"(existing ${existing_by_sector.get(new_sector, 0.0):,.0f} + new ${proposed_value:,.0f} "
+                f"= ${combined_sector_value:,.0f}); cap is {MAX_SECTOR_PCT:.0%}"
+            ),
+            "sector": new_sector,
+            "would_be_pct": would_be_pct,
+            "cap_pct": MAX_SECTOR_PCT,
+        }
+
+    return {
+        "ok": True,
+        "reason": f"{new_sector} sector concentration OK ({would_be_pct:.1%} of equity, cap {MAX_SECTOR_PCT:.0%})",
+        "sector": new_sector,
+        "would_be_pct": would_be_pct,
+        "cap_pct": MAX_SECTOR_PCT,
     }
 
 

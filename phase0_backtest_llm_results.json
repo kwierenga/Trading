@@ -1,0 +1,67 @@
+{
+  "params": {
+    "max_concurrent_positions": 3,
+    "max_position_pct": 0.25,
+    "target_risk_per_trade": 0.015,
+    "atr_stop_multiple": 1.75,
+    "min_stop_pct": 0.04,
+    "max_stop_pct": 0.15,
+    "scale_out_fraction": 0.25,
+    "atr_trail_multiple": 1.5,
+    "setup_score_threshold": 8.0,
+    "earnings_filter": false,
+    "max_hold_days": 180
+  },
+  "stats": {
+    "available": true,
+    "duration_years": 6.992470910335387,
+    "initial": 100000.0,
+    "final_pre_tax": 124477.69593401064,
+    "final_post_tax": 50284.480466901456,
+    "tax_dollars": 74193.21546710918,
+    "cagr_pre_tax": 0.03180857510996904,
+    "cagr_post_tax": -0.09363780167133995,
+    "max_drawdown": 0.18271387831600894,
+    "vol_annualized": 0.1295190327916294,
+    "sharpe": 0.3070706133714294,
+    "trade_cohorts": 299,
+    "partial_exits": 517,
+    "win_rate": 0.7001934235976789
+  },
+  "gates": {
+    "gate1_cagr_vs_spy_plus_1pct": {
+      "passed": "False",
+      "strategy_cagr_net": -0.10863780167133995,
+      "spy_cagr_plus_1pct": 0.18308703046902997
+    },
+    "gate2_dd_le_80pct_spy": {
+      "passed": "True",
+      "strategy_max_dd": 0.18271387831600894,
+      "spy_max_dd_x_0.8": 0.2697380653252072
+    },
+    "gate3_rolling_3y_vs_spy_55pct": {
+      "passed": false,
+      "outperform_fraction": 0.0,
+      "threshold": 0.55
+    },
+    "gate4_rolling_3y_vs_usmv_45pct": {
+      "passed": false,
+      "outperform_fraction": 0.0,
+      "threshold": 0.45
+    },
+    "gate5_param_sensitivity_le_3pct": {
+      "passed": null,
+      "note": "Not run for LLM backtest (cost prohibitive). Rules-based run already failed this gate."
+    }
+  },
+  "gates_passed_of_evaluable": "0/4",
+  "verdict": "STOP -- $3k to SPY+USMV blend",
+  "cost_tracker": {
+    "total_usd": 13.331232000000005,
+    "calls": 353,
+    "aborted": false
+  },
+  "spy_cagr_oos": 0.17308703046902996,
+  "usmv_cagr_oos": 0.10924177004973745,
+  "ran_at": "2026-05-15T01:15:02.955527"
+}
