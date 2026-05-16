@@ -35,8 +35,22 @@ He explicitly accepts:
 
 - **US-listed stocks only.** No options, futures, leverage beyond 2x reg-T margin, or
   shorting unless Klaas explicitly requests them.
-- **Universe: S&P 500.** Candidates come from `sp500_universe.py`. No micro-caps, no
-  OTC, no foreign listings.
+- **Universe (UPDATED 2026-05-15 — was S&P 500).** Klaas explicitly relaxed the
+  S&P-500-only constraint after the Phase-0 work showed the quality-value style is
+  structurally mismatched to a cap-weighted mega-cap benchmark and that its edge
+  historically lives in smaller-mid caps. **Locked spec v2** (do not tune to make a
+  backtest pass — pick by principle, run OOS once):
+  - Static: Sharadar `category` ∈ {Domestic Common Stock, Domestic Common Stock
+    Primary Class}, `exchange` ∈ {NASDAQ, NYSE, NYSEMKT}, `currency` = USD,
+    include delisted (survivorship-safe). Still no ADRs/foreign/OTC.
+  - Per-date point-in-time: market cap > $1.0B, trailing-20d avg daily dollar
+    volume > $5.0M, plus the unchanged hard quality filter.
+  - `sp500_universe.py` is retained for the live paper system until a broad-universe
+    iteration clears the $3k-ready gate; the backtest harnesses use the broad set.
+  - **Survivorship caveat**: the directional probe uses yfinance prices, which omit
+    most delisted names → optimistically biased, *cannot gate real money*. A clean
+    gating run requires Sharadar SEP (prices) or reverting to S&P-500-only. See
+    `memory/trading_optimization_project.md`.
 
 ---
 

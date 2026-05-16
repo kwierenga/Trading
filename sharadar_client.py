@@ -75,12 +75,18 @@ def _fetch_table(endpoint: str, **params) -> pd.DataFrame:
 
 
 def fetch_sf1_for_universe(tickers: List[str], start_date: str, end_date: str,
-                            refresh: bool = False) -> pd.DataFrame:
-    """Bulk-fetch SF1 ARQ rows for `tickers` with datekey in [start, end]."""
+                            refresh: bool = False,
+                            cache_path: "Optional[Path]" = None) -> pd.DataFrame:
+    """Bulk-fetch SF1 ARQ rows for `tickers` with datekey in [start, end].
+
+    `cache_path` lets callers keep separate caches (e.g. S&P-500 vs broad
+    universe) so one download doesn't overwrite the other.
+    """
+    cache = cache_path if cache_path is not None else SF1_CACHE
     CACHE_DIR.mkdir(exist_ok=True)
-    if SF1_CACHE.exists() and not refresh:
-        df = pd.read_pickle(SF1_CACHE)
-        print(f"  Loaded SF1 from cache: {len(df):,} rows, {df['ticker'].nunique()} tickers")
+    if cache.exists() and not refresh:
+        df = pd.read_pickle(cache)
+        print(f"  Loaded SF1 from cache: {len(df):,} rows, {df['ticker'].nunique()} tickers ({cache.name})")
         return df
 
     print(f"  Fetching SF1 for {len(tickers)} tickers, {start_date}..{end_date}")
@@ -103,8 +109,8 @@ def fetch_sf1_for_universe(tickers: List[str], start_date: str, end_date: str,
     if not full.empty:
         full["datekey"] = pd.to_datetime(full["datekey"])
         full["calendardate"] = pd.to_datetime(full["calendardate"])
-    full.to_pickle(SF1_CACHE)
-    print(f"  Cached {len(full):,} rows to {SF1_CACHE.name}")
+    full.to_pickle(cache)
+    print(f"  Cached {len(full):,} rows to {cache.name}")
     return full
 
 

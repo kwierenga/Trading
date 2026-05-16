@@ -1,0 +1,112 @@
+{
+  "in_sample": {
+    "label": "IN-SAMPLE 2010-2018",
+    "rows": [
+      {
+        "mode": "buyhold_spy",
+        "cagr_pre": 0.1141489656064032,
+        "cagr_post": 0.10208045209636385,
+        "max_dd": 0.1934894263692765,
+        "tax": 24638.44116989196,
+        "final_pre": 264206.2744659464,
+        "n_realizations": 1
+      },
+      {
+        "mode": "regime",
+        "cagr_pre": 0.09103433140858064,
+        "cagr_post": 0.08007062945164356,
+        "max_dd": 0.20829079727490488,
+        "tax": 18990.337270182914,
+        "final_pre": 218829.29811915683,
+        "n_realizations": 12
+      },
+      {
+        "mode": "buyhold_tlh",
+        "cagr_pre": 0.11434111953583859,
+        "cagr_post": 0.10225137722712607,
+        "max_dd": 0.203040901349301,
+        "tax": 24714.122389139582,
+        "final_pre": 264616.12828014937,
+        "n_realizations": 2
+      },
+      {
+        "mode": "regime_tlh",
+        "cagr_pre": 0.09331891812660009,
+        "cagr_post": 0.08199043858721633,
+        "max_dd": 0.21635821858723264,
+        "tax": 19928.08264343323,
+        "final_pre": 222982.56820245413,
+        "n_realizations": 13
+      },
+      {
+        "mode": "spy_usmv",
+        "cagr_pre": NaN,
+        "cagr_post": NaN,
+        "max_dd": NaN,
+        "tax": 0.0,
+        "final_pre": NaN,
+        "n_realizations": 1
+      }
+    ],
+    "gate": {
+      "g1_post_vs_buyhold": "False",
+      "g2_drawdown": false,
+      "g3_tlh_positive": "True"
+    }
+  },
+  "out_of_sample": {
+    "label": "OUT-OF-SAMPLE 2019-2025 (the one that counts)",
+    "rows": [
+      {
+        "mode": "buyhold_spy",
+        "cagr_pre": 0.17300310752339887,
+        "cagr_post": 0.15530038997898044,
+        "max_dd": 0.3371726642847273,
+        "tax": 30786.21922282381,
+        "final_pre": 305191.46148549207,
+        "n_realizations": 1
+      },
+      {
+        "mode": "regime",
+        "cagr_pre": 0.11529266868969401,
+        "cagr_post": 0.09488414318192717,
+        "max_dd": 0.24948688443923153,
+        "tax": 25982.581681940675,
+        "final_pre": 214469.3012923717,
+        "n_realizations": 17
+      },
+      {
+        "mode": "buyhold_tlh",
+        "cagr_pre": 0.17300310752339887,
+        "cagr_post": 0.15530038997898044,
+        "max_dd": 0.3371726642847273,
+        "tax": 30786.21922282381,
+        "final_pre": 305191.46148549207,
+        "n_realizations": 1
+      },
+      {
+        "mode": "regime_tlh",
+        "cagr_pre": 0.11529266868969401,
+        "cagr_post": 0.09488414318192717,
+        "max_dd": 0.24948688443923153,
+        "tax": 25982.581681940675,
+        "final_pre": 214469.3012923717,
+        "n_realizations": 17
+      },
+      {
+        "mode": "spy_usmv",
+        "cagr_pre": 0.15606648001434098,
+        "cagr_post": 0.13957427652381038,
+        "max_dd": 0.3350990331794855,
+        "tax": 26352.019053657237,
+        "final_pre": 275680.1270243816,
+        "n_realizations": 1
+      }
+    ],
+    "gate": {
+      "g1_post_vs_buyhold": "False",
+      "g2_drawdown": true,
+      "g3_tlh_positive": "False"
+    }
+  }
+}

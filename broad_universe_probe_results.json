@@ -1,0 +1,213 @@
+{
+  "result": {
+    "cagr_pre": -0.02825577625944775,
+    "cagr_post": -0.03159412297531905,
+    "cagr_post_haircut": -0.04659412297531905,
+    "max_dd": 0.43896537909049166,
+    "trades": 288,
+    "tax": 1945.8075010651696
+  },
+  "spy_cagr": 0.17308703046902996,
+  "survivorship_gap": {
+    "by_date": [
+      {
+        "date": "2019-01-02",
+        "sf1_qualifying": 2051,
+        "yfinance_has": 1138,
+        "missing": 913,
+        "missing_pct": 44.5
+      },
+      {
+        "date": "2019-04-03",
+        "sf1_qualifying": 2062,
+        "yfinance_has": 1145,
+        "missing": 917,
+        "missing_pct": 44.5
+      },
+      {
+        "date": "2019-07-03",
+        "sf1_qualifying": 2079,
+        "yfinance_has": 1152,
+        "missing": 927,
+        "missing_pct": 44.6
+      },
+      {
+        "date": "2019-10-02",
+        "sf1_qualifying": 2100,
+        "yfinance_has": 1165,
+        "missing": 935,
+        "missing_pct": 44.5
+      },
+      {
+        "date": "2020-01-02",
+        "sf1_qualifying": 2111,
+        "yfinance_has": 1169,
+        "missing": 942,
+        "missing_pct": 44.6
+      },
+      {
+        "date": "2020-04-02",
+        "sf1_qualifying": 2117,
+        "yfinance_has": 1170,
+        "missing": 947,
+        "missing_pct": 44.7
+      },
+      {
+        "date": "2020-07-02",
+        "sf1_qualifying": 2124,
+        "yfinance_has": 1175,
+        "missing": 949,
+        "missing_pct": 44.7
+      },
+      {
+        "date": "2020-10-01",
+        "sf1_qualifying": 2158,
+        "yfinance_has": 1190,
+        "missing": 968,
+        "missing_pct": 44.9
+      },
+      {
+        "date": "2020-12-31",
+        "sf1_qualifying": 2200,
+        "yfinance_has": 1215,
+        "missing": 985,
+        "missing_pct": 44.8
+      },
+      {
+        "date": "2021-04-05",
+        "sf1_qualifying": 2245,
+        "yfinance_has": 1242,
+        "missing": 1003,
+        "missing_pct": 44.7
+      },
+      {
+        "date": "2021-07-02",
+        "sf1_qualifying": 2295,
+        "yfinance_has": 1263,
+        "missing": 1032,
+        "missing_pct": 45.0
+      },
+      {
+        "date": "2021-10-01",
+        "sf1_qualifying": 2377,
+        "yfinance_has": 1313,
+        "missing": 1064,
+        "missing_pct": 44.8
+      },
+      {
+        "date": "2021-12-31",
+        "sf1_qualifying": 2433,
+        "yfinance_has": 1343,
+        "missing": 1090,
+        "missing_pct": 44.8
+      },
+      {
+        "date": "2022-04-01",
+        "sf1_qualifying": 2442,
+        "yfinance_has": 1350,
+        "missing": 1092,
+        "missing_pct": 44.7
+      },
+      {
+        "date": "2022-07-05",
+        "sf1_qualifying": 2448,
+        "yfinance_has": 1355,
+        "missing": 1093,
+        "missing_pct": 44.6
+      },
+      {
+        "date": "2022-10-03",
+        "sf1_qualifying": 2451,
+        "yfinance_has": 1355,
+        "missing": 1096,
+        "missing_pct": 44.7
+      },
+      {
+        "date": "2023-01-03",
+        "sf1_qualifying": 2456,
+        "yfinance_has": 1358,
+        "missing": 1098,
+        "missing_pct": 44.7
+      },
+      {
+        "date": "2023-04-04",
+        "sf1_qualifying": 2462,
+        "yfinance_has": 1363,
+        "missing": 1099,
+        "missing_pct": 44.6
+      },
+      {
+        "date": "2023-07-06",
+        "sf1_qualifying": 2466,
+        "yfinance_has": 1366,
+        "missing": 1100,
+        "missing_pct": 44.6
+      },
+      {
+        "date": "2023-10-04",
+        "sf1_qualifying": 2476,
+        "yfinance_has": 1375,
+        "missing": 1101,
+        "missing_pct": 44.5
+      },
+      {
+        "date": "2024-01-04",
+        "sf1_qualifying": 2487,
+        "yfinance_has": 1383,
+        "missing": 1104,
+        "missing_pct": 44.4
+      },
+      {
+        "date": "2024-04-05",
+        "sf1_qualifying": 2496,
+        "yfinance_has": 1389,
+        "missing": 1107,
+        "missing_pct": 44.4
+      },
+      {
+        "date": "2024-07-08",
+        "sf1_qualifying": 2506,
+        "yfinance_has": 1395,
+        "missing": 1111,
+        "missing_pct": 44.3
+      },
+      {
+        "date": "2024-10-04",
+        "sf1_qualifying": 2520,
+        "yfinance_has": 1403,
+        "missing": 1117,
+        "missing_pct": 44.3
+      },
+      {
+        "date": "2025-01-06",
+        "sf1_qualifying": 2531,
+        "yfinance_has": 1412,
+        "missing": 1119,
+        "missing_pct": 44.2
+      },
+      {
+        "date": "2025-04-08",
+        "sf1_qualifying": 2542,
+        "yfinance_has": 1417,
+        "missing": 1125,
+        "missing_pct": 44.3
+      },
+      {
+        "date": "2025-07-10",
+        "sf1_qualifying": 2548,
+        "yfinance_has": 1421,
+        "missing": 1127,
+        "missing_pct": 44.2
+      },
+      {
+        "date": "2025-10-08",
+        "sf1_qualifying": 2568,
+        "yfinance_has": 1437,
+        "missing": 1131,
+        "missing_pct": 44.0
+      }
+    ],
+    "avg_missing_pct": 44.6
+  },
+  "verdict": "WEAK \u2014 even biased-up it doesn't beat SPY; expansion likely dead"
+}

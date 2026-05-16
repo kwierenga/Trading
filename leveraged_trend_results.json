@@ -1,0 +1,76 @@
+{
+  "in_sample": [
+    {
+      "strategy": "buyhold_SPY",
+      "cagr_pre": 0.1142109097874282,
+      "cagr_post": 0.10214172841115898,
+      "max_dd": 0.19348899002904804,
+      "switches": 1,
+      "final_pre": 264338.33634848247
+    },
+    {
+      "strategy": "trend_SSO",
+      "cagr_pre": 0.1697361638251842,
+      "cagr_post": 0.1530709721297041,
+      "max_dd": 0.38509787159886816,
+      "switches": 12,
+      "final_pre": 409259.70783665037
+    },
+    {
+      "strategy": "trend_UPRO",
+      "cagr_pre": 0.23423340413377658,
+      "cagr_post": 0.21485526506236163,
+      "max_dd": 0.5232949678251342,
+      "switches": 12,
+      "final_pre": 662997.9412571556
+    },
+    {
+      "strategy": "buyhold_SSO",
+      "cagr_pre": 0.1944745320405068,
+      "cagr_post": 0.177661413138672,
+      "max_dd": 0.3656604305424431,
+      "switches": 1,
+      "final_pre": 493962.5563074922
+    }
+  ],
+  "out_of_sample": [
+    {
+      "strategy": "buyhold_SPY",
+      "cagr_pre": 0.17308701906047563,
+      "cagr_post": 0.1553830345267766,
+      "max_dd": 0.3371727136342999,
+      "switches": 1,
+      "final_pre": 305344.15431672736
+    },
+    {
+      "strategy": "trend_SSO",
+      "cagr_pre": 0.15702320198045827,
+      "cagr_post": 0.13192256784553802,
+      "max_dd": 0.45998427571451767,
+      "switches": 16,
+      "final_pre": 277279.37600420596
+    },
+    {
+      "strategy": "trend_UPRO",
+      "cagr_pre": 0.20049256105690283,
+      "cagr_post": 0.16974682739965097,
+      "max_dd": 0.6167371938684977,
+      "switches": 16,
+      "final_pre": 358854.8401327377
+    },
+    {
+      "strategy": "buyhold_SSO",
+      "cagr_pre": 0.26728365251826025,
+      "cagr_post": 0.24404801139375598,
+      "max_dd": 0.5934106930921768,
+      "switches": 1,
+      "final_pre": 524013.2667158405
+    }
+  ],
+  "gate": {
+    "g1": false,
+    "g2": true,
+    "g3": true,
+    "passed": 2
+  }
+}

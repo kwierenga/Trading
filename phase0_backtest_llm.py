@@ -727,14 +727,12 @@ def compute_run_stats(result: Dict, initial: float = INITIAL_CAPITAL) -> Dict:
     years = (end_d - start_d).days / 365.25
     cagr_pre = (final_pre / initial) ** (1 / years) - 1 if years > 0 else 0
 
-    # Tax model: 32% STCG / 15% LTCG per partial exit
-    tax = 0.0
-    for tr in trades:
-        for exit in tr.exits:
-            held_days = (date.fromisoformat(exit["date"]) - date.fromisoformat(tr.entry_date)).days
-            rate = LTCG_TAX_RATE if held_days >= LTCG_DAYS else STCG_TAX_RATE
-            if exit["pnl"] > 0:
-                tax += exit["pnl"] * rate
+    # Tax model: delegate to the rules-based harness's apply_tax, which does
+    # proper US year-bucketed loss-netting + carryforward. (Earlier this file
+    # used a crude "tax every positive exit" model that overstated tax ~7x and
+    # produced a spurious -9.4% post-tax CAGR — corrected 2026-05-15.)
+    from phase0_backtest import apply_tax
+    tax = apply_tax(trades)
     final_post = final_pre - tax
     cagr_post = (final_post / initial) ** (1 / years) - 1 if (years > 0 and final_post > 0) else -1
 
