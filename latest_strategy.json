@@ -1,5 +1,21 @@
 {
-  "analysis": "PORTFOLIO ASSESSMENT: The portfolio carries five open positions at the upper bound of the 3-5 concentration target, and critically, cash is negative (-$38,966) meaning the account is already running on margin. Adding new positions would layer additional margin onto an already leveraged book. That alone argues strongly for patience over action. EXISTING POSITIONS: APP (+9.8%) is working well and remains in the screened universe as an uptrend basing candidate \u2014 hold and let it run. MSFT (+1.9%) and V (+2.4%) are both in the screened universe with clean basing setups \u2014 hold. MCO (-2.8%) and UBER (-0.24%) are NOT in the screened candidate list, meaning they failed the quality-or-trend filter. MCO in particular is a quality business but may be trending poorly; UBER has weak fundamentals by these filters. These two are the portfolio's weakest links and the most logical source of capital recycling. CANDIDATE REVIEW: The two most compelling NEW setups are AMP (Ameriprise \u2014 fwd P/E 9.88, ROE 66.9%, FCF yield ~8%, basing at 37% of 52w range) and CI (Cigna \u2014 fwd P/E 8.49, PEG 0.85, FCF yield ~9.2%, basing at 49% of range). Both are genuinely cheap, high-quality businesses in Stage 1-to-2 transition territory. However, neither has a confirmed uptrend (SMA50 slopes are flat-to-negative), and both would require margin deployment given negative cash. The strategy is explicit: forcing trades is the enemy. Cash \u2014 or in this case, reducing margin \u2014 is a position. RECOMMENDATION: Hold APP, MSFT, V. Monitor MCO and UBER for thesis-break exits to reduce margin and free capital for higher-conviction redeployment into AMP or CI once (a) margin normalizes and (b) uptrend confirmation arrives on the candidates. Zero new trades today.",
-  "confidence_target_pct": 38,
-  "trades": []
+  "analysis": "Portfolio is fully committed at maximum position count (5 of 5) and is already running on margin (cash: -$38,966, positions totaling ~$141,714 vs. $102,748 equity). Adding any new position would deepen leverage in a portfolio with a 0% win rate and a recent stop-hit on ADSK. The prudent action is to let current positions work. On the positive side: APP (+8.2%), MSFT (+2.8%), and V (+4.4%) are trending in the right direction; MCO (-0.4%) and UBER (+0.1%) are essentially flat but not at stop levels. Scanning the screened candidates, the highest-momentum names (MU, AMAT, EOG, FIX, HWM, WDC) are all at 85-90%+ of their 52-week range and 20-120% above SMA200 \u2014 explicitly excluded by Rule 2 as extended late-cycle entries. Remaining basing candidates (IQV, ADP, AON, ZBRA) are mixed/sideways with negative SMA50 slopes, not yet showing Stage 2 confirmation. SNPS and ADSK both have earnings in ~9-10 days \u2014 high binary risk. AMP is the most interesting non-held candidate (P/E 11.7, ROE 67%, 37% of 52w range) but SMA50 slope is still negative (-0.9%) and trend is MIXED \u2014 not yet a confirmed base breakout. Bottom line: no new setup meets both the fundamental AND technical criteria simultaneously today. Protect margin, let winners run, and wait for cleaner entries. Cash discipline is the edge here.",
+  "confidence_target_pct": 40,
+  "trades": [
+    {
+      "symbol": "APP",
+      "direction": "BUY",
+      "entry_price": 494.84,
+      "stop_loss": 468.43,
+      "target": 593.81,
+      "conviction": 75,
+      "holding_period": "swing",
+      "risk_reward_ratio": 3.7474441499432065,
+      "rationale": "PYRAMID tranche 2: original lot held 10d at +8.2%; price $492.38 > SMA20 $470.45; adding $9,897 (20 sh) with combined break-even stop at $468.43.",
+      "entry_strategy": "Limit @ $494.84 (current +0.5%)",
+      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
+      "is_pyramid": true,
+      "tranche": 2
+    }
+  ]
 }
