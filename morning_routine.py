@@ -151,6 +151,15 @@ def build_email(strategy: dict, open_positions: list, today_label: str) -> tuple
         lines.append("  to main before 09:35 ET, OR disable execute.yml in GitHub Actions.")
         lines.append("=" * 60)
 
+    # Deploy-discipline footer: makes the live commit visible every day so a
+    # local-vs-cloud drift (see CLAUDE.md DEPLOY DISCIPLINE) can't hide for
+    # 10 days again. Stale SHA across days = alarm.
+    sha = os.getenv("GITHUB_SHA", "")
+    ref = os.getenv("GITHUB_REF_NAME", "") or "main"
+    if sha:
+        lines.append("")
+        lines.append(f"[deployed {ref}@{sha[:7]}]")
+
     body = "\n".join(lines)
     action_hint = "auto-exec at 09:35 ET" if trades else "cash"
     subject = f"[Trading AM] {today_label} — {len(trades)} setup(s) — {action_hint}" if trades \

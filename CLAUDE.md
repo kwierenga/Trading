@@ -7,6 +7,16 @@ will eventually govern real-money trading — don't relax them just because it's
 For learning that accumulates over time (observations, lessons, open hypotheses), see
 the memory directory at `~/.claude/projects/c--Users-klaas-Trading/memory/`.
 
+> **DEPLOY DISCIPLINE — check at the start of every session.** The cloud
+> routines run `origin/main`, NOT this laptop. Local commits do **not**
+> auto-deploy. Run `git fetch && git log --oneline origin/main..HEAD` (local
+> work not yet live) and `git log --oneline HEAD..origin/main` (cloud work not
+> yet local). A non-empty first list means improvements are written but the
+> live system is still running old code — reconcile before assuming a fix is
+> in effect. (This gap silently ran 2026-05-08 code in production for 10 days;
+> see `memory/trading_observations.md` 2026-05-18.) The AM email footer prints
+> the deployed `main@<sha>` — if it's stale for days, that's the alarm.
+
 For the day-to-day log Klaas reads each morning, see [JOURNAL.md](JOURNAL.md) at repo
 root. **Read it at the start of every session.** Append a new entry at the start of
 each working session OR at end-of-day, summarizing notable events. Format: 4 sections
