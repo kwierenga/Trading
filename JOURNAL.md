@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [AM] 2026-05-18 Monday
+**Open questions.** Screen produced no high-conviction setups today — is the market broadly extended, or are filters too tight? What would have to change for a setup to emerge tomorrow? With 5 open position(s), are any approaching their stops or targets? 
+**Today's plan.** Hold cash today — no high-conviction setups passed the screen. Patience is a position. Monitor 5 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
+
+---
+
 ## [WEEK] 2026-05-05 → 2026-05-17
 
 **What worked / what didn't.** There are no closed trades this week, so there is nothing to score on execution or exit discipline. What is visible is position-level divergence: APP is carrying real unrealized gain (+9.8%) while MCO has drifted meaningfully negative (-3.6%), and UBER is essentially flat after what is presumably meaningful time in the position (+0.1%). The screen produced no new entries, and Klaas held cash rather than forcing a trade — that decision cannot be evaluated as right or wrong yet, but it was at least internally consistent with stated rules.
@@ -20,10 +26,4 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 **Reflective prompts for Klaas.** On MCO specifically: what was the original thesis, and has any piece of it changed, or is the -3.6% purely price action against an intact fundamental view? On the margin: was the decision to run negative cash deliberate and sized against a specific risk framework, or did it accumulate position by position without an explicit ceiling being set? And on the blank EOD entry: when a day produces no trades and no surprises, is "nothing happened" itself a data point worth capturing — and if so, what would you have written?
 
-
----
-
-## [EOD] 2026-05-15 Friday
-**What happened.** No trades closed today. End equity $101,124, cash $-38,966 (-39% of equity), 5 open position(s). 
-**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
 
