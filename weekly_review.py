@@ -30,6 +30,7 @@ from trade_journal import TradeJournal
 
 EST = pytz.timezone("America/New_York")
 JOURNAL_PATH = Path("JOURNAL.md")
+WEEKLY_SUMMARY_FILE = Path("weekly_summary.json")
 
 
 def journal_entries_in_window(start: datetime, end: datetime) -> str:
@@ -153,6 +154,21 @@ def append_to_journal(week_label: str, summary: str) -> None:
     JOURNAL_PATH.write_text(new_text, encoding="utf-8")
 
 
+def append_weekly_summary(summary: dict) -> None:
+    try:
+        if WEEKLY_SUMMARY_FILE.exists():
+            with open(WEEKLY_SUMMARY_FILE, 'r', encoding='utf-8') as f:
+                history = json.load(f)
+        else:
+            history = []
+    except (OSError, json.JSONDecodeError):
+        history = []
+
+    history.append(summary)
+    with open(WEEKLY_SUMMARY_FILE, 'w', encoding='utf-8') as f:
+        json.dump(history, f, indent=2, default=str)
+
+
 def main() -> int:
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -256,6 +272,29 @@ def main() -> int:
 
     # Journal entry: just the synthesis (Klaas adds reflection by hand)
     append_to_journal(week_label, synthesis)
+    try:
+        summary_record = {
+            'week_label': week_label,
+            'timestamp': datetime.now(timezone.utc).isoformat(),
+            'equity': equity,
+            'cash': cash,
+            'open_positions': len(positions),
+            'closed_trades': [
+                {
+                    'symbol': t['symbol'],
+                    'pnl': t.get('pnl', 0),
+                    'pnl_pct': t.get('pnl_pct', 0),
+                    'reason_exit': t.get('reason_exit', ''),
+                    'duration_minutes': t.get('duration_minutes', 0),
+                }
+                for t in closed
+            ],
+            'synthesis': synthesis,
+        }
+        append_weekly_summary(summary_record)
+    except (KeyError, ValueError, TypeError, OSError) as e:
+        print(f"  Failed to persist weekly summary: {e}")
+
     print("Weekly review complete.")
     return 0
 

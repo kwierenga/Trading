@@ -22,7 +22,7 @@ from journal_reconcile import reconcile as reconcile_journal, report_block as re
 from position_manager import run_eod_pass as run_position_manager, report_block as position_report_block
 from shadow_benchmark import update_shadow, report_block as shadow_report_block
 from trade_journal import TradeJournal
-from performance_tracker import get_turnover_stats
+from performance_tracker import get_turnover_stats, save_snapshot
 
 
 # Position manager safety: starts in dry-run so we can observe the planned
@@ -34,6 +34,7 @@ POSITION_MANAGER_DRY_RUN = os.getenv("POSITION_MANAGER_LIVE", "false").lower() !
 
 EST = pytz.timezone("America/New_York")
 JOURNAL_PATH = Path("JOURNAL.md")
+DAILY_REPORT_FILE = Path("daily_report.json")
 
 
 def is_us_trading_day() -> bool:
@@ -54,6 +55,21 @@ def append_to_journal(entry_text: str) -> None:
 
     new_text = parts[0] + marker + entry_text + "\n\n" + marker + parts[1]
     JOURNAL_PATH.write_text(new_text, encoding="utf-8")
+
+
+def append_daily_report(report: dict) -> None:
+    try:
+        if DAILY_REPORT_FILE.exists():
+            with open(DAILY_REPORT_FILE, 'r', encoding='utf-8') as f:
+                history = json.load(f)
+        else:
+            history = []
+    except (OSError, json.JSONDecodeError):
+        history = []
+
+    history.append(report)
+    with open(DAILY_REPORT_FILE, 'w', encoding='utf-8') as f:
+        json.dump(history, f, indent=2, default=str)
 
 
 def trades_closed_today() -> list:
@@ -253,6 +269,54 @@ def main() -> int:
                                 reconcile_report=reconcile_report, shadow_report=shadow_report,
                                 position_report=position_report)
     send_email(subject, body)
+
+    # Persist daily report and portfolio snapshot for tracking. Reuse the
+    # account/positions already fetched above rather than re-querying Alpaca
+    # via get_portfolio_snapshot() (which spins up a second AlpacaClient).
+    try:
+        report = {
+            'timestamp': datetime.now(timezone.utc).isoformat(),
+            'date': today.strftime('%Y-%m-%d'),
+            'equity': equity,
+            'cash': cash,
+            'positions': len(positions),
+            'closed_trades': [
+                {
+                    'symbol': t['symbol'],
+                    'pnl': t.get('pnl', 0),
+                    'pnl_pct': t.get('pnl_pct', 0),
+                    'reason_exit': t.get('reason_exit', ''),
+                    'duration_minutes': t.get('duration_minutes', 0),
+                }
+                for t in today_closed
+            ],
+            'turnover': turnover,
+            'shadow_report': shadow_report,
+            'position_manager': position_report,
+        }
+        snapshot = {
+            'timestamp': datetime.now(timezone.utc).isoformat(),
+            'account': {
+                'equity': equity,
+                'buying_power': float(account.get('buying_power', 0)),
+                'cash': cash,
+                'status': account.get('status', ''),
+            },
+            'positions': [
+                {
+                    'symbol': p['symbol'],
+                    'qty': float(p['qty']),
+                    'avg_entry_price': float(p['avg_entry_price']),
+                    'current_price': float(p.get('current_price', 0)),
+                    'unrealized_pl': float(p['unrealized_pl']),
+                }
+                for p in positions
+            ],
+        }
+        append_daily_report(report)
+        save_snapshot(snapshot)
+    except (KeyError, ValueError, TypeError, OSError) as e:
+        print(f"  Failed to persist daily report/snapshot: {e}")
 
     print("EOD routine complete.")
     return 0
