@@ -106,5 +106,23 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 7,
+    "symbol": "MCO",
+    "shares": 56,
+    "entry_price": 445.098572,
+    "entry_time": "2026-05-13T13:34:04.890231Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "",
+    "source": "alpaca_reconciled",
+    "status": "open",
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]

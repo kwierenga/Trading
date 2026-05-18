@@ -12,6 +12,36 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [EOD] 2026-05-18 Monday
+**What happened.** No trades closed today. End equity $102,698, cash $-38,966 (-38% of equity), 5 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+
+---
+
+## [AM] 2026-05-18 Monday
+**Open questions.** Screen produced no high-conviction setups today — is the market broadly extended, or are filters too tight? What would have to change for a setup to emerge tomorrow? With 5 open position(s), are any approaching their stops or targets? 
+**Today's plan.** Hold cash today — no high-conviction setups passed the screen. Patience is a position. Monitor 5 open position(s) for thesis-break, stop hits, or LTCG-approaching flags.
+
+---
+
+## [NOTE] 2026-05-18 — journal history reconciled
+Local and cloud `JOURNAL.md` had diverged for 10 days. The old (2026-05-08) cloud append logic truncated `JOURNAL.md` to ~2 entries per run, so operational [AM]/[EOD] entries for 2026-05-09 → 2026-05-17 were overwritten in the cloud and never existed locally — they are unrecoverable. Preserved here: the full Phase-0/optimization narrative (local), the recent cloud entries ([EOD]/[AM] 05-18), and the recovered [WEEK] 05-05→05-17. The deployed Top-10 `eod_routine.py` fixes the truncation going forward.
+
+---
+
+## [WEEK] 2026-05-05 → 2026-05-17
+
+**What worked / what didn't.** There are no closed trades this week, so there is nothing to score on execution or exit discipline. What is visible is position-level divergence: APP is carrying real unrealized gain (+9.8%) while MCO has drifted meaningfully negative (-3.6%), and UBER is essentially flat after what is presumably meaningful time in the position (+0.1%). The screen produced no new entries, and Klaas held cash rather than forcing a trade — that decision cannot be evaluated as right or wrong yet, but it was at least internally consistent with stated rules.
+
+**What's puzzling or worth watching.** The cash position is deeply negative (-$38,966, roughly 38% of equity), meaning the portfolio is running on margin. That structural fact sits underneath every position-level number and is easy to lose sight of in a week with no activity. MCO at -3.6% is the one position where the question of thesis integrity is live — the journal doesn't record what the original entry thesis was or whether anything has changed fundamentally, which makes it hard to know whether that drawdown is noise or signal. The unanswered EOD journal prompt for May 15 is also worth noting: a blank "what we learned" field at the end of a quiet week is a pattern worth interrupting.
+
+**Reflective prompts for Klaas.** On MCO specifically: what was the original thesis, and has any piece of it changed, or is the -3.6% purely price action against an intact fundamental view? On the margin: was the decision to run negative cash deliberate and sized against a specific risk framework, or did it accumulate position by position without an explicit ceiling being set? And on the blank EOD entry: when a day produces no trades and no surprises, is "nothing happened" itself a data point worth capturing — and if so, what would you have written?
+
+
+---
+
+---
+
 ## [CLOSE] 2026-05-16 Saturday — optimization chapter closed: buy-hold SPY wins
 **What happened.** Ran the last evidence-backed candidate — leveraged trend-following (SSO 2x + 200d-MA filter), the one strategy whose only blocker (tax drag) Klaas waived. Pre-committed gate FAILED 2/3: the trend-filtered 2x returned +15.7% OOS, *less than plain buy-hold SPY's +17.3%* — the 200d filter got whipsawed (16 switches) and leverage amplified the timing's flaws. Seventh consecutive test where buy-hold SPY beat the active variant, pre-tax and post-tax. The only thing that beat the index was plain buy-hold 2x (SSO, no timing): +26.7% pre / +24.4% post — but a 59% max drawdown, pure leverage not skill.
 **What we learned.** Settled rigorously: you cannot reliably out-think this market in Klaas's constraint set; the only returns lever that works is the passive risk dial (1x vs levered), a risk-appetite choice, not an optimization or an AI edge. Trend/regime timing actively *hurt* in 2019-25. Tax modeling was never the culprit — strategies lost gross too. Distilled into [[trading_lessons]] (first two lessons; the file was empty before this). Discipline held throughout: every gate pre-committed, failures accepted, the one goalpost-move temptation (buyhold-SSO "passing" after trend-SSO failed) explicitly refused and kept separate.

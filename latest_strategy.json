@@ -1,54 +1,5 @@
 {
-  "analysis": "Market context: S&P 500 in a broad recovery/basing phase after a significant drawdown, with most candidates sitting in the lower 20-50% of their 52-week ranges \u2014 ideal Stage 1 to Stage 2 transition territory per Weinstein. Starting from 100% cash with zero open positions, this is an opportunity to deploy capital selectively into 3 high-conviction names. I am avoiding: (1) candidates with negative SMA50 slopes showing active distribution (PAYX, AXP, DHI, AZO, DASH), (2) names that are extended >12% above SMA50 without strong enough fundamental pull (SNPS), and (3) businesses with thin margins or revenue decline (SWKS). The three chosen setups each combine exceptional fundamental quality with technical basing at fair valuations: MSFT (world-class AI/cloud compounder at reasonable fwd P/E), ADSK (rare sub-1.0 PEG quality software in deep base), and APP (elite unit economics \u2014 78% op margin, 59% revenue growth, fwd P/E 22.9 in confirmed uptrend basing). Total capital deployed ~66% of equity, max risk ~4% of equity across all three positions. Cash reserve of ~34% maintained as dry powder for adding to winners or new setups. Not forcing a 4th or 5th position \u2014 discipline over diversification.",
-  "confidence_target_pct": 42,
-  "trades": [
-    {
-      "symbol": "MSFT",
-      "direction": "BUY",
-      "entry_strategy": "Limit order at $420.00; if price pulls back toward SMA50 (~$397) before fill, adjust stop accordingly. Do not chase above $430.",
-      "entry_price": 420.0,
-      "stop_loss": 399.0,
-      "stop_loss_pct": 0.05,
-      "atr_multiple": 1.78,
-      "target": 480.0,
-      "target_gain_pct": 0.143,
-      "risk_reward_ratio": 2.86,
-      "conviction": 78,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Microsoft is the highest-quality large-cap in the candidate list \u2014 46% operating margins, 34% ROE, $37B FCF, 18% revenue growth driven by Azure cloud and Copilot AI monetization. Forward P/E of 21.7x and PEG of 1.28 are reasonable for a business with this earnings quality and growth runway. TECHNICAL: Price at 35% of 52-week range, confirmed uptrend basing, +5.8% above SMA50 with a still-rising SMA50 slope (+0.5%). Currently -9.5% below SMA200 \u2014 the recapture of SMA200 (~$465) is a natural catalyst and aligns with the $480 target. ATR of 2.8% produces a clean 5% stop well within the 4-15% band.",
-      "exit_plan": "Exit if: (1) price closes below $399 stop on a daily basis; (2) Azure revenue growth decelerates materially below 25% in next earnings print; (3) SMA50 rolls over with price closing below it for 2 consecutive weeks. Trail stop to breakeven once +8% gain achieved. Consider extending to LTCG if still holding at month 10 with intact thesis."
-    },
-    {
-      "symbol": "ADSK",
-      "direction": "BUY",
-      "entry_strategy": "Limit order at $250.00, just below current $251.04. If it pulls back to SMA50 (~$242), consider adding; recalculate stop at that level. Do not enter above $255.",
-      "entry_price": 250.0,
-      "stop_loss": 236.0,
-      "stop_loss_pct": 0.056,
-      "atr_multiple": 1.69,
-      "target": 295.0,
-      "target_gain_pct": 0.18,
-      "risk_reward_ratio": 3.21,
-      "conviction": 74,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Autodesk is a best-in-class design/engineering software platform with a massive installed base transitioning to subscription SaaS \u2014 highly sticky, recurring revenue model. Forward P/E of 17.8x is cheap for a company growing revenue 19.4%, with 27% op margins and 39.7% ROE. PEG of 0.95 is the standout \u2014 rare to find a quality software franchise below 1.0x PEG. FCF of $2.8B supports the valuation floor. TECHNICAL: 30% of 52-week range is in the lower half \u2014 ideal basing territory. Only +3.4% above SMA50, which is gently rising. Currently -10.2% below SMA200 (~$280); recapture of SMA200 is the first major target. ATR 3.3% gives a 5.6% stop \u2014 tight enough to be actionable, wide enough to avoid noise.",
-      "exit_plan": "Exit if: (1) daily close below $236 stop; (2) subscription revenue growth stalls below 12% for two consecutive quarters; (3) SMA50 slope turns negative again and price undercuts the 52-week low zone. Trail stop to $248 breakeven after +7% gain. Hold toward $295+ if SMA200 is recaptured cleanly."
-    },
-    {
-      "symbol": "APP",
-      "direction": "BUY",
-      "entry_strategy": "Limit order at $490.00 \u2014 a slight discount to current $498.87. Alternatively, wait for a 1-3 day pullback to the $480-490 zone. Do not chase above $510; if it gaps higher, skip the entry.",
-      "entry_price": 490.0,
-      "stop_loss": 445.0,
-      "stop_loss_pct": 0.092,
-      "atr_multiple": 1.73,
-      "target": 585.0,
-      "target_gain_pct": 0.194,
-      "risk_reward_ratio": 2.11,
-      "conviction": 70,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: AppLovin is one of the highest-quality businesses in the S&P 500 by margin profile \u2014 78.2% operating margin, 266% ROE (asset-light), 59% revenue growth, and $3.1B FCF. Forward P/E of 22.9x and PEG of 1.31 are undemanding given this compounding profile. The advertising AI engine (AXON) is showing accelerating returns. TECHNICAL: Confirmed UPTREND (basing) at 43% of 52-week range. SMA50 slope is +2.4% \u2014 positive momentum. +12% above SMA50 is the main caution (slightly extended intraday); hence the limit below current price. The 52-week high of $733.60 provides substantial upside runway \u2014 $585 is a conservative interim target representing a return toward the upper portion of the base.",
-      "exit_plan": "Exit if: (1) daily close below $445 stop; (2) AXON revenue growth decelerates sharply in next earnings; (3) price fails to hold SMA50 for two consecutive weeks. Given the higher ATR (5.2%), be prepared for volatile swings \u2014 do not exit on intraday dips. Trail stop to $480 breakeven once +8% achieved. Consider extending to LTCG if position is profitable at month 10."
-    }
-  ]
+  "analysis": "PORTFOLIO ASSESSMENT: The portfolio carries five open positions at the upper bound of the 3-5 concentration target, and critically, cash is negative (-$38,966) meaning the account is already running on margin. Adding new positions would layer additional margin onto an already leveraged book. That alone argues strongly for patience over action. EXISTING POSITIONS: APP (+9.8%) is working well and remains in the screened universe as an uptrend basing candidate \u2014 hold and let it run. MSFT (+1.9%) and V (+2.4%) are both in the screened universe with clean basing setups \u2014 hold. MCO (-2.8%) and UBER (-0.24%) are NOT in the screened candidate list, meaning they failed the quality-or-trend filter. MCO in particular is a quality business but may be trending poorly; UBER has weak fundamentals by these filters. These two are the portfolio's weakest links and the most logical source of capital recycling. CANDIDATE REVIEW: The two most compelling NEW setups are AMP (Ameriprise \u2014 fwd P/E 9.88, ROE 66.9%, FCF yield ~8%, basing at 37% of 52w range) and CI (Cigna \u2014 fwd P/E 8.49, PEG 0.85, FCF yield ~9.2%, basing at 49% of range). Both are genuinely cheap, high-quality businesses in Stage 1-to-2 transition territory. However, neither has a confirmed uptrend (SMA50 slopes are flat-to-negative), and both would require margin deployment given negative cash. The strategy is explicit: forcing trades is the enemy. Cash \u2014 or in this case, reducing margin \u2014 is a position. RECOMMENDATION: Hold APP, MSFT, V. Monitor MCO and UBER for thesis-break exits to reduce margin and free capital for higher-conviction redeployment into AMP or CI once (a) margin normalizes and (b) uptrend confirmation arrives on the candidates. Zero new trades today.",
+  "confidence_target_pct": 38,
+  "trades": []
 }
