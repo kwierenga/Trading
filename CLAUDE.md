@@ -85,11 +85,26 @@ trend, revenue growth, free cash flow conversion.
 | Rule | Value |
 |---|---|
 | Max single-position concentration | 25% (hard pre-trade check) |
+| **Max aggregate gross deployment** | **95% of equity (hard pre-trade check). NO margin on the automated path.** |
 | Worst-case stop below entry | ~15% (Klaas's drawdown tolerance per name) |
 | Stop type | ATR-based (~1.5–2× ATR(14)), not fixed % |
 | Sizing target | stop_distance × shares ≈ 1–2% of portfolio equity |
 
 **Math check:** 25% position with 15% stop = ~3.75% portfolio loss when stopped — painful, not catastrophic.
+
+**Aggregate gross cap (locked 2026-05-18).** Before any buy:
+`sum(current position market values) + proposed position value` must be
+`≤ 0.95 × equity`, else skip or downsize the new trade. This closes the gap
+that let five independently-sized 25% positions stack to 1.38x accidental
+margin (−$38,966 on $102,698 equity). The 5% buffer absorbs fill slippage /
+intraday drift so the book never tips into margin by accident. The "≤2x
+reg-T" line in the Asset-universe section is the untouchable *outer
+guardrail*, NOT a target — deliberate leverage is a separate, explicit
+risk-appetite decision and is currently OFF. Per-name (25%) and per-sector
+(35%) caps are unchanged and additional to this. Implication: while gross is
+above the cap, the automated path makes **zero new buys** until the book
+de-levers via exits/stops. Not yet wired into `execute_strategy.py` — see
+`memory/trading_observations.md` 2026-05-18.
 
 ---
 
