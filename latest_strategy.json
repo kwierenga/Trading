@@ -1,6 +1,6 @@
 {
-  "analysis": "Portfolio is fully committed at maximum position count (5 of 5) and is already running on margin (cash: -$38,966, positions totaling ~$141,714 vs. $102,748 equity). Adding any new position would deepen leverage in a portfolio with a 0% win rate and a recent stop-hit on ADSK. The prudent action is to let current positions work. On the positive side: APP (+8.2%), MSFT (+2.8%), and V (+4.4%) are trending in the right direction; MCO (-0.4%) and UBER (+0.1%) are essentially flat but not at stop levels. Scanning the screened candidates, the highest-momentum names (MU, AMAT, EOG, FIX, HWM, WDC) are all at 85-90%+ of their 52-week range and 20-120% above SMA200 \u2014 explicitly excluded by Rule 2 as extended late-cycle entries. Remaining basing candidates (IQV, ADP, AON, ZBRA) are mixed/sideways with negative SMA50 slopes, not yet showing Stage 2 confirmation. SNPS and ADSK both have earnings in ~9-10 days \u2014 high binary risk. AMP is the most interesting non-held candidate (P/E 11.7, ROE 67%, 37% of 52w range) but SMA50 slope is still negative (-0.9%) and trend is MIXED \u2014 not yet a confirmed base breakout. Bottom line: no new setup meets both the fundamental AND technical criteria simultaneously today. Protect margin, let winners run, and wait for cleaner entries. Cash discipline is the edge here.",
-  "confidence_target_pct": 40,
+  "analysis": "Portfolio is already at maximum target concentration (5/5 positions) with negative available cash (-$38,966), meaning the book is running on margin. Total deployed value across APP, MCO, MSFT, UBER, V exceeds equity. Adding a 6th position would deepen leverage further \u2014 that contradicts the strategy's core risk discipline.\n\nExisting positions are in reasonable shape: APP (+8%), V (+5%), MSFT (+4%) are working. MCO is essentially flat but is a high-quality compounder deserving patience. UBER is flat and warrants monitoring \u2014 it is absent from the screened candidate list, suggesting possible trend or quality deterioration; thesis should be reviewed on next earnings.\n\nScanning the 30 screened candidates for new entries: The best quality-basing setups are AMP (fwd P/E 9.89, ROE 67%, 37% of 52w range, basing), IQV (PEG 0.70, fwd P/E 12.18, 33% range), and AIG (PEG 0.64, fwd P/E 8.82, 47% range). These are genuinely interesting but adding any of them now would require either (a) selling a current winner early, or (b) adding more margin \u2014 neither is warranted when the existing book is performing. The semiconductor runners (MU +38% vs SMA50, WDC +26% vs SMA50, NXPI +27% vs SMA50) are explicitly excluded by the late-cycle extension rule (range_position >80%, far above SMA50). SNPS and ADSK have earnings in 8-9 days \u2014 too risky to initiate ahead of binary events.\n\nDecision: 0 new trades. Hold current 5 positions. Let winners run. Monitor UBER closely \u2014 if it breaks below its entry stop it should be the first position closed to reduce margin and free capital for a fresher AMP or IQV setup on a confirmed basing entry. Cash preservation and leverage reduction take priority over chasing new ideas at this stage.",
+  "confidence_target_pct": 55,
   "trades": [
     {
       "symbol": "APP",
@@ -11,8 +11,23 @@
       "conviction": 75,
       "holding_period": "swing",
       "risk_reward_ratio": 3.7474441499432065,
-      "rationale": "PYRAMID tranche 2: original lot held 10d at +8.2%; price $492.38 > SMA20 $470.45; adding $9,897 (20 sh) with combined break-even stop at $468.43.",
+      "rationale": "PYRAMID tranche 2: original lot held 10d at +8.6%; price $492.38 > SMA20 $470.45; adding $9,897 (20 sh) with combined break-even stop at $468.43.",
       "entry_strategy": "Limit @ $494.84 (current +0.5%)",
+      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
+      "is_pyramid": true,
+      "tranche": 2
+    },
+    {
+      "symbol": "V",
+      "direction": "BUY",
+      "entry_price": 334.3,
+      "stop_loss": 321.48,
+      "target": 401.16,
+      "conviction": 75,
+      "holding_period": "swing",
+      "risk_reward_ratio": 5.215288611544466,
+      "rationale": "PYRAMID tranche 2: original lot held 10d at +5.2%; price $332.64 > SMA20 $320.03; adding $10,029 (30 sh) with combined break-even stop at $321.48.",
+      "entry_strategy": "Limit @ $334.30 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
