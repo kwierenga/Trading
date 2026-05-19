@@ -27,6 +27,7 @@ from alpaca_client import AlpacaClient
 MAX_POSITION_PCT = 0.25         # 25% concentration cap for fresh entries (hard)
 MAX_PYRAMID_PCT = 0.30          # 30% cap for pyramid-add tranches (already-confirmed winner = different risk profile)
 MAX_SECTOR_PCT = 0.35           # 35% per GICS sector cap (hard) — see validate_sector_concentration
+MAX_GROSS_PCT = 0.95            # 95% aggregate gross-deployment cap (hard) — NO margin on the automated path; see validate_gross_deployment (locked 2026-05-18)
 TARGET_RISK_PER_TRADE = 0.015   # 1.5% portfolio risk on a stopped-out trade (target)
 MAX_RISK_PER_TRADE = 0.02       # 2% portfolio risk on a stopped-out trade (hard cap)
 ATR_STOP_MULTIPLE = 1.75        # stop distance = 1.75 * ATR(14) by default
@@ -240,6 +241,82 @@ def validate_concentration(
         'cap_pct': effective_cap,
         'existing_value': existing_value,
         'proposed_value': proposed_value,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Aggregate gross-deployment validation (locked 2026-05-18)
+# ---------------------------------------------------------------------------
+
+def validate_gross_deployment(
+    symbol: str,
+    proposed_value: float,
+    account_equity: float,
+    current_positions: List[Dict],
+    cap_pct: Optional[float] = None,
+) -> Dict:
+    """
+    Pre-trade check: would adding this position push TOTAL deployment over the
+    aggregate gross cap? Closes the gap where five independently-sized 25%
+    positions stacked into 1.38x accidental margin. NO margin on the automated
+    path — see CLAUDE.md "Aggregate gross cap (locked 2026-05-18)".
+
+    Unlike validate_concentration (which only counts the same-symbol existing
+    value), this sums the market value of ALL current positions, since
+    proposed_value is the NEW exposure being layered on top of the whole book.
+
+    Args:
+        symbol: ticker being added (or added to) — for the message only
+        proposed_value: dollar value of NEW shares (entry_price * new_shares)
+        account_equity: current total equity
+        current_positions: list from AlpacaClient.get_positions()
+        cap_pct: override for the cap (defaults to MAX_GROSS_PCT 95%)
+
+    Returns dict with:
+      ok (bool), reason (str), would_be_pct (float), cap_pct (float),
+      current_gross (float), proposed_value (float), headroom (float)
+    """
+    effective_cap = cap_pct if cap_pct is not None else MAX_GROSS_PCT
+
+    current_gross = 0.0
+    for p in current_positions:
+        try:
+            current_gross += float(p.get('market_value', 0) or 0)
+        except (TypeError, ValueError):
+            continue
+
+    combined_value = current_gross + proposed_value
+    would_be_pct = combined_value / account_equity if account_equity > 0 else 1.0
+    headroom = effective_cap * account_equity - current_gross
+
+    if would_be_pct > effective_cap:
+        return {
+            'ok': False,
+            'reason': (
+                f"{symbol} would push gross to {would_be_pct:.1%} of equity "
+                f"(current ${current_gross:,.0f} + new ${proposed_value:,.0f} = "
+                f"${combined_value:,.0f}); cap is {effective_cap:.0%} "
+                f"(${effective_cap*account_equity:,.0f}), headroom "
+                f"${max(headroom, 0):,.0f}. NO margin on the automated path."
+            ),
+            'would_be_pct': would_be_pct,
+            'cap_pct': effective_cap,
+            'current_gross': current_gross,
+            'proposed_value': proposed_value,
+            'headroom': headroom,
+        }
+
+    return {
+        'ok': True,
+        'reason': (
+            f"gross OK ({would_be_pct:.1%} of equity after add, cap "
+            f"{effective_cap:.0%}, headroom ${max(headroom, 0):,.0f})"
+        ),
+        'would_be_pct': would_be_pct,
+        'cap_pct': effective_cap,
+        'current_gross': current_gross,
+        'proposed_value': proposed_value,
+        'headroom': headroom,
     }
 
 

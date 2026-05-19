@@ -24,6 +24,7 @@ import anthropic
 
 from alpaca_client import AlpacaClient
 from market_data import latest_price
+from position_sizer import MAX_GROSS_PCT
 
 
 STRATEGY_IN = Path("latest_strategy.json")
@@ -106,7 +107,7 @@ def mechanical_decision(trade: dict) -> dict:
             "rationale": f"current ${cur:.2f} within entry range — submit at original limit"}
 
 
-def build_prompt(strategy: dict) -> str:
+def build_prompt(strategy: dict, gross_context: str = "") -> str:
     trades = strategy.get("trades", [])
     lines = [
         "You analyzed these S&P 500 stocks pre-market and proposed bracket entries.",
@@ -124,6 +125,17 @@ def build_prompt(strategy: dict) -> str:
         "  - When ADJUSTing, the new limit should still respect the original stop:",
         "    new entry must keep stop_distance_pct between 5% and 12%.",
         "",
+    ]
+    if gross_context:
+        lines += [
+            "AGGREGATE GROSS-DEPLOYMENT CAP (hard, locked 2026-05-18 — NO margin):",
+            f"  {gross_context}",
+            "  Buys beyond the headroom are HARD-BLOCKED at execution. If total",
+            "  proposed value exceeds headroom, SKIP the lowest-conviction names",
+            "  so the survivors fit — do not propose a book that can't be filled.",
+            "",
+        ]
+    lines += [
         f"Original analysis: {strategy.get('analysis', '')}",
         f"Original confidence target: {strategy.get('confidence_target_pct', 0)}%",
         "",
@@ -144,7 +156,7 @@ def build_prompt(strategy: dict) -> str:
     return "\n".join(lines)
 
 
-def call_claude(strategy: dict) -> dict | None:
+def call_claude(strategy: dict, gross_context: str = "") -> dict | None:
     if not os.getenv("ANTHROPIC_API_KEY"):
         print("  ANTHROPIC_API_KEY not set — falling back to mechanical")
         return None
@@ -155,7 +167,7 @@ def call_claude(strategy: dict) -> dict | None:
     # least 1 character`. Defensive default.
     model = os.getenv("CLAUDE_MODEL") or "claude-sonnet-4-6"
     client = anthropic.Anthropic()
-    prompt = build_prompt(strategy)
+    prompt = build_prompt(strategy, gross_context)
 
     text = ""
     try:
@@ -242,8 +254,34 @@ def main() -> int:
         src = t.get("price_source", "?")
         print(f"  {t['symbol']}: AM entry ${t['entry_price']:.2f}, current {cur_s} ({ov_s}) [{src}]")
 
+    # Gross-deployment headroom context (soft guidance for Claude; the hard
+    # block lives in execute_strategy.validate_gross_deployment). Defensive:
+    # any failure here just omits the context — never breaks re-eval.
+    gross_context = ""
+    try:
+        acct = AlpacaClient().get_account()
+        equity = float(acct["equity"])
+        positions = AlpacaClient().get_positions()
+        current_gross = sum(float(p.get("market_value", 0) or 0) for p in positions)
+        headroom = MAX_GROSS_PCT * equity - current_gross
+        gross_context = (
+            f"equity ${equity:,.0f}; current gross ${current_gross:,.0f} "
+            f"({(current_gross/equity if equity else 0):.0%}); cap "
+            f"{MAX_GROSS_PCT:.0%} (${MAX_GROSS_PCT*equity:,.0f}); remaining "
+            f"headroom for new buys ${max(headroom, 0):,.0f}"
+            + (" — ZERO headroom: the book is at/over cap, new buys will be "
+               "blocked until it de-levers." if headroom <= 0 else "")
+        )
+        print(f"  Gross headroom: ${max(headroom, 0):,.0f} "
+              f"(gross {(current_gross/equity if equity else 0):.0%} of equity, "
+              f"cap {MAX_GROSS_PCT:.0%})")
+    except (KeyError, ValueError, TypeError, OSError) as e:
+        # requests.RequestException subclasses OSError, so network failures
+        # from AlpacaClient are covered here too.
+        print(f"  Gross-headroom context unavailable (continuing): {e}")
+
     print("Asking Claude for per-ticker submit/adjust/skip verdict...")
-    result = call_claude(strategy)
+    result = call_claude(strategy, gross_context)
 
     if result is None:
         print("  Mechanical fallback engaged.")

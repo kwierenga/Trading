@@ -20,7 +20,9 @@ from pathlib import Path
 from alpaca_client import AlpacaClient
 from position_sizer import (
     PositionSizer, validate_concentration, validate_sector_concentration,
-    MAX_POSITION_PCT, MAX_PYRAMID_PCT, MAX_SECTOR_PCT, MIN_STOP_PCT, MAX_STOP_PCT,
+    validate_gross_deployment,
+    MAX_POSITION_PCT, MAX_PYRAMID_PCT, MAX_SECTOR_PCT, MAX_GROSS_PCT,
+    MIN_STOP_PCT, MAX_STOP_PCT,
 )
 from trade_journal import TradeJournal
 from market_data import latest_price
@@ -208,6 +210,18 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         pct = sec_check.get('would_be_pct')
         pct_s = f"{pct:.1%}" if pct is not None else "n/a"
         print(f"  Sector check OK ({sec_label}): {pct_s} of equity (cap {sec_check['cap_pct']:.0%})")
+
+        # Aggregate gross-deployment check (locked 2026-05-18): the hard cap on
+        # TOTAL invested. Catches the failure mode where independently-sized
+        # per-name positions stack past 100% of equity into accidental margin.
+        # NO margin on the automated path.
+        gross_check = validate_gross_deployment(symbol, proposed_value, equity, positions)
+        if not gross_check['ok']:
+            print(f"\n  GROSS DEPLOYMENT CHECK FAILED: {gross_check['reason']}")
+            skipped.append(symbol)
+            continue
+        print(f"  Gross check OK: {gross_check['would_be_pct']:.1%} of equity after add "
+              f"(cap {gross_check['cap_pct']:.0%}, headroom ${max(gross_check['headroom'], 0):,.0f})")
 
         if dry_run:
             print(f"\n  [DRY RUN] would place BRACKET BUY {shares} {symbol} @ ${entry:.2f}  "
