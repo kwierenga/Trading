@@ -103,8 +103,10 @@ guardrail*, NOT a target — deliberate leverage is a separate, explicit
 risk-appetite decision and is currently OFF. Per-name (25%) and per-sector
 (35%) caps are unchanged and additional to this. Implication: while gross is
 above the cap, the automated path makes **zero new buys** until the book
-de-levers via exits/stops. Not yet wired into `execute_strategy.py` — see
-`memory/trading_observations.md` 2026-05-18.
+de-levers via exits/stops. **Wired into the trade path 2026-05-18** (commit
+`4f55823`): `position_sizer.validate_gross_deployment` (hard block in
+`execute_strategy.py` after the sector check) + headroom surfaced in
+`re_evaluate.py`'s prompt. See `memory/trading_observations.md` 2026-05-18.
 
 ---
 
