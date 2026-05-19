@@ -175,6 +175,16 @@ jobs:
         if: ${{ steps.shouldrun.outputs.should_run == 'true' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Alpaca creds are required because re_evaluate.py imports
+          # alpaca_client (→ config.py), which raises at import time if the
+          # ALPACA_API_KEY/SECRET aren't set. The 2026-05-18 gross-cap commit
+          # (4f55823) added a runtime AlpacaClient() call to surface gross-
+          # deployment headroom in the prompt; the defensive try/except around
+          # it can't catch the import failure. Today (2026-05-19) execute.yml
+          # crashed twice for this reason — fix locks the env contract.
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_API_BASE_URL: ${{ secrets.ALPACA_API_BASE_URL }}
           # CLAUDE_MODEL intentionally not set — re_evaluate.py uses the
           # claude-sonnet-4-6 default. Setting it via a non-existent secret
           # resolves to empty string, which the SDK rejects with a 400.
