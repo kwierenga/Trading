@@ -12,13 +12,13 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
-## [AM] 2026-05-20 Wednesday
-**Open questions.** Screen produced no high-conviction setups today — is the market broadly extended, or are filters too tight? What would have to change for a setup to emerge tomorrow? With 5 open position(s), are any approaching their stops or targets? 
-**Today's plan.** Hold cash today — no high-conviction setups passed the screen. Patience is a position. Monitor 5 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
+## [EOD] 2026-05-20 Wednesday
+**What happened.** No trades closed today. End equity $101,386, cash $-38,966 (-38% of equity), 5 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
 
 ---
 
-## [EOD] 2026-05-19 Tuesday
-**What happened.** No trades closed today. End equity $100,294, cash $-38,966 (-39% of equity), 5 open position(s). 
-**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+## [AM] 2026-05-20 Wednesday
+**Open questions.** Screen produced no high-conviction setups today — is the market broadly extended, or are filters too tight? What would have to change for a setup to emerge tomorrow? With 5 open position(s), are any approaching their stops or targets? 
+**Today's plan.** Hold cash today — no high-conviction setups passed the screen. Patience is a position. Monitor 5 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
 
