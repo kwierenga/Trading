@@ -1,5 +1,21 @@
 {
-  "analysis": "Portfolio is already running at maximum recommended concentration (5 open positions) with negative available cash (-$38,966), meaning it is currently on margin. Adding new positions would deepen margin exposure and violate the spirit of the concentrated quality approach. The existing book is mixed: APP (+4.9%), MSFT (+1.6%), and V (+3.5%) are all working and appear on the screened candidate list with confirmed uptrends in basing patterns \u2014 these are keepers. MCO (-0.13%) and UBER (-0.76%) did not clear the current screen, which warrants monitoring; if either breaks their stop or the thesis softens, that capital should be reclaimed before redeploying into new names. The market environment shows many candidates extended late in their 52-week ranges (NVDA at 88%, HWM at 89%, WDC at 88%, FIX at 87%) \u2014 these are not Stage 1\u21922 entries. The genuinely attractive basing setups (FOXA, CI, V, AMP) are already represented or would require selling something first. Historical performance shows a 0% win rate on closed trades with only one data point; discipline and patience are more important right now than activity. The portfolio heat at 2.77% is actually conservative given the margin usage. Priority actions: (1) do not add new positions; (2) watch MCO and UBER stop levels closely \u2014 if either triggers, free the capital rather than pyramid further into margin; (3) let APP, MSFT, and V run as they are all showing positive momentum in quality basing setups. Cash and restraint are the correct posture today.",
-  "confidence_target_pct": 42,
-  "trades": []
+  "analysis": "Portfolio is already at maximum capacity (5 positions) with NEGATIVE cash (-$38,966) \u2014 meaning the account is running on margin. Buying power exists at the broker level (~$62K) but deploying it would deepen margin usage, which violates the spirit of the quality-value strategy. The mandate says 'cash is a position; forcing trades is the enemy.' Adding a 6th position here would (a) push concentration beyond 3-5 names, (b) increase portfolio heat already at 2.77%, and (c) compound leverage risk. Existing holdings: APP (+6.9%) and V (+4.1%) are in confirmed uptrends and still appear on the screened list \u2014 hold. MSFT (+2.1%) is also screened and trending. UBER (-1.75%) and MCO (+0.2%) are NOT on the screened candidate list, suggesting they may have weakened fundamentally or technically \u2014 these warrant monitoring for potential exit to raise cash. The single closed trade was a stop-hit loss on ADSK (-3.69%), reinforcing discipline. Current environment shows many candidates extended (NVDA +84% 52w, GLW +76% above 200d SMA, HWM +20% above 200d) or basing too early in sideways trends. The highest-quality NEW setups \u2014 EOG (strong +25.7% EPS revision, 82% 52w range, true uptrend), MPC (massive +49.4% EPS revision, uptrend), and FOXA/FOX (low valuation, uptrend basing mid-range) \u2014 are genuinely interesting but cannot be responsibly entered while cash is negative and we are already at 5 positions. The correct action is to hold current winners, monitor UBER and MCO for thesis-break exits to normalize cash, and reload on the best setups once cash is positive. No new trades today.",
+  "confidence_target_pct": 35,
+  "trades": [
+    {
+      "symbol": "APP",
+      "direction": "BUY",
+      "entry_price": 488.32,
+      "stop_loss": 465.99,
+      "target": 585.98,
+      "conviction": 75,
+      "holding_period": "swing",
+      "risk_reward_ratio": 4.373488580385136,
+      "rationale": "PYRAMID tranche 2: original lot held 13d at +6.9%; price $485.89 > SMA20 $472.15; adding $9,766 (20 sh) with combined break-even stop at $465.99.",
+      "entry_strategy": "Limit @ $488.32 (current +0.5%)",
+      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
+      "is_pyramid": true,
+      "tranche": 2
+    }
+  ]
 }
