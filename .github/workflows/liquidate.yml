@@ -1,0 +1,127 @@
+name: Liquidate all positions
+
+# One-off restart tool (Klaas-approved 2026-05-24). Flattens the ENTIRE book
+# to cash via liquidate_all.py so the refined strategy can re-deploy from a
+# clean slate under the now-wired 25%/35%/95% caps. Background: the live paper
+# book is pinned at 138.7% gross (~1.39x margin), above the 95% cap, so the
+# automated path makes zero new buys -> zero trades -> nothing to learn from.
+#
+# Manual only (workflow_dispatch). Two-key safety: a dispatch DRY-RUNS unless
+# the `confirm` input is typed EXACTLY "LIQUIDATE ALL". Live submission also
+# requires an open NYSE session inside the RTH window (close_position is a
+# market order, rejected outside RTH). Dry-run previews are allowed anytime.
+#
+# Coordinate with execute.yml on the liquidation day: push a SKIP_TODAY.flag
+# dated that day so the auto-buyer stands down. This workflow also shares the
+# `trading-write` concurrency group, so it can never submit concurrently with
+# morning/execute/eod.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type "LIQUIDATE ALL" to submit live orders. Anything else = dry-run preview.'
+        required: false
+        default: ''
+        type: string
+
+concurrency:
+  group: trading-write  # shared with morning/execute/eod — never submit concurrently
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  liquidate:
+    runs-on: ubuntu-latest
+    environment: paper  # Alpaca + email secrets live here
+    permissions:
+      contents: read  # no commits — journal_reconcile (eod.yml) picks up the exits
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Decide live vs dry-run
+        # Live ONLY if confirm == "LIQUIDATE ALL" exactly. Any other value
+        # (incl. empty) is a dry-run preview, which is safe to fire anytime.
+        id: mode
+        run: |
+          if [ "${{ inputs.confirm }}" = "LIQUIDATE ALL" ]; then
+            echo "live=true" >> $GITHUB_OUTPUT
+            echo "::notice::LIVE liquidation requested — will submit market sells."
+          else
+            echo "live=false" >> $GITHUB_OUTPUT
+            echo "::notice::Dry-run preview only (confirm input did not match)."
+          fi
+
+      - name: NYSE trading-day check (live only)
+        if: ${{ steps.mode.outputs.live == 'true' }}
+        run: |
+          if ! python market_calendar.py; then
+            echo "ERROR: not a NYSE trading day — market sells would be rejected."
+            exit 1
+          fi
+          echo "NYSE trading day confirmed."
+
+      - name: Verify RTH window (live only)
+        # close_position is a market order; equity market orders are rejected
+        # outside Regular Trading Hours. Allow 09:35-15:30 ET (after the open
+        # settles, before the close so fills have time). Mirrors execute.yml.
+        if: ${{ steps.mode.outputs.live == 'true' }}
+        run: |
+          DOW=$(TZ=America/New_York date +%u)
+          if [ $DOW -gt 5 ]; then
+            echo "ERROR: weekend (DOW=$DOW). Market is closed."
+            exit 1
+          fi
+          HOUR_NY=$(TZ=America/New_York date +%H)
+          MIN_NY=$(TZ=America/New_York date +%M)
+          NOW_MIN=$((10#$HOUR_NY * 60 + 10#$MIN_NY))
+          # 575 = 09:35 ET, 930 = 15:30 ET
+          if [ $NOW_MIN -lt 575 ] || [ $NOW_MIN -gt 930 ]; then
+            CLOCK=$(TZ=America/New_York date +%H:%M)
+            echo "ERROR: now is $CLOCK ET — outside the 09:35-15:30 ET window for market sells."
+            exit 1
+          fi
+          echo "RTH window OK: $(TZ=America/New_York date +%H:%M) ET."
+
+      - name: Liquidate (live or dry-run)
+        id: liquidate
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_API_BASE_URL: ${{ secrets.ALPACA_API_BASE_URL }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          if [ "${{ steps.mode.outputs.live }}" = "true" ]; then
+            echo "=== LIVE liquidation ==="
+            python liquidate_all.py --submit --email
+          else
+            echo "=== DRY-RUN preview (no orders) ==="
+            python liquidate_all.py
+          fi
+
+      - name: Failure email
+        if: ${{ failure() }}
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: |
+          python -c "import sys; from email_notifier import send_email; send_email('[Trading LIQUIDATE] Workflow FAILED', 'The liquidation workflow failed before or during the flatten.\nSome, all, or none of the positions may have been closed.\nVerify Alpaca positions and the run log:\n' + sys.argv[1])" "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
