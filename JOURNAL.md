@@ -12,13 +12,13 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
-## [AM] 2026-05-27 Wednesday
-**Open questions.** Will the 1 proposed entries (APP) fill at limit, or run away pre-market? What's the one thing that could derail the 45% confidence target? Any overnight news on these names worth checking before placing orders? 
-**Today's plan.** execute.yml fires automatically at 09:35 ET — re-evaluates each setup against the actual open and submits the survivors. To skip today, push SKIP_TODAY.flag with today's UTC date before 09:35 ET. Monitor 4 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
+## [EOD] 2026-05-27 Wednesday
+**What happened.** No trades closed today. End equity $102,882, cash $-16,196 (-16% of equity), 4 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
 
 ---
 
-## [EOD] 2026-05-26 Tuesday
-**What happened.** Closed: UBER (-6.0%). End equity $100,808, cash $-16,196 (-16% of equity), 4 open position(s). 
-**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+## [AM] 2026-05-27 Wednesday
+**Open questions.** Will the 1 proposed entries (APP) fill at limit, or run away pre-market? What's the one thing that could derail the 45% confidence target? Any overnight news on these names worth checking before placing orders? 
+**Today's plan.** execute.yml fires automatically at 09:35 ET — re-evaluates each setup against the actual open and submits the survivors. To skip today, push SKIP_TODAY.flag with today's UTC date before 09:35 ET. Monitor 4 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
 
