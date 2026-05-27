@@ -1,18 +1,18 @@
 {
-  "analysis": "Portfolio is already at maximum capacity (5 positions) with NEGATIVE cash (-$38,966) \u2014 meaning the account is running on margin. Buying power exists at the broker level (~$62K) but deploying it would deepen margin usage, which violates the spirit of the quality-value strategy. The mandate says 'cash is a position; forcing trades is the enemy.' Adding a 6th position here would (a) push concentration beyond 3-5 names, (b) increase portfolio heat already at 2.77%, and (c) compound leverage risk. Existing holdings: APP (+6.9%) and V (+4.1%) are in confirmed uptrends and still appear on the screened list \u2014 hold. MSFT (+2.1%) is also screened and trending. UBER (-1.75%) and MCO (+0.2%) are NOT on the screened candidate list, suggesting they may have weakened fundamentally or technically \u2014 these warrant monitoring for potential exit to raise cash. The single closed trade was a stop-hit loss on ADSK (-3.69%), reinforcing discipline. Current environment shows many candidates extended (NVDA +84% 52w, GLW +76% above 200d SMA, HWM +20% above 200d) or basing too early in sideways trends. The highest-quality NEW setups \u2014 EOG (strong +25.7% EPS revision, 82% 52w range, true uptrend), MPC (massive +49.4% EPS revision, uptrend), and FOXA/FOX (low valuation, uptrend basing mid-range) \u2014 are genuinely interesting but cannot be responsibly entered while cash is negative and we are already at 5 positions. The correct action is to hold current winners, monitor UBER and MCO for thesis-break exits to normalize cash, and reload on the best setups once cash is positive. No new trades today.",
-  "confidence_target_pct": 35,
+  "analysis": "Portfolio is already operating on margin (cash: -$16,196) with 4 open positions \u2014 adding any new position would compound leverage risk and push us further into borrowed territory. Current holdings are all quality businesses: APP is the standout winner (+15.25%), while MSFT, V, and MCO are basing constructively. The 0% win rate from closed trades reinforces the need for patience over forcing new entries. Scanning the screened candidates reveals several concerns: the strongest momentum names (GOOG at 94% of 52w range, FIX at 90%, HWM at 89%, GEV at 88%) are explicitly too extended per our rules. NVDA is compelling on fundamentals but already 8.8% above SMA50 and 79% into its range \u2014 not an ideal entry. ADP and AMP have interesting setups at the low end of their ranges but don't justify adding leverage. The right action is to let current positions breathe, allow APP's thesis to compound, and resist the temptation to force new trades when margin is being used. Cash \u2014 or in this case, reducing margin \u2014 is the position. Wait for either (a) existing positions to generate realized gains freeing up capital, or (b) a genuine pullback in a high-conviction name to a clearly defined risk level. No new trades are warranted today.",
+  "confidence_target_pct": 45,
   "trades": [
     {
       "symbol": "APP",
       "direction": "BUY",
-      "entry_price": 488.32,
-      "stop_loss": 465.99,
-      "target": 585.98,
+      "entry_price": 516.81,
+      "stop_loss": 475.96,
+      "target": 620.17,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 4.373488580385136,
-      "rationale": "PYRAMID tranche 2: original lot held 13d at +6.9%; price $485.89 > SMA20 $472.15; adding $9,766 (20 sh) with combined break-even stop at $465.99.",
-      "entry_strategy": "Limit @ $488.32 (current +0.5%)",
+      "risk_reward_ratio": 2.5302325581395375,
+      "rationale": "PYRAMID tranche 2: original lot held 18d at +14.9%; price $514.24 > SMA20 $476.52; adding $9,819 (19 sh) with combined break-even stop at $475.96.",
+      "entry_strategy": "Limit @ $516.81 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
