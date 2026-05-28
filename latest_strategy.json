@@ -1,18 +1,18 @@
 {
-  "analysis": "Portfolio is already operating on margin (cash: -$16,196) with 4 open positions \u2014 adding any new position would compound leverage risk and push us further into borrowed territory. Current holdings are all quality businesses: APP is the standout winner (+15.25%), while MSFT, V, and MCO are basing constructively. The 0% win rate from closed trades reinforces the need for patience over forcing new entries. Scanning the screened candidates reveals several concerns: the strongest momentum names (GOOG at 94% of 52w range, FIX at 90%, HWM at 89%, GEV at 88%) are explicitly too extended per our rules. NVDA is compelling on fundamentals but already 8.8% above SMA50 and 79% into its range \u2014 not an ideal entry. ADP and AMP have interesting setups at the low end of their ranges but don't justify adding leverage. The right action is to let current positions breathe, allow APP's thesis to compound, and resist the temptation to force new trades when margin is being used. Cash \u2014 or in this case, reducing margin \u2014 is the position. Wait for either (a) existing positions to generate realized gains freeing up capital, or (b) a genuine pullback in a high-conviction name to a clearly defined risk level. No new trades are warranted today.",
-  "confidence_target_pct": 45,
+  "analysis": "Portfolio is already fully deployed and operating on margin (cash = -$16,195). With 4 open positions (APP, MCO, MSFT, V) consuming ~$119K against ~$103K equity, any new BUY would deepen margin exposure \u2014 directly contrary to the strategy's risk discipline. Key observations: (1) MSFT is ~48% of equity, well above the 25% hard cap, so concentration risk is already elevated on the largest position. (2) APP is +24.63% and now 25.6% above its SMA50 \u2014 technically extended, but the thesis is intact and a trim would be premature without a stop or thesis break. (3) Of the screened candidates, FDS (fwd P/E 12.18, PEG 1.10, 18% of 52w range) and ZBRA (fwd P/E 11.95, PEG 0.54, basing) are genuinely attractive on fundamentals+technicals, but both have earnings within 4-10 weeks, and initiating with negative cash adds unnecessary risk. (4) META (PEG 0.88, 33% rev growth, fwd P/E 17.51) is compelling but in MIXED/SIDEWAYS trend with declining SMA50 slope \u2014 not yet confirmed. The correct action is to hold existing positions, allow the thesis to mature, and wait for cash to turn positive before deploying into any new name. Forcing trades with borrowed capital when existing quality positions are working is the single fastest way to undermine compounding. Cash (patience) is the position today.",
+  "confidence_target_pct": 55,
   "trades": [
     {
       "symbol": "APP",
       "direction": "BUY",
-      "entry_price": 516.81,
-      "stop_loss": 475.96,
-      "target": 620.17,
+      "entry_price": 581.07,
+      "stop_loss": 496.17,
+      "target": 697.28,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 2.5302325581395375,
-      "rationale": "PYRAMID tranche 2: original lot held 18d at +14.9%; price $514.24 > SMA20 $476.52; adding $9,819 (19 sh) with combined break-even stop at $475.96.",
-      "entry_strategy": "Limit @ $516.81 (current +0.5%)",
+      "risk_reward_ratio": 1.3687868080094214,
+      "rationale": "PYRAMID tranche 2: original lot held 19d at +26.7%; price $578.18 > SMA20 $489.19; adding $9,878 (17 sh) with combined break-even stop at $496.17.",
+      "entry_strategy": "Limit @ $581.07 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
