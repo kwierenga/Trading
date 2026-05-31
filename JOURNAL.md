@@ -12,6 +12,14 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [NOTE] 2026-05-30 Saturday — first real-money decision
+**What happened.** Klaas said he's ready to put real money to work ($510) and asked to run "our algorithm" live on Alpaca. We worked through it and landed on a different plan: buy SPY by hand for now, defer the automated algo until the account is funded to ~$3k.
+**What we learned.** $510 is below the architecture's floor — whole-share bracket orders + the 25% cap + `int()` share-rounding in `position_sizer.py` mean most quality names size to 0 shares and get skipped, so the algo would screen daily and place nothing. Running it live at this size would also require replacing exchange-resident bracket stops with software-side stops (a *weakening* of a safety rule) — not worth it for $510. Reaffirmed the standing seven-backtest finding: the algo doesn't beat buy-hold SPY, so passive SPY is also the better expected-value use of the cash.
+**Open questions.** At what funding level does the algo run as-is (whole shares, 25% cap with room) vs. still needing a deliberate fractional/micro-size redesign? Does Klaas want to keep adding to SPY in tranches as cash arrives, or wait and lump-sum at ~$3k?
+**Tomorrow's plan.** Klaas buys ~$505 of SPY (notional market order, no API key needed) in the Alpaca live app during Monday's RTH; hold, no stop/target. Paper algo keeps running untouched as the learning lab. Revisit the algo-live question when the account reaches ~$3k.
+
+---
+
 ## [EOD] 2026-05-29 Friday
 **What happened.** No trades closed today. End equity $107,314, cash $3,113 (3% of equity), 3 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
