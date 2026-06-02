@@ -1,18 +1,18 @@
 {
-  "analysis": "Market overview: Screened universe shows a healthy split between basing setups (lower half of 52-week range with uptrends forming) and extended momentum plays. The macro tone is constructive, with semis/tech running hot while quality financials and select industrials are rebuilding base structures.\n\nCurrent portfolio assessment: The book is essentially fully deployed. MSFT at $54,782 represents ~50.4% of total equity \u2014 a dangerous overconcentration far above the 25% hard cap (it grew into this weighting). MCO ($25,757, ~23.7%) and V ($25,007, ~23.0%) both sit near the cap. Available cash is only $3,112 (2.9% of equity). MSFT is not in the screened candidate list so a formal SELL cannot be proposed here, but this concentration risk is the single biggest portfolio management issue and should be addressed via a separate management decision to trim MSFT toward the 25% cap, freeing ~$27,000 to deploy into new ideas.\n\nStrategy summary: Given that (a) available cash of $3,112 is insufficient to build any meaningful new position per the risk-sizing formula (shares = equity\u00d70.015 / stop_distance produces required capital well above $3K for any candidate), (b) adding to existing positions would push MCO or V above the 25% cap, and (c) the three current holdings \u2014 MSFT, MCO, and V \u2014 are all quality businesses with intact theses, the correct decision is to hold cash and wait. Forced trades with a $3K budget do not move the compounding needle and only add transaction friction. Best candidates on watch if cash is freed: ZBRA (PEG 0.52, fwd P/E 12, UPTREND basing at 35% of range), IQV (PEG 0.74, uptrend basing, earnings 50d out), and CRM (PEG 0.93, large FCF, though SMA50 slope is declining). None of these should be entered until sufficient capital is available for proper 1-2% portfolio-risk sizing.",
-  "confidence_target_pct": 45,
+  "analysis": "Portfolio is fully deployed across 3 concentrated positions (MCO, MSFT, V) with only $3,112 in free cash \u2014 roughly 2.95% of equity. This is insufficient to fund a meaningful new concentrated position under the sizing rules: even the most conservative setup (e.g., ZBRA at ~$250 with a 2x ATR stop ~$20 away) would require ~$19,700 to hit the 1.5% portfolio-risk target, nearly 6x available cash. Forcing a sub-$3,100 position would represent under 3% of equity \u2014 noise, not conviction. Existing book is healthy: MSFT is the strongest holding at +7.89% and still in confirmed uptrend basing (well-supported thesis); V is -1.33%, a rounding error within normal ATR for the name; MCO is flat but the business quality thesis is intact. Best candidates in the screened universe for future deployment include ZBRA (PEG 0.53, fwd P/E 12, strong SMA50 slope +4.6%, 35% of 52w range), CRM (PEG 0.93, fwd P/E 12.73, EPS revision +4.1%), and IQV (PEG 0.74, fwd P/E 12.94, uptrend basing). These are watchlisted for entry when cash frees up \u2014 either via a stop being hit on an existing name, a partial trim of the MSFT position if it extends further, or fresh capital. No new trades today; cash conservation and patience are the alpha-generating action.",
+  "confidence_target_pct": 55,
   "trades": [
     {
       "symbol": "MSFT",
       "direction": "BUY",
-      "entry_price": 462.81,
-      "stop_loss": 417.98,
-      "target": 555.37,
+      "entry_price": 446.88,
+      "stop_loss": 415.41,
+      "target": 536.26,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 2.064688824447915,
-      "rationale": "PYRAMID tranche 2: original lot held 24d at +11.8%; price $460.51 > SMA20 $419.32; adding $10,645 (23 sh) with combined break-even stop at $417.98.",
-      "entry_strategy": "Limit @ $462.81 (current +0.5%)",
+      "risk_reward_ratio": 2.8401652367333994,
+      "rationale": "PYRAMID tranche 2: original lot held 24d at +8.0%; price $444.65 > SMA20 $420.91; adding $10,278 (23 sh) with combined break-even stop at $415.41.",
+      "entry_strategy": "Limit @ $446.88 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
