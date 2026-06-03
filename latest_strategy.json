@@ -1,21 +1,5 @@
 {
-  "analysis": "Portfolio is fully deployed across 3 concentrated positions (MCO, MSFT, V) with only $3,112 in free cash \u2014 roughly 2.95% of equity. This is insufficient to fund a meaningful new concentrated position under the sizing rules: even the most conservative setup (e.g., ZBRA at ~$250 with a 2x ATR stop ~$20 away) would require ~$19,700 to hit the 1.5% portfolio-risk target, nearly 6x available cash. Forcing a sub-$3,100 position would represent under 3% of equity \u2014 noise, not conviction. Existing book is healthy: MSFT is the strongest holding at +7.89% and still in confirmed uptrend basing (well-supported thesis); V is -1.33%, a rounding error within normal ATR for the name; MCO is flat but the business quality thesis is intact. Best candidates in the screened universe for future deployment include ZBRA (PEG 0.53, fwd P/E 12, strong SMA50 slope +4.6%, 35% of 52w range), CRM (PEG 0.93, fwd P/E 12.73, EPS revision +4.1%), and IQV (PEG 0.74, fwd P/E 12.94, uptrend basing). These are watchlisted for entry when cash frees up \u2014 either via a stop being hit on an existing name, a partial trim of the MSFT position if it extends further, or fresh capital. No new trades today; cash conservation and patience are the alpha-generating action.",
-  "confidence_target_pct": 55,
-  "trades": [
-    {
-      "symbol": "MSFT",
-      "direction": "BUY",
-      "entry_price": 446.88,
-      "stop_loss": 415.41,
-      "target": 536.26,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 2.8401652367333994,
-      "rationale": "PYRAMID tranche 2: original lot held 24d at +8.0%; price $444.65 > SMA20 $420.91; adding $10,278 (23 sh) with combined break-even stop at $415.41.",
-      "entry_strategy": "Limit @ $446.88 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
-    }
-  ]
+  "analysis": "Portfolio is essentially fully deployed ($3,113 available cash vs $100K+ in three open positions), leaving no meaningful capital to add a new position without violating sizing rules. Current positions: MSFT is working well (+4.77%) and remains in the screened candidate list; MCO is flat (-0.32%) and not on the screened list (likely failed trend filter); V is underwater (-2.73%) and also not on the screened list, warranting close stop monitoring. With only $3,112 in cash, any new position would be trivially small \u2014 the 1-2% portfolio risk rule requires $1,035-$2,070 at risk, which for typical 6-10% stops on quality names implies position sizes of $10K-$35K, far exceeding available liquidity. Forcing a $3K micro-position creates administrative overhead without meaningful return contribution. Screened candidates show several interesting setups (ZBRA: PEG 0.53, basing at 35% of 52w range; FDS: fwd P/E 12.79, ROE 28%, basing at 24% of range; ADP: ROE 71%, basing uptrend), but these require capital we do not currently have. The correct action is to hold cash, monitor existing stops \u2014 particularly V which is approaching thesis-break territory \u2014 and wait for a position to exit before redeploying into higher-conviction candidates. The ADSK loss (-3.69%) reinforces the need for patience. Cash is a position; forcing a sub-scale trade to stay active is the enemy of compounding.",
+  "confidence_target_pct": 30,
+  "trades": []
 }
