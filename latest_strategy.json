@@ -1,5 +1,53 @@
 {
-  "analysis": "Portfolio is essentially fully deployed ($3,113 available cash vs $100K+ in three open positions), leaving no meaningful capital to add a new position without violating sizing rules. Current positions: MSFT is working well (+4.77%) and remains in the screened candidate list; MCO is flat (-0.32%) and not on the screened list (likely failed trend filter); V is underwater (-2.73%) and also not on the screened list, warranting close stop monitoring. With only $3,112 in cash, any new position would be trivially small \u2014 the 1-2% portfolio risk rule requires $1,035-$2,070 at risk, which for typical 6-10% stops on quality names implies position sizes of $10K-$35K, far exceeding available liquidity. Forcing a $3K micro-position creates administrative overhead without meaningful return contribution. Screened candidates show several interesting setups (ZBRA: PEG 0.53, basing at 35% of 52w range; FDS: fwd P/E 12.79, ROE 28%, basing at 24% of range; ADP: ROE 71%, basing uptrend), but these require capital we do not currently have. The correct action is to hold cash, monitor existing stops \u2014 particularly V which is approaching thesis-break territory \u2014 and wait for a position to exit before redeploying into higher-conviction candidates. The ADSK loss (-3.69%) reinforces the need for patience. Cash is a position; forcing a sub-scale trade to stay active is the enemy of compounding.",
-  "confidence_target_pct": 30,
-  "trades": []
+  "analysis": "Portfolio is 97% deployed with a critical concentration problem: MSFT at 119 shares \u00d7 $433.81 = $51,624 = 49.4% of equity, materially violating the 25% hard cap. This must be corrected before any new capital is deployed. A partial trim of 59 MSFT shares restores compliance (~60 shares remaining = 24.9%) and releases ~$25,600 to fund a new position. The broader market shows quality names in basing patterns \u2014 ZBRA stands out as the highest-conviction new entry: 35% of its 52w range (Stage 1\u21922 transition), PEG 0.53, fwd P/E 12, SMA50 slope +5.1%, and earnings 61 days out (sufficient time). After the trim-and-rotate, the portfolio becomes a balanced four-position book: MCO (~24%), MSFT (~25%), V (~23.6%), ZBRA (~21%) with ~6% residual cash. FOXA/FOX excluded (negative revenue growth). GOOGL/NVDA excluded (82%+ of range, getting extended). FDS excluded (earnings in 27 days, earnings-binary risk). CRM/PLTR excluded (SMA50 slopes still negative, mixed trend). Strategy: execute MSFT trim at market, then buy ZBRA on limit at or below current price.",
+  "confidence_target_pct": 52,
+  "trades": [
+    {
+      "symbol": "MSFT",
+      "direction": "SELL",
+      "entry_strategy": "Sell 59 shares at market (or limit $433) to reduce position from 119 to 60 shares, restoring compliance with the 25% equity hard cap. 60 shares \u00d7 ~$434 \u2248 $26,040 = 24.9% of equity.",
+      "entry_price": 433.81,
+      "stop_loss": 457.0,
+      "stop_loss_pct": 0.053,
+      "atr_multiple": 1.67,
+      "target": 390.0,
+      "target_gain_pct": 0.101,
+      "risk_reward_ratio": 1.9,
+      "conviction": 85,
+      "holding_period": "swing",
+      "rationale": "Fundamental: MSFT remains a world-class business (ROE 34%, op margin 46%, rev growth 18.3%, $37B FCF) \u2014 no thesis break. This is purely a risk management trim. At 49% of portfolio equity the position is nearly 2\u00d7 the hard cap, creating catastrophic concentration risk. Technical: MSFT is up 5.3% from entry and near-term basing at $433; this is an orderly level to trim without chasing. The 25% cap violation is a hard rule that cannot be left unaddressed.",
+      "exit_plan": "Execute immediately at or near market open as a limit sell. If MSFT gaps above $457 (1.67\u00d7 ATR above current, suggesting breakout momentum) before execution, reassess trim size \u2014 might trim only 40 shares rather than 59 to avoid selling into a momentum move. Remaining 60-share position continues with stop near $400 (2\u00d7 ATR below current)."
+    },
+    {
+      "symbol": "ZBRA",
+      "direction": "BUY",
+      "entry_strategy": "Limit order at $249 or better; acceptable up to $252. Ideal entry on any intraday pullback toward the 8-day EMA. Do not chase above $253 as that is 8% above SMA50.",
+      "entry_price": 249.3,
+      "stop_loss": 231.85,
+      "stop_loss_pct": 0.07,
+      "atr_multiple": 1.75,
+      "target": 310.0,
+      "target_gain_pct": 0.244,
+      "risk_reward_ratio": 3.49,
+      "conviction": 72,
+      "holding_period": "position",
+      "rationale": "Fundamental: Zebra Technologies is the dominant provider of enterprise asset intelligence hardware/software (barcode, RFID, mobile computing). After a painful cyclical downturn, business is recovering \u2014 revenue growth +14.3% YoY, fwd P/E 12 (current 30 reflects depressed margins), PEG 0.53 signals the market is not pricing the recovery. FCF $559M on $11.9B mkt cap = 4.7% FCF yield. EPS revisions +3% in 60 days signal analyst confidence. Technical: ZBRA sits at 35% of its 52-week range \u2014 classic Stage 1\u21922 basing territory. SMA50 slope +5.1% (steepest among quality basing candidates), price recently reclaimed SMA50 after extended base. ATR 4% provides clean 1.75\u00d7 stop placement at $231.85 (7.0% stop, within 4-15% rule). Earnings August 4 (61 days) \u2014 sufficient run time before binary event. Position sizing: 89 shares \u00d7 $249.30 = $22,188 = 21.2% of equity, and worst-case stop loss costs 89 \u00d7 $17.45 = $1,553 = 1.48% of equity \u2014 within 1-2% risk budget.",
+      "exit_plan": "Stop hard at $231.85 (no discretion). Target $310 over 3-6 months as margins normalize toward prior peak levels. Thesis-break exit: if quarterly revenue growth decelerates below 10% YoY or management lowers full-year guidance at Aug 4 earnings. Time stop: if price is flat or negative after 8 weeks with no progress toward target, re-evaluate and consider exiting to redeploy. Trail stop up by 1\u00d7 ATR increments as price advances. Consider holding past 1-year mark for LTCG if position is profitable and thesis intact."
+    },
+    {
+      "symbol": "MSFT",
+      "direction": "BUY",
+      "entry_price": 429.48,
+      "stop_loss": 412.71,
+      "target": 515.38,
+      "conviction": 75,
+      "holding_period": "swing",
+      "risk_reward_ratio": 5.122242098986272,
+      "rationale": "PYRAMID tranche 2: original lot held 26d at +5.2%; price $427.34 > SMA20 $421.59; adding $10,308 (24 sh) with combined break-even stop at $412.71.",
+      "entry_strategy": "Limit @ $429.48 (current +0.5%)",
+      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
+      "is_pyramid": true,
+      "tranche": 2
+    }
+  ]
 }
