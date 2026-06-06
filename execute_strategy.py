@@ -26,6 +26,7 @@ from position_sizer import (
 )
 from trade_journal import TradeJournal
 from market_data import latest_price
+from execution_ledger import RunLedger
 
 
 # ---------------------------------------------------------------------------
@@ -98,6 +99,9 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
 
     placed = []
     skipped = []
+    # Per-run ledger (enhancement #1): one row per candidate recording why it
+    # was placed or skipped, surfaced in the daily email by notify_execute.
+    ledger = RunLedger()
 
     for i, trade in enumerate(trades, 1):
         symbol = trade['symbol']
@@ -118,6 +122,7 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         if direction != 'BUY':
             print("  [SKIPPING] non-BUY directives are not auto-executed yet (use Alpaca UI for sells/closes).")
             skipped.append(symbol)
+            ledger.skipped(symbol, "non_buy", f"{direction} not auto-executed (manual via Alpaca UI)")
             continue
 
         try:
@@ -127,11 +132,14 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         except (KeyError, TypeError, ValueError) as e:
             print(f"  ERROR: malformed trade data ({e}) — skipping")
             skipped.append(symbol)
+            ledger.skipped(symbol, "malformed", f"malformed trade data ({e})")
             continue
 
         if entry <= 0 or stop <= 0 or target <= 0 or stop >= entry or target <= entry:
             print(f"  ERROR: invalid prices (entry ${entry}, stop ${stop}, target ${target}) — skipping")
             skipped.append(symbol)
+            ledger.skipped(symbol, "invalid_prices",
+                           f"invalid prices (entry ${entry}, stop ${stop}, target ${target})")
             continue
 
         # Sanity check vs current market
@@ -143,6 +151,8 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
             elif current < stop:
                 print(f"  WARNING: market is already below the proposed stop — likely stale signal")
                 skipped.append(symbol)
+                ledger.skipped(symbol, "stale_signal",
+                               f"market ${current:.2f} already below stop ${stop:.2f} — signal broken")
                 continue
 
         # Stop sanity bounds
@@ -158,6 +168,8 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         if mult <= 0:
             print(f"  [SKIPPING] conviction {conviction:.0f}% below {MIN_CONVICTION_TO_TRADE}% floor — too uncertain to risk capital")
             skipped.append(symbol)
+            ledger.skipped(symbol, "conviction",
+                           f"conviction {conviction:.0f}% below {MIN_CONVICTION_TO_TRADE}% floor")
             continue
 
         # Compute position size (risk-targeted, concentration-capped).
@@ -166,6 +178,7 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         if 'error' in rec or rec['recommended_shares'] <= 0:
             print(f"  ERROR: cannot size — {rec.get('error', 'zero shares recommended')}")
             skipped.append(symbol)
+            ledger.skipped(symbol, "sizing", rec.get('error', 'zero shares recommended'))
             continue
 
         full_shares = rec['recommended_shares']
@@ -173,6 +186,8 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         if shares <= 0:
             print(f"  [SKIPPING] sized-down shares would round to 0 (full={full_shares}, mult={mult:.2f})")
             skipped.append(symbol)
+            ledger.skipped(symbol, "zero_shares",
+                           f"sized down to 0 shares (full={full_shares}, conviction mult={mult:.2f})")
             continue
         proposed_value = shares * entry
         adjusted_position_pct = proposed_value / equity if equity > 0 else 0
@@ -197,6 +212,7 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         if not check['ok']:
             print(f"\n  CONCENTRATION CHECK FAILED: {check['reason']}")
             skipped.append(symbol)
+            ledger.skipped(symbol, "concentration", check['reason'])
             continue
         print(f"  Concentration check OK: {check['would_be_pct']:.1%} of equity (cap {check['cap_pct']:.0%})")
 
@@ -205,6 +221,7 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         if not sec_check['ok']:
             print(f"\n  SECTOR CONCENTRATION CHECK FAILED: {sec_check['reason']}")
             skipped.append(symbol)
+            ledger.skipped(symbol, "sector", sec_check['reason'])
             continue
         sec_label = sec_check.get('sector') or '?'
         pct = sec_check.get('would_be_pct')
@@ -219,6 +236,7 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         if not gross_check['ok']:
             print(f"\n  GROSS DEPLOYMENT CHECK FAILED: {gross_check['reason']}")
             skipped.append(symbol)
+            ledger.skipped(symbol, "gross", gross_check['reason'])
             continue
         print(f"  Gross check OK: {gross_check['would_be_pct']:.1%} of equity after add "
               f"(cap {gross_check['cap_pct']:.0%}, headroom ${max(gross_check['headroom'], 0):,.0f})")
@@ -235,6 +253,7 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         ):
             print(f"  Skipped {symbol}")
             skipped.append(symbol)
+            ledger.skipped(symbol, "declined", "operator declined the bracket order at confirmation")
             continue
 
         # Submit bracket order: limit entry + take-profit leg + stop-loss leg, GTC.
@@ -253,7 +272,14 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
         except Exception as e:
             print(f"  ORDER ERROR: {e}")
             skipped.append(symbol)
+            ledger.skipped(symbol, "order_error", f"Alpaca submit failed: {e}")
             continue
+
+        ledger.placed(
+            symbol, shares, round(entry, 2), order.get('id'),
+            detail=f"bracket gtc; stop ${stop:.2f}, target ${target:.2f}; "
+                   f"submit status {order.get('status')}",
+        )
 
         # Reflect the new exposure into the running positions list so subsequent
         # trades in the same pass see the per-name and per-sector commitment.
@@ -274,6 +300,12 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
             source='claude',
         )
         placed.append(symbol)
+
+    # Persist the per-candidate ledger (enhancement #1). Skip on dry-run so
+    # local --dry-run tests don't pollute the committed ledger. notify_execute
+    # reads this file to explain every placed/skipped name in the daily email.
+    if not dry_run:
+        ledger.commit()
 
     # Summary
     print("\n" + "=" * 70)

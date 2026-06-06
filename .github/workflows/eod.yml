@@ -82,6 +82,9 @@ jobs:
           fi
 
           git add JOURNAL.md
+          # execution_ledger.json: EOD stamps final fill status onto today's
+          # rows (enhancement #2), so persist it. Use -- to be safe if absent.
+          git add execution_ledger.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No staged changes (likely a US holiday with no flag to clear)."
           else

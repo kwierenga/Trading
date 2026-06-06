@@ -24,6 +24,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from email_notifier import send_email
+import execution_ledger
 
 
 def cmd_queue_delay(created_at: str, threshold_min: int, run_url: str) -> int:
@@ -73,15 +74,52 @@ def cmd_failure(run_url: str, failed_step: str) -> int:
 
 
 def cmd_success(run_url: str, journal_path: str = "trade_journal.json") -> int:
+    """
+    Report the day's execution from the per-candidate ledger (enhancements
+    #1-#3): every PLACED order with its real Alpaca fill status, and every
+    SKIPPED candidate with the exact gate + reason. This replaces the old
+    "0 orders submitted — likely cash or re-evaluation skipped" guess, which
+    couldn't tell Klaas *why* a trade didn't happen.
+
+    Falls back to the legacy trade_journal summary only if the ledger is
+    absent (e.g. a run from before this module existed).
+    """
     today = datetime.now(timezone.utc).date().isoformat()
+
+    # reconcile_and_persist queries Alpaca so "submitted" becomes the true
+    # state ("filled" / "working (unfilled)" / "partial"). Best-effort: on any
+    # failure it returns the unreconciled rows so the email still goes out.
+    rows = execution_ledger.reconcile_and_persist(today)
+
+    if rows:
+        counts = execution_ledger.summary_counts(rows)
+        placed = [r for r in rows if r.get("decision") == "placed"]
+        total = sum(float(r.get("entry_price", 0)) * int(r.get("shares", 0)) for r in placed)
+
+        subject = (
+            f"[Trading EXEC] {counts['placed']} placed "
+            f"({counts['filled']} filled), {counts['skipped']} skipped"
+        )
+        body = (
+            f"Execution summary for {today}:\n\n"
+            + execution_ledger.email_block(rows)
+            + (f"\n\n  Placed notional: ${total:,.2f}" if placed else "")
+            + "\n\nNote: entries are GTC limit orders. 'working (unfilled)' means the "
+            + "order is resting and has not yet filled at the limit price; the EOD "
+            + "sweep reports/cancels stale resting entries.\n"
+            + f"\nRun URL: {run_url}\n"
+        )
+        send_email(subject, body)
+        return 0
+
+    # --- Legacy fallback: no ledger present ---
     new_entries = []
     if Path(journal_path).exists():
         try:
             with open(journal_path, "r") as f:
                 trades = json.load(f)
             for t in trades:
-                et = t.get("entry_time", "")
-                if et.startswith(today):
+                if t.get("entry_time", "").startswith(today):
                     new_entries.append(t)
         except (OSError, json.JSONDecodeError) as e:
             print(f"  Could not read {journal_path}: {e}")
@@ -89,9 +127,9 @@ def cmd_success(run_url: str, journal_path: str = "trade_journal.json") -> int:
     if not new_entries:
         subject = "[Trading EXEC] Run complete — 0 orders submitted"
         body = (
-            f"Workflow ran cleanly but no orders went in.\n"
-            f"Likely cause: re-evaluation skipped all trades, or strategy proposed cash.\n\n"
-            f"Run URL: {run_url}\n"
+            f"Workflow ran cleanly but no orders went in, and no execution ledger "
+            f"was found.\nLikely cause: re-evaluation skipped all trades, or strategy "
+            f"proposed cash.\n\nRun URL: {run_url}\n"
         )
     else:
         lines = []

@@ -220,8 +220,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add trade_journal.json
+          # execution_ledger.json records why every candidate was placed/skipped
+          # (enhancement #1) — persist it even on all-skipped days so the "why
+          # didn't it trade?" answer is auditable in git, not just the email.
+          git add execution_ledger.json 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "No journal changes (no orders placed, all skipped, or dry-run)."
+            echo "No journal/ledger changes (empty plan or dry-run)."
           else
             git commit -m "[EXEC] Execute strategy $(date -u +'%Y-%m-%d')"
             for attempt in 1 2 3; do

@@ -23,6 +23,8 @@ from position_manager import run_eod_pass as run_position_manager, report_block 
 from shadow_benchmark import update_shadow, report_block as shadow_report_block
 from trade_journal import TradeJournal
 from performance_tracker import get_turnover_stats, save_snapshot
+from order_sweep import sweep as sweep_entry_orders, report_block as sweep_report_block
+import execution_ledger
 
 
 # Position manager safety: starts in dry-run so we can observe the planned
@@ -30,6 +32,10 @@ from performance_tracker import get_turnover_stats, save_snapshot
 # (or set POSITION_MANAGER_LIVE=true in env) once dry-run output looks right
 # on at least one full state transition (+1R or +2R event).
 POSITION_MANAGER_DRY_RUN = os.getenv("POSITION_MANAGER_LIVE", "false").lower() != "true"
+
+# Entry-order sweep safety (enhancement #4): observe-before-mutate, same as the
+# position manager. Stays in dry-run (report only) until ORDER_SWEEP_LIVE=true.
+ORDER_SWEEP_DRY_RUN = os.getenv("ORDER_SWEEP_LIVE", "false").lower() != "true"
 
 
 EST = pytz.timezone("America/New_York")
@@ -123,7 +129,8 @@ def build_journal_entry(equity, cash, n_positions, today_closed, open_with_statu
 
 
 def build_email(account, positions, today_closed, open_with_status, turnover, today_label,
-                reconcile_report=None, shadow_report=None, position_report=None) -> tuple:
+                reconcile_report=None, shadow_report=None, position_report=None,
+                sweep_report=None) -> tuple:
     equity = float(account.get("equity", 0))
     cash = float(account.get("cash", 0))
 
@@ -185,6 +192,10 @@ def build_email(account, positions, today_closed, open_with_status, turnover, to
     if position_report:
         lines.append("")
         lines.append(position_report_block(position_report))
+
+    if sweep_report:
+        lines.append("")
+        lines.append(sweep_report_block(sweep_report))
 
     if reconcile_report:
         lines.append("")
@@ -260,6 +271,23 @@ def main() -> int:
         print(f"  Position manager pass failed: {e}")
         position_report = {"available": False, "reason": str(e)}
 
+    # Entry-order sweep (enhancement #4): report resting unfilled limit entries
+    # and cancel stale ones. Dry-run by default. Defensive — never fatal.
+    try:
+        sweep_report = sweep_entry_orders(dry_run=ORDER_SWEEP_DRY_RUN, verbose=False)
+    except Exception as e:
+        print(f"  Entry-order sweep failed: {e}")
+        sweep_report = {"available": False, "reason": str(e)}
+
+    # Stamp final fill status onto today's execution-ledger rows (enhancement
+    # #2): a limit submitted at 09:35 has had all day to fill or not, so EOD is
+    # the right moment to record the true outcome. Best-effort.
+    try:
+        today_utc = datetime.now(timezone.utc).date().isoformat()
+        execution_ledger.reconcile_and_persist(today_utc, client=client)
+    except Exception as e:
+        print(f"  Execution-ledger fill reconciliation failed: {e}")
+
     # Journal entry
     entry = build_journal_entry(equity, cash, len(positions), today_closed, open_with_status, today_label)
     append_to_journal(entry)
@@ -267,7 +295,7 @@ def main() -> int:
     # Email
     subject, body = build_email(account, positions, today_closed, open_with_status, turnover, today_label,
                                 reconcile_report=reconcile_report, shadow_report=shadow_report,
-                                position_report=position_report)
+                                position_report=position_report, sweep_report=sweep_report)
     send_email(subject, body)
 
     # Persist daily report and portfolio snapshot for tracking. Reuse the

@@ -31,6 +31,7 @@ from alpaca_client import AlpacaClient
 from ai_strategy_enhanced import get_enhanced_strategy
 from email_notifier import send_email
 from market_calendar import is_us_trading_day
+from position_sizer import MAX_GROSS_PCT
 
 
 EST = pytz.timezone("America/New_York")
@@ -101,11 +102,40 @@ def build_journal_entry(strategy: dict, open_positions: list, today_label: str) 
     return "".join(lines)
 
 
-def build_email(strategy: dict, open_positions: list, today_label: str) -> tuple:
+def deployment_line(account: dict, open_positions: list) -> str:
+    """
+    One-line deployment-reality summary (enhancement #5). Most days the book is
+    ~fully deployed against the 95% gross cap, so 0 new fills are *expected* —
+    stating that up front means a quiet execute email isn't mistaken for a bug.
+    Returns "" if account state is unavailable.
+    """
+    try:
+        equity = float(account.get("equity", 0))
+        if equity <= 0:
+            return ""
+        gross = sum(float(p.get("market_value", 0) or 0) for p in open_positions)
+        headroom = MAX_GROSS_PCT * equity - gross
+        deployed_pct = gross / equity
+        expect = "expect 0 new fills (book at/over the gross cap)" if headroom <= 0 \
+            else f"~${max(headroom, 0):,.0f} headroom for new buys"
+        return (
+            f"Deployment: {deployed_pct:.0%} of equity in {len(open_positions)} "
+            f"position(s); gross cap {MAX_GROSS_PCT:.0%} → {expect}."
+        )
+    except (TypeError, ValueError):
+        return ""
+
+
+def build_email(strategy: dict, open_positions: list, today_label: str,
+                account: dict | None = None) -> tuple:
     trades = strategy.get("trades", [])
 
     lines = [f"Morning plan — {today_label} ET\n"]
     lines.append(f"Confidence: {strategy.get('confidence_target_pct', 0)}%")
+    if account:
+        dl = deployment_line(account, open_positions)
+        if dl:
+            lines.append(dl)
     lines.append("")
 
     if not trades:
@@ -217,14 +247,16 @@ def run_email_phase(today_label: str) -> int:
 
     strategy = json.loads(STRATEGY_PATH.read_text(encoding="utf-8"))
 
+    account = None
     try:
         client = AlpacaClient()
         open_positions = client.get_positions()
+        account = client.get_account()
     except (OSError, ValueError, KeyError) as e:
-        print(f"  Could not fetch positions: {e}")
+        print(f"  Could not fetch positions/account: {e}")
         open_positions = []
 
-    subject, body = build_email(strategy, open_positions, today_label)
+    subject, body = build_email(strategy, open_positions, today_label, account=account)
     send_email(subject, body)
     print("Email phase complete.")
     return 0
