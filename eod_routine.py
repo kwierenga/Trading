@@ -142,6 +142,13 @@ def build_email(account, positions, today_closed, open_with_status, turnover, to
     lines.append(f"Equity: ${equity:,.2f}   Cash: ${cash:,.0f} ({cash / equity * 100:.0f}%)   Positions: {len(positions)}")
     lines.append("")
 
+    # Lead with the honest scoreboard (suggestion #5): the strategy vs a passive
+    # SPY+cash blend since inception. This is the one number that answers "is the
+    # picking adding anything?" — keep it at the TOP so it can't be buried.
+    if shadow_report:
+        lines.append(shadow_report_block(shadow_report))
+        lines.append("")
+
     if today_closed:
         lines.append(f"CLOSED TODAY ({len(today_closed)}):")
         for t in today_closed:
@@ -188,10 +195,6 @@ def build_email(account, positions, today_closed, open_with_status, turnover, to
         lines.append("")
 
     lines.append("→ Open JOURNAL.md and add 1-2 sentences under 'What we learned' if anything surprised you today.")
-
-    if shadow_report:
-        lines.append("")
-        lines.append(shadow_report_block(shadow_report))
 
     if position_report:
         lines.append("")

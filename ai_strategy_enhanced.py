@@ -25,6 +25,7 @@ from performance_tracker import load_history, calculate_weekly_returns
 from trade_journal import TradeJournal
 from portfolio_metrics import PortfolioMetrics
 from market_data import screen_sp500, format_snapshot_for_prompt
+from position_sizer import MAX_GROSS_PCT
 
 
 # How many top-ranked screen survivors to send to Claude. Enough to give
@@ -113,6 +114,61 @@ def build_rich_context() -> Dict:
     }
 
 
+def build_regime_capacity_block(context: Dict) -> str:
+    """
+    Market-regime + deployment-capacity context (suggestions #2 and #3).
+
+    - Regime: a broad-market downtrend (SPY < SMA50, falling) is where quality-value
+      takes its worst losses, so the prompt tells Claude to shrink size / prefer cash.
+      Soft guidance, not a hard block — reversible and learning-friendly.
+    - Capacity: when gross headroom is ~0 (the book is at/over the 95% cap, as it is
+      with 3% cash), there is no room for new buys, so Claude is put in MANAGE-ONLY
+      mode and asked to review existing positions instead of forcing trades.
+    """
+    acct = context.get("account", {})
+    equity = float(acct.get("equity", 0) or 0)
+    positions = context.get("current_positions", [])
+    gross = sum(float(p.get("value", 0) or 0) for p in positions)
+    headroom = MAX_GROSS_PCT * equity - gross if equity else 0.0
+    deployed_pct = (gross / equity) if equity else 0.0
+    manage_only = headroom <= 0
+
+    lines = ["MARKET REGIME & CAPACITY (factor both into today's decision):"]
+
+    # Regime — defensive: any failure just omits the line, never breaks the prompt.
+    try:
+        from regime import detect_regime
+        r = detect_regime("SPY")
+        if r is not None:
+            vs = f"{r.pct_above_sma50:+.1f}%" if r.pct_above_sma50 is not None else "n/a"
+            slope = f"{r.sma50_slope_pct:+.2f}%" if r.sma50_slope_pct is not None else "n/a"
+            lines.append(
+                f"- Market regime (SPY): {r.label} — price {vs} vs SMA50, 20d slope {slope}."
+            )
+            if r.is_downtrend:
+                lines.append(
+                    "  BROAD DOWNTREND ACTIVE: prefer cash or materially smaller size. "
+                    "Quality-value's deepest drawdowns are market-wide, not name-specific."
+                )
+        else:
+            lines.append("- Market regime (SPY): unavailable this cycle.")
+    except Exception as e:
+        lines.append(f"- Market regime (SPY): unavailable ({e}).")
+
+    lines.append(
+        f"- Deployment: {deployed_pct:.0%} of equity in {len(positions)} position(s); "
+        f"gross cap {MAX_GROSS_PCT:.0%}; remaining headroom for new buys "
+        f"${max(headroom, 0):,.0f}."
+    )
+    if manage_only:
+        lines.append(
+            "  MANAGE-ONLY MODE: the book is at/over the gross cap — do NOT propose new "
+            "buys (they will be hard-blocked at execution). Instead, review existing "
+            "positions for thesis-break or over-concentration and return trades=[]."
+        )
+    return "\n".join(lines)
+
+
 def build_candidate_block(force_refresh: bool = False, max_candidates: int = MAX_CANDIDATES_FOR_PROMPT) -> str:
     """Run the S&P 500 screen and render top survivors as a prompt-ready string."""
     candidates = screen_sp500(force_refresh=force_refresh, max_candidates=max_candidates)
@@ -138,14 +194,27 @@ def build_enhanced_claude_prompt(force_refresh_candidates: bool = False) -> str:
     positions = context['current_positions']
 
     candidate_block = build_candidate_block(force_refresh=force_refresh_candidates)
+    regime_capacity_block = build_regime_capacity_block(context)
 
     prompt = f"""
 YOU ARE AN EXPERT QUALITY-VALUE TRADING ADVISOR.
 
 STRATEGY: Concentrated long-only US equity. Quality businesses bought at fair prices
 when the trend has stopped going down. Holding periods: weeks to months by default,
-or longer when thesis holds and tax efficiency benefits. Goal: compound at ~1% weekly
-through 3-5 high-conviction positions, not many mediocre ones.
+or longer when thesis holds and tax efficiency benefits. 3-5 high-conviction positions,
+not many mediocre ones.
+
+OBJECTIVE (read carefully — this is a $100k PAPER LEARNING account, not a
+return-chasing one): Preserve capital and compound steadily on a RISK-ADJUSTED basis.
+The honest, evidence-based bar is to beat a passive SPY+cash blend over months — NOT
+to hit any weekly return target. Repeated backtests of THIS EXACT STYLE found no
+stock-picking or timing edge over buy-and-hold SPY, so do not force trades to
+manufacture alpha. Your value here is disciplined risk management and clear, honest
+reasoning. A quiet, mostly-cash book that protects capital is a SUCCESS, not a failure.
+
+EACH CYCLE ALSO: (a) review existing positions for thesis-break or over-concentration
+and say so plainly in your analysis, and (b) propose a new BUY only when there is a
+genuinely asymmetric setup AND the capacity to size it properly (see capacity below).
 
 Buffett's "wonderful business at a fair price" + Weinstein's "buy the basing knife,
 not the falling knife." Cash is a position — forcing trades is the enemy.
@@ -190,6 +259,9 @@ CURRENT POSITIONS:
     prompt += f"""
 
 ==============================================================================
+{regime_capacity_block}
+==============================================================================
+
 SCREENED CANDIDATES (S&P 500, passed hard quality filter + no confirmed downtrend)
 ==============================================================================
 
@@ -266,7 +338,7 @@ STRATEGY_SCHEMA = {
         },
         "confidence_target_pct": {
             "type": "integer",
-            "description": "Confidence (0-100) that the proposed plan compounds toward ~1% weekly",
+            "description": "Confidence (0-100) that the proposed plan preserves capital and beats a passive SPY+cash blend on a risk-adjusted basis over the coming months",
         },
         "trades": {
             "type": "array",
