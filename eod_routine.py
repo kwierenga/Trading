@@ -54,7 +54,11 @@ def append_to_journal(entry_text: str) -> None:
 
     text = JOURNAL_PATH.read_text(encoding="utf-8")
     marker = "---\n\n"
-    parts = text.split(marker, 2)
+    # maxsplit=1: split ONLY on the first marker so parts[1] holds the entire
+    # rest of the journal (all prior entries). Was maxsplit=2, which produced 3
+    # parts and the reconstruction below dropped parts[2] — silently truncating
+    # the journal to just its 2 newest entries on every run. (Fixed 2026-06-06.)
+    parts = text.split(marker, 1)
     if len(parts) < 2:
         JOURNAL_PATH.write_text(text + "\n\n" + entry_text, encoding="utf-8")
         return
