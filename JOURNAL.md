@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [AM] 2026-06-08 Monday
+**Open questions.** Will the 1 proposed entries (MSFT) fill at limit, or run away pre-market? What's the one thing that could derail the 60% confidence target? Any overnight news on these names worth checking before placing orders? 
+**Today's plan.** execute.yml fires automatically at 09:35 ET — re-evaluates each setup against the actual open and submits the survivors. To skip today, push SKIP_TODAY.flag with today's UTC date before 09:35 ET. Monitor 3 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
+
+---
+
 ## [WEEK] 2026-05-26 → 2026-06-07
 
 **What worked / what didn't.** No positions were opened or closed this week, so there is nothing to evaluate on trade selection or execution quality. What did happen is structural: three significant process changes were designed and committed — the honesty reframe on return targets, the regime/capacity gate, and the execution ledger. Those are the week's actual output. The one concrete failure pattern visible in the data is that MSFT reached ~49% of book, directly violating the 25% per-name cap that was supposedly in place. That didn't happen this week — it was inherited — but the decision to restart rather than trim it is itself a data point worth sitting with.

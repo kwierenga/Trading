@@ -1,22 +1,22 @@
 {
-  "analysis": "Portfolio is nearly fully deployed (~97% of equity in MCO, MSFT, V), all three positions slightly green. MSFT remains the strongest holding \u2014 uptrend basing, +4.24% unrealized, strong AI/cloud fundamentals. MCO and V are consolidating near cost. The single closed trade (ADSK -3.69%) was a stop discipline test, not a thesis failure. With only $3,112 cash and $214K buying power (margin account), adding a new position requires intentional use of margin \u2014 acceptable only for a genuinely asymmetric setup. After screening all 30 candidates: ZBRA stands out as the best NEW basing setup \u2014 lower third of 52-week range, legitimate uptrend, PEG 0.53, fwd P/E 11.85, and strong EPS revisions. INCY is also high quality (PEG 0.36, near debt-free pharma) but at 78% of range in an extending uptrend \u2014 too late-cycle for a fresh entry by the strategy rules. GOOGL/NVDA/TXN/ADI are all in extending uptrends above 80% range position \u2014 avoid new entries per hard rules. FDS earnings in 26 days creates binary risk; skip. CRM negative SMA50 slope; no trend confirmation. Proposing one new trade (ZBRA) sized to use ~1.5% equity risk via buying power, keeping the portfolio at 4 concentrated positions. Confidence in ~1% weekly compounding is moderate given short track record and macro uncertainty.",
-  "confidence_target_pct": 52,
+  "analysis": "MANAGE-ONLY MODE \u2014 book is at ~97% deployment, no capacity for new buys. This cycle is entirely about position review.\n\nMARKET REGIME: SPY in confirmed uptrend (+3.7% vs SMA50, strong slope). Macro tailwind is intact. No regime-based reason to raise cash aggressively, but risk management overrides.\n\nPOSITION REVIEW:\n\n1. MSFT (~48% of equity, $49,034): THIS IS A HARD-CAP VIOLATION. The 25% per-position ceiling is a non-negotiable rule, and MSFT is roughly double that at ~48%. The thesis remains intact \u2014 uptrend basing, +2.7% EPS revision, exceptional fundamentals (46% op margin, 18% rev growth, $37B FCF). However, concentration at this level means a single adverse event (earnings miss, macro shock, regulatory headline) could cause a 5-8% drawdown on the whole portfolio from one name alone. This must be trimmed to ~25% ($25,600 = ~62 shares at current price). Selling ~57 shares reduces the position to ~$25,500 (~24.9% of equity) and raises ~$23,500 in cash, giving proper capacity for future high-conviction setups.\n\n2. MCO (~24.5% of equity, $25,087): Within the 25% cap. Thesis intact \u2014 strong FCF ($2.3B), 45.7% op margin, uptrend basing. SMA50 slope has flatlined (0.0%), so the basing is real but not yet breaking out. No action needed; hold with stop below entry.\n\n3. V (~24.6% of equity, $25,144): Within the 25% cap. +1.12% gain, strong uptrend basing. Visa is a quality compounder with durable moat. No thesis break. Hold.\n\nSUMMARY: The only required action is trimming MSFT to compliance. After trim, portfolio would be ~MCO 25% / MSFT 25% / V 25% / cash ~25% \u2014 a clean, balanced book ready for the next asymmetric setup. Win rate of 0% on 1 closed trade (ADSK stop hit) is too small a sample to adjust strategy; discipline is the right response, not overtrading.\n\nCONFIDENCE: 60 \u2014 the three held names are quality businesses in uptrends, but MSFT over-concentration is the main risk. Trimming improves risk-adjusted profile meaningfully.",
+  "confidence_target_pct": 60,
   "trades": [
     {
-      "symbol": "ZBRA",
-      "direction": "BUY",
-      "entry_strategy": "Limit order at $244-$246, ideally on a mild intraday pullback toward the 20-day SMA. Do not chase if price runs more than 3% above current level before fill.",
-      "entry_price": 245.48,
-      "stop_loss": 229.0,
-      "stop_loss_pct": 0.0672,
-      "atr_multiple": 1.77,
-      "target": 292.0,
-      "target_gain_pct": 0.189,
-      "risk_reward_ratio": 2.81,
-      "conviction": 72,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Zebra Technologies trades at a PEG of 0.53 and forward P/E of 11.85 \u2014 deeply discounted vs. its quality profile. Revenue growth of 14.3%, operating CF of $915M, FCF of $559M, and a 14-day analyst EPS revision of +3.0% confirm business momentum is re-accelerating after a cyclical trough. The industrial mobility/automation market is structurally growing and ZBRA is a dominant supplier. TECHNICAL: Price sits at 33% of its 52-week range \u2014 firmly in Stage 1/2 transition territory. SMA50 slope has turned sharply positive (+5.5% over 20 days), confirming base breakout. Currently 6.3% above SMA50 \u2014 extended but not overextended. Earnings not until August 4 (60 days), giving a clean window to trade into. Stop at 1.77x ATR(14) places risk below the recent basing lows, respecting the structure.",
-      "exit_plan": "Exit immediately on daily close below $229 (stop). Reduce 50% if price reaches $275 and stalls for more than 2 weeks without making new highs. Full exit if SMA50 slope turns negative for 10+ consecutive days. If thesis intact at 1-year mark, evaluate LTCG conversion. Thesis-break conditions: evidence of ZBRA losing share in barcode/mobile computing verticals, or a macro-driven enterprise capex freeze that management cites on the August earnings call."
+      "symbol": "MSFT",
+      "direction": "SELL",
+      "entry_strategy": "Sell ~57 shares at market to reduce position from ~119 shares to ~62 shares, bringing MSFT back within the 25% per-position hard cap (~$25,500 at current price). Execute as a limit order near bid to minimize slippage.",
+      "entry_price": 412.05,
+      "stop_loss": 350.0,
+      "stop_loss_pct": 0.15,
+      "atr_multiple": 2.0,
+      "target": 480.0,
+      "target_gain_pct": 0.165,
+      "risk_reward_ratio": 2.5,
+      "conviction": 85,
+      "holding_period": "LTCG",
+      "rationale": "FUNDAMENTAL: MSFT thesis remains fully intact \u2014 46.3% operating margin, 18.3% revenue growth, $37B FCF, Azure AI infrastructure spend accelerating, +2.7% EPS revision over 60 days. This is a hold, not an exit. TECHNICAL: Price is in uptrend basing (+0.9% vs SMA50, SMA50 slope positive), not extended. No technical reason to exit entirely. RISK MANAGEMENT: However, at ~48% of total equity, MSFT is nearly double the 25% hard-cap rule. A 10% adverse move on MSFT alone would cost the portfolio ~4.8% \u2014 far exceeding the 1-2% per-name risk budget. This trim is mandatory compliance with position-sizing rules, not a directional call. Selling ~57 shares at ~$412 raises ~$23,500 cash and right-sizes the position to ~62 shares (~$25,500, ~24.9% of equity).",
+      "exit_plan": "Retain remaining ~62 shares as a core LTCG position. Exit thesis-break conditions: sustained break below SMA200, operating margin compression below 40%, or significant cloud revenue deceleration. Earnings are 51 days out (July 29) \u2014 consider not adding back until post-earnings clarity. Use raised cash only for genuinely asymmetric new setups that meet all entry criteria."
     }
   ]
 }
