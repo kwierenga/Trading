@@ -1,22 +1,38 @@
 {
-  "analysis": "MANAGE-ONLY MODE \u2014 book is at ~97% deployment, no capacity for new buys. This cycle is entirely about position review.\n\nMARKET REGIME: SPY in confirmed uptrend (+3.7% vs SMA50, strong slope). Macro tailwind is intact. No regime-based reason to raise cash aggressively, but risk management overrides.\n\nPOSITION REVIEW:\n\n1. MSFT (~48% of equity, $49,034): THIS IS A HARD-CAP VIOLATION. The 25% per-position ceiling is a non-negotiable rule, and MSFT is roughly double that at ~48%. The thesis remains intact \u2014 uptrend basing, +2.7% EPS revision, exceptional fundamentals (46% op margin, 18% rev growth, $37B FCF). However, concentration at this level means a single adverse event (earnings miss, macro shock, regulatory headline) could cause a 5-8% drawdown on the whole portfolio from one name alone. This must be trimmed to ~25% ($25,600 = ~62 shares at current price). Selling ~57 shares reduces the position to ~$25,500 (~24.9% of equity) and raises ~$23,500 in cash, giving proper capacity for future high-conviction setups.\n\n2. MCO (~24.5% of equity, $25,087): Within the 25% cap. Thesis intact \u2014 strong FCF ($2.3B), 45.7% op margin, uptrend basing. SMA50 slope has flatlined (0.0%), so the basing is real but not yet breaking out. No action needed; hold with stop below entry.\n\n3. V (~24.6% of equity, $25,144): Within the 25% cap. +1.12% gain, strong uptrend basing. Visa is a quality compounder with durable moat. No thesis break. Hold.\n\nSUMMARY: The only required action is trimming MSFT to compliance. After trim, portfolio would be ~MCO 25% / MSFT 25% / V 25% / cash ~25% \u2014 a clean, balanced book ready for the next asymmetric setup. Win rate of 0% on 1 closed trade (ADSK stop hit) is too small a sample to adjust strategy; discipline is the right response, not overtrading.\n\nCONFIDENCE: 60 \u2014 the three held names are quality businesses in uptrends, but MSFT over-concentration is the main risk. Trimming improves risk-adjusted profile meaningfully.",
-  "confidence_target_pct": 60,
+  "analysis": "Market regime: SPY UPTREND (+3.3% vs SMA50, slope +4.63%) \u2014 constructive backdrop for selective longs. Portfolio is 100% cash after ADSK stop-out at -3.69%. With a 0% win rate on 1 closed trade, the lesson is clear: entry timing and confirmation matter; do not force trades. Existing positions: none to review. New trade capacity: $96,939 headroom, room for 3-4 positions. Strategy today: deploy into 2 high-conviction basing setups with clearly defined risk, keeping ~50% in cash as a buffer. Candidates rejected: GOOGL/EOG (82-84% of 52w range \u2014 extended), CRM/AJG/WDAY (MIXED trend, negative SMA50 slope \u2014 not confirmed), CCL/PAYX (earnings within 16d \u2014 binary risk), FDS (earnings 22d out AND 8.5% above SMA50 \u2014 poor entry timing), NOW (15% above SMA50, mixed trend \u2014 chasing). Selected: MSFT (premier quality, basing near SMA50 at 31% of 52w range, EPS revisions rising, AI/Azure secular tailwind) and ZBRA (PEG 0.50 + fwd P/E 11.25 \u2014 cheapest quality setup in the list, strongest SMA50 slope at +6.2%, tight entry just +0.5% above SMA50). Both have ATR-based stops producing 5-8% drawdowns, well within 15% ceiling, and R/R above 2.3x. Total deployed ~45%, cash ~55% \u2014 appropriate given recent loss and early-cycle portfolio rebuild.",
+  "confidence_target_pct": 58,
   "trades": [
     {
       "symbol": "MSFT",
-      "direction": "SELL",
-      "entry_strategy": "Sell ~57 shares at market to reduce position from ~119 shares to ~62 shares, bringing MSFT back within the 25% per-position hard cap (~$25,500 at current price). Execute as a limit order near bid to minimize slippage.",
-      "entry_price": 412.05,
-      "stop_loss": 350.0,
-      "stop_loss_pct": 0.15,
-      "atr_multiple": 2.0,
-      "target": 480.0,
-      "target_gain_pct": 0.165,
-      "risk_reward_ratio": 2.5,
-      "conviction": 85,
-      "holding_period": "LTCG",
-      "rationale": "FUNDAMENTAL: MSFT thesis remains fully intact \u2014 46.3% operating margin, 18.3% revenue growth, $37B FCF, Azure AI infrastructure spend accelerating, +2.7% EPS revision over 60 days. This is a hold, not an exit. TECHNICAL: Price is in uptrend basing (+0.9% vs SMA50, SMA50 slope positive), not extended. No technical reason to exit entirely. RISK MANAGEMENT: However, at ~48% of total equity, MSFT is nearly double the 25% hard-cap rule. A 10% adverse move on MSFT alone would cost the portfolio ~4.8% \u2014 far exceeding the 1-2% per-name risk budget. This trim is mandatory compliance with position-sizing rules, not a directional call. Selling ~57 shares at ~$412 raises ~$23,500 cash and right-sizes the position to ~62 shares (~$25,500, ~24.9% of equity).",
-      "exit_plan": "Retain remaining ~62 shares as a core LTCG position. Exit thesis-break conditions: sustained break below SMA200, operating margin compression below 40%, or significant cloud revenue deceleration. Earnings are 51 days out (July 29) \u2014 consider not adding back until post-earnings clarity. Use raised cash only for genuinely asymmetric new setups that meet all entry criteria."
+      "direction": "BUY",
+      "entry_strategy": "Limit at $411 or better; if market opens above, enter at market on day-1 open. Prefer any intraday pullback to $408-$412 zone near SMA50.",
+      "entry_price": 411.74,
+      "stop_loss": 388.5,
+      "stop_loss_pct": 0.056,
+      "atr_multiple": 1.76,
+      "target": 472.0,
+      "target_gain_pct": 0.146,
+      "risk_reward_ratio": 2.6,
+      "conviction": 72,
+      "holding_period": "position",
+      "rationale": "Fundamental: Microsoft is the highest-quality large-cap in the candidate list \u2014 46% operating margin, 34% ROE, 18.3% revenue growth, $37B FCF, and dominant positioning in enterprise AI (Azure OpenAI, Copilot). fwd P/E of 21.3 is reasonable for this growth profile; EPS revisions are up +2.7% over 60 days signaling analyst upgrades. Technical: Price is at only 31% of the 52-week range \u2014 base-building territory. Critically, MSFT is just +0.8% above its rising SMA50 (slope +2.8%), meaning this is a tight, low-risk entry near the base breakout point rather than a chase. Still -9.3% below SMA200 \u2014 significant room to recover to prior levels. Stage 1-to-2 transition with improving fundamentals is the ideal Weinstein setup.",
+      "exit_plan": "Stop at $388.50 (1.76x ATR). Target $472 (prior resistance zone, ~15% gain). Also exit if: (1) SMA50 slope turns negative for 5+ consecutive days; (2) quarterly earnings (July 29) show Azure growth deceleration below 30% \u2014 thesis break; (3) price falls back below SMA50 on elevated volume even if stop not hit. Trail stop to breakeven once +8% unrealized."
+    },
+    {
+      "symbol": "ZBRA",
+      "direction": "BUY",
+      "entry_strategy": "Limit at $232 or better; stock is just +0.5% above SMA50 \u2014 ideal entry. Accept fills up to $235. Avoid chasing if gap opens above $238.",
+      "entry_price": 233.04,
+      "stop_loss": 216.0,
+      "stop_loss_pct": 0.073,
+      "atr_multiple": 1.74,
+      "target": 272.0,
+      "target_gain_pct": 0.167,
+      "risk_reward_ratio": 2.3,
+      "conviction": 65,
+      "holding_period": "position",
+      "rationale": "Fundamental: Zebra Technologies (enterprise barcode/RFID/automation hardware + software) is anomalously cheap \u2014 fwd P/E 11.25 and PEG 0.50 for a business growing revenue at 14.3% with $559M FCF. EPS revisions are up +3.0% (60d), the second-highest positive revision in the screened list. Zebra benefits from warehouse automation and supply-chain digitization \u2014 durable secular demand. FCF yield is compelling at ~5% of market cap. Technical: 24% of 52-week range \u2014 deep basing territory, far from prior highs ($341). SMA50 slope is +6.2%, the STRONGEST in the entire 30-stock candidate list, signaling accelerating momentum. Entry at just +0.5% above SMA50 keeps risk tight. -9% vs SMA200 leaves meaningful upside recovery runway. This is a textbook Weinstein Stage 1\u21922 setup with fundamental support.",
+      "exit_plan": "Stop at $216 (1.74x ATR, ~7.3% below entry). Target $272 (~17% gain, well below 52w high of $341). Also exit if: (1) SMA50 slope rolls negative; (2) earnings (Aug 4, ~56d out) show revenue growth decelerating below 10% or guidance cut \u2014 thesis break; (3) broader market regime shifts from UPTREND to confirmed downtrend on SPY. Trail stop to $225 (breakeven +) once +8% is reached."
     }
   ]
 }

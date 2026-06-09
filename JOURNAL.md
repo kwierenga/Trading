@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [AM] 2026-06-09 Tuesday
+**Open questions.** Will the 2 proposed entries (MSFT, ZBRA) fill at limit, or run away pre-market? What's the one thing that could derail the 58% confidence target? Any overnight news on these names worth checking before placing orders? 
+**Today's plan.** execute.yml fires automatically at 09:35 ET — re-evaluates each setup against the actual open and submits the survivors. To skip today, push SKIP_TODAY.flag with today's UTC date before 09:35 ET. No open positions to monitor. 
+
+---
+
 ## [EOD] 2026-06-08 Monday
 **What happened.** Closed: MSFT (-0.9%), MSFT (+0.9%), V (+0.5%), MCO (+0.0%). End equity $102,041, cash $102,041 (100% of equity), 0 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
