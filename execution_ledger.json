@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-06-09",
+    "timestamp": "2026-06-09T14:34:01.059400+00:00",
+    "symbol": "MSFT",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $388.50, target $472.00; submit status pending_new",
+    "shares": 45,
+    "entry_price": 411.74,
+    "order_id": "58d146d7-3534-4e1b-9d49-e7263becb83a",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-06-09",
+    "timestamp": "2026-06-09T14:34:01.938796+00:00",
+    "symbol": "ZBRA",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $216.00, target $272.00; submit status pending_new",
+    "shares": 44,
+    "entry_price": 233.04,
+    "order_id": "67903fb6-7a6f-487e-83c8-1461e217993b",
+    "fill_status": "unknown"
+  }
+]
