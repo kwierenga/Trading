@@ -1,38 +1,5 @@
 {
-  "analysis": "Market regime: SPY UPTREND (+3.3% vs SMA50, slope +4.63%) \u2014 constructive backdrop for selective longs. Portfolio is 100% cash after ADSK stop-out at -3.69%. With a 0% win rate on 1 closed trade, the lesson is clear: entry timing and confirmation matter; do not force trades. Existing positions: none to review. New trade capacity: $96,939 headroom, room for 3-4 positions. Strategy today: deploy into 2 high-conviction basing setups with clearly defined risk, keeping ~50% in cash as a buffer. Candidates rejected: GOOGL/EOG (82-84% of 52w range \u2014 extended), CRM/AJG/WDAY (MIXED trend, negative SMA50 slope \u2014 not confirmed), CCL/PAYX (earnings within 16d \u2014 binary risk), FDS (earnings 22d out AND 8.5% above SMA50 \u2014 poor entry timing), NOW (15% above SMA50, mixed trend \u2014 chasing). Selected: MSFT (premier quality, basing near SMA50 at 31% of 52w range, EPS revisions rising, AI/Azure secular tailwind) and ZBRA (PEG 0.50 + fwd P/E 11.25 \u2014 cheapest quality setup in the list, strongest SMA50 slope at +6.2%, tight entry just +0.5% above SMA50). Both have ATR-based stops producing 5-8% drawdowns, well within 15% ceiling, and R/R above 2.3x. Total deployed ~45%, cash ~55% \u2014 appropriate given recent loss and early-cycle portfolio rebuild.",
+  "analysis": "MARKET & DATA QUALITY ALERT: Every screened candidate is showing price=nan, ATR=nan, and all trend metrics as nan. This is a hard data-quality failure \u2014 I cannot calculate entry prices, stops, ATR multiples, or position sizing with any integrity. Proposing a trade under these conditions would be manufacturing activity, not disciplined investing. Existing positions: MSFT (-2.48%) and ZBRA (-2.87%) are both modestly underwater but within normal noise range and well inside the 15% drawdown ceiling. Neither has triggered a thesis-break signal from the available fundamental data \u2014 both remain quality businesses. Portfolio heat is an extremely low 0.55%, meaning the book is essentially in capital-preservation mode, which is appropriate given the mixed market regime and the 0% win rate on closed trades so far. The single closed trade (ADSK, -3.69%) was stopped out properly \u2014 the system is working as designed. Action plan: (1) Hold MSFT and ZBRA \u2014 no stop adjustments warranted yet; (2) Maintain 72% cash \u2014 this is a strength, not a failure; (3) Return zero new buys until price/ATR data resolves and at least one candidate presents a clear basing pattern with a readable entry, sized stop, and 2:1+ risk-reward. Forcing trades into a data vacuum is the exact behavior this strategy is designed to avoid. Cash is a position and today it is the correct one.",
   "confidence_target_pct": 58,
-  "trades": [
-    {
-      "symbol": "MSFT",
-      "direction": "BUY",
-      "entry_strategy": "Limit at $411 or better; if market opens above, enter at market on day-1 open. Prefer any intraday pullback to $408-$412 zone near SMA50.",
-      "entry_price": 411.74,
-      "stop_loss": 388.5,
-      "stop_loss_pct": 0.056,
-      "atr_multiple": 1.76,
-      "target": 472.0,
-      "target_gain_pct": 0.146,
-      "risk_reward_ratio": 2.6,
-      "conviction": 72,
-      "holding_period": "position",
-      "rationale": "Fundamental: Microsoft is the highest-quality large-cap in the candidate list \u2014 46% operating margin, 34% ROE, 18.3% revenue growth, $37B FCF, and dominant positioning in enterprise AI (Azure OpenAI, Copilot). fwd P/E of 21.3 is reasonable for this growth profile; EPS revisions are up +2.7% over 60 days signaling analyst upgrades. Technical: Price is at only 31% of the 52-week range \u2014 base-building territory. Critically, MSFT is just +0.8% above its rising SMA50 (slope +2.8%), meaning this is a tight, low-risk entry near the base breakout point rather than a chase. Still -9.3% below SMA200 \u2014 significant room to recover to prior levels. Stage 1-to-2 transition with improving fundamentals is the ideal Weinstein setup.",
-      "exit_plan": "Stop at $388.50 (1.76x ATR). Target $472 (prior resistance zone, ~15% gain). Also exit if: (1) SMA50 slope turns negative for 5+ consecutive days; (2) quarterly earnings (July 29) show Azure growth deceleration below 30% \u2014 thesis break; (3) price falls back below SMA50 on elevated volume even if stop not hit. Trail stop to breakeven once +8% unrealized."
-    },
-    {
-      "symbol": "ZBRA",
-      "direction": "BUY",
-      "entry_strategy": "Limit at $232 or better; stock is just +0.5% above SMA50 \u2014 ideal entry. Accept fills up to $235. Avoid chasing if gap opens above $238.",
-      "entry_price": 233.04,
-      "stop_loss": 216.0,
-      "stop_loss_pct": 0.073,
-      "atr_multiple": 1.74,
-      "target": 272.0,
-      "target_gain_pct": 0.167,
-      "risk_reward_ratio": 2.3,
-      "conviction": 65,
-      "holding_period": "position",
-      "rationale": "Fundamental: Zebra Technologies (enterprise barcode/RFID/automation hardware + software) is anomalously cheap \u2014 fwd P/E 11.25 and PEG 0.50 for a business growing revenue at 14.3% with $559M FCF. EPS revisions are up +3.0% (60d), the second-highest positive revision in the screened list. Zebra benefits from warehouse automation and supply-chain digitization \u2014 durable secular demand. FCF yield is compelling at ~5% of market cap. Technical: 24% of 52-week range \u2014 deep basing territory, far from prior highs ($341). SMA50 slope is +6.2%, the STRONGEST in the entire 30-stock candidate list, signaling accelerating momentum. Entry at just +0.5% above SMA50 keeps risk tight. -9% vs SMA200 leaves meaningful upside recovery runway. This is a textbook Weinstein Stage 1\u21922 setup with fundamental support.",
-      "exit_plan": "Stop at $216 (1.74x ATR, ~7.3% below entry). Target $272 (~17% gain, well below 52w high of $341). Also exit if: (1) SMA50 slope rolls negative; (2) earnings (Aug 4, ~56d out) show revenue growth decelerating below 10% or guidance cut \u2014 thesis break; (3) broader market regime shifts from UPTREND to confirmed downtrend on SPY. Trail stop to $225 (breakeven +) once +8% is reached."
-    }
-  ]
+  "trades": []
 }
