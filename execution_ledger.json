@@ -25,38 +25,26 @@
   },
   {
     "date": "2026-06-11",
-    "timestamp": "2026-06-11T14:33:47.480847+00:00",
+    "timestamp": "2026-06-11T14:41:49.975167+00:00",
     "symbol": "IQV",
-    "decision": "placed",
-    "gate": "submitted",
-    "detail": "bracket gtc; stop $170.23, target $210.00; submit status pending_new",
-    "shares": 69,
-    "entry_price": 180.81,
-    "order_id": "47228e5d-ba01-41b7-b566-c5d05b5d7723",
-    "fill_status": "unknown"
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Healthcare sector would be 43.3% of equity (existing $30,978 + new $12,476 = $43,454); cap is 35%"
   },
   {
     "date": "2026-06-11",
-    "timestamp": "2026-06-11T14:33:48.003456+00:00",
+    "timestamp": "2026-06-11T14:41:50.219458+00:00",
     "symbol": "A",
-    "decision": "placed",
-    "gate": "submitted",
-    "detail": "bracket gtc; stop $123.24, target $155.00; submit status pending_new",
-    "shares": 143,
-    "entry_price": 131.1,
-    "order_id": "13bfe169-36a7-4bf5-a5af-0b7e9e47be68",
-    "fill_status": "unknown"
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "A would be 37.2% of equity (existing $18,534 + new $18,747 = $37,282); cap is 25%"
   },
   {
     "date": "2026-06-11",
-    "timestamp": "2026-06-11T14:33:48.661492+00:00",
+    "timestamp": "2026-06-11T14:41:50.592833+00:00",
     "symbol": "ADP",
-    "decision": "placed",
-    "gate": "submitted",
-    "detail": "bracket gtc; stop $220.25, target $265.00; submit status pending_new",
-    "shares": 81,
-    "entry_price": 229.91,
-    "order_id": "6a6b7539-b69f-442f-8be1-428d474ea675",
-    "fill_status": "unknown"
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "ADP would be 37.0% of equity (existing $18,522 + new $18,623 = $37,145); cap is 25%"
   }
 ]
