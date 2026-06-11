@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [AM] 2026-06-11 Thursday
+**Open questions.** Will the 3 proposed entries (IQV, A, ADP) fill at limit, or run away pre-market? What's the one thing that could derail the 55% confidence target? Any overnight news on these names worth checking before placing orders? 
+**Today's plan.** execute.yml fires automatically at 09:35 ET — re-evaluates each setup against the actual open and submits the survivors. To skip today, push SKIP_TODAY.flag with today's UTC date before 09:35 ET. No open positions to monitor. 
+
+---
+
 ## [EOD] 2026-06-10 Wednesday
 **What happened.** Closed: ZBRA (-7.4%). End equity $100,725, cash $82,851 (82% of equity), 1 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 

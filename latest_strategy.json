@@ -1,5 +1,54 @@
 {
-  "analysis": "MARKET & DATA QUALITY ALERT: Every screened candidate is showing price=nan, ATR=nan, and all trend metrics as nan. This is a hard data-quality failure \u2014 I cannot calculate entry prices, stops, ATR multiples, or position sizing with any integrity. Proposing a trade under these conditions would be manufacturing activity, not disciplined investing. Existing positions: MSFT (-2.48%) and ZBRA (-2.87%) are both modestly underwater but within normal noise range and well inside the 15% drawdown ceiling. Neither has triggered a thesis-break signal from the available fundamental data \u2014 both remain quality businesses. Portfolio heat is an extremely low 0.55%, meaning the book is essentially in capital-preservation mode, which is appropriate given the mixed market regime and the 0% win rate on closed trades so far. The single closed trade (ADSK, -3.69%) was stopped out properly \u2014 the system is working as designed. Action plan: (1) Hold MSFT and ZBRA \u2014 no stop adjustments warranted yet; (2) Maintain 72% cash \u2014 this is a strength, not a failure; (3) Return zero new buys until price/ATR data resolves and at least one candidate presents a clear basing pattern with a readable entry, sized stop, and 2:1+ risk-reward. Forcing trades into a data vacuum is the exact behavior this strategy is designed to avoid. Cash is a position and today it is the correct one.",
-  "confidence_target_pct": 58,
-  "trades": []
+  "analysis": "Market regime is a confirmed uptrend (SPY +1.2% vs SMA50, 20d slope +4.91%), which opens the door to selective long exposure. The account is fully in cash with a single prior loss (ADSK -3.69%, stop hit). The honest lesson from that trade: ADSK was extended and the setup was marginal. Today I'm narrowing to three names with a clear fundamental quality advantage AND a technical basing setup in the lower half of their 52-week range. I'm deliberately avoiding: (1) names with near-term earnings within ~3 weeks (FDS earnings July 1, PAYX/CCL earnings June 24), (2) names already in the upper 80%+ of their 52-week range (APH, EOG \u2014 late-cycle extension risk), (3) names with deteriorating analyst revisions (HOOD -5.3%, RCL -3.1%, CPB -11.4%), and (4) names in MIXED/SIDEWAYS trend with declining SMA50 slope (NOW, WDAY, ECL, CTAS). The three selected \u2014 IQV, A, and ADP \u2014 each have: exceptional business quality (high ROE, strong FCF, wide margins), reasonable forward valuation, confirmed uptrend with basing characteristics in the lower half of the 52-week range, and no earnings catalyst for 40-76 days. Total deployment ~75% of equity, 25% kept in cash as dry powder. Each position is sized so a full stop-out costs ~1.5% of total equity, with no single name exceeding 25% of portfolio. Concentration is 3 positions which is within the 3-5 target. No thesis-break review needed since there are no open positions.",
+  "confidence_target_pct": 55,
+  "trades": [
+    {
+      "symbol": "IQV",
+      "direction": "BUY",
+      "entry_strategy": "Limit order at $180.81 or better; will accept fill up to $183. Prefer to enter on a quiet consolidation day rather than chasing a gap-up open.",
+      "entry_price": 180.81,
+      "stop_loss": 170.23,
+      "stop_loss_pct": 0.0585,
+      "atr_multiple": 1.5,
+      "target": 210.0,
+      "target_gain_pct": 0.1614,
+      "risk_reward_ratio": 2.76,
+      "conviction": 68,
+      "holding_period": "position",
+      "rationale": "Fundamental: IQVIA is a dominant healthcare data, analytics, and clinical research organization with a genuine competitive moat. Fwd P/E of 12.74 and PEG of 0.74 represent exceptional value for a business growing revenue 8.4% with 22.5% ROE and $2.2B FCF. The forward P/E vs trailing P/E gap (12.74 vs 22.46) signals strong expected earnings acceleration. High D/E (255) is the main risk but is typical for this industry and is service-backed, not capital-asset-backed. Technical: Price at 30% of 52-week range (lower half \u2713), confirmed uptrend with basing pattern, SMA50 slope +1.8% (rising base), only +4.6% above SMA50 (not extended), and SMA200 catchup phase underway. Next earnings July 21 (40 days away) gives enough time for position to mature before event risk.",
+      "exit_plan": "Exit if price closes below stop $170.23 (1.5x ATR). Exit if SMA50 slope turns negative for two consecutive weeks. Consider trimming 50% into earnings on July 21 to reduce binary risk; hold remainder if quarterly confirms thesis. Full exit if revenue growth decelerates below 5% or guidance cut materially."
+    },
+    {
+      "symbol": "A",
+      "direction": "BUY",
+      "entry_strategy": "Limit at $131.10 or pullback toward $129-130 (near SMA50). Do not chase above $134.",
+      "entry_price": 131.1,
+      "stop_loss": 123.24,
+      "stop_loss_pct": 0.06,
+      "atr_multiple": 1.5,
+      "target": 155.0,
+      "target_gain_pct": 0.1823,
+      "risk_reward_ratio": 3.04,
+      "conviction": 70,
+      "holding_period": "position",
+      "rationale": "Fundamental: Agilent is a high-quality life sciences instrumentation and diagnostics business. ROE 21.3%, operating margin 23.7%, FCF $931M, and 10% revenue growth represent a genuinely excellent business. Forward P/E 19.84 is reasonable for this quality tier. Conservative D/E (49.73) provides balance sheet resilience. Revenue inflection from biopharma capex recovery supports multi-quarter tailwind. Technical: At 45% of 52-week range (mid-lower half \u2713), confirmed uptrend, SMA50 slope +4.1% (accelerating), price +9.4% above SMA50 (slightly extended but SMA50 itself is trending up strongly). Critically, next earnings is August 26 (76 days away) \u2014 the longest runway of any quality candidate, minimizing near-term event risk. The SMA200 crossover (+0.9%) is a positive recent development signaling Stage 2 transition.",
+      "exit_plan": "Hard stop $123.24 (1.5x ATR below entry). Thesis break: if life sciences capex commentary from peers turns negative, or if Agilent pre-announces a revenue miss. Time stop: if price has not progressed toward $145 within 8 weeks, reassess whether base is forming or deteriorating. Consider LTCG upgrade if still holding at 11 months with intact thesis."
+    },
+    {
+      "symbol": "ADP",
+      "direction": "BUY",
+      "entry_strategy": "Limit at $229.91 or pullback toward $225-228 (near SMA50 support). Do not enter if gap-opens above $236.",
+      "entry_price": 229.91,
+      "stop_loss": 220.25,
+      "stop_loss_pct": 0.042,
+      "atr_multiple": 1.5,
+      "target": 265.0,
+      "target_gain_pct": 0.1526,
+      "risk_reward_ratio": 3.63,
+      "conviction": 72,
+      "holding_period": "position",
+      "rationale": "Fundamental: ADP is one of the highest-quality businesses in the S&P 500. ROE 71.2%, operating margin 30.2%, FCF $4.7B on $91.9B market cap \u2014 the FCF yield and earnings quality are exceptional. PEG 2.14 is the only modest valuation concern, but for a capital-light, recurring-revenue, economically resilient payroll/HR platform, this premium is historically justified. Analyst revisions +1.9% (positive drift). The business is effectively recession-resistant. Technical: 35% of 52-week range (lower half \u2713), confirmed uptrend basing, SMA50 slope +2.8% (steady climb), +8.4% above SMA50 (slightly stretched but with low ATR of 2.8%, this is only 3 ATR units \u2014 acceptable). Low ATR means tight stop relative to target, producing excellent RR of 3.6x. Earnings July 29 (48 days out) \u2014 enough runway for the position to establish.",
+      "exit_plan": "Hard stop $220.25. Thesis break: if payroll processing volumes decelerate materially, suggesting macro deterioration, or if a competitor wins a major enterprise contract cycle. Consider holding past 1 year for LTCG if position is profitable and thesis intact at 11 months. Trim 30% before July 29 earnings to reduce binary risk; restore size post-earnings if results confirm."
+    }
+  ]
 }
