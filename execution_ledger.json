@@ -22,5 +22,41 @@
     "entry_price": 233.04,
     "order_id": "67903fb6-7a6f-487e-83c8-1461e217993b",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-06-11",
+    "timestamp": "2026-06-11T14:33:47.480847+00:00",
+    "symbol": "IQV",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $170.23, target $210.00; submit status pending_new",
+    "shares": 69,
+    "entry_price": 180.81,
+    "order_id": "47228e5d-ba01-41b7-b566-c5d05b5d7723",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-06-11",
+    "timestamp": "2026-06-11T14:33:48.003456+00:00",
+    "symbol": "A",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $123.24, target $155.00; submit status pending_new",
+    "shares": 143,
+    "entry_price": 131.1,
+    "order_id": "13bfe169-36a7-4bf5-a5af-0b7e9e47be68",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-06-11",
+    "timestamp": "2026-06-11T14:33:48.661492+00:00",
+    "symbol": "ADP",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $220.25, target $265.00; submit status pending_new",
+    "shares": 81,
+    "entry_price": 229.91,
+    "order_id": "6a6b7539-b69f-442f-8be1-428d474ea675",
+    "fill_status": "unknown"
   }
 ]
