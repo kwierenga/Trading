@@ -13,6 +13,7 @@ Strategy style: quality-value with trend confirmation.
 """
 
 import json
+import math
 import os
 import statistics
 import time
@@ -129,9 +130,19 @@ def get_technicals(symbol: str) -> Optional[Technicals]:
     if hist is None or hist.empty or len(hist) < 20:
         return None
 
-    closes = hist["Close"].tolist()
-    highs = hist["High"].tolist()
-    lows = hist["Low"].tolist()
+    # Fail closed on NaN bars. When yfinance is rate-limited/blocked it can return
+    # frames full of NaN, and NaN comparisons silently pass every trend filter
+    # (nan > sma50 and nan < sma50 are both False → "not a downtrend"). Seen live
+    # 2026-06-10: all screened "survivors" had price=nan. Drop NaN rows; if too
+    # few real bars remain, treat the symbol as unpriceable.
+    highs, lows, closes = [], [], []
+    for h, l, c in zip(hist["High"].tolist(), hist["Low"].tolist(), hist["Close"].tolist()):
+        if all(isinstance(v, (int, float)) and math.isfinite(v) for v in (h, l, c)):
+            highs.append(float(h))
+            lows.append(float(l))
+            closes.append(float(c))
+    if len(closes) < 20:
+        return None
 
     price = closes[-1]
     sma20 = sum(closes[-20:]) / 20 if len(closes) >= 20 else None
@@ -564,6 +575,16 @@ def screen_universe(
 
     _save_snapshot_cache(cache)
     save_earnings_cache(earnings_cache)
+
+    # Data-quality circuit breaker: if most of the universe failed to price, the
+    # data source is down (not the market) — abort loudly instead of emitting a
+    # plan built from whatever stale survivors remain. (2026-06-10: a yfinance
+    # outage produced an all-NaN screen that read as a normal "no setups" day.)
+    if n >= 50 and fetch_failures > n * 0.5:
+        raise RuntimeError(
+            f"Screen data-quality failure: {fetch_failures}/{n} tickers unpriceable — "
+            "price source likely rate-limited or down; refusing to emit a plan"
+        )
 
     if verbose:
         print(

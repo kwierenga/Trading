@@ -145,7 +145,11 @@ def append_to_journal(week_label: str, summary: str) -> None:
         return
     text = JOURNAL_PATH.read_text(encoding="utf-8")
     marker = "---\n\n"
-    parts = text.split(marker, 2)
+    # maxsplit=1: same truncation bug fixed in eod_routine/morning_routine on
+    # 2026-06-06 — maxsplit=2 made the reconstruction below drop parts[2] (all
+    # prior entries). This third copy was missed and wiped the journal again on
+    # 2026-06-07's weekly run.
+    parts = text.split(marker, 1)
     entry = f"## [WEEK] {week_label}\n\n{summary}\n"
     if len(parts) < 2:
         JOURNAL_PATH.write_text(text + "\n\n" + entry, encoding="utf-8")

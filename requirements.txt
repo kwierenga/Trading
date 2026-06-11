@@ -1,6 +1,10 @@
 python-dotenv==1.0.0
 requests==2.31.0
-pytz>=2024.1
-anthropic>=0.40.0
-yfinance>=0.2.40
-pandas-market-calendars>=4.4.0
+pytz==2026.2
+anthropic==0.109.1
+yfinance==1.4.1
+pandas-market-calendars==5.4.0
+# Transitive but breakage-prone — pinned because the runners install fresh every
+# day, so an unpinned major (pandas 3.x landed mid-2026) arrives silently in prod.
+pandas==3.0.3
+numpy==2.4.6

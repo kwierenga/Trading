@@ -204,7 +204,17 @@ def build_email(strategy: dict, open_positions: list, today_label: str,
 def run_plan_phase(today_label: str) -> int:
     """Generate strategy + journal, write latest_strategy.json. No email."""
     print("  Generating strategy (forcing fresh screen)...")
-    strategy = get_enhanced_strategy(force_refresh_candidates=True)
+    try:
+        strategy = get_enhanced_strategy(force_refresh_candidates=True)
+    except RuntimeError as e:
+        # Screen-level data-quality abort (see market_data.screen_universe).
+        send_email(
+            f"[Trading AM] {today_label} — FAILED (data quality)",
+            f"Strategy generation aborted: {e}\n"
+            "No plan was written, so execute.yml's freshness check will refuse "
+            "yesterday's stale plan. No orders will be placed today.",
+        )
+        return 1
 
     if not strategy:
         # Email a failure notice immediately — don't wait for the email phase.
