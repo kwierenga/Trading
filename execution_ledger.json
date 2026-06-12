@@ -46,5 +46,29 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "ADP would be 37.0% of equity (existing $18,522 + new $18,623 = $37,145); cap is 25%"
+  },
+  {
+    "date": "2026-06-12",
+    "timestamp": "2026-06-12T14:33:43.161372+00:00",
+    "symbol": "FICO",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $1071.00, target $1450.00; submit status pending_new",
+    "shares": 9,
+    "entry_price": 1185.37,
+    "order_id": "6a7d5734-63a4-43ea-a837-75e82a10aac9",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-06-12",
+    "timestamp": "2026-06-12T14:33:43.683397+00:00",
+    "symbol": "LII",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $479.90, target $620.00; submit status pending_new",
+    "shares": 20,
+    "entry_price": 517.03,
+    "order_id": "fae1855c-dc7c-463e-9b86-4a2c53f39a1f",
+    "fill_status": "unknown"
   }
 ]
