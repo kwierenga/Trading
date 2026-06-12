@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [EOD] 2026-06-12 Friday
+**What happened.** No trades closed today. End equity $100,173, cash $29,929 (30% of equity), 5 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+
+---
+
 ## [NOTE] 2026-06-12 Friday — 06-11 double-EXEC explained; manual-dispatch idempotency gap closed
 **What happened.** Solved yesterday's open question: the second 06-11 [EXEC] commit was a manual workflow_dispatch by Klaas at 14:41 UTC, which the idempotency gate deliberately exempted — it re-ran the full trade path and only the concentration/sector caps stopped IQV/A/ADP from being submitted twice. Worse, the re-run's ledger commit *replaced* the day's rows, erasing the three placed rows (with Alpaca order ids) the EOD reconcile needed. Fixed both: idempotency now applies to all triggers (new `force=true` input for deliberate re-runs), `RunLedger.commit()` preserves placed rows across same-day re-runs (+tests), and the lost 06-11 rows were restored from git and reconciled (all 3 filled).
 **What we learned.** The manual exemption was never needed for its stated purpose — on a missed-cron recovery day no [EXEC] commit exists, so the check passes anyway; the exemption only ever enabled accidental double-submits. Separately observed: GitHub's own cron has drifted to ~17:50 UTC daily, so the cron-job.org backup (firing 14:33 UTC) has quietly become the de facto primary — by design, idempotency keeps it safe. Fill streak is now 7/7 since the restart (FICO and LII both filled today).
