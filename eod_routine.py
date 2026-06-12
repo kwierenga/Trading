@@ -295,6 +295,21 @@ def main() -> int:
     except Exception as e:
         print(f"  Execution-ledger fill reconciliation failed: {e}")
 
+    # Per-trade post-mortems (training loop): append a mechanical block to
+    # trade_post_mortems.md for any closed trade not yet in it; the reflective
+    # fields are Klaas's to fill within 24h. Idempotent via per-block keys.
+    # Best-effort — never fatal.
+    try:
+        from post_mortem import append_for_closed_trades, email_block as pm_email_block
+        all_closed = [t for t in TradeJournal.load_trades() if t.get("status") == "closed"]
+        pm_new = append_for_closed_trades(all_closed)
+        pm_block = pm_email_block(pm_new)
+        if pm_new:
+            print(f"  Post-mortem block(s) written: {', '.join(pm_new)}")
+    except Exception as e:
+        print(f"  Post-mortem generation failed: {e}")
+        pm_block = ""
+
     # Journal entry
     entry = build_journal_entry(equity, cash, len(positions), today_closed, open_with_status, today_label)
     append_to_journal(entry)
@@ -303,6 +318,8 @@ def main() -> int:
     subject, body = build_email(account, positions, today_closed, open_with_status, turnover, today_label,
                                 reconcile_report=reconcile_report, shadow_report=shadow_report,
                                 position_report=position_report, sweep_report=sweep_report)
+    if pm_block:
+        body += "\n\n" + pm_block
     send_email(subject, body)
 
     # Persist daily report and portfolio snapshot for tracking. Reuse the

@@ -18,6 +18,14 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [NOTE] 2026-06-12 Friday — training-loop build: post-mortems, journal heal, RULEBOOK
+**What happened.** Klaas set the focus: train with the paper account for ~2 months, wire learned rules into real-money trading only after ~2026-08-11. Found and fixed the third data-integrity gap of the week: eod.yml reconciled `trade_journal.json` against Alpaca nightly but never committed it, so the AM prompt's stats were computed from a stale file ("0% win rate, 1 closed trade" while reality was 9 round-trips including APP +28.3% target-hit — a winner the system never saw). Built the designed-but-never-built per-trade post-mortem loop (`post_mortem.py` + EOD wiring + nag) and `RULEBOOK.md`, the Tier 3→2→1 graduation pipeline that turns paper lessons into enforced real-money rules.
+**What we learned.** The fill-rate hypothesis is so far refuted: 5/5 limit entries filled since the restart (MSFT, ZBRA, IQV, A, ADP) — but 4 of 5 signal exits were quick stops (ZBRA −7.4% in 1.2d, MSFT −5.2% in 2d), so the live question is whether 1.5–2×ATR stops are too tight for basing entries (RULEBOOK 3.4: needs 3+ post-mortems before any gated test, never a quiet widening). Reconciled stats change what Claude is told about its own track record — accurate stats are what makes every other improvement compound.
+**Open questions.** Will Klaas fill the 5 outstanding reflective post-mortems (ADSK, UBER, APP, ZBRA, MSFT) — the loop only works if reflection happens? Why were there two [EXEC] commits on 06-11 (primary + backup both committing; fills show no duplication, but the idempotency gate deserves a look)?
+**Tomorrow's plan.** Weekend: fill post-mortems (15 min), especially APP — the only winner deserves as much study as the stops. Next week: watch the EOD email's new POST-MORTEMS section and the reconciled stats block flow into the AM prompt; otherwise validate-before-extending.
+
+---
+
 ## [EOD] 2026-06-11 Thursday
 **What happened.** Closed: MSFT (-5.2%). End equity $100,134, cash $50,828 (51% of equity), 3 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 

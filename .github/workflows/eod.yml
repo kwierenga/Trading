@@ -85,6 +85,14 @@ jobs:
           # execution_ledger.json: EOD stamps final fill status onto today's
           # rows (enhancement #2), so persist it. Use -- to be safe if absent.
           git add execution_ledger.json 2>/dev/null || true
+          # trade_journal.json: the EOD routine reconciles it against Alpaca's
+          # fill history every evening, but until 2026-06-11 the corrected file
+          # was thrown away with the runner — the repo copy (which feeds the AM
+          # prompt's win-rate stats and post-mortems) stayed permanently stale.
+          git add trade_journal.json 2>/dev/null || true
+          # trade_post_mortems.md: per-closed-trade mechanical blocks appended
+          # at EOD; Klaas fills the reflective fields async (training loop).
+          git add trade_post_mortems.md 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No staged changes (likely a US holiday with no flag to clear)."
           else
