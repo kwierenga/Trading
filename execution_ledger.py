@@ -124,9 +124,24 @@ class RunLedger:
         )
 
     def commit(self) -> None:
-        """Replace this date's rows in the on-disk ledger with the run's rows."""
-        others = [r for r in load(self.path) if r.get("date") != self.date]
-        _write(others + self.rows, self.path)
+        """
+        Merge this run's rows into the on-disk ledger.
+
+        Other dates are untouched. For this date, prior `placed` rows are
+        PRESERVED — they record orders that really went out to Alpaca, and a
+        later same-day run must not erase that audit trail (on 2026-06-11 a
+        manual re-dispatch overwrote three placed rows with `skipped`, losing
+        the order ids the EOD reconcile needed). Prior `skipped` rows are
+        replaced by this run's verdicts, which keeps the original
+        no-double-logging intent for re-runs.
+        """
+        existing = load(self.path)
+        others = [r for r in existing if r.get("date") != self.date]
+        kept_placed = [
+            r for r in existing
+            if r.get("date") == self.date and r.get("decision") == "placed"
+        ]
+        _write(others + kept_placed + self.rows, self.path)
 
 
 def reconcile_and_persist(date_utc: str, path: str = FILE, client=None) -> List[Dict]:

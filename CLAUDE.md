@@ -226,7 +226,12 @@ day, addresses follow-ups identified post-Phase-3:
   git, works from any client incl. iOS Working Copy.
 - **Idempotency check**: skips execute.yml if today's `[EXEC]` commit already
   exists. Prevents the backup trigger from double-submitting after a
-  successful primary run.
+  successful primary run. **Since 2026-06-12 this applies to manual
+  `workflow_dispatch` too** (on 2026-06-11 a manual re-dispatch re-ran the
+  trade path 8min after a successful submit; only the concentration/sector
+  caps stopped duplicate orders). Dispatch with `force=true` to deliberately
+  re-run after a same-day `[EXEC]`; missed-cron recovery days need no force
+  (no `[EXEC]` commit exists, so the check passes).
 - **`repository_dispatch` backup trigger**: cron-job.org fires `execute.yml`
   at ~14:50 UTC (15min after primary). Belt-and-suspenders for
   GitHub-hosted-runner cron drops. Idempotency above keeps it a no-op on

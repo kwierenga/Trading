@@ -31,6 +31,11 @@ on:
         required: false
         default: 'false'
         type: string
+      force:
+        description: 'Bypass the same-day idempotency check (re-run LIVE after a successful [EXEC] — duplicates orders unless gates catch them)'
+        required: false
+        default: 'false'
+        type: string
   repository_dispatch:
     # Backup trigger fired by external cron (cron-job.org) at ~14:50 UTC.
     # Belt-and-suspenders for GitHub Actions hosted-runner cron drops.
@@ -98,14 +103,20 @@ jobs:
             fi
 
             # 3. Idempotency — skip if today's [EXEC] commit already exists.
-            #    Only applies to schedule + repository_dispatch (backup trigger);
-            #    workflow_dispatch is intentional manual and should not be blocked
-            #    by an earlier same-day commit.
-            if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+            #    Applies to ALL triggers, including workflow_dispatch: on a
+            #    missed-cron recovery day no [EXEC] commit exists, so manual
+            #    dispatch still proceeds. On 2026-06-11 the old manual
+            #    exemption let a 14:41 dispatch re-run the full trade path
+            #    8min after a successful submit — only the concentration/
+            #    sector caps stopped duplicate orders. force=true overrides
+            #    for the (rare, deliberate) re-run-after-success case.
+            if [ "${{ inputs.force }}" = "true" ]; then
+              echo "force=true — bypassing same-day idempotency check"
+            else
               TODAY=$(date -u +%Y-%m-%d)
               if git log --oneline --grep="^\[EXEC\] Execute strategy ${TODAY}" -1 | grep -q .; then
                 SHOULD_RUN=false
-                REASON="[EXEC] commit for ${TODAY} already exists (idempotency vs backup trigger)"
+                REASON="[EXEC] commit for ${TODAY} already exists (idempotency; dispatch with force=true to deliberately re-run)"
               fi
             fi
           fi
