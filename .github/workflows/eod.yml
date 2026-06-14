@@ -93,6 +93,14 @@ jobs:
           # trade_post_mortems.md: per-closed-trade mechanical blocks appended
           # at EOD; Klaas fills the reflective fields async (training loop).
           git add trade_post_mortems.md 2>/dev/null || true
+          # portfolio_history.json + daily_report.json: the EOD routine appends a
+          # daily equity snapshot to each, but until 2026-06-14 neither was staged
+          # — so the runner threw them away and the committed history froze at 5
+          # snapshots from 2026-05-01. That silently starved portfolio_metrics.py
+          # (Sortino/max-drawdown) and the weekly quantstats tear-sheet of data.
+          # Same class of bug as the trade_journal.json fix above.
+          git add portfolio_history.json 2>/dev/null || true
+          git add daily_report.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No staged changes (likely a US holiday with no flag to clear)."
           else
