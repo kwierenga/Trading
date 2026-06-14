@@ -7,6 +7,9 @@ pandas-market-calendars==5.4.0
 # Read-only weekly analytics (risk-adjusted metrics + SPY tear-sheet). Pulls
 # matplotlib/seaborn/scipy; only imported by weekly_review.py, not the daily path.
 quantstats==0.0.81
+# Post-condition validation of the screen output before it reaches Claude
+# (market_data.validate_screen_candidates). Lightweight, pandas-3 compatible.
+pandera==0.31.1
 # Transitive but breakage-prone — pinned because the runners install fresh every
 # day, so an unpinned major (pandas 3.x landed mid-2026) arrives silently in prod.
 pandas==3.0.3

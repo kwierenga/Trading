@@ -598,12 +598,80 @@ def screen_universe(
     return ranked[:max_candidates]
 
 
+def validate_screen_candidates(candidates: List[Dict]) -> List[Dict]:
+    """Post-condition guard (enhancement #4): re-assert the hard quality floor on
+    the candidates about to be handed to Claude.
+
+    Every candidate already passed `passes_quality_filter`, so in normal operation
+    this drops nothing — it's a canary for a filter regression, a unit bug (e.g.
+    the debt/equity percent-vs-ratio gotcha in CLAUDE.md), or NaN data slipping
+    through a yfinance hiccup. Offenders are logged loudly and dropped before they
+    reach the prompt. Thresholds/nullable-semantics mirror `passes_quality_filter`
+    exactly so a clean screen never loses a valid name.
+
+    Defensive: if pandera is unavailable or validation itself errors, the input is
+    returned unchanged — this guard must never block the morning run.
+    """
+    if not candidates:
+        return candidates
+    try:
+        try:
+            import pandera.pandas as pa
+        except ImportError:
+            import pandera as pa
+        import pandas as pd
+    except ImportError:
+        return candidates
+
+    rows = []
+    for c in candidates:
+        f = c.get("fundamentals") or {}
+        rows.append({
+            "symbol": c.get("symbol"),
+            "market_cap": f.get("market_cap"),
+            "operating_cash_flow": f.get("operating_cash_flow"),
+            "debt_to_equity": f.get("debt_to_equity"),
+            "profit_margin": f.get("profit_margin"),
+        })
+    df = pd.DataFrame(rows)
+
+    schema = pa.DataFrameSchema({
+        "symbol": pa.Column(str, nullable=False),
+        # None market_cap / operating_cash_flow must fail (matches the filter).
+        "market_cap": pa.Column(float, pa.Check.ge(2_000_000_000), nullable=False, coerce=True),
+        "operating_cash_flow": pa.Column(float, pa.Check.gt(0), nullable=False, coerce=True),
+        # debt_to_equity / profit_margin: None is allowed; only out-of-range fails.
+        "debt_to_equity": pa.Column(float, pa.Check.le(300), nullable=True, coerce=True),
+        "profit_margin": pa.Column(float, pa.Check.ge(-0.10), nullable=True, coerce=True),
+    })
+
+    try:
+        schema.validate(df, lazy=True)
+        return candidates
+    except pa.errors.SchemaErrors as err:
+        try:
+            bad_idx = {int(i) for i in err.failure_cases["index"].dropna().tolist()}
+        except (KeyError, ValueError, TypeError):
+            bad_idx = set()
+        bad_syms = {rows[i]["symbol"] for i in bad_idx if 0 <= i < len(rows)}
+        if bad_syms:
+            print(f"  [pandera] DROPPED {len(bad_syms)} candidate(s) that failed the hard-floor "
+                  f"re-check before Claude: {sorted(bad_syms)}")
+        print("  [pandera] failure cases:\n"
+              + err.failure_cases[["column", "check", "failure_case"]].to_string(index=False))
+        return [c for c in candidates if c.get("symbol") not in bad_syms] if bad_syms else candidates
+    except Exception as e:
+        print(f"  [pandera] validation error (non-fatal, returning unfiltered): {e}")
+        return candidates
+
+
 def screen_sp500(force_refresh: bool = False, max_candidates: int = 50) -> List[Dict]:
     """Convenience: screen the full S&P 500 universe and return top candidates."""
     from sp500_universe import get_sp500_tickers
     tickers = get_sp500_tickers()
     print(f"Screening {len(tickers)} S&P 500 tickers (cache TTL {SNAPSHOT_TTL_SECONDS//3600}h)...")
-    return screen_universe(tickers, force_refresh=force_refresh, max_candidates=max_candidates)
+    candidates = screen_universe(tickers, force_refresh=force_refresh, max_candidates=max_candidates)
+    return validate_screen_candidates(candidates)
 
 
 if __name__ == "__main__":
