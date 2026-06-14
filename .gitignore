@@ -6,6 +6,9 @@
 *secret*
 *credential*
 *.pat
+*key*.txt
+*key*.json
+healthcheck key.txt
 
 # Python
 __pycache__/
