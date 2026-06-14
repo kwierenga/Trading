@@ -13,8 +13,10 @@ The prompt enforces the strategy rules from CLAUDE.md:
   - 1-3 high-conviction trades or zero (cash is a position)
 """
 
+import hashlib
 import json
 import os
+import time
 from typing import Dict, List, Optional
 from datetime import datetime, timezone
 
@@ -397,43 +399,90 @@ def get_enhanced_strategy(force_refresh_candidates: bool = False) -> Optional[Di
     print("Requesting strategy from Claude...")
     client = anthropic.Anthropic()
 
-    text = ""
-    try:
-        response = client.messages.create(
-            model=CLAUDE_MODEL,
-            # Adaptive thinking on a 250-candidate stock-picking prompt routinely uses
-            # 6-10k tokens before any text output. Budget needs headroom for both.
-            max_tokens=16000,
-            thinking={"type": "adaptive"},
-            output_config={
-                "effort": "medium",
-                "format": {"type": "json_schema", "schema": STRATEGY_SCHEMA},
-            },
-            messages=[{"role": "user", "content": prompt}],
-        )
-
-        text = next((b.text for b in response.content if b.type == "text"), "")
-
-        if not text:
-            thinking_chars = sum(len(getattr(b, "thinking", "") or "") for b in response.content)
-            print(
-                f"Claude returned no text (stop_reason={response.stop_reason}, "
-                f"thinking_chars={thinking_chars}, output_tokens={response.usage.output_tokens}). "
-                "Likely max_tokens too low for adaptive thinking + JSON output."
+    # Retry-hardening: the AM plan is the single most important LLM call — if it
+    # returns None, the whole day is a no-trade day. Two realistic failure modes,
+    # both transient: (a) an anthropic.APIError (rate-limit / overloaded / 5xx /
+    # connection blip), and (b) empty text because adaptive thinking consumed the
+    # entire max_tokens budget before emitting the JSON. Retry both: APIErrors with
+    # backoff, empty-text with a larger budget. The output is already schema-
+    # constrained (output_config.format.json_schema), so json.loads rarely fails.
+    MAX_ATTEMPTS = 3
+    BASE_MAX_TOKENS = 16000
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        # Adaptive thinking on a 250-candidate stock-picking prompt routinely uses
+        # 6-10k tokens before any text output. Give each retry more headroom.
+        max_tokens = BASE_MAX_TOKENS + (attempt - 1) * 8000  # 16k → 24k → 32k
+        text = ""
+        try:
+            response = client.messages.create(
+                model=CLAUDE_MODEL,
+                max_tokens=max_tokens,
+                thinking={"type": "adaptive"},
+                output_config={
+                    "effort": "medium",
+                    "format": {"type": "json_schema", "schema": STRATEGY_SCHEMA},
+                },
+                messages=[{"role": "user", "content": prompt}],
             )
+
+            text = next((b.text for b in response.content if b.type == "text"), "")
+
+            if not text:
+                thinking_chars = sum(len(getattr(b, "thinking", "") or "") for b in response.content)
+                print(
+                    f"Claude returned no text (attempt {attempt}/{MAX_ATTEMPTS}, "
+                    f"stop_reason={response.stop_reason}, thinking_chars={thinking_chars}, "
+                    f"output_tokens={response.usage.output_tokens}, max_tokens={max_tokens}). "
+                    "Likely max_tokens too low for adaptive thinking + JSON output."
+                )
+                if attempt < MAX_ATTEMPTS:
+                    print(f"  Retrying with higher max_tokens ({max_tokens + 8000})...")
+                    continue
+                return None
+
+            strategy = json.loads(text)
+            _stamp_decision_trace(strategy, prompt, CLAUDE_MODEL)
+            return strategy
+
+        except anthropic.APIError as e:
+            print(f"Claude API error (attempt {attempt}/{MAX_ATTEMPTS}): {e}")
+            if attempt < MAX_ATTEMPTS:
+                backoff = 2 ** attempt  # 2s, 4s
+                print(f"  Retrying in {backoff}s...")
+                time.sleep(backoff)
+                continue
+            return None
+        except json.JSONDecodeError as e:
+            print(f"JSON parse error (attempt {attempt}/{MAX_ATTEMPTS}): {e}")
+            with open('latest_strategy_raw.txt', 'w', encoding='utf-8') as f:
+                f.write(text)
+            print("   Raw response saved to latest_strategy_raw.txt for debugging")
+            if attempt < MAX_ATTEMPTS:
+                time.sleep(2)
+                continue
             return None
 
-        return json.loads(text)
+    return None
 
-    except anthropic.APIError as e:
-        print(f"Claude API error: {e}")
-        return None
-    except json.JSONDecodeError as e:
-        print(f"JSON parse error: {e}")
-        with open('latest_strategy_raw.txt', 'w', encoding='utf-8') as f:
-            f.write(text)
-        print("   Raw response saved to latest_strategy_raw.txt for debugging")
-        return None
+
+def _stamp_decision_trace(strategy: Dict, prompt: str, model: str) -> None:
+    """Attach a lightweight decision-trace to the strategy dict (enhancement #3).
+
+    Records which AI / prompt / deployed code produced this plan so a future
+    review can reproduce or audit the decision — the academic-consensus minimum
+    (log decision traces, not just returns) without any tracing-platform infra.
+    Downstream consumers read specific keys, so this extra `_meta` key is inert.
+    """
+    try:
+        strategy["_meta"] = {
+            "model": model,
+            "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest()[:16],
+            "prompt_chars": len(prompt),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "code_sha": (os.getenv("GITHUB_SHA") or "local")[:12],
+        }
+    except (TypeError, ValueError, AttributeError) as e:
+        print(f"  Decision-trace stamp failed (non-fatal): {e}")
 
 
 def display_strategy(strategy: Dict):
