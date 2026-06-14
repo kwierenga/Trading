@@ -24,11 +24,13 @@ If env vars aren't set, send_email() returns False quietly — routines still ru
 and write to JOURNAL.md, just no email gets sent.
 """
 
+import mimetypes
 import os
 import smtplib
 import ssl
 from email.message import EmailMessage
-from typing import Optional
+from pathlib import Path
+from typing import List, Optional
 
 # Load .env so env vars are available whether this module is run standalone
 # (e.g., `python email_notifier.py "test" "hello"`) or imported by routines that
@@ -46,10 +48,19 @@ DEFAULT_SMTP_PORT = 587
 SMTP_TIMEOUT_SECONDS = 20
 
 
-def send_email(subject: str, body: str, to_addr: Optional[str] = None) -> bool:
+def send_email(
+    subject: str,
+    body: str,
+    to_addr: Optional[str] = None,
+    attachments: Optional[List[str]] = None,
+) -> bool:
     """
-    Send a plain-text email. Returns True on success, False on failure (including
-    missing config). Failures are logged to stdout but don't raise.
+    Send a plain-text email, optionally with file attachments. Returns True on
+    success, False on failure (including missing config). Failures are logged to
+    stdout but don't raise.
+
+    attachments: list of file paths. Missing/unreadable files are skipped with a
+    warning rather than failing the send (the email body still goes out).
     """
     user = os.getenv("EMAIL_USER")
     password = os.getenv("EMAIL_APP_PASSWORD")
@@ -74,6 +85,20 @@ def send_email(subject: str, body: str, to_addr: Optional[str] = None) -> bool:
     msg["From"] = user
     msg["To"] = recipient
     msg.set_content(body)
+
+    for path_str in attachments or []:
+        path = Path(path_str)
+        if not path.is_file():
+            print(f"  Attachment skipped (not found): {path_str}")
+            continue
+        try:
+            data = path.read_bytes()
+        except OSError as e:
+            print(f"  Attachment skipped ({type(e).__name__}): {path_str}")
+            continue
+        ctype, _ = mimetypes.guess_type(path.name)
+        maintype, subtype = (ctype.split("/", 1) if ctype else ("application", "octet-stream"))
+        msg.add_attachment(data, maintype=maintype, subtype=subtype, filename=path.name)
 
     try:
         ctx = ssl.create_default_context()

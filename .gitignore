@@ -40,5 +40,9 @@ phase0_backtest_llm_checkpoint.pkl
 phase0_backtest_llm_slice.json
 *.bak
 
+# Weekly quantstats tear-sheet — derived artifact, emailed as an attachment by
+# weekly_review.py; regenerated each run, not worth tracking.
+weekly_tearsheet.html
+
 # Claude Code local config
 .claude/

@@ -26,11 +26,13 @@ import anthropic
 from alpaca_client import AlpacaClient
 from email_notifier import send_email
 from trade_journal import TradeJournal
+import quantstats_report
 
 
 EST = pytz.timezone("America/New_York")
 JOURNAL_PATH = Path("JOURNAL.md")
 WEEKLY_SUMMARY_FILE = Path("weekly_summary.json")
+TEARSHEET_FILE = Path("weekly_tearsheet.html")
 
 
 def journal_entries_in_window(start: datetime, end: datetime) -> str:
@@ -227,6 +229,28 @@ def main() -> int:
             print(f"  Claude synthesis failed: {e}")
             synthesis = f"(synthesis failed: {e})"
 
+    # Risk-adjusted metrics + SPY-benchmarked tear-sheet (quantstats). Read-only
+    # analytics over portfolio_history.json — best-effort, never fatal.
+    try:
+        qs_metrics = quantstats_report.compute_metrics()
+        qs_block = quantstats_report.text_block(qs_metrics)
+    except Exception as e:
+        print(f"  QuantStats metrics failed: {e}")
+        qs_metrics, qs_block = {"available": False}, ""
+
+    tearsheet_path = None
+    try:
+        tearsheet_path = quantstats_report.generate_html(
+            output_path=str(TEARSHEET_FILE),
+            title=f"Strategy vs SPY — week ending {week_end.strftime('%Y-%m-%d')}",
+        )
+        if tearsheet_path:
+            print(f"  Tear-sheet written: {tearsheet_path}")
+        else:
+            print("  Tear-sheet not generated (insufficient history or qs failure)")
+    except Exception as e:
+        print(f"  Tear-sheet generation failed: {e}")
+
     # Build email body
     pnl_total = sum(t.get("pnl") or 0 for t in closed)
     wins = sum(1 for t in closed if (t.get("pnl") or 0) > 0)
@@ -239,6 +263,12 @@ def main() -> int:
         f"Closed this week: {len(closed)}  ({wins}W / {losses}L, total P&L ${pnl_total:+,.2f})",
         "",
     ]
+
+    if qs_block:
+        email_lines.append(qs_block)
+        if tearsheet_path:
+            email_lines.append("  (full tear-sheet attached: weekly_tearsheet.html)")
+        email_lines.append("")
 
     if closed:
         email_lines.append("Closed trades:")
@@ -272,10 +302,23 @@ def main() -> int:
 
     body = "\n".join(email_lines)
     subject = f"[Trading WEEK] {week_label} — {len(closed)} closed, {len(positions)} open"
-    send_email(subject, body)
+    attachments = [str(TEARSHEET_FILE)] if tearsheet_path else None
+    send_email(subject, body, attachments=attachments)
 
-    # Journal entry: just the synthesis (Klaas adds reflection by hand)
-    append_to_journal(week_label, synthesis)
+    # Journal entry: synthesis + a one-line risk-adjusted scoreboard so the
+    # numbers live alongside the narrative (Klaas adds reflection by hand).
+    journal_body = synthesis
+    if qs_metrics.get("available"):
+        spy_tail = (
+            f", excess CAGR vs SPY {qs_metrics['excess_cagr_vs_spy']:+.1%}"
+            if "excess_cagr_vs_spy" in qs_metrics else ""
+        )
+        journal_body = (
+            f"_Sharpe {qs_metrics['sharpe']:+.2f}, Sortino {qs_metrics['sortino']:+.2f}, "
+            f"MaxDD {qs_metrics['max_drawdown']:.1%}, CAGR {qs_metrics['cagr']:+.1%}"
+            f"{spy_tail} (quantstats, since inception)._\n\n{synthesis}"
+        )
+    append_to_journal(week_label, journal_body)
     try:
         summary_record = {
             'week_label': week_label,

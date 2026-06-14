@@ -4,6 +4,9 @@ pytz==2026.2
 anthropic==0.109.1
 yfinance==1.4.1
 pandas-market-calendars==5.4.0
+# Read-only weekly analytics (risk-adjusted metrics + SPY tear-sheet). Pulls
+# matplotlib/seaborn/scipy; only imported by weekly_review.py, not the daily path.
+quantstats==0.0.81
 # Transitive but breakage-prone — pinned because the runners install fresh every
 # day, so an unpinned major (pandas 3.x landed mid-2026) arrives silently in prod.
 pandas==3.0.3
