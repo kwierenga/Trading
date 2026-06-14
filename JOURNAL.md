@@ -12,6 +12,17 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-06-02 → 2026-06-14
+
+**What worked / what didn't.** The long-hold manual exits (MSFT ±0.9%, V +0.5%, MCO flat) were essentially breakeven after a month — not losses, but 30 days of capital doing nothing measurable. The real damage came from two short-hold stops: ZBRA −7.4% in 1.2 days and MSFT −5.2% in 2 days, together accounting for $1,710 in losses that swamp everything else this week. Both were stop-hits on fresh entries, not thesis deterioration over time. The fill rate held (5/5 since restart), so entry execution isn't the problem. What's visible is a pattern where entries trigger, price moves immediately against the position, and the stop exits before the thesis has any time to play out.
+
+**What's puzzling or worth watching.** Three MSFT round-trips in a single week's closed trades is striking — two of them exits via manual after a month, one a stop-hit after two days. That's not a coincidence worth ignoring; it's either a setup-selection issue with MSFT specifically or a sign that the same name is being re-entered before the previous trade is properly post-mortemed. The 30% cash position sitting idle while five open positions are all within 1% of entry (four of them slightly negative) raises a separate question: is the portfolio actually deployed, or is it parked? The infrastructure fixes this week were substantive and necessary, but five outstanding post-mortems — including APP, the one clear winner — still aren't written. The learning loop has the plumbing now; it's waiting on the input.
+
+**Reflective prompts for Klaas.** ZBRA and MSFT both stopped out within two days of entry — when you placed those trades, what specifically made you confident enough to size them at that level, and did anything in the first day's price action suggest the entry was wrong before the stop hit? The long-hold manual exits averaged roughly zero after fees and a month of holding — what criterion are you actually using to decide when to exit manually, and is it written down anywhere? APP was your only clear winner and it's the one post-mortem that hasn't been written — what's the resistance there?
+
+
+---
+
 ## [EOD] 2026-06-12 Friday
 **What happened.** No trades closed today. End equity $100,173, cash $29,929 (30% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
