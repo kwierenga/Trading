@@ -278,3 +278,14 @@ jobs:
             --mode failure \
             --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --failed-step "(see run URL — exact step in the timeline)"
+
+      # Dead-man's-switch heartbeat. Fires on success INCLUDING legitimate skip
+      # days (holiday / SKIP_TODAY.flag / idempotency no-op) — a skipped step is
+      # not a failure — so a dropped execute cron (the one that places trades)
+      # trips the alarm. Withheld on failure; the failure email above covers that.
+      # No-op until the HEALTHCHECK_PING_KEY secret is set.
+      - name: Heartbeat (healthchecks.io)
+        if: ${{ success() && env.HC_PING_KEY != '' }}
+        env:
+          HC_PING_KEY: ${{ secrets.HEALTHCHECK_PING_KEY }}
+        run: curl -fsS -m 10 --retry 3 "https://hc-ping.com/${HC_PING_KEY}/execute" || true

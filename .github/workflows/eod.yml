@@ -113,3 +113,11 @@ jobs:
             echo "Push failed after 3 attempts."
             exit 1
           fi
+
+      # Dead-man's-switch heartbeat — confirms the EOD cron fired. No-op until
+      # the HEALTHCHECK_PING_KEY secret is set.
+      - name: Heartbeat (healthchecks.io)
+        if: ${{ success() && env.HC_PING_KEY != '' }}
+        env:
+          HC_PING_KEY: ${{ secrets.HEALTHCHECK_PING_KEY }}
+        run: curl -fsS -m 10 --retry 3 "https://hc-ping.com/${HC_PING_KEY}/eod" || true

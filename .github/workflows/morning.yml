@@ -104,3 +104,14 @@ jobs:
           FORCE_RUN: ${{ github.event.inputs.force || 'false' }}
           PHASE: email
         run: python morning_routine.py
+
+      # Dead-man's-switch heartbeat: pings healthchecks.io on success. If a
+      # scheduled run is dropped entirely (GitHub cron outage), no ping arrives
+      # and healthchecks.io alerts after the grace period — the one failure mode
+      # the in-workflow freshness/failure emails can't catch (a run that never
+      # happens sends no email). No-op until HEALTHCHECK_PING_KEY secret is set.
+      - name: Heartbeat (healthchecks.io)
+        if: ${{ env.HC_PING_KEY != '' }}
+        env:
+          HC_PING_KEY: ${{ secrets.HEALTHCHECK_PING_KEY }}
+        run: curl -fsS -m 10 --retry 3 "https://hc-ping.com/${HC_PING_KEY}/morning" || true
