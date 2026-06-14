@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [EOD] 2026-06-14 Sunday
+**What happened.** No trades closed today. End equity $100,195, cash $29,929 (30% of equity), 5 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+
+---
+
 ## [WEEK] 2026-06-02 → 2026-06-14
 
 **What worked / what didn't.** The long-hold manual exits (MSFT ±0.9%, V +0.5%, MCO flat) were essentially breakeven after a month — not losses, but 30 days of capital doing nothing measurable. The real damage came from two short-hold stops: ZBRA −7.4% in 1.2 days and MSFT −5.2% in 2 days, together accounting for $1,710 in losses that swamp everything else this week. Both were stop-hits on fresh entries, not thesis deterioration over time. The fill rate held (5/5 since restart), so entry execution isn't the problem. What's visible is a pattern where entries trigger, price moves immediately against the position, and the stop exits before the thesis has any time to play out.
