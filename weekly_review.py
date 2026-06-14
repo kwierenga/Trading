@@ -27,6 +27,7 @@ from alpaca_client import AlpacaClient
 from email_notifier import send_email
 from trade_journal import TradeJournal
 import quantstats_report
+import trade_report
 
 
 EST = pytz.timezone("America/New_York")
@@ -271,25 +272,22 @@ def main() -> int:
         email_lines.append("")
 
     if closed:
-        email_lines.append("Closed trades:")
+        email_lines.append("Closed this week — facts, goals, and why we entered:")
         for t in closed:
-            pnl_pct = (t.get("pnl_pct") or 0) * 100
-            pnl_d = t.get("pnl") or 0
-            days = (t.get("duration_minutes") or 0) / (60 * 24)
-            email_lines.append(
-                f"  {t['symbol']:<6} {pnl_pct:+6.1f}%  (${pnl_d:+,.0f})  "
-                f"held {days:.1f}d  exit via {t.get('reason_exit', '?')}"
-            )
-        email_lines.append("")
+            email_lines.append(trade_report.closed_trade_block(t))
+            email_lines.append("")
 
     if positions:
-        email_lines.append("Open positions:")
+        # Join live positions to their journal records for goals + rationale.
+        try:
+            open_journal = {ot.get("symbol"): ot
+                            for ot in TradeJournal.get_open_trades_with_holding_status()}
+        except Exception:
+            open_journal = {}
+        email_lines.append("Open positions — facts, goals, and the thesis:")
         for p in positions:
-            sym = p.get("symbol", "?")
-            value = float(p.get("market_value", 0))
-            unrealized = float(p.get("unrealized_plpc", 0))
-            email_lines.append(f"  {sym:<6} ${value:>9,.0f}   {unrealized:+.1%} unrealized")
-        email_lines.append("")
+            email_lines.append(trade_report.open_position_block(p, open_journal.get(p.get("symbol"))))
+            email_lines.append("")
 
     email_lines.extend([
         "=" * 60,

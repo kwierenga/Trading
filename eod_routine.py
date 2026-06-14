@@ -23,6 +23,7 @@ from position_manager import run_eod_pass as run_position_manager, report_block 
 from shadow_benchmark import update_shadow, report_block as shadow_report_block
 from trade_journal import TradeJournal
 from performance_tracker import get_turnover_stats, save_snapshot
+import trade_report
 from order_sweep import sweep as sweep_entry_orders, report_block as sweep_report_block
 import execution_ledger
 
@@ -150,39 +151,19 @@ def build_email(account, positions, today_closed, open_with_status, turnover, to
         lines.append("")
 
     if today_closed:
-        lines.append(f"CLOSED TODAY ({len(today_closed)}):")
+        lines.append(f"CLOSED TODAY ({len(today_closed)}) — facts, goals, and why we entered:")
         for t in today_closed:
-            pnl_pct = (t.get("pnl_pct") or 0) * 100
-            pnl_dollars = t.get("pnl") or 0
-            duration_h = (t.get("duration_minutes") or 0) / 60
-            lines.append(
-                f"  {t['symbol']:<6} {pnl_pct:+.1f}%  (${pnl_dollars:+,.0f})  "
-                f"in {duration_h:.0f}h  via {t.get('reason_exit', '?')}"
-            )
-        lines.append("")
+            lines.append(trade_report.closed_trade_block(t))
+            lines.append("")
 
     if positions:
-        lines.append(f"OPEN POSITIONS ({len(positions)}):")
+        # Match each live Alpaca position to its journal record (by symbol) so the
+        # block can show the original goals + rationale alongside the live P&L.
+        journal_by_sym = {ot.get("symbol"): ot for ot in open_with_status}
+        lines.append(f"OPEN POSITIONS ({len(positions)}) — facts, goals, and the thesis:")
         for p in positions:
-            sym = p.get("symbol", "?")
-            unrealized_pct = float(p.get("unrealized_plpc", 0))
-            value = float(p.get("market_value", 0))
-
-            # Holding status from journal (if logged via our flow)
-            tag = ""
-            for ot in open_with_status:
-                if ot["symbol"] == sym:
-                    hs = ot.get("holding_status", {})
-                    if hs.get("status") == "LTCG":
-                        tag = "  [LTCG eligible]"
-                    elif hs.get("status") == "approaching_LTCG":
-                        tag = f"  [LTCG in {hs.get('days_to_LTCG')}d]"
-                    else:
-                        tag = f"  [held {hs.get('days_held', 0)}d]"
-                    break
-
-            lines.append(f"  {sym:<6} ${value:>9,.0f}   {unrealized_pct:+.1%} unrealized{tag}")
-        lines.append("")
+            lines.append(trade_report.open_position_block(p, journal_by_sym.get(p.get("symbol"))))
+            lines.append("")
 
     if turnover["trades"] > 0:
         lines.append(
