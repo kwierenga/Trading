@@ -27,6 +27,61 @@ from email_notifier import send_email
 import execution_ledger
 
 
+# The executed plan (post-open re-evaluation) carries the full AI rationale per
+# trade; fall back to the AM plan if the post-open file is absent.
+EXECUTED_PLAN_FILES = ("latest_strategy_postopen.json", "latest_strategy.json")
+
+
+def _load_executed_plan() -> dict:
+    """Load the plan that was actually executed, for per-trade rationale.
+    Returns {} on any failure (rationale block is then simply omitted)."""
+    for name in EXECUTED_PLAN_FILES:
+        p = Path(name)
+        if not p.exists():
+            continue
+        try:
+            return json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+    return {}
+
+
+def rationale_block(placed_symbols: list) -> str:
+    """Build the 'why we bought it' section for today's placed trades, pulling
+    the AI's rationale/conviction/exit-plan from the executed plan. Empty string
+    if nothing is available — never raises."""
+    if not placed_symbols:
+        return ""
+    plan = _load_executed_plan()
+    trades = {t.get("symbol"): t for t in plan.get("trades", []) if t.get("symbol")}
+    if not trades:
+        return ""
+
+    lines = ["WHY THESE TRADES (AI rationale):"]
+    for sym in placed_symbols:
+        t = trades.get(sym)
+        if not t:
+            continue
+        conv = t.get("conviction", 0)
+        hold = t.get("holding_period", "?")
+        lines.append(f"\n  {sym}  [conviction {conv}%, horizon {hold}]")
+        rationale = (t.get("rationale") or "").strip()
+        if rationale:
+            lines.append(f"    {rationale}")
+        exit_plan = (t.get("exit_plan") or "").strip()
+        if exit_plan:
+            lines.append(f"    Exit plan: {exit_plan}")
+
+    # The top-level analysis is the market-regime / "why now" context behind the
+    # whole plan — include it once as a footer for the full picture.
+    analysis = (plan.get("analysis") or "").strip()
+    if analysis:
+        lines.append("\nMARKET CONTEXT (from the morning plan):")
+        lines.append(f"  {analysis}")
+
+    return "\n".join(lines) if len(lines) > 1 else ""
+
+
 def cmd_queue_delay(created_at: str, threshold_min: int, run_url: str) -> int:
     if not created_at:
         print("  No --created-at; skipping queue-delay check.")
@@ -100,10 +155,12 @@ def cmd_success(run_url: str, journal_path: str = "trade_journal.json") -> int:
             f"[Trading EXEC] {counts['placed']} placed "
             f"({counts['filled']} filled), {counts['skipped']} skipped"
         )
+        why = rationale_block([r.get("symbol") for r in placed])
         body = (
             f"Execution summary for {today}:\n\n"
             + execution_ledger.email_block(rows)
             + (f"\n\n  Placed notional: ${total:,.2f}" if placed else "")
+            + (f"\n\n{why}" if why else "")
             + "\n\nNote: entries are GTC limit orders. 'working (unfilled)' means the "
             + "order is resting and has not yet filled at the limit price; the EOD "
             + "sweep reports/cancels stale resting entries.\n"
