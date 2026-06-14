@@ -109,9 +109,9 @@ jobs:
       # scheduled run is dropped entirely (GitHub cron outage), no ping arrives
       # and healthchecks.io alerts after the grace period — the one failure mode
       # the in-workflow freshness/failure emails can't catch (a run that never
-      # happens sends no email). No-op until HEALTHCHECK_PING_KEY secret is set.
+      # happens sends no email). No-op until HEALTHCHECK_UUID_MORNING secret is set.
       - name: Heartbeat (healthchecks.io)
-        if: ${{ env.HC_PING_KEY != '' }}
+        if: ${{ env.HC_UUID != '' }}
         env:
-          HC_PING_KEY: ${{ secrets.HEALTHCHECK_PING_KEY }}
-        run: curl -fsS -m 10 --retry 3 "https://hc-ping.com/${HC_PING_KEY}/morning" || true
+          HC_UUID: ${{ secrets.HEALTHCHECK_UUID_MORNING }}
+        run: curl -fsS -m 10 --retry 3 "https://hc-ping.com/${HC_UUID}" || true

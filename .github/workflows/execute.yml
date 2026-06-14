@@ -283,9 +283,9 @@ jobs:
       # days (holiday / SKIP_TODAY.flag / idempotency no-op) — a skipped step is
       # not a failure — so a dropped execute cron (the one that places trades)
       # trips the alarm. Withheld on failure; the failure email above covers that.
-      # No-op until the HEALTHCHECK_PING_KEY secret is set.
+      # No-op until the HEALTHCHECK_UUID_EXECUTE secret is set.
       - name: Heartbeat (healthchecks.io)
-        if: ${{ success() && env.HC_PING_KEY != '' }}
+        if: ${{ success() && env.HC_UUID != '' }}
         env:
-          HC_PING_KEY: ${{ secrets.HEALTHCHECK_PING_KEY }}
-        run: curl -fsS -m 10 --retry 3 "https://hc-ping.com/${HC_PING_KEY}/execute" || true
+          HC_UUID: ${{ secrets.HEALTHCHECK_UUID_EXECUTE }}
+        run: curl -fsS -m 10 --retry 3 "https://hc-ping.com/${HC_UUID}" || true
