@@ -134,5 +134,51 @@
         "unrealized_pl": -10.8
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-15T23:08:01.421115+00:00",
+    "account": {
+      "equity": 100110.94,
+      "buying_power": 316225.26,
+      "cash": 29928.86,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "A",
+        "qty": 143.0,
+        "avg_entry_price": 129.71,
+        "current_price": 130.59,
+        "unrealized_pl": 125.84
+      },
+      {
+        "symbol": "ADP",
+        "qty": 81.0,
+        "avg_entry_price": 228.34,
+        "current_price": 223.22,
+        "unrealized_pl": -414.72
+      },
+      {
+        "symbol": "FICO",
+        "qty": 9.0,
+        "avg_entry_price": 1182.78,
+        "current_price": 1181.62,
+        "unrealized_pl": -10.44
+      },
+      {
+        "symbol": "IQV",
+        "qty": 69.0,
+        "avg_entry_price": 180.56,
+        "current_price": 178.39,
+        "unrealized_pl": -149.73
+      },
+      {
+        "symbol": "LII",
+        "qty": 20.0,
+        "avg_entry_price": 512.69,
+        "current_price": 524.17,
+        "unrealized_pl": 229.6
+      }
+    ]
   }
 ]
