@@ -1,38 +1,12 @@
 {
-  "analysis": "MARKET REGIME: SPY confirmed uptrend (+2.3% vs SMA50, 20d slope +4.93%). Environment supports holding and measured deployment, not aggressive accumulation.\n\nEXISTING POSITION REVIEW:\n- A ($129.55, -0.12%): Thesis intact. Uptrend basing at 42% of 52w range, SMA50 slope positive. Earnings 75 days out. Hold.\n- ADP ($225.77, -1.16%): Thesis intact. 32% of 52w range, strong franchise (71% ROE, 30% op margin), recovering well. Earnings July 29. Hold.\n- IQV ($181.06, +0.28%): Thesis intact. 30% of 52w range, basing. Earnings July 21 \u2014 watch for volatility. Hold.\nNo stop-outs or thesis breaks. Portfolio heat is extremely low at 0.98%, and 51% of equity sits in cash. In an uptrend regime, this is justification to deploy into 1-2 additional high-conviction setups.\n\nNEW CANDIDATES: FICO stands out clearly \u2014 exceptional operating economics (58% op margin, 38.7% revenue growth, PEG 0.80) at a still-corrected price (26% of 52w range, -17.6% vs SMA200). It is basing in the lower half of its range with a positive SMA50 slope \u2014 classic Stage 1\u21922 transition. LII (Lennox International) offers a second diversified entry: industrials, 76% ROE, above SMA200, basing at 36% of 52w range. Both offer R/R above 2x with properly sized stops. Extended setups (APH 82%, NXPI 80%, TER 89%) are ruled out per entry rules. FDS skipped due to earnings in 19 days. All 5 positions post-trade would remain within concentration limits.",
+  "analysis": "MARKET REGIME: SPY in confirmed uptrend (+4.2% vs SMA50, 20d slope +5.09%) \u2014 environment is constructive for longs, but that is not a mandate to force new trades.\n\nEXISTING POSITION REVIEW: All five positions remain thesis-intact. (1) A (Agilent): +0.89%, at 45% of 52w range, uptrend basing, earnings August 26 \u2014 hold. (2) ADP: -1.32%, basing uptrend, high-quality payroll compounder still above stop \u2014 hold. (3) FICO: -0.22%, small position, basing at 26% of range, EPS revisions positive \u2014 hold. (4) IQV: -0.92%, basing at 27% of range; flag: earnings July 21 (36 days) are approaching \u2014 no thesis break yet but monitor closely for any guidance softness; consider trimming if it fades into earnings. (5) LII: +2.67%, the clearest winner, above entry, industrials cycle tailwind \u2014 hold.\n\nNEW TRADE DECISION \u2014 CASH IS CORRECT TODAY: We are already at 5 positions, which is the stated maximum for this concentrated strategy. Headroom is $24,910. Several candidates are interesting on fundamentals \u2014 WDAY (fwd P/E 10.52, PEG 0.51, $3.1B FCF) is an emerging watchlist name if it builds a tighter base; APP (59% rev growth, 78% op margin) is compelling but ATR of 7.1% creates wide stops and we have no room for a 6th position; CDW and TDG are fair-valued industrials/tech distributors with decent setups but nothing asymmetric. GOOGL/GOOG and APH are too extended at 87-88% of 52w range \u2014 late-cycle entries inconsistent with the Weinstein framework. Forcing a 6th position to deploy cash would violate both the concentration discipline and the 'cash is a position' principle. The portfolio heat is low (1.40%), max drawdown is 0%, and profit factor is barely above 1x \u2014 this is not a time to stretch. Preserve the $30k cash reserve as dry powder for a genuine asymmetric setup or to add to a winning existing position on a healthy pullback. Confidence that this disciplined hold-and-wait stance preserves capital and beats a passive SPY+cash blend on a risk-adjusted basis is moderate \u2014 the uptrend is supportive but the concentrated quality book already captures it without dilution.",
   "confidence_target_pct": 58,
-  "trades": [
-    {
-      "symbol": "FICO",
-      "direction": "BUY",
-      "entry_strategy": "Limit order at $1185 or better on any intraday pullback; do not chase above $1220",
-      "entry_price": 1185.37,
-      "stop_loss": 1071.0,
-      "stop_loss_pct": 0.0965,
-      "atr_multiple": 1.75,
-      "target": 1450.0,
-      "target_gain_pct": 0.2233,
-      "risk_reward_ratio": 2.32,
-      "conviction": 72,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: FICO is one of the highest-quality businesses in the S&P 500 \u2014 58% operating margin, 38.7% revenue growth, PEG of 0.80, and strong FCF ($731M). The FICO Score franchise is a durable monopoly with pricing power. Forward P/E of 21.8x is reasonable given the growth trajectory. EPS revisions trending up (+1.9%). TECHNICAL: Stock has corrected 38% from its 2025 peak and now sits at 26% of its 52w range, basing with SMA50 slope just turning positive (+1.0%). Price is -17.6% vs SMA200, meaning the SMA200 recovery provides a natural medium-term target around $1436\u2013$1450. Confirmed uptrend (basing) with controlled volatility. Classic asymmetric setup: quality business at a discounted price with trend just inflecting upward.",
-      "exit_plan": "Stop at $1071 (1.75x ATR below entry). Exit if SMA50 slope turns negative and price breaks below SMA50 on volume. Trim 50% near $1350 if reached quickly (overbought risk). Hold remainder toward $1450 for LTCG consideration if >6 months elapsed. Thesis breaks if operating margin deteriorates materially below 50% or revenue growth decelerates below 20%."
-    },
-    {
-      "symbol": "LII",
-      "direction": "BUY",
-      "entry_strategy": "Limit order at $515\u2013$520; entry at current market acceptable given basing confirmation",
-      "entry_price": 517.03,
-      "stop_loss": 479.9,
-      "stop_loss_pct": 0.0718,
-      "atr_multiple": 1.75,
-      "target": 620.0,
-      "target_gain_pct": 0.199,
-      "risk_reward_ratio": 2.78,
-      "conviction": 64,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Lennox International is a high-quality industrial compounder \u2014 76.8% ROE, 14.3% op margin, steady FCF. HVAC demand is structurally supported by aging infrastructure and energy-efficiency retrofit tailwinds. Revenue growth 5.8% is modest but consistent; forward P/E of 19.4x is fair for this ROE profile. D/E of 161% is manageable given strong cash generation ($810M op CF). TECHNICAL: LII is at 36% of its 52w range and has already reclaimed SMA200 (+1.5%), distinguishing it from deeper-recovery candidates. SMA50 slope is positive (+1.6%), price +3.1% above SMA50 but not extended. Basing pattern following a -21% correction from 2025 highs. Earnings July 29 (47 days) provide runway for thesis to develop without near-term binary event risk.",
-      "exit_plan": "Stop at $479.90 (1.75x ATR). Exit or reduce ahead of July 29 earnings if position shows <5% gain (avoid holding through binary event with thin cushion). Full exit if quarterly margin guidance disappoints or residential construction data deteriorates sharply. Hold past 1-year mark if thesis intact for LTCG treatment."
-    }
-  ]
+  "trades": [],
+  "_meta": {
+    "model": "claude-sonnet-4-6",
+    "prompt_sha256": "291fc08a05d9d492",
+    "prompt_chars": 22120,
+    "generated_at": "2026-06-15T15:47:32.051513+00:00",
+    "code_sha": "bd4662b27236"
+  }
 }
