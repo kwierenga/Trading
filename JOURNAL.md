@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [AM] 2026-06-16 Tuesday
+**Open questions.** Screen produced no high-conviction setups today — is the market broadly extended, or are filters too tight? What would have to change for a setup to emerge tomorrow? With 5 open position(s), are any approaching their stops or targets? 
+**Today's plan.** Hold cash today — no high-conviction setups passed the screen. Patience is a position. Monitor 5 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
+
+---
+
 ## [NOTE] 2026-06-15 Monday — cron dispatch delay diagnosed
 **What happened.** The 10:33 ET execute.yml backup run failed at the freshness check (`latest_strategy.json` 73h old) — root cause was GitHub's *schedule dispatcher* (not the runner queue) firing both scheduled workflows hours late: morning.yml created 15:41 UTC vs 10:00 scheduled (~5h41m), execute.yml created 18:50 vs 14:35 (~4h15m). Jobs started within ~10s of creation, so this is distinct from the 2026-05-05 runner-queue stall. System self-recovered: morning ran 11:41 ET → fresh plan → scheduled execute succeeded 14:50 ET → trade placed ~4h late.
 **What we learned.** The freshness check + failure email worked exactly as designed — the backup triggers fired on time and correctly refused the stale plan. But the cron-job.org backup only backstops execute.yml; there is NO independent backup trigger for morning.yml, so an upstream cron delay stalls the whole chain.
