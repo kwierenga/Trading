@@ -12,6 +12,14 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [NOTE] 2026-06-15 Monday — cron dispatch delay diagnosed
+**What happened.** The 10:33 ET execute.yml backup run failed at the freshness check (`latest_strategy.json` 73h old) — root cause was GitHub's *schedule dispatcher* (not the runner queue) firing both scheduled workflows hours late: morning.yml created 15:41 UTC vs 10:00 scheduled (~5h41m), execute.yml created 18:50 vs 14:35 (~4h15m). Jobs started within ~10s of creation, so this is distinct from the 2026-05-05 runner-queue stall. System self-recovered: morning ran 11:41 ET → fresh plan → scheduled execute succeeded 14:50 ET → trade placed ~4h late.
+**What we learned.** The freshness check + failure email worked exactly as designed — the backup triggers fired on time and correctly refused the stale plan. But the cron-job.org backup only backstops execute.yml; there is NO independent backup trigger for morning.yml, so an upstream cron delay stalls the whole chain.
+**Open questions.** Was today's ~5h GHA scheduler lag a one-off load spike or the start of a pattern worth a standing backup? Did the late trade materially change the fill vs the AM plan?
+**Tomorrow's plan.** Consider adding a cron-job.org (or equivalent) `repository_dispatch` backup for morning.yml mirroring the execute.yml setup, so morning self-heals on a dropped/delayed cron. Logged to `memory/trading_observations.md` 2026-06-15.
+
+---
+
 ## [EOD] 2026-06-15 Monday
 **What happened.** No trades closed today. End equity $100,111, cash $29,929 (30% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 

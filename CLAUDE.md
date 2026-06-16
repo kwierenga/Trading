@@ -161,7 +161,7 @@ the laptop being on. Repo is public, secrets live in GitHub Environments.
 
 | Workflow | Cron (UTC) | Wall-clock | Trigger | What it does | Env |
 |---|---|---|---|---|---|
-| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | schedule | NYSE trading-day check (skips holidays via `market_calendar.py`). Fresh S&P 500 screen → Claude AM plan → commits `latest_strategy.json` + `[AM]` JOURNAL → emails the day's plan (informational) | `paper` |
+| `morning.yml` | `0 10 * * 1-5` | 06:00 EDT / 05:00 EST | schedule + `repository_dispatch` (cron-job.org backup at ~10:20 UTC, type `morning-routine`) + `workflow_dispatch` | NYSE trading-day check (skips holidays via `market_calendar.py`). Same-day `[AM]` idempotency gate (no-op if primary cron already ran). Fresh S&P 500 screen → Claude AM plan → commits `latest_strategy.json` + `[AM]` JOURNAL → emails the day's plan (informational) | `paper` |
 | `execute.yml` | `35 14 * * 1-5` | 09:35 EST / 10:35 EDT | schedule + `repository_dispatch` (cron-job.org backup at 14:50 UTC) + `workflow_dispatch` (manual escape) | `shouldrun` gate (holiday + `SKIP_TODAY.flag` + idempotency vs backup). Freshness check (refuses plans >6h old). RTH window check. Re-calls Claude with current prices for per-ticker submit/adjust/skip verdict (`re_evaluate.py`). Submits surviving trades as bracket orders to Alpaca → commits `[EXEC]` to main. Success/failure email after. | `paper` |
 | `eod.yml` | `15 21 * * 1-5` | 17:15 EDT / 16:15 EST | schedule | Portfolio review email + `[EOD]` JOURNAL entry → commit to main. Also auto-clears `SKIP_TODAY.flag` if dated today or earlier. **No holiday filter** — fires on US holidays too (open follow-up). | `paper` |
 
@@ -236,6 +236,18 @@ day, addresses follow-ups identified post-Phase-3:
   at ~14:50 UTC (15min after primary). Belt-and-suspenders for
   GitHub-hosted-runner cron drops. Idempotency above keeps it a no-op on
   successful primary days.
+- **`morning.yml` backup trigger (added 2026-06-15)**: a second cron-job.org
+  job fires `morning.yml` via `repository_dispatch` (event type
+  `morning-routine`) at ~10:20 UTC, mirroring the execute backup. Motivated by
+  2026-06-15, when GitHub's *scheduled-event dispatcher* (not the runner queue)
+  delayed BOTH crons ~4–5h: morning ran 5h41m late, so no fresh plan existed
+  when execute's punctual backup fired and it refused on staleness. The execute
+  backup only protected the downstream step; this closes the upstream gap. A
+  same-day `[AM]`-commit idempotency check in `morning.yml` (bypass with
+  `workflow_dispatch force=true`) keeps it a no-op when the primary cron already
+  ran; `morning_routine.py`'s internal NYSE check keeps it holiday-safe.
+  **Setup is external** — the cron-job.org job must be created by hand (see
+  below); until then the trigger exists in the workflow but nothing fires it.
 - **AM email rewritten**: removed tap-to-run instructions, became purely
   informational summarising today's plan + auto-execution timing.
 

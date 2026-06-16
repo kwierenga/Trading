@@ -25,6 +25,15 @@ on:
         required: false
         default: false
         type: boolean
+  repository_dispatch:
+    # Backup trigger fired by external cron (cron-job.org) at ~10:20 UTC.
+    # Belt-and-suspenders for GitHub Actions hosted-runner cron drops/delays —
+    # 2026-06-15 the scheduled morning cron fired ~5h41m late, so no fresh plan
+    # existed when execute.yml's punctual backup ran and it refused on staleness.
+    # The execute.yml backup only protected the execute step; this closes the
+    # equivalent gap upstream. Idempotency check below skips if today's [AM]
+    # commit already exists, so it's a no-op on successful primary-cron days.
+    types: [morning-routine]
 
 # Serialize across ALL trading workflows that write to main.
 concurrency:
@@ -46,7 +55,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
-          fetch-depth: 1
+          fetch-depth: 0  # need history for the same-day [AM] idempotency grep
 
       - name: Show deployed commit
         run: |
@@ -62,7 +71,31 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Determine if we should run (same-day idempotency for backup trigger)
+        # The cron-job.org backup (repository_dispatch) fires ~10:20 UTC even on
+        # days the primary 10:00 cron already ran. Skip cleanly if today's [AM]
+        # commit already exists so we don't re-screen, double-commit, and double-
+        # email. workflow_dispatch with force=true bypasses (deliberate re-run/test).
+        # Holiday/weekend skipping is handled inside morning_routine.py itself.
+        id: shouldrun
+        run: |
+          SHOULD_RUN=true
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            echo "force=true — bypassing same-day idempotency check"
+          else
+            TODAY=$(date -u +%Y-%m-%d)
+            if git log --oneline --grep="^\[AM\] Morning routine ${TODAY}" -1 | grep -q .; then
+              SHOULD_RUN=false
+              echo "::notice::Skipping morning today: [AM] commit for ${TODAY} already exists (idempotency)"
+            fi
+          fi
+          echo "should_run=$SHOULD_RUN" >> $GITHUB_OUTPUT
+          if [ "$SHOULD_RUN" = "true" ]; then
+            echo "Proceeding with morning (event=${{ github.event_name }})"
+          fi
+
       - name: Plan phase — screen + Claude + journal (no email yet)
+        if: ${{ steps.shouldrun.outputs.should_run == 'true' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
@@ -78,6 +111,7 @@ jobs:
         run: python morning_routine.py
 
       - name: Commit strategy + journal updates
+        if: ${{ steps.shouldrun.outputs.should_run == 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -94,6 +128,7 @@ jobs:
           fi
 
       - name: Email phase — send plan + run-workflow link
+        if: ${{ steps.shouldrun.outputs.should_run == 'true' }}
         env:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
