@@ -157,3 +157,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-06-16 — ADP closed (held 5.1d, -3.56%, $-657.72)
+<!-- pm-key: ADP|2026-06-16T17:55:52|228.34 -->
+
+**Mechanical (auto-filled):**
+- Entry: $228.34 on 2026-06-11 → Exit: $220.22 on 2026-06-16 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: Fundamental: ADP is one of the highest-quality businesses in the S&P 500. ROE 71.2%, operating margin 30.2%, FCF $4.7B on $91.9B market cap — the FCF yield and earnings quality are exceptional. PEG 2.
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---

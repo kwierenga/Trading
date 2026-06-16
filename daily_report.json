@@ -146,5 +146,80 @@
       "noops": 0,
       "skipped_no_R": 5
     }
+  },
+  {
+    "timestamp": "2026-06-16T22:57:19.505961+00:00",
+    "date": "2026-06-16",
+    "equity": 99724.79,
+    "cash": 47766.68,
+    "positions": 4,
+    "closed_trades": [
+      {
+        "symbol": "ADP",
+        "pnl": -657.72,
+        "pnl_pct": -0.035561,
+        "reason_exit": "stop_hit",
+        "duration_minutes": 7402.023206116666
+      }
+    ],
+    "turnover": {
+      "period_days": 30,
+      "trades": 9,
+      "avg_holding_days": 17.66165128347865,
+      "short_term_gains": 4595.38,
+      "long_term_gains": 0.0,
+      "realized_gain": 564.69,
+      "estimated_tax_owed": 1470.5216,
+      "tax_drag": 781.2146
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 103643.73,
+      "shadow_return_pct": 0.03643726240376943,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 99724.79,
+      "strategy_return_pct": -0.002752100000000035,
+      "spread_pct": -0.03918936240376947
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "A",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "FICO",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "IQV",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "LII",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 4
+    }
   }
 ]
