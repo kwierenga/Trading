@@ -1,4 +1,6 @@
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from config import TRADING_CONFIG
 
 
@@ -6,6 +8,28 @@ from config import TRADING_CONFIG
 # and a market-data host. /account, /positions, /orders live on the trading host (configured
 # via ALPACA_API_BASE_URL); /stocks/{symbol}/quotes/latest etc. live on the data host below.
 ALPACA_DATA_URL = "https://data.alpaca.markets/v2"
+
+# Default per-request timeout (connect, read). Without this a hung socket blocks
+# forever and the retry adapter never engages.
+DEFAULT_TIMEOUT = 15
+
+# Retry policy for transient failures (flaky runner mornings, brief Alpaca 5xx).
+# CRITICAL: allowed_methods EXCLUDES POST. urllib3 only replays POST on *connection*
+# errors (request never left the box → safe), never on read-timeout or 5xx status —
+# so a submit_order that reached Alpaca but timed out on the response is NOT retried
+# and cannot double-fire an order. GET/DELETE are idempotent and retry on everything.
+# raise_on_status=False preserves existing semantics: the response is returned and the
+# caller's raise_for_status() raises requests.HTTPError as before.
+_RETRY = Retry(
+    total=3,
+    connect=3,
+    read=2,
+    status=2,
+    backoff_factor=0.5,  # sleeps 0.5s, 1.0s, 2.0s between attempts
+    status_forcelist=(429, 500, 502, 503, 504),
+    allowed_methods=frozenset({"GET", "DELETE"}),
+    raise_on_status=False,
+)
 
 
 class AlpacaClient:
@@ -19,25 +43,32 @@ class AlpacaClient:
             'APCA-API-KEY-ID': self.api_key,
             'APCA-API-SECRET-KEY': self.api_secret
         }
+        # Single Session reused across calls so the retry adapter (and connection
+        # pooling) applies to every request on both the trading and data hosts.
+        self.session = requests.Session()
+        self.session.headers.update(self.headers)
+        adapter = HTTPAdapter(max_retries=_RETRY)
+        self.session.mount("https://", adapter)
+        self.session.mount("http://", adapter)
 
     def _get(self, endpoint):
         """Make GET request to Alpaca API"""
         url = f"{self.base_url}{endpoint}"
-        response = requests.get(url, headers=self.headers)
+        response = self.session.get(url, timeout=DEFAULT_TIMEOUT)
         response.raise_for_status()
         return response.json()
 
     def _get_data(self, endpoint):
         """Make GET request to the Alpaca market-data API host."""
         url = f"{ALPACA_DATA_URL}{endpoint}"
-        response = requests.get(url, headers=self.headers, timeout=10)
+        response = self.session.get(url, timeout=DEFAULT_TIMEOUT)
         response.raise_for_status()
         return response.json()
 
     def _post(self, endpoint, data=None):
         """Make POST request to Alpaca API"""
         url = f"{self.base_url}{endpoint}"
-        response = requests.post(url, headers=self.headers, json=data)
+        response = self.session.post(url, json=data, timeout=DEFAULT_TIMEOUT)
         response.raise_for_status()
         return response.json()
 
@@ -50,7 +81,7 @@ class AlpacaClient:
         an empty dict so callers can rely on a dict return.
         """
         url = f"{self.base_url}{endpoint}"
-        response = requests.delete(url, headers=self.headers)
+        response = self.session.delete(url, timeout=DEFAULT_TIMEOUT)
         response.raise_for_status()
         if response.status_code == 204 or not response.content:
             return {}
