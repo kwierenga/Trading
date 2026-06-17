@@ -176,3 +176,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-06-17 — IQV closed (held 6.1d, -5.82%, $-725.19)
+<!-- pm-key: IQV|2026-06-17T18:02:42|180.56 -->
+
+**Mechanical (auto-filled):**
+- Entry: $180.56 on 2026-06-11 → Exit: $170.05 on 2026-06-17 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: Fundamental: IQVIA is a dominant healthcare data, analytics, and clinical research organization with a genuine competitive moat. Fwd P/E of 12.74 and PEG of 0.74 represent exceptional value for a busi
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---

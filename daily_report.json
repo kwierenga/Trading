@@ -221,5 +221,73 @@
       "noops": 0,
       "skipped_no_R": 4
     }
+  },
+  {
+    "timestamp": "2026-06-17T22:51:58.809841+00:00",
+    "date": "2026-06-17",
+    "equity": 97743.05,
+    "cash": 59500.1,
+    "positions": 3,
+    "closed_trades": [
+      {
+        "symbol": "IQV",
+        "pnl": -725.19,
+        "pnl_pct": -0.058208,
+        "reason_exit": "stop_hit",
+        "duration_minutes": 8848.8648774
+      }
+    ],
+    "turnover": {
+      "period_days": 30,
+      "trades": 10,
+      "avg_holding_days": 16.509990660505785,
+      "short_term_gains": 4595.38,
+      "long_term_gains": 0.0,
+      "realized_gain": -160.5,
+      "estimated_tax_owed": 1470.5216,
+      "tax_drag": 781.2146
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 102326.46,
+      "shadow_return_pct": 0.023264555615152727,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 97743.05,
+      "strategy_return_pct": -0.02256950000000002,
+      "spread_pct": -0.04583405561515275
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "A",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "FICO",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "LII",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 3
+    }
   }
 ]

@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [EOD] 2026-06-17 Wednesday
+**What happened.** Closed: IQV (-5.8%). End equity $97,743, cash $59,500 (61% of equity), 3 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+
+---
+
 ## [AM] 2026-06-16 Tuesday
 **Open questions.** Will the 1 proposed entries (CDW) fill at limit, or run away pre-market? What's the one thing that could derail the 61% confidence target? Any overnight news on these names worth checking before placing orders? 
 **Today's plan.** execute.yml fires automatically at 09:35 ET — re-evaluates each setup against the actual open and submits the survivors. To skip today, push SKIP_TODAY.flag with today's UTC date before 09:35 ET. Monitor 4 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
