@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [EOD] 2026-06-18 Thursday
+**What happened.** No trades closed today. End equity $98,187, cash $59,500 (61% of equity), 3 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+
+---
+
 ## [EOD] 2026-06-17 Wednesday
 **What happened.** Closed: IQV (-5.8%). End equity $97,743, cash $59,500 (61% of equity), 3 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
