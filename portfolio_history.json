@@ -315,5 +315,30 @@
         "unrealized_pl": 394.8
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-22T22:53:44.729635+00:00",
+    "account": {
+      "equity": 97939.03,
+      "buying_power": 357185.48,
+      "cash": 69130.16,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "A",
+        "qty": 143.0,
+        "avg_entry_price": 129.71,
+        "current_price": 126.49,
+        "unrealized_pl": -460.46
+      },
+      {
+        "symbol": "LII",
+        "qty": 20.0,
+        "avg_entry_price": 512.69,
+        "current_price": 536.04,
+        "unrealized_pl": 467.0
+      }
+    ]
   }
 ]

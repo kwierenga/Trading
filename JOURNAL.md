@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [EOD] 2026-06-22 Monday
+**What happened.** Closed: FICO (-9.5%). End equity $97,939, cash $69,130 (71% of equity), 2 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+
+---
+
 ## [WEEK] 2026-06-09 → 2026-06-21
 
 (synthesis failed: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcGwadEpCoYuScJFq4a2d'})

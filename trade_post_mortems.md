@@ -195,3 +195,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-06-22 — FICO closed (held 10.0d, -9.53%, $-1,014.93)
+<!-- pm-key: FICO|2026-06-22T13:33:27|1182.78 -->
+
+**Mechanical (auto-filled):**
+- Entry: $1182.78 on 2026-06-12 → Exit: $1070.01 on 2026-06-22 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: FICO is one of the highest-quality businesses in the S&P 500 — 58% operating margin, 38.7% revenue growth, PEG of 0.80, and strong FCF ($731M). The FICO Score franchise is a durable monop
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
