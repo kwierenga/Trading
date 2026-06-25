@@ -576,5 +576,58 @@
       "noops": 0,
       "skipped_no_R": 2
     }
+  },
+  {
+    "timestamp": "2026-06-25T22:43:06.449421+00:00",
+    "date": "2026-06-25",
+    "equity": 99922.67,
+    "cash": 69130.14,
+    "positions": 2,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 10,
+      "avg_holding_days": 16.10503279245949,
+      "short_term_gains": 4595.38,
+      "long_term_gains": 0.0,
+      "realized_gain": 276.0699999999998,
+      "estimated_tax_owed": 1470.5216,
+      "tax_drag": 781.2146
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 101756.64,
+      "shadow_return_pct": 0.017566404912355393,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 99922.67,
+      "strategy_return_pct": -0.0007732999999999768,
+      "spread_pct": -0.01833970491235537
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "A",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "LII",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 2
+    }
   }
 ]
