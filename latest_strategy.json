@@ -1,29 +1,60 @@
 {
-  "analysis": "Market regime: SPY in confirmed uptrend (+3.3% vs SMA50, slope +5.15%). Favorable backdrop but recent trade history (profit factor 0.93x, Sortino -21.08) demands disciplined selectivity rather than activity.\n\nExisting position review:\n- A (Agilent, -1.06%): Thesis intact. SMA50 slope +5.2%, near SMA200, basing at 39% of 52w range. No action needed; within normal ATR noise.\n- FICO (+0.29%): Thesis intact. Uptrend basing, quality franchise. Hold.\n- IQV (-0.77%): Thesis intact but watch closely \u2014 earnings in 34 days (Jul 21). High D/E (255) is a known risk. If price breaks below $169 (roughly 2x ATR), re-evaluate.\n- LII (+3.05%): Strongest performer; now above SMA200. Thesis intact. Consider tightening stop mentally as it extends.\n\nWe are at 4 positions (52% deployed), with $42,780 headroom remaining. The 3-5 position limit allows one more addition. I am proposing one high-conviction BUY \u2014 CDW \u2014 which offers a rare combination of deep value (fwd P/E 11.18), quality (ROE 44%), and a clean UPTREND basing setup in the lower half of its 52w range. EPS revisions are positive (+2.9%) and earnings are 49 days away, giving adequate runway before the next binary event.\n\nAPP was considered (59% rev growth, 78% op margins) but its steep SMA50 slope (+9.2%) and high ATR (6.8%) make sizing difficult and suggest a later-stage entry. Will monitor for a cleaner pullback entry.\n\nGOOGL/GOOG: Excluded \u2014 88% of 52w range, extending trend violates hard entry rules.\n\nFDS: Excluded \u2014 earnings in 14 days, insufficient time for thesis to develop.\n\nCash remains the second position at ~48%. This is appropriate given the mixed track record.",
-  "confidence_target_pct": 61,
+  "analysis": "MARKET REGIME: SPY in confirmed uptrend (+4.99% 20d slope) \u2014 conditions favor selective long exposure but not aggression.\n\nEXISTING POSITIONS REVIEW: A (Agilent) is working \u2014 +8% vs SMA50, SMA50 slope accelerating at +6.2%, earnings 62 days out, thesis intact. Hold with current stop. LII is the strongest performer at +7.62% \u2014 momentum intact, hold. No thesis breaks detected in either name; no exits proposed.\n\nPERFORMANCE CONTEXT: 33% win rate, 0.69 profit factor, and a -6.77 Sortino are serious red flags. Five consecutive stop-outs signal either bad luck clustering or entries that lack sufficient trend confirmation. This cycle I'm deliberately limiting to 2 high-conviction setups with wide ATR-based stops, avoiding earnings-in-<3-weeks names, and favoring value-with-momentum over pure momentum.\n\nSCREENED SETUP RATIONALE: AMP offers exceptional value (fwd P/E 9.66, ROE 67%, op margin 37%) basing exactly at SMA50 in the lower third of its 52w range \u2014 a textbook Stage 1/2 transition with earnings 28 days out (watch risk). CDW is an IT infrastructure distributor with fwd P/E 11, ROE 44%, and accelerating analyst revisions (+3.6%) in a confirmed uptrend with earnings 41 days out \u2014 enough runway. Both names have genuine fundamental catalyst (earnings revision cycle) paired with technical basing setups. Cash remains dominant at ~70% pre-trade; after both adds it moves to roughly 28%, well within prudent risk limits.\n\nWARNING: With a 0.69 profit factor, the system is net-negative. The correct posture is disciplined sizing and hard stops \u2014 not adding more risk. Both trades sized at 1-1.5% portfolio heat per name.",
+  "confidence_target_pct": 52,
   "trades": [
+    {
+      "symbol": "AMP",
+      "direction": "BUY",
+      "entry_strategy": "Limit at $461 or better; stock is sitting exactly at SMA50 in basing mode \u2014 ideal entry. If it gaps above $470 before fill, skip the trade.",
+      "entry_price": 461.0,
+      "stop_loss": 441.5,
+      "stop_loss_pct": 0.042,
+      "atr_multiple": 2.0,
+      "target": 525.0,
+      "target_gain_pct": 0.139,
+      "risk_reward_ratio": 3.3,
+      "conviction": 65,
+      "holding_period": "position",
+      "rationale": "FUNDAMENTAL: Ameriprise is a capital-light wealth management compounder with 67% ROE and 37% op margins trading at a forward P/E of 9.66 \u2014 deeply discounted versus quality peers. EPS revisions +3.3% over 60 days signal analyst confidence. Generates $3.4B FCF. TECHNICAL: Price is basing within 0.0% of SMA50 with SMA50 slope turning positive (+1.3%). At 28% of 52w range, this is Stage 1/2 transition territory with low risk of buying extended. ATR-based stop at 2x ATR (4.2%) provides tight but rule-compliant risk control. RISK: Earnings in 28 days \u2014 reduce or exit 2-3 days pre-announcement if position not well offside.",
+      "exit_plan": "Hard stop at $441.50. Trim 50% of position 3 days before 2026-07-23 earnings if not at target; hold remainder for post-earnings move. Thesis-break: if AUM outflow data worsens materially or fee compression accelerates in earnings call. Time stop: reassess if stock goes nowhere for 8 weeks post-entry."
+    },
     {
       "symbol": "CDW",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $130 or better; willing to chase up to $132 on strength but no higher. Prefer entry on a flat to slightly down open that holds the SMA50 area.",
-      "entry_price": 130.09,
-      "stop_loss": 119.62,
-      "stop_loss_pct": 0.0805,
-      "atr_multiple": 1.75,
-      "target": 169.0,
-      "target_gain_pct": 0.299,
-      "risk_reward_ratio": 3.72,
-      "conviction": 72,
-      "holding_period": "LTCG",
-      "rationale": "FUNDAMENTAL: CDW is a dominant IT products and solutions distributor with a 44% ROE, $884M FCF, and a forward P/E of 11.18 \u2014 the cheapest valuation among quality candidates on today's screened list. The fwd P/E discount to the market (~50%) is not justified by fundamentals; enterprise IT spending is recovering as post-COVID refresh cycles and AI infrastructure buildout drive hardware and software demand. EPS revisions are trending up +2.9% over 60 days. Revenue growth of 9.2% is accelerating. TECHNICAL: Price is at 39% of the 52-week range (lower half), confirmed UPTREND basing with SMA50 slope +2.1%. It is 4.7% above SMA50 (not extended) and only 3.9% below SMA200, meaning a SMA200 reclaim is a near-term catalyst. The basing structure at the $125-132 range represents a Stage 1-to-2 transition entry \u2014 exactly the risk/reward sweet spot the strategy targets. Next earnings Aug 5 (49 days) gives adequate time for the position to work before the next binary event.",
-      "exit_plan": "Hard stop at $119.62 (1.75x ATR below entry). Thesis-break conditions: (1) revenue growth decelerates below 5% or gross margins compress, signaling pricing power loss; (2) IT spending guidance cuts from major enterprise customers (watch MSFT, CSCO earnings); (3) price closes below SMA50 for 3 consecutive days on volume. Time stop: if no progress toward SMA200 ($135-140) within 60 days, reassess sizing. At target ($169), sell half and let remainder run toward LTCG if thesis remains intact."
+      "entry_strategy": "Limit at $130 or pullback to SMA50 area. Stock is +4.6% above SMA50 \u2014 acceptable but not ideal; wait for minor pullback to $128-$130 if possible rather than chasing.",
+      "entry_price": 130.0,
+      "stop_loss": 119.5,
+      "stop_loss_pct": 0.081,
+      "atr_multiple": 2.0,
+      "target": 165.0,
+      "target_gain_pct": 0.269,
+      "risk_reward_ratio": 3.32,
+      "conviction": 60,
+      "holding_period": "position",
+      "rationale": "FUNDAMENTAL: CDW is a high-quality IT solutions distributor with 44% ROE and a forward P/E of 11.09 \u2014 among the cheapest quality tech-adjacent names in the S&P 500. Revenue growing 9.2% with positive EPS revisions (+3.6%). FCF of $884M. Business is durable (enterprise IT refresh cycles) and relatively insulated from tariff risk. TECHNICAL: Confirmed uptrend with basing pattern, SMA50 slope +3.0%. At 39% of 52w range there is meaningful upside room to 52w high of $179. The stock has recovered from a significant drawdown ($98 low) and is building a new base above prior resistance \u2014 classic Weinstein Stage 2 entry setup. Earnings 41 days out provides enough time to establish position.",
+      "exit_plan": "Hard stop at $119.50. Exit or trim before 2026-08-05 earnings if not near target. Thesis-break: significant deterioration in enterprise IT spending, loss of major vendor relationships, or margin compression beyond 2pp. Time stop: if stock fails to make progress toward $145 within 6 weeks, reassess thesis."
+    },
+    {
+      "symbol": "LII",
+      "direction": "BUY",
+      "entry_price": 554.51,
+      "stop_loss": 529.25,
+      "target": 665.41,
+      "conviction": 75,
+      "holding_period": "swing",
+      "risk_reward_ratio": 4.3903404592240705,
+      "rationale": "PYRAMID tranche 2: original lot held 12d at +7.6%; price $551.75 > SMA20 $517.31; adding $9,427 (17 sh) with combined break-even stop at $529.25.",
+      "entry_strategy": "Limit @ $554.51 (current +0.5%)",
+      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
+      "is_pyramid": true,
+      "tranche": 2
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "61a259a5c71bbe5a",
-    "prompt_chars": 22048,
-    "generated_at": "2026-06-17T00:54:39.752182+00:00",
-    "code_sha": "c82d071fcefe"
+    "prompt_sha256": "15318f80168b0c6c",
+    "prompt_chars": 21788,
+    "generated_at": "2026-06-25T01:12:43.155688+00:00",
+    "code_sha": "9d7086883206"
   }
 }
