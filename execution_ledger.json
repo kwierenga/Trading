@@ -106,5 +106,25 @@
     "entry_price": 517.03,
     "order_id": "fae1855c-dc7c-463e-9b86-4a2c53f39a1f",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-06-26",
+    "timestamp": "2026-06-26T14:33:52.658575+00:00",
+    "symbol": "CI",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $268.91, target $315.00; submit status pending_new",
+    "shares": 44,
+    "entry_price": 281.87,
+    "order_id": "251b7b08-fce5-4a76-87db-a5ae9b9b9a55",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-06-26",
+    "timestamp": "2026-06-26T14:33:52.815389+00:00",
+    "symbol": "LII",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "LII would be 30.1% of equity (existing $11,308 + new $18,750 = $30,058); cap is 30%"
   }
 ]
