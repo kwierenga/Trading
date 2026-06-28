@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-06-16 → 2026-06-28
+
+_Sharpe -0.10, Sortino -0.14, MaxDD -2.6%, CAGR -2.1%, excess CAGR vs SPY -16.0% (quantstats, since inception)._
+
+**What worked / what didn't.** All three closed positions exited via stop, which means the rules fired correctly — that's the system working as designed. But three consecutive stop-outs (ADP -3.6%, IQV -5.8%, FICO -9.5%) in roughly one to ten days each suggests entries were timed into a weak tape rather than a stop-sizing problem. The open positions tell a different story: LII is up 10% and A up 4.9%, both held through the same week the exits were getting hit. The divergence between what got stopped out and what's working is worth examining at the stock level, not the system level.
+
+**What's puzzling or worth watching.** Cash ran between 57–71% of equity for most of the week, which is a meaningful drag if the open positions continue to work. The journal's "What we learned" fields are blank every single day — the 15-minute EOD review isn't happening, or the observations aren't being written down. That's the most important data loss of the week: the entries and exits happened but the reasoning-in-the-moment wasn't captured, so pattern recognition next month will be harder. There were also two duplicate AM journal entries on June 26 with different candidate names (AMP vs CI), which raises a process question about whether the pre-market review is disciplined or rushed.
+
+**Reflective prompts for Klaas.** ADP, IQV, and FICO all stopped out while LII and A — entered around the same period — are solidly positive: what specifically differentiated the winners from the losers at entry, and does that difference show up in any signal you were already tracking? The EOD "What we learned" sections are blank all week — was that time pressure, or does the reflection feel unnecessary when nothing dramatic happened, and if so, what would it take to make it non-negotiable? You held 57–71% cash for most of the week while LII ran 10%: at what point does high cash become a choice you're actively defending rather than a default you're drifting into?
+
+
+---
+
 ## [EOD] 2026-06-26 Friday
 **What happened.** No trades closed today. End equity $99,897, cash $56,728 (57% of equity), 3 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
