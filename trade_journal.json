@@ -268,5 +268,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 16,
+    "symbol": "AMP",
+    "shares": 41,
+    "original_shares": 41,
+    "entry_price": 450.0,
+    "entry_time": "2026-06-29T14:33:52.410116+00:00",
+    "stop_loss": 429.0,
+    "initial_stop": 429.0,
+    "R": 21.0,
+    "current_stop": 429.0,
+    "target_price": 520.0,
+    "rationale": "FUNDAMENTAL: Ameriprise is a high-quality wealth management and asset management franchise with 67% ROE, 37% operating margins, $3.4B FCF, and a forward P/E of just 9.5x \u2014 deeply cheap for this qualit",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]

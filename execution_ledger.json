@@ -126,5 +126,25 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "LII would be 30.1% of equity (existing $11,308 + new $18,750 = $30,058); cap is 30%"
+  },
+  {
+    "date": "2026-06-29",
+    "timestamp": "2026-06-29T14:33:52.409934+00:00",
+    "symbol": "AMP",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $429.00, target $520.00; submit status pending_new",
+    "shares": 41,
+    "entry_price": 450.0,
+    "order_id": "b42379bd-2e27-4136-a6dc-741a0dca49fa",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-06-29",
+    "timestamp": "2026-06-29T14:33:52.708617+00:00",
+    "symbol": "LII",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "LII would be 30.7% of equity (existing $11,314 + new $19,267 = $30,581); cap is 30%"
   }
 ]
