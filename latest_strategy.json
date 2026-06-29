@@ -1,50 +1,34 @@
 {
-  "analysis": "MARKET & PORTFOLIO REVIEW: SPY is in a confirmed uptrend (+4.86% 20d slope) but the portfolio's recent history is sobering \u2014 5 consecutive stop-outs (FICO, IQV, ADP, MSFT, ZBRA) with a profit factor of 0.69x. This signals either bad luck in a choppy period or a tendency to enter too early before trends confirm. Discipline demands we not chase to recover losses. EXISTING POSITIONS: A (+4.47%) \u2014 thesis intact; Agilent is quality healthcare instruments, no thesis break, hold with existing stop. LII (+11.32%) \u2014 performing well; HVAC/cooling beneficiary with durable pricing power. No reason to exit. Both positions are small relative to equity; no over-concentration. NEW TRADES: With 69% cash, the market in uptrend, and 2 basing setups offering genuinely asymmetric risk/reward, I am proposing 2 new positions to bring the book to 4 concentrated names. CI (Cigna) is the cheapest quality large-cap on the screened list at fwd P/E 8.43 with $6.9B FCF, basing right at SMA50 with slope turning positive \u2014 classic Stage 1-2 transition. CDW is a quality technology distributor in a confirmed uptrend basing pattern, with fwd P/E 10.90 and strong FCF, sitting only 36% into its 52w range with meaningful upside to prior highs. Both have ~35-40 days before earnings which provides adequate runway. ADP is excluded despite reappearing on the list \u2014 too soon after a stop-out psychologically and the pattern of -3.56% stop suggests the trend needs more time to repair. WDC, ADI, CSCO, NXPI are all extended (80-90%+ of 52w range, 10-33% above SMA50) \u2014 late-cycle entries forbidden by hard rules. Remaining candidates are either too close to earnings (<25d), have declining EPS revisions, or lack the asymmetry needed. After these two trades: A+LII+CI+CDW = 4 positions, ~79% deployed, ~21% cash reserve.",
-  "confidence_target_pct": 52,
+  "analysis": "MARKET & PORTFOLIO REVIEW: Market regime is MIXED \u2014 SPY is fractionally below SMA50 but the 20-day slope is a constructive +4.69%, suggesting a recovery attempt. In this environment, selectivity matters more than aggression. Our recent track record (5 consecutive stops, profit factor 0.69x) reinforces the need for patience and only taking genuinely asymmetric setups. Portfolio heat is a very low 0.87%, giving us room to add without overloading. EXISTING POSITIONS: CI (Cigna) is in the candidate list, basing near SMA50 with a +2.5% slope \u2014 thesis intact, hold. LII (Lennox) is +10% and not in the screened list, which could mean the trend filter excluded it or it's approaching extended territory; monitor closely and trail stop. A (Agilent) is +4.86% and also not in the screened list; check for thesis-break signals but no urgent sell at this time. NEW TRADE RATIONALE: After reviewing all 30 candidates, Ameriprise Financial (AMP) stands out as the single genuinely asymmetric setup: world-class financial advisory franchise, ROE of 67%, fwd P/E of 9.5x, basing at the low of its 52-week range with SMA50 slope just turning positive. This is a classic Stage 1\u21922 transition. MA (Mastercard) is fundamentally exceptional but SMA50 slope is still -0.8% and price is -6.1% vs SMA200 \u2014 not confirmed yet; pass for now. SCHW has a negative SMA50 slope; wait. WFC earnings in 15 days \u2014 too close to enter. Proposing 1 high-conviction BUY on AMP. Keeping remaining capacity as cash pending better confirmation elsewhere or a pullback in MA/SCHW post-earnings.",
+  "confidence_target_pct": 58,
   "trades": [
     {
-      "symbol": "CI",
+      "symbol": "AMP",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $281 or better; ideally on a pullback to or slight bounce off the SMA50 (currently ~$283). Do not chase above $285.",
-      "entry_price": 281.87,
-      "stop_loss": 268.91,
-      "stop_loss_pct": 0.046,
+      "entry_strategy": "Limit at $450 or better, targeting the SMA50 reclaim area. Enter only if price holds above $445 intraday \u2014 do not chase above $458. Reduce size by 30% if entering within 10 days of July 23 earnings.",
+      "entry_price": 450.0,
+      "stop_loss": 429.0,
+      "stop_loss_pct": 0.047,
       "atr_multiple": 2.0,
-      "target": 315.0,
-      "target_gain_pct": 0.117,
-      "risk_reward_ratio": 2.56,
-      "conviction": 65,
+      "target": 520.0,
+      "target_gain_pct": 0.156,
+      "risk_reward_ratio": 3.32,
+      "conviction": 72,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Cigna trades at fwd P/E 8.43 and PEG 0.84 \u2014 among the cheapest quality names in the S&P 500. FCF of $6.9B provides substantial capital return capacity. Healthcare insurance is a defensive, recurring-revenue model with pricing power. EPS revisions are flat (not deteriorating). TECHNICAL: Price is in the 48th percentile of its 52w range \u2014 midfield, not extended. MIXED/SIDEWAYS basing with the SMA50 slope now positive (+2.5% over 20d) signals transition toward Stage 2. Price is hugging the SMA50 (only -0.5% below), and SMA200 is flat to positive \u2014 this is a controlled basing setup, not a falling knife. ATR of 2.3% allows a 2x ATR stop at ~4.6% without hitting the ceiling. Earnings are 34 days out, providing a full month of runway before binary risk.",
-      "exit_plan": "Primary exit: target $315 (near 52w high/prior resistance) or stop at $268.91. Thesis-break exits: if SMA50 slope rolls negative again, or if the stock closes more than 2 consecutive sessions below SMA200 on volume. Earnings management: reduce or exit ahead of July 30 earnings if position is flat/negative; hold through earnings only if sitting on >7% unrealized gain. Time stop: reassess at 10 weeks if no material progress toward target."
-    },
-    {
-      "symbol": "CDW",
-      "direction": "BUY",
-      "entry_strategy": "Buy near current price ($128); set limit at $127.50. Prefer entry on a mild intraday pullback rather than chasing. SMA50 at ~$124 provides backstop.",
-      "entry_price": 128.02,
-      "stop_loss": 119.77,
-      "stop_loss_pct": 0.064,
-      "atr_multiple": 1.5,
-      "target": 160.0,
-      "target_gain_pct": 0.25,
-      "risk_reward_ratio": 3.88,
-      "conviction": 60,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: CDW is a high-quality technology solutions distributor with ROE of 44.2%, operating cash flow of $1.2B, and FCF of $884M. The fwd P/E of 10.90 is strikingly cheap for a business of this quality \u2014 the market appears to be discounting cyclical IT spend concerns, which creates the asymmetry. Revenue growth of +9.2% and positive EPS revisions (+3.6%) confirm the business is not deteriorating. High D/E (240x) is structural for a distributor using working capital leverage \u2014 not the same risk as a capital-intensive industrial with that ratio. TECHNICAL: Confirmed UPTREND with basing pattern. Price is only 36% into its 52w range, well below the 52w high of $179.37 \u2014 significant upside runway. SMA50 slope is positive (+3.1%), price is +2.9% above SMA50 (modest, not extended), and the base has formed above SMA50 \u2014 classic Stage 2 entry. ATR of 4.3% with a 1.5x stop produces a 6.4% stop \u2014 within the acceptable 4-15% range. Earnings Aug 5 (40d) gives adequate runway.",
-      "exit_plan": "Primary exit: target $160 (prior consolidation resistance, ~25% gain). Stop: $119.77. Thesis-break: exit if price falls back below SMA50 and SMA50 slope turns negative \u2014 that would indicate the uptrend is failing. Earnings management: tighten stop to breakeven if entering the final week before Aug 5 earnings with less than 10% gain. Time stop: if stock makes no progress in 8 weeks, exit and redeploy elsewhere."
+      "rationale": "FUNDAMENTAL: Ameriprise is a high-quality wealth management and asset management franchise with 67% ROE, 37% operating margins, $3.4B FCF, and a forward P/E of just 9.5x \u2014 deeply cheap for this quality tier. Revenue growth of 9% is steady. EPS revisions are +3.3% over 60 days, a positive leading indicator. The business benefits from rising asset prices and rate normalization. TECHNICAL: At 21% of the 52-week range with a +1.2% SMA50 slope just turning positive after basing below SMA50 (-1.6%), this is a Stage 1\u21922 transition setup \u2014 exactly the 'basing knife, not falling knife' entry the strategy targets. The entry is in the lower half of the range with a clear level to invalidate the setup. ATR of $10.41 implies a manageable 2x-ATR stop of ~$21. SIZING: 55 shares at $450 = $24,750 (24.7% of equity), risk = $1,155 (1.15% of equity) \u2014 within all hard limits.",
+      "exit_plan": "Exit if: (1) price closes below $429 stop on any day; (2) AMP reports earnings that reveal meaningful margin deterioration or AUM outflows; (3) market regime flips to confirmed downtrend (SPY below SMA200); (4) position reaches $520 target. Trail stop to breakeven if stock rallies 8%+. Consider trimming 30-40% ahead of July 23 earnings if position is profitable, to reduce binary risk, then reload post-print if thesis intact."
     },
     {
       "symbol": "LII",
       "direction": "BUY",
-      "entry_price": 568.18,
-      "stop_loss": 535.49,
-      "target": 681.82,
+      "entry_price": 566.69,
+      "stop_loss": 534.81,
+      "target": 680.03,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.476292444172539,
-      "rationale": "PYRAMID tranche 2: original lot held 13d at +10.3%; price $565.35 > SMA20 $524.10; adding $9,659 (17 sh) with combined break-even stop at $535.49.",
-      "entry_strategy": "Limit @ $568.18 (current +0.5%)",
+      "risk_reward_ratio": 3.555207026348793,
+      "rationale": "PYRAMID tranche 2: original lot held 16d at +10.0%; price $563.87 > SMA20 $524.03; adding $9,634 (17 sh) with combined break-even stop at $534.81.",
+      "entry_strategy": "Limit @ $566.69 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -52,9 +36,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "e7c6e996c5f1f26d",
-    "prompt_chars": 21894,
-    "generated_at": "2026-06-26T13:31:49.770198+00:00",
-    "code_sha": "9a3024593e8f"
+    "prompt_sha256": "5d6d44faffdb5ea6",
+    "prompt_chars": 21947,
+    "generated_at": "2026-06-29T10:28:57.987645+00:00",
+    "code_sha": "97cf43009744"
   }
 }
