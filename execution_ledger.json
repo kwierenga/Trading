@@ -146,5 +146,25 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "LII would be 30.7% of equity (existing $11,314 + new $19,267 = $30,581); cap is 30%"
+  },
+  {
+    "date": "2026-06-30",
+    "timestamp": "2026-06-30T14:33:55.448116+00:00",
+    "symbol": "AON",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $307.00, target $374.00; submit status pending_new",
+    "shares": 38,
+    "entry_price": 325.0,
+    "order_id": "758b8b44-588f-4219-9d5f-32245ce04928",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-06-30",
+    "timestamp": "2026-06-30T14:33:55.599185+00:00",
+    "symbol": "LII",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "LII would be 30.0% of equity (existing $11,650 + new $18,293 = $29,943); cap is 30%"
   }
 ]

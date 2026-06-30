@@ -286,5 +286,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 17,
+    "symbol": "AON",
+    "shares": 38,
+    "original_shares": 38,
+    "entry_price": 325.0,
+    "entry_time": "2026-06-30T14:33:55.448297+00:00",
+    "stop_loss": 307.0,
+    "initial_stop": 307.0,
+    "R": 18.0,
+    "current_stop": 307.0,
+    "target_price": 374.0,
+    "rationale": "FUNDAMENTAL: Aon is a near-oligopoly insurance broker with 46% ROE, 36% operating margins, $3.3B FCF, and a forward P/E of 15.3x \u2014 reasonable for this quality tier. Revenue growth of 6.5% is steady, E",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
