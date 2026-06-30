@@ -1,34 +1,34 @@
 {
-  "analysis": "MARKET & PORTFOLIO REVIEW: Market regime is MIXED \u2014 SPY is fractionally below SMA50 but the 20-day slope is a constructive +4.69%, suggesting a recovery attempt. In this environment, selectivity matters more than aggression. Our recent track record (5 consecutive stops, profit factor 0.69x) reinforces the need for patience and only taking genuinely asymmetric setups. Portfolio heat is a very low 0.87%, giving us room to add without overloading. EXISTING POSITIONS: CI (Cigna) is in the candidate list, basing near SMA50 with a +2.5% slope \u2014 thesis intact, hold. LII (Lennox) is +10% and not in the screened list, which could mean the trend filter excluded it or it's approaching extended territory; monitor closely and trail stop. A (Agilent) is +4.86% and also not in the screened list; check for thesis-break signals but no urgent sell at this time. NEW TRADE RATIONALE: After reviewing all 30 candidates, Ameriprise Financial (AMP) stands out as the single genuinely asymmetric setup: world-class financial advisory franchise, ROE of 67%, fwd P/E of 9.5x, basing at the low of its 52-week range with SMA50 slope just turning positive. This is a classic Stage 1\u21922 transition. MA (Mastercard) is fundamentally exceptional but SMA50 slope is still -0.8% and price is -6.1% vs SMA200 \u2014 not confirmed yet; pass for now. SCHW has a negative SMA50 slope; wait. WFC earnings in 15 days \u2014 too close to enter. Proposing 1 high-conviction BUY on AMP. Keeping remaining capacity as cash pending better confirmation elsewhere or a pullback in MA/SCHW post-earnings.",
-  "confidence_target_pct": 58,
+  "analysis": "PORTFOLIO REVIEW: Four open positions, 61% deployed, $38K cash. LII is the standout winner at +12.35% \u2014 thesis intact, let it run. A is up modestly (+2.4%), fundamentals solid, hold. AMP and CI are both slightly underwater (-0.65%, -1.11%) but within normal noise; AMP is mixed/sideways below SMA50/200 with earnings in 23 days (watch closely), CI is barely above SMA200 with earnings 30 days out. Neither shows a thesis break \u2014 hold both with existing stops in place.\n\nMARKET REGIME: SPY is in confirmed uptrend (+4.52% 20d slope) which favors staying invested, but the 5 consecutive stop-outs (-FICO, -IQV, -ADP, -MSFT, -ZBRA) are a clear warning that entries have been mistimed or too aggressive. Win rate 33% / PF 0.69x is below the break-even threshold \u2014 this demands selectivity, NOT more trades. The majority of the highest-quality screened candidates (WFC, PGR, SCHW, COF, DHR, MRSH, CI, MA) have earnings within 14-21 days, creating binary risk that makes new entries inadvisable for that cohort. ZBRA was a recent stop-out and is now 7.5% extended above SMA50 \u2014 skip. HWM at 87% 52w-range position is too extended per hard rules.\n\nNEW TRADE RATIONALE: AON is the one name combining confirmed uptrend, basing in the lower third of its 52w range (29%), pristine fundamentals (ROE 46%, op margin 36%, $3.3B FCF, fwd P/E 15.3), and earnings far enough out (Jul 24, 24 days) to allow a proper setup to develop. ATR 2.8% gives a manageable stop around 5.5% below a limit entry. Risk/reward to 52w high is ~2.7x. Sizing keeps worst-case loss at ~1.5% of equity. This is a single high-conviction add; remaining cash stays reserved as a deliberate position given the recent losing streak and earnings-season noise.",
+  "confidence_target_pct": 55,
   "trades": [
     {
-      "symbol": "AMP",
+      "symbol": "AON",
       "direction": "BUY",
-      "entry_strategy": "Limit at $450 or better, targeting the SMA50 reclaim area. Enter only if price holds above $445 intraday \u2014 do not chase above $458. Reduce size by 30% if entering within 10 days of July 23 earnings.",
-      "entry_price": 450.0,
-      "stop_loss": 429.0,
-      "stop_loss_pct": 0.047,
-      "atr_multiple": 2.0,
-      "target": 520.0,
-      "target_gain_pct": 0.156,
-      "risk_reward_ratio": 3.32,
-      "conviction": 72,
+      "entry_strategy": "Limit order at $325.00, targeting a mild pullback from current $327.57. If price never pulls back and breaks above $335 cleanly on volume, reassess before chasing.",
+      "entry_price": 325.0,
+      "stop_loss": 307.0,
+      "stop_loss_pct": 0.055,
+      "atr_multiple": 1.96,
+      "target": 374.0,
+      "target_gain_pct": 0.151,
+      "risk_reward_ratio": 2.72,
+      "conviction": 62,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Ameriprise is a high-quality wealth management and asset management franchise with 67% ROE, 37% operating margins, $3.4B FCF, and a forward P/E of just 9.5x \u2014 deeply cheap for this quality tier. Revenue growth of 9% is steady. EPS revisions are +3.3% over 60 days, a positive leading indicator. The business benefits from rising asset prices and rate normalization. TECHNICAL: At 21% of the 52-week range with a +1.2% SMA50 slope just turning positive after basing below SMA50 (-1.6%), this is a Stage 1\u21922 transition setup \u2014 exactly the 'basing knife, not falling knife' entry the strategy targets. The entry is in the lower half of the range with a clear level to invalidate the setup. ATR of $10.41 implies a manageable 2x-ATR stop of ~$21. SIZING: 55 shares at $450 = $24,750 (24.7% of equity), risk = $1,155 (1.15% of equity) \u2014 within all hard limits.",
-      "exit_plan": "Exit if: (1) price closes below $429 stop on any day; (2) AMP reports earnings that reveal meaningful margin deterioration or AUM outflows; (3) market regime flips to confirmed downtrend (SPY below SMA200); (4) position reaches $520 target. Trail stop to breakeven if stock rallies 8%+. Consider trimming 30-40% ahead of July 23 earnings if position is profitable, to reduce binary risk, then reload post-print if thesis intact."
+      "rationale": "FUNDAMENTAL: Aon is a near-oligopoly insurance broker with 46% ROE, 36% operating margins, $3.3B FCF, and a forward P/E of 15.3x \u2014 reasonable for this quality tier. Revenue growth of 6.5% is steady, EPS revisions are flat-to-positive. The business is highly recurring, non-cyclical, and generates predictable cash flows regardless of macro. TECHNICAL: Price is in a confirmed uptrend (basing), sitting at just 29% of its 52-week range, only 1.8% above SMA50, and 2.4% below SMA200 \u2014 this is the Stage 1-to-2 transition zone where risk/reward is historically best. SMA50 slope is turning flat-to-up (+0.3%). Entry at $325 places us at the lower edge of recent consolidation. Stop at $307 is 2x ATR below entry, giving the position room to breathe without violating Klaas's 15% drawdown ceiling.",
+      "exit_plan": "Exit on stop hit at $307. Thesis break: if op margins compress materially in earnings (Jul 24), or if price closes two consecutive days below SMA200 on elevated volume. Earnings-day risk acknowledged \u2014 if stock gaps down more than 8% post-earnings, exit immediately regardless of stop. On the upside, consider trimming 50% near $360 (recoup cost) and letting the remainder run toward $374 (52w high). Time stop: if price is flat or lower 60 days after entry with no progress toward SMA200 recapture, exit and redeploy."
     },
     {
       "symbol": "LII",
       "direction": "BUY",
-      "entry_price": 566.69,
-      "stop_loss": 534.81,
-      "target": 680.03,
+      "entry_price": 571.67,
+      "stop_loss": 537.09,
+      "target": 686.0,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.555207026348793,
-      "rationale": "PYRAMID tranche 2: original lot held 16d at +10.0%; price $563.87 > SMA20 $524.03; adding $9,634 (17 sh) with combined break-even stop at $534.81.",
-      "entry_strategy": "Limit @ $566.69 (current +0.5%)",
+      "risk_reward_ratio": 3.3062463851937616,
+      "rationale": "PYRAMID tranche 2: original lot held 17d at +12.3%; price $568.83 > SMA20 $527.36; adding $9,718 (17 sh) with combined break-even stop at $537.09.",
+      "entry_strategy": "Limit @ $571.67 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -36,9 +36,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "5d6d44faffdb5ea6",
-    "prompt_chars": 21947,
-    "generated_at": "2026-06-29T10:28:57.987645+00:00",
-    "code_sha": "97cf43009744"
+    "prompt_sha256": "3b66751033f80f8e",
+    "prompt_chars": 22105,
+    "generated_at": "2026-06-30T10:26:41.055026+00:00",
+    "code_sha": "99db7e31cabd"
   }
 }
