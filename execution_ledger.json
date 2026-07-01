@@ -166,5 +166,17 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "LII would be 30.0% of equity (existing $11,650 + new $18,293 = $29,943); cap is 30%"
+  },
+  {
+    "date": "2026-07-01",
+    "timestamp": "2026-07-01T14:33:53.862899+00:00",
+    "symbol": "LII",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $538.98, target $690.97; submit status pending_new",
+    "shares": 30,
+    "entry_price": 575.81,
+    "order_id": "c30628cf-1f4f-49d6-8c7e-4fb40d5579a8",
+    "fill_status": "unknown"
   }
 ]

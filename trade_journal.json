@@ -250,5 +250,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 15,
+    "symbol": "LII",
+    "shares": 30,
+    "original_shares": 30,
+    "entry_price": 575.81,
+    "entry_time": "2026-07-01T14:33:53.863096+00:00",
+    "stop_loss": 538.98,
+    "initial_stop": 538.98,
+    "R": 36.82999999999993,
+    "current_stop": 538.98,
+    "target_price": 690.97,
+    "rationale": "PYRAMID tranche 2: original lot held 18d at +11.8%; price $572.95 > SMA20 $529.97; adding $9,789 (17 sh) with combined break-even stop at $538.98.",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
