@@ -1,34 +1,34 @@
 {
-  "analysis": "PORTFOLIO REVIEW: Four open positions, 61% deployed, $38K cash. LII is the standout winner at +12.35% \u2014 thesis intact, let it run. A is up modestly (+2.4%), fundamentals solid, hold. AMP and CI are both slightly underwater (-0.65%, -1.11%) but within normal noise; AMP is mixed/sideways below SMA50/200 with earnings in 23 days (watch closely), CI is barely above SMA200 with earnings 30 days out. Neither shows a thesis break \u2014 hold both with existing stops in place.\n\nMARKET REGIME: SPY is in confirmed uptrend (+4.52% 20d slope) which favors staying invested, but the 5 consecutive stop-outs (-FICO, -IQV, -ADP, -MSFT, -ZBRA) are a clear warning that entries have been mistimed or too aggressive. Win rate 33% / PF 0.69x is below the break-even threshold \u2014 this demands selectivity, NOT more trades. The majority of the highest-quality screened candidates (WFC, PGR, SCHW, COF, DHR, MRSH, CI, MA) have earnings within 14-21 days, creating binary risk that makes new entries inadvisable for that cohort. ZBRA was a recent stop-out and is now 7.5% extended above SMA50 \u2014 skip. HWM at 87% 52w-range position is too extended per hard rules.\n\nNEW TRADE RATIONALE: AON is the one name combining confirmed uptrend, basing in the lower third of its 52w range (29%), pristine fundamentals (ROE 46%, op margin 36%, $3.3B FCF, fwd P/E 15.3), and earnings far enough out (Jul 24, 24 days) to allow a proper setup to develop. ATR 2.8% gives a manageable stop around 5.5% below a limit entry. Risk/reward to 52w high is ~2.7x. Sizing keeps worst-case loss at ~1.5% of equity. This is a single high-conviction add; remaining cash stays reserved as a deliberate position given the recent losing streak and earnings-season noise.",
-  "confidence_target_pct": 55,
+  "analysis": "Market regime is confirmed UPTREND with SPY +1.7% vs SMA50 and a positive 20d slope. That is supportive but not a blank check to force entries, especially given the portfolio's recent track record: 5 consecutive stops, a 20% win rate, and a Profit Factor of 0.64 all indicate we have been entering too early or on low-conviction setups. The honest posture is selective and size-conscious.\n\nExisting positions: A (+2.4%) and AMP (+2.0%) are grinding higher with theses intact \u2014 hold. CI (-1.75%) is marginally below cost but the forward P/E of 8.24 and $6.9B FCF make the fundamental case still valid; it remains in the candidate list with an improving SMA50 slope (+2.3%) \u2014 hold and watch for a close below $268 as thesis-break. LII (+11.75%) is the clear winner; the stop should be trailed to approximately breakeven or SMA50 (~$530) to protect that gain without cutting a working position. No SELL actions proposed today.\n\nNew buy candidates: Many screened names have earnings in 13\u201323 days (WFC July 14, PGR July 15, COF/DHR/AVY July 21, AON July 24) which introduces binary gap risk unsuitable for a new entry. WDC, HWM, and ABNB are too extended (range >84%, or >20% above SMA50). ZBRA was just stopped out and sits 10%+ above where we exited \u2014 chasing is off the table. CCL stands out as the single cleanest setup: confirmed UPTREND, basing in the middle of its 52-week range (49%), only +4.9% above SMA50 (not extended), no near-term earnings listed, cheap forward P/E of 10.85, solid operating cash flow of $6.8B providing debt service coverage, and +1.3% EPS revision trend. The high D/E (201) is a known risk for a cruise operator but is offset by the FCF ramp and sector pricing power. This diversifies the book away from financials and healthcare. One position only; remaining cash preserved as a deliberate position given the recent losing streak.",
+  "confidence_target_pct": 52,
   "trades": [
     {
-      "symbol": "AON",
+      "symbol": "CCL",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $325.00, targeting a mild pullback from current $327.57. If price never pulls back and breaks above $335 cleanly on volume, reassess before chasing.",
-      "entry_price": 325.0,
-      "stop_loss": 307.0,
-      "stop_loss_pct": 0.055,
-      "atr_multiple": 1.96,
-      "target": 374.0,
-      "target_gain_pct": 0.151,
-      "risk_reward_ratio": 2.72,
-      "conviction": 62,
+      "entry_strategy": "Limit order at $28.00\u201328.57 (at or slight pullback to current price); do not chase above $29.50. Prefer entry on a quiet day near the SMA50.",
+      "entry_price": 28.25,
+      "stop_loss": 25.55,
+      "stop_loss_pct": 0.096,
+      "atr_multiple": 1.75,
+      "target": 34.5,
+      "target_gain_pct": 0.221,
+      "risk_reward_ratio": 2.3,
+      "conviction": 55,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Aon is a near-oligopoly insurance broker with 46% ROE, 36% operating margins, $3.3B FCF, and a forward P/E of 15.3x \u2014 reasonable for this quality tier. Revenue growth of 6.5% is steady, EPS revisions are flat-to-positive. The business is highly recurring, non-cyclical, and generates predictable cash flows regardless of macro. TECHNICAL: Price is in a confirmed uptrend (basing), sitting at just 29% of its 52-week range, only 1.8% above SMA50, and 2.4% below SMA200 \u2014 this is the Stage 1-to-2 transition zone where risk/reward is historically best. SMA50 slope is turning flat-to-up (+0.3%). Entry at $325 places us at the lower edge of recent consolidation. Stop at $307 is 2x ATR below entry, giving the position room to breathe without violating Klaas's 15% drawdown ceiling.",
-      "exit_plan": "Exit on stop hit at $307. Thesis break: if op margins compress materially in earnings (Jul 24), or if price closes two consecutive days below SMA200 on elevated volume. Earnings-day risk acknowledged \u2014 if stock gaps down more than 8% post-earnings, exit immediately regardless of stop. On the upside, consider trimming 50% near $360 (recoup cost) and letting the remainder run toward $374 (52w high). Time stop: if price is flat or lower 60 days after entry with no progress toward SMA200 recapture, exit and redeploy."
+      "rationale": "Fundamental: Carnival is the global cruise leader with durable pricing power post-COVID normalization. Fwd P/E of 10.85 and PEG of 1.18 represent genuine value for a business generating $6.8B operating cash flow. D/E of 201 is high but FCF of $1.9B is covering obligations and trending up; analyst EPS revisions are modestly positive (+1.3%). Technical: Price confirmed an UPTREND and is basing in the middle of its 52-week range (49%). At +4.9% vs SMA50 with SMA50 slope +3.6%, the trend is healthy but not extended \u2014 classic Stage 1 to Stage 2 transition territory per Weinstein. No near-term earnings create an unobstructed 6\u20138 week entry window. ATR-based stop of 1.75x allows the stock to breathe without risking excessive capital.",
+      "exit_plan": "Exit at $34.50 price target. Hard stop at $25.55 (1.75x ATR below entry). Thesis break: close below SMA200 on elevated volume, or operating cash flow guidance cut materially on next earnings. Trail stop to breakeven once position is +8%. If broader consumer slowdown narrative gains traction (credit deterioration, travel spend data), reduce position ahead of next earnings regardless of price."
     },
     {
       "symbol": "LII",
       "direction": "BUY",
-      "entry_price": 571.67,
-      "stop_loss": 537.09,
-      "target": 686.0,
+      "entry_price": 575.81,
+      "stop_loss": 538.98,
+      "target": 690.97,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.3062463851937616,
-      "rationale": "PYRAMID tranche 2: original lot held 17d at +12.3%; price $568.83 > SMA20 $527.36; adding $9,718 (17 sh) with combined break-even stop at $537.09.",
-      "entry_strategy": "Limit @ $571.67 (current +0.5%)",
+      "risk_reward_ratio": 3.126798805321757,
+      "rationale": "PYRAMID tranche 2: original lot held 18d at +11.8%; price $572.95 > SMA20 $529.97; adding $9,789 (17 sh) with combined break-even stop at $538.98.",
+      "entry_strategy": "Limit @ $575.81 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -36,9 +36,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "3b66751033f80f8e",
-    "prompt_chars": 22105,
-    "generated_at": "2026-06-30T10:26:41.055026+00:00",
-    "code_sha": "99db7e31cabd"
+    "prompt_sha256": "b210c63339379027",
+    "prompt_chars": 22052,
+    "generated_at": "2026-07-01T10:27:15.193918+00:00",
+    "code_sha": "389d3e901e6f"
   }
 }
