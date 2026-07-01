@@ -823,5 +823,72 @@
       "noops": 0,
       "skipped_no_R": 4
     }
+  },
+  {
+    "timestamp": "2026-07-01T22:38:42.762068+00:00",
+    "date": "2026-07-01",
+    "equity": 100509.36,
+    "cash": 21022.63,
+    "positions": 4,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 6,
+      "avg_holding_days": 8.43073901546682,
+      "short_term_gains": 0.08,
+      "long_term_gains": 0.0,
+      "realized_gain": -4108.01,
+      "estimated_tax_owed": 0.0256,
+      "tax_drag": 0.013600000000000001
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 103509.76,
+      "shadow_return_pct": 0.03509759902081311,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 100509.36,
+      "strategy_return_pct": 0.00509359999999992,
+      "spread_pct": -0.030003999020813188
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "A",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "AMP",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "CI",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "LII",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 4
+    }
   }
 ]
