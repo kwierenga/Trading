@@ -890,5 +890,72 @@
       "noops": 0,
       "skipped_no_R": 4
     }
+  },
+  {
+    "timestamp": "2026-07-02T22:17:23.271144+00:00",
+    "date": "2026-07-02",
+    "equity": 100808.35,
+    "cash": 21022.62,
+    "positions": 4,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 6,
+      "avg_holding_days": 8.43073901546682,
+      "short_term_gains": 0.08,
+      "long_term_gains": 0.0,
+      "realized_gain": -4108.01,
+      "estimated_tax_owed": 0.0256,
+      "tax_drag": 0.013600000000000001
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 103732.15,
+      "shadow_return_pct": 0.037321512874709084,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 100808.35,
+      "strategy_return_pct": 0.008083500000000132,
+      "spread_pct": -0.029238012874708952
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "A",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "AMP",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "CI",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "LII",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 4
+    }
   }
 ]
