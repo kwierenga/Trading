@@ -1,44 +1,12 @@
 {
-  "analysis": "Market regime is confirmed UPTREND with SPY +1.7% vs SMA50 and a positive 20d slope. That is supportive but not a blank check to force entries, especially given the portfolio's recent track record: 5 consecutive stops, a 20% win rate, and a Profit Factor of 0.64 all indicate we have been entering too early or on low-conviction setups. The honest posture is selective and size-conscious.\n\nExisting positions: A (+2.4%) and AMP (+2.0%) are grinding higher with theses intact \u2014 hold. CI (-1.75%) is marginally below cost but the forward P/E of 8.24 and $6.9B FCF make the fundamental case still valid; it remains in the candidate list with an improving SMA50 slope (+2.3%) \u2014 hold and watch for a close below $268 as thesis-break. LII (+11.75%) is the clear winner; the stop should be trailed to approximately breakeven or SMA50 (~$530) to protect that gain without cutting a working position. No SELL actions proposed today.\n\nNew buy candidates: Many screened names have earnings in 13\u201323 days (WFC July 14, PGR July 15, COF/DHR/AVY July 21, AON July 24) which introduces binary gap risk unsuitable for a new entry. WDC, HWM, and ABNB are too extended (range >84%, or >20% above SMA50). ZBRA was just stopped out and sits 10%+ above where we exited \u2014 chasing is off the table. CCL stands out as the single cleanest setup: confirmed UPTREND, basing in the middle of its 52-week range (49%), only +4.9% above SMA50 (not extended), no near-term earnings listed, cheap forward P/E of 10.85, solid operating cash flow of $6.8B providing debt service coverage, and +1.3% EPS revision trend. The high D/E (201) is a known risk for a cruise operator but is offset by the FCF ramp and sector pricing power. This diversifies the book away from financials and healthcare. One position only; remaining cash preserved as a deliberate position given the recent losing streak.",
+  "analysis": "Market regime is UPTREND (SPY +4.1% 20d slope), which is constructive. However, the portfolio picture demands honesty before adding risk: 5 consecutive stop-losses, a profit factor of 0.66x, and a Sortino of -5.35 are serious warning signs. The book is already 79% deployed across 4 positions with only $15,989 of remaining capacity under the 95% gross cap \u2014 insufficient to size a new position to the 1\u20132% portfolio heat target on most candidates.\n\nEXISTING POSITION REVIEW: (1) AMP +6.66% \u2014 thesis intact, quality compounder, but earnings 7/23 in 21 days; reduce or flatten into the print if momentum stalls. (2) LII +3.75% \u2014 HVAC demand is summer-seasonal tailwind, thesis intact, hold. (3) A +2.84% \u2014 small gain, life-sciences instruments recovering; thesis holds, hold. (4) CI -0.31% \u2014 essentially flat, managed care facing headline risk, NOT in today's screened candidate list which is worth noting; no confirmed thesis break but worth tightening mental stop and monitoring closely \u2014 exit if price closes below recent basing low.\n\nCANDIDATE REVIEW: Most compelling screens have disqualifying issues given headroom constraints: SCHW (fwd PE 13.1, EPS revision +4.6%) has earnings in 19 days \u2014 too close to enter. AIG (fwd PE 8.61, FCF yield ~23%) is genuinely cheap but SMA50 slope is -0.5% with only $15,989 available \u2014 a properly sized 1% risk position would require ~$32k, exceeding capacity. ZBRA already produced a stop-loss in the recent period and is now +12% above SMA50 \u2014 extended per rules. HWM and MU are at 86% and 84% of 52-week range respectively \u2014 both disqualified as extended late-cycle. DHR earnings in 19 days, MA too large per share to fit in headroom with adequate sizing.\n\nCONCLUSION: No new trades this cycle. The combination of constrained headroom (limits proper sizing), recent five-stop streak (market is not rewarding this timing methodology right now), and absence of any asymmetric setup passing all three gates \u2014 fundamental quality + confirmed technical base + adequate sizing room \u2014 argues strongly for patience. Holding the existing 4 positions which collectively show modest gains is the correct posture. Cash is a position. A quiet cycle protecting the +2.8% portfolio gain is a win, not a failure.",
   "confidence_target_pct": 52,
-  "trades": [
-    {
-      "symbol": "CCL",
-      "direction": "BUY",
-      "entry_strategy": "Limit order at $28.00\u201328.57 (at or slight pullback to current price); do not chase above $29.50. Prefer entry on a quiet day near the SMA50.",
-      "entry_price": 28.25,
-      "stop_loss": 25.55,
-      "stop_loss_pct": 0.096,
-      "atr_multiple": 1.75,
-      "target": 34.5,
-      "target_gain_pct": 0.221,
-      "risk_reward_ratio": 2.3,
-      "conviction": 55,
-      "holding_period": "position",
-      "rationale": "Fundamental: Carnival is the global cruise leader with durable pricing power post-COVID normalization. Fwd P/E of 10.85 and PEG of 1.18 represent genuine value for a business generating $6.8B operating cash flow. D/E of 201 is high but FCF of $1.9B is covering obligations and trending up; analyst EPS revisions are modestly positive (+1.3%). Technical: Price confirmed an UPTREND and is basing in the middle of its 52-week range (49%). At +4.9% vs SMA50 with SMA50 slope +3.6%, the trend is healthy but not extended \u2014 classic Stage 1 to Stage 2 transition territory per Weinstein. No near-term earnings create an unobstructed 6\u20138 week entry window. ATR-based stop of 1.75x allows the stock to breathe without risking excessive capital.",
-      "exit_plan": "Exit at $34.50 price target. Hard stop at $25.55 (1.75x ATR below entry). Thesis break: close below SMA200 on elevated volume, or operating cash flow guidance cut materially on next earnings. Trail stop to breakeven once position is +8%. If broader consumer slowdown narrative gains traction (credit deterioration, travel spend data), reduce position ahead of next earnings regardless of price."
-    },
-    {
-      "symbol": "LII",
-      "direction": "BUY",
-      "entry_price": 575.81,
-      "stop_loss": 538.98,
-      "target": 690.97,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 3.126798805321757,
-      "rationale": "PYRAMID tranche 2: original lot held 18d at +11.8%; price $572.95 > SMA20 $529.97; adding $9,789 (17 sh) with combined break-even stop at $538.98.",
-      "entry_strategy": "Limit @ $575.81 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
-    }
-  ],
+  "trades": [],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "b210c63339379027",
-    "prompt_chars": 22052,
-    "generated_at": "2026-07-01T10:27:15.193918+00:00",
-    "code_sha": "389d3e901e6f"
+    "prompt_sha256": "d18ce4b99e75db5c",
+    "prompt_chars": 22058,
+    "generated_at": "2026-07-02T10:30:08.248077+00:00",
+    "code_sha": "61ccf5ca0739"
   }
 }
