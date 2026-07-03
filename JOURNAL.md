@@ -18,6 +18,14 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [NOTE] 2026-07-02 Thursday — deep-dive session: 5 fixes committed and pushed to main
+**What happened.** Deep dive found and fixed five known gaps in one commit (pushed to origin/main same session, per Klaas): the AM-call streaming ValueError (retries at 24k/32k max_tokens died outside the retry loop), a distinct "ANTHROPIC CREDITS EXHAUSTED" failure email (the 06-22..24 outage ran 5 days behind a generic subject), the eod.yml holiday gate (eod_routine.py had a weekday-only check shadowing market_calendar's NYSE calendar), the weekly_summary.json commit gap (4th "runner writes, workflow never commits" instance), and a 10%-of-equity cap on pyramid add tranches.
+**What we learned.** The 07-01 LII add exposed the pyramid wiring gap: pyramid.py designs ~10% tranches but execute_strategy re-sized the add to ~17% against the break-even stop, causing 3 straight days of 30%-cap blocks and finally a 29%-of-equity combined LII position (RULEBOOK 2.1 territory). The learning loop's human half is at zero — all 11 reflective post-mortems and every EOD "What we learned" field are blank, which blocks Tier 3.4 (stops-too-tight, now 7 stops vs 1 target in 9 closed trades) from ever graduating. The morning cron-job.org backup is confirmed armed and firing daily at 10:20 UTC since 06-25.
+**Open questions.** Does Klaas want the pyramid exception removed entirely (RULEBOOK 2.1 full enforcement: hard 25%, no 30% carve-out), and should the existing 29% LII position be trimmed or left to its stop? What would make the reflective post-mortems actually happen — fewer questions, voice notes, or accepting mechanical-only? PAT for both cron-job.org backup triggers (now the de facto primaries) expires 2026-08-04 — 33 days out.
+**Tomorrow's plan.** NYSE closed 07-03 (July 4 observed) and it's a weekend after — nothing trades until Monday 07-06; the deployed code's first live test is Friday's 21:15 UTC eod.yml run (holiday gate should skip cleanly). Klaas: decide on the 2.1 question and, ideally, fill one post-mortem (FICO −9.5% is freshest). Next session: verify the holiday-gate skip and Monday's AM/EXEC runs on the new code.
+
+---
+
 ## [AM] 2026-07-02 Thursday
 **Open questions.** Screen produced no high-conviction setups today — is the market broadly extended, or are filters too tight? What would have to change for a setup to emerge tomorrow? With 4 open position(s), are any approaching their stops or targets? 
 **Today's plan.** Hold cash today — no high-conviction setups passed the screen. Patience is a position. Monitor 4 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 

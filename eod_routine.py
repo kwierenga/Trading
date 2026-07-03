@@ -44,8 +44,10 @@ JOURNAL_PATH = Path("JOURNAL.md")
 DAILY_REPORT_FILE = Path("daily_report.json")
 
 
-def is_us_trading_day() -> bool:
-    return datetime.now(EST).weekday() < 5
+# NYSE-calendar check (weekends AND US market holidays). A local weekday-only
+# version used to shadow this, so EOD fired on holidays — the CLAUDE.md
+# "no holiday filter" follow-up.
+from market_calendar import is_us_trading_day
 
 
 def append_to_journal(entry_text: str) -> None:
@@ -211,10 +213,11 @@ def main() -> int:
 
     force = os.getenv("FORCE_RUN", "false").lower() == "true"
     if not is_us_trading_day() and not force:
-        print(f"  {today_label} is a weekend — skipping. (Set FORCE_RUN=true to override.)")
+        print(f"  {today_label} is not a NYSE trading day (weekend/holiday) — skipping. "
+              "(Set FORCE_RUN=true to override.)")
         return 0
     if force and not is_us_trading_day():
-        print(f"  {today_label} is a weekend — running anyway because FORCE_RUN=true.")
+        print(f"  {today_label} is not a NYSE trading day — running anyway because FORCE_RUN=true.")
 
     try:
         client = AlpacaClient()

@@ -26,6 +26,7 @@ from alpaca_client import AlpacaClient
 
 MAX_POSITION_PCT = 0.25         # 25% concentration cap for fresh entries (hard)
 MAX_PYRAMID_PCT = 0.30          # 30% cap for pyramid-add tranches (already-confirmed winner = different risk profile)
+MAX_PYRAMID_TRANCHE_PCT = 0.10  # a single pyramid ADD is ~10% of equity (pyramid.py's 8-12% design band). Execute must cap re-sized tranches here — risk-target sizing on a tight break-even stop otherwise balloons an add to ~18% (LII 2026-06-26..07-01: three days of concentration blocks, then a 29%-of-equity combined position)
 MAX_SECTOR_PCT = 0.35           # 35% per GICS sector cap (hard) — see validate_sector_concentration
 MAX_GROSS_PCT = 0.95            # 95% aggregate gross-deployment cap (hard) — NO margin on the automated path; see validate_gross_deployment (locked 2026-05-18)
 TARGET_RISK_PER_TRADE = 0.015   # 1.5% portfolio risk on a stopped-out trade (target)

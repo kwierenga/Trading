@@ -65,6 +65,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add JOURNAL.md
+          # weekly_summary.json: append-only history of weekly metrics. Without
+          # this line the runner discarded it each week, so it never accumulated
+          # (fourth instance of the "runner writes, workflow never commits" bug).
+          git add weekly_summary.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No journal changes."
           else

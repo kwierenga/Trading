@@ -21,7 +21,8 @@ from alpaca_client import AlpacaClient
 from position_sizer import (
     PositionSizer, validate_concentration, validate_sector_concentration,
     validate_gross_deployment,
-    MAX_POSITION_PCT, MAX_PYRAMID_PCT, MAX_SECTOR_PCT, MAX_GROSS_PCT,
+    MAX_POSITION_PCT, MAX_PYRAMID_PCT, MAX_PYRAMID_TRANCHE_PCT,
+    MAX_SECTOR_PCT, MAX_GROSS_PCT,
     MIN_STOP_PCT, MAX_STOP_PCT,
 )
 from trade_journal import TradeJournal
@@ -189,6 +190,22 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
             ledger.skipped(symbol, "zero_shares",
                            f"sized down to 0 shares (full={full_shares}, conviction mult={mult:.2f})")
             continue
+        if is_pyramid:
+            # A pyramid ADD is a ~10% tranche by design (pyramid.py), but the
+            # risk-target sizing above re-sizes it against a tight break-even
+            # stop and balloons it toward the 30% combined cap. Honor the
+            # tranche design, not the fresh-entry formula.
+            tranche_cap_shares = int((MAX_PYRAMID_TRANCHE_PCT * equity) / entry)
+            if tranche_cap_shares <= 0:
+                print(f"  [SKIPPING] pyramid tranche cap rounds to 0 shares at ${entry:.2f}")
+                skipped.append(symbol)
+                ledger.skipped(symbol, "zero_shares",
+                               f"pyramid tranche cap ({MAX_PYRAMID_TRANCHE_PCT:.0%} of equity) rounds to 0 shares")
+                continue
+            if shares > tranche_cap_shares:
+                print(f"  Pyramid tranche capped: {shares} -> {tranche_cap_shares} shares "
+                      f"({MAX_PYRAMID_TRANCHE_PCT:.0%} of equity per add)")
+                shares = tranche_cap_shares
         proposed_value = shares * entry
         adjusted_position_pct = proposed_value / equity if equity > 0 else 0
         adjusted_loss_dollars = shares * (entry - stop)

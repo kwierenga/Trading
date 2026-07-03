@@ -40,8 +40,8 @@ MIN_DAYS_HELD = 5
 MIN_UNREALIZED_PCT = 0.05
 MAX_ADDS_PER_SYMBOL = 2
 
-# Sizing
-PYRAMID_ALLOCATION_PCT = 0.10   # ~10% of equity per add (target inside 8-12% band)
+# Sizing — shared with execute_strategy.py's tranche cap so the two can't drift
+from position_sizer import MAX_PYRAMID_TRANCHE_PCT as PYRAMID_ALLOCATION_PCT  # ~10% of equity per add (8-12% band)
 PYRAMID_LIMIT_NUDGE_PCT = 0.005 # limit price = current * 1.005 (small upward nudge)
 
 

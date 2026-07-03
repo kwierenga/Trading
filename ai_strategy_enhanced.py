@@ -35,6 +35,26 @@ from position_sizer import MAX_GROSS_PCT
 MAX_CANDIDATES_FOR_PROMPT = 30
 
 
+class AnthropicBillingError(Exception):
+    """Anthropic API rejected the call for billing reasons (credits exhausted).
+
+    Not transient — retrying is pointless, and the 2026-06-22..24 outage showed
+    a generic FAILED email doesn't say "go top up credits". Raised so callers
+    can send a distinct alert. Note: console.anthropic.com API pay-as-you-go
+    credits are separate from the Claude subscription ledger.
+    """
+
+
+_BILLING_MARKERS = ("credit balance", "billing", "purchase credits")
+
+
+def _is_billing_error(e: anthropic.APIError) -> bool:
+    if getattr(e, "type", "") == "billing_error":
+        return True
+    msg = str(e).lower()
+    return any(m in msg for m in _BILLING_MARKERS)
+
+
 def build_rich_context() -> Dict:
     """Build account/portfolio context (no candidate data here — see build_candidate_block)."""
     from config import ALPACA_API_KEY
@@ -414,7 +434,12 @@ def get_enhanced_strategy(force_refresh_candidates: bool = False) -> Optional[Di
         max_tokens = BASE_MAX_TOKENS + (attempt - 1) * 8000  # 16k → 24k → 32k
         text = ""
         try:
-            response = client.messages.create(
+            # Streaming, not create(): the SDK raises a bare ValueError ("Streaming
+            # is required for operations that may take longer than 10 minutes") on
+            # non-streaming requests with large max_tokens — the 24k/32k retries
+            # trip it, and ValueError isn't an APIError so it escaped this retry
+            # loop entirely (observed 2026-06-24, masked behind the billing 400).
+            with client.messages.stream(
                 model=CLAUDE_MODEL,
                 max_tokens=max_tokens,
                 thinking={"type": "adaptive"},
@@ -423,7 +448,8 @@ def get_enhanced_strategy(force_refresh_candidates: bool = False) -> Optional[Di
                     "format": {"type": "json_schema", "schema": STRATEGY_SCHEMA},
                 },
                 messages=[{"role": "user", "content": prompt}],
-            )
+            ) as stream:
+                response = stream.get_final_message()
 
             text = next((b.text for b in response.content if b.type == "text"), "")
 
@@ -445,6 +471,9 @@ def get_enhanced_strategy(force_refresh_candidates: bool = False) -> Optional[Di
             return strategy
 
         except anthropic.APIError as e:
+            if _is_billing_error(e):
+                # Credits exhausted — not transient, don't burn retries.
+                raise AnthropicBillingError(str(e)) from e
             print(f"Claude API error (attempt {attempt}/{MAX_ATTEMPTS}): {e}")
             if attempt < MAX_ATTEMPTS:
                 backoff = 2 ** attempt  # 2s, 4s

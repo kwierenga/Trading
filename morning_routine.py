@@ -28,7 +28,7 @@ from pathlib import Path
 import pytz
 
 from alpaca_client import AlpacaClient
-from ai_strategy_enhanced import get_enhanced_strategy
+from ai_strategy_enhanced import get_enhanced_strategy, AnthropicBillingError
 from email_notifier import send_email
 from market_calendar import is_us_trading_day
 from position_sizer import MAX_GROSS_PCT
@@ -206,6 +206,21 @@ def run_plan_phase(today_label: str) -> int:
     print("  Generating strategy (forcing fresh screen)...")
     try:
         strategy = get_enhanced_strategy(force_refresh_candidates=True)
+    except AnthropicBillingError as e:
+        # Credits exhausted — the 2026-06-22..24 outage ran 5 days behind a
+        # generic FAILED subject. Make the fix action unmissable.
+        send_email(
+            f"[Trading AM] {today_label} — FAILED: ANTHROPIC CREDITS EXHAUSTED",
+            "The Anthropic API rejected the morning call for billing reasons:\n"
+            f"{e}\n\n"
+            "ACTION: top up API credits at https://console.anthropic.com/settings/billing\n"
+            "(Note: API pay-as-you-go credits are SEPARATE from the Claude\n"
+            "subscription — a paid subscription does not fund API calls.)\n\n"
+            "Until topped up: no fresh plan is written, execute.yml refuses the\n"
+            "stale plan on the freshness gate, and NO trades will be placed.\n"
+            "Existing bracket stops/targets at Alpaca remain active.",
+        )
+        return 1
     except RuntimeError as e:
         # Screen-level data-quality abort (see market_data.screen_universe).
         send_email(
