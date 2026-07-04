@@ -34,6 +34,7 @@ MAX_RISK_PER_TRADE = 0.02       # 2% portfolio risk on a stopped-out trade (hard
 ATR_STOP_MULTIPLE = 1.75        # stop distance = 1.75 * ATR(14) by default
 MIN_STOP_PCT = 0.04             # below ~1% ATR is almost certainly a data issue; rejects those
 MAX_STOP_PCT = 0.15             # cap matches CLAUDE.md 15% per-name drawdown tolerance exactly
+DAILY_LOSS_HALT_PCT = 0.03      # kill switch (live-transition checklist #9): no NEW entries when the account is down >=3% vs prior close. DEFAULT PENDING KLAAS'S SIGN-OFF in the pre-live constants review — worst single stop-out is ~2% (MAX_RISK_PER_TRADE), so 3% means "two bad stops already today, stand down"
 
 
 class PositionSizer:
@@ -318,6 +319,68 @@ def validate_gross_deployment(
         'current_gross': current_gross,
         'proposed_value': proposed_value,
         'headroom': headroom,
+    }
+
+
+def validate_daily_loss_halt(account: Dict, halt_pct: Optional[float] = None) -> Dict:
+    """
+    Daily dollar-loss kill switch (live-transition checklist item #9).
+
+    Pre-trade-run check: if the account is already down >= halt_pct versus the
+    prior trading day's close (Alpaca `last_equity`), refuse ALL new entries
+    for the rest of the day. Existing bracket stops/targets are untouched —
+    this only stops adding fresh risk into a day that's already gone wrong.
+
+    Fail-closed by design (2026-05-02 lesson: risk-path defaults must refuse,
+    not guess): if equity or last_equity is missing/unparseable, the halt
+    engages. Better a skipped trading day than sizing into unknown state.
+
+    Args:
+        account: dict from AlpacaClient.get_account() (needs 'equity' and
+                 'last_equity')
+        halt_pct: override (defaults to DAILY_LOSS_HALT_PCT)
+
+    Returns dict with: ok (bool), reason (str), day_pnl_pct (float|None),
+                       halt_pct (float)
+    """
+    effective = halt_pct if halt_pct is not None else DAILY_LOSS_HALT_PCT
+
+    try:
+        equity = float(account.get('equity') or 0)
+        last_equity = float(account.get('last_equity') or 0)
+    except (TypeError, ValueError):
+        equity, last_equity = 0.0, 0.0
+
+    if equity <= 0 or last_equity <= 0:
+        return {
+            'ok': False,
+            'reason': (
+                "kill switch cannot compute day P&L (equity/last_equity "
+                "missing or invalid) — refusing new entries (fail closed)"
+            ),
+            'day_pnl_pct': None,
+            'halt_pct': effective,
+        }
+
+    day_pnl_pct = (equity - last_equity) / last_equity
+
+    if day_pnl_pct <= -effective:
+        return {
+            'ok': False,
+            'reason': (
+                f"day P&L {day_pnl_pct:+.2%} (${equity - last_equity:,.0f}) breaches the "
+                f"-{effective:.0%} daily-loss halt — NO new entries today; "
+                f"existing stops/targets remain active"
+            ),
+            'day_pnl_pct': day_pnl_pct,
+            'halt_pct': effective,
+        }
+
+    return {
+        'ok': True,
+        'reason': f"day P&L {day_pnl_pct:+.2%} within the -{effective:.0%} daily-loss halt",
+        'day_pnl_pct': day_pnl_pct,
+        'halt_pct': effective,
     }
 
 

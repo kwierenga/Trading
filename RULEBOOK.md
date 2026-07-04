@@ -38,6 +38,7 @@ memory `trading_lessons.md` (distilled patterns), memory
 | 1.10 | **Data failures fail closed**: NaN bars dropped; >50% of universe unpriceable aborts the plan with a FAILED email | `get_technicals` + `screen_universe` + `morning_routine` (2026-06-11) | 2026-06-10: yfinance outage passed every trend filter vacuously; "no setups" email masked a dead data pipe |
 | 1.11 | Journal appends must preserve history (maxsplit=1 pattern) | `eod_routine` / `morning_routine` / `weekly_review` | Journal wiped twice (2026-06-06, 06-07) by three copies of the same bug |
 | 1.12 | Liquidations cancel **held** OCO stop legs, not just open legs | `liquidate_all.py` | 2026-05-24: `status='open'` misses the held bracket sibling → orphaned sells |
+| 1.13 | Daily dollar-loss kill switch: zero new entries when the account is down ≥3% vs prior close; fails closed on missing account data | `position_sizer.validate_daily_loss_halt`, book-level gate in `execute_strategy.py` before the trade loop (+ `test_kill_switch.py`) | Live-transition checklist #9, built 2026-07-04. **3% default pending Klaas's sign-off in the pre-live constants review** |
 
 ## Tier 2 — validated lessons, enforcement partial or pending
 

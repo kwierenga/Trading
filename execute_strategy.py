@@ -20,7 +20,7 @@ from pathlib import Path
 from alpaca_client import AlpacaClient
 from position_sizer import (
     PositionSizer, validate_concentration, validate_sector_concentration,
-    validate_gross_deployment,
+    validate_gross_deployment, validate_daily_loss_halt,
     MAX_POSITION_PCT, MAX_PYRAMID_PCT, MAX_PYRAMID_TRANCHE_PCT,
     MAX_SECTOR_PCT, MAX_GROSS_PCT,
     MIN_STOP_PCT, MAX_STOP_PCT,
@@ -103,6 +103,31 @@ def execute_strategy(strategy_path: str = 'latest_strategy.json',
     # Per-run ledger (enhancement #1): one row per candidate recording why it
     # was placed or skipped, surfaced in the daily email by notify_execute.
     ledger = RunLedger()
+
+    # Daily dollar-loss kill switch (live-transition checklist #9): if the
+    # account is already down >= DAILY_LOSS_HALT_PCT vs prior close, refuse
+    # every new entry for the day. Runs BEFORE the per-trade loop — it's a
+    # book-level halt, not a per-name check. Fail-closed on missing data.
+    halt = validate_daily_loss_halt(account)
+    if not halt['ok']:
+        print("=" * 70)
+        print(f"KILL SWITCH ENGAGED: {halt['reason']}")
+        print("=" * 70)
+        for trade in trades:
+            symbol = trade.get('symbol', '?')
+            skipped.append(symbol)
+            ledger.skipped(symbol, "kill_switch", halt['reason'])
+        if not dry_run:
+            ledger.commit()
+        print("\n" + "=" * 70)
+        print("EXECUTION SUMMARY")
+        print("=" * 70)
+        print(f"  Placed:  0")
+        print(f"  Skipped: {len(skipped)} {skipped}")
+        print("  All candidates skipped by the daily-loss kill switch.")
+        print()
+        return
+    print(f"Kill switch OK: {halt['reason']}\n")
 
     for i, trade in enumerate(trades, 1):
         symbol = trade['symbol']

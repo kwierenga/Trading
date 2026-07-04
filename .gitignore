@@ -47,5 +47,6 @@ phase0_backtest_llm_slice.json
 # weekly_review.py; regenerated each run, not worth tracking.
 weekly_tearsheet.html
 
-# Claude Code local config
-.claude/
+# Claude Code local config (but project skills ARE tracked)
+.claude/*
+!.claude/skills/
