@@ -139,7 +139,9 @@ def get_turnover_stats(period_days: int = 30) -> Dict:
         holding_days_list.append(days_held)
 
         if pnl > 0:
-            if days_held >= LTCG_THRESHOLD_DAYS:
+            # Strict >: IRS long-term = held MORE than one year (Pub 550);
+            # a sale on the exact anniversary is still short-term.
+            if days_held > LTCG_THRESHOLD_DAYS:
                 long_term_gains += pnl
             else:
                 short_term_gains += pnl

@@ -12,6 +12,14 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [NOTE] 2026-07-05 Sunday — autonomous prep block (Klaas away): checklist items 1-4, 9, 12, 14 closed
+**What happened.** Verified the holiday gate's first production run (Fri 07-03 EOD correctly skipped — "not a NYSE trading day"). Created the `live-execute` GitHub environment (required reviewer, 5-min wait timer, main-only deployments = checklist items 1-4), wrote [ROLLBACK.md](ROLLBACK.md) (item 14), added [GO_LIVE_READINESS.md](GO_LIVE_READINESS.md) as the tracked scorecard incl. the branch-protection ruleset design (item 5, deliberately NOT enabled unattended). Dry-ran the kill-switch wiring end-to-end both ways (mocked −4% day halts all candidates; real account passes).
+**What we learned.** Item 12's tax dry-run found a real off-by-one: both LTCG classifiers used `>= 365`, labeling an anniversary-day sale long-term when the IRS requires *more than* one year — cosmetic on paper, ~17pp of tax rate on real money; fixed with strict `>` and pinned by `test_ltcg_boundary.py`. Also observed: the book is ~79% gross deployed, so the gross cap leaves only ~$16k headroom for Monday's screen. All five test files pass.
+**Open questions.** Whether to enable the branch-protection ruleset in evaluate-mode Monday (needs a watched full bot-commit cycle) — design is written, enabling is a Klaas-present task. The three Klaas-only week-1 items remain: PAT + Anthropic key rotation, Alpaca live-account application, first `/post-mortem` session.
+**Tomorrow's plan.** Monday 07-06 is the first trading day on the kill-switch code and the restart of the 6-clean-weeks clock (gate 5, earliest ~08-17). Watch the AM/EXEC emails for the new "Kill switch OK" line and normal behavior. Klaas: pick up the three week-1 items above.
+
+---
+
 ## [EOD] 2026-07-02 Thursday
 **What happened.** No trades closed today. End equity $100,808, cash $21,023 (21% of equity), 4 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 

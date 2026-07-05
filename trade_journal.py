@@ -51,10 +51,14 @@ class TradeJournal:
         """
         Classify a holding period for US LTCG purposes.
         Returns dict with status, days_held, days_to_LTCG, and a short message.
-        """
-        days_remaining = max(0, LTCG_THRESHOLD_DAYS - days)
 
-        if days >= LTCG_THRESHOLD_DAYS:
+        IRS rule (Pub 550): long-term requires holding MORE than one year —
+        the period starts the day after acquisition, so a sale on the one-year
+        anniversary (days == 365) is still short-term. Hence strict >.
+        """
+        days_remaining = max(0, (LTCG_THRESHOLD_DAYS + 1) - days)
+
+        if days > LTCG_THRESHOLD_DAYS:
             return {
                 'status': 'LTCG',
                 'days_held': days,
