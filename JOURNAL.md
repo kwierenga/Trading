@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-06-23 → 2026-07-05
+
+_Sharpe +1.11, Sortino +1.56, MaxDD -2.6%, CAGR +13.6%, excess CAGR vs SPY -13.1% (quantstats, since inception)._
+
+**What worked / what didn't.** No positions closed this week, so there's nothing to evaluate on execution quality. What did work: the holiday gate fired correctly on 07-03, the LTCG off-by-one was caught in dry-run before real money was at stake, and five structural bugs were found and patched in a single session. What didn't work: the LII pyramid add from 07-01 is the clearest concrete failure — pyramid.py sized a ~10% tranche but execute_strategy submitted roughly 17%, which triggered three consecutive 30%-cap blocks and left LII at ~29% of equity, bumping against the boundary the rulebook was written to prevent. That's not a market outcome; it's a wiring error that ran for days before it was caught.
+
+**What's puzzling or worth watching.** Every single EOD "What we learned" field this week is blank. That's not a formatting problem — the journal prompt was there each day and nothing was written. Meanwhile the system is generating detailed technical post-mortems autonomously, creating a situation where the infrastructure reflection is thorough and the human reflection is zero. There's also a pattern worth naming: the screen found no high-conviction setups on 07-02, and the AM entry frames that as patience being a position, which may be right — but with 21% cash and a concentrated four-stock book, the absence of any new ideas across a full week deserves more than a one-liner.
+
+**Reflective prompts for Klaas.** The LII position reached ~29% of equity through a sequence of automated decisions — at what point in that sequence would you have wanted a human checkpoint, and what would it have taken for you to actually stop and insert one? The EOD reflection fields have been blank repeatedly, and you've noted that the learning loop's human half is stalled — is the 15-minute format the wrong container, or is something else making it easy to skip? The pyramid 30%-carve-out question has been explicitly open since the 07-02 deep dive: what is the actual argument for keeping the exception, stated plainly?
+
+
+---
+
 ## [NOTE] 2026-07-05 Sunday — autonomous prep block (Klaas away): checklist items 1-4, 9, 12, 14 closed
 **What happened.** Verified the holiday gate's first production run (Fri 07-03 EOD correctly skipped — "not a NYSE trading day"). Created the `live-execute` GitHub environment (required reviewer, 5-min wait timer, main-only deployments = checklist items 1-4), wrote [ROLLBACK.md](ROLLBACK.md) (item 14), added [GO_LIVE_READINESS.md](GO_LIVE_READINESS.md) as the tracked scorecard incl. the branch-protection ruleset design (item 5, deliberately NOT enabled unattended). Dry-ran the kill-switch wiring end-to-end both ways (mocked −4% day halts all candidates; real account passes).
 **What we learned.** Item 12's tax dry-run found a real off-by-one: both LTCG classifiers used `>= 365`, labeling an anniversary-day sale long-term when the IRS requires *more than* one year — cosmetic on paper, ~17pp of tax rate on real money; fixed with strict `>` and pinned by `test_ltcg_boundary.py`. Also observed: the book is ~79% gross deployed, so the gross cap leaves only ~$16k headroom for Monday's screen. All five test files pass.
