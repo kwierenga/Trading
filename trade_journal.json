@@ -250,5 +250,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 15,
+    "symbol": "FDS",
+    "shares": 39,
+    "original_shares": 39,
+    "entry_price": 250.09,
+    "entry_time": "2026-07-06T14:33:56.158468+00:00",
+    "stop_loss": 231.0,
+    "initial_stop": 231.0,
+    "R": 19.090000000000003,
+    "current_stop": 231.0,
+    "target_price": 290.0,
+    "rationale": "Fundamental: FactSet is a wide-moat, subscription-based financial data and analytics platform. 30.5% operating margins, 27% ROE, $621M FCF on an $8.9B market cap (~7% FCF yield), PEG 1.19, and analyst",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
