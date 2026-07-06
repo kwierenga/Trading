@@ -189,6 +189,6 @@
     "shares": 39,
     "entry_price": 250.09,
     "order_id": "97756963-016e-4f1f-8732-fab2bdc51003",
-    "fill_status": "unknown"
+    "fill_status": "filled"
   }
 ]

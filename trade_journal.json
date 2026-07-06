@@ -1,24 +1,6 @@
 [
   {
     "id": 1,
-    "symbol": "ADSK",
-    "shares": 99,
-    "entry_price": 244.88,
-    "entry_time": "2026-05-08T14:50:56.255824Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "FUNDAMENTAL: Autodesk is a best-in-class design/engineering software platform with a massive installed base transitioning to subscription SaaS \u2014 highly sticky, recurring revenue model. Forward P/E of ",
-    "source": "claude",
-    "status": "closed",
-    "exit_price": 235.84,
-    "exit_time": "2026-05-11T18:14:10.480208Z",
-    "pnl": -894.96,
-    "pnl_pct": -0.036916,
-    "duration_minutes": 4523.237073066667,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 2,
     "symbol": "UBER",
     "shares": 323,
     "entry_price": 74.99,
@@ -36,25 +18,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 3,
-    "symbol": "APP",
-    "shares": 33,
-    "entry_price": 456.21,
-    "entry_time": "2026-05-08T14:50:56.327589Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "",
-    "source": "alpaca_reconciled",
-    "status": "closed",
-    "exit_price": 585.11,
-    "exit_time": "2026-05-28T13:52:21.407838Z",
-    "pnl": 4253.7,
-    "pnl_pct": 0.282545,
-    "duration_minutes": 28741.41800415,
-    "reason_exit": "target_hit"
-  },
-  {
-    "id": 4,
+    "id": 2,
     "symbol": "MCO",
     "shares": 56,
     "entry_price": 445.098572,
@@ -72,7 +36,7 @@
     "reason_exit": "manual"
   },
   {
-    "id": 5,
+    "id": 3,
     "symbol": "ZBRA",
     "shares": 44,
     "entry_price": 233.0,
@@ -90,7 +54,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 6,
+    "id": 4,
     "symbol": "MSFT",
     "shares": 45,
     "entry_price": 409.61,
@@ -108,7 +72,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 7,
+    "id": 5,
     "symbol": "ADP",
     "shares": 81,
     "entry_price": 228.34,
@@ -126,7 +90,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 8,
+    "id": 6,
     "symbol": "IQV",
     "shares": 69,
     "entry_price": 180.56,
@@ -144,7 +108,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 9,
+    "id": 7,
     "symbol": "FICO",
     "shares": 9,
     "entry_price": 1182.78,
@@ -162,7 +126,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 10,
+    "id": 8,
     "symbol": "A",
     "shares": 143,
     "entry_price": 129.71,
@@ -180,7 +144,7 @@
     "reason_exit": null
   },
   {
-    "id": 11,
+    "id": 9,
     "symbol": "LII",
     "shares": 20,
     "entry_price": 512.69,
@@ -198,7 +162,7 @@
     "reason_exit": null
   },
   {
-    "id": 12,
+    "id": 10,
     "symbol": "LII",
     "shares": 30,
     "entry_price": 575.57,
@@ -216,7 +180,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 11,
     "symbol": "CI",
     "shares": 44,
     "entry_price": 281.87,
@@ -234,7 +198,7 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 12,
     "symbol": "AMP",
     "shares": 41,
     "entry_price": 449.71,
@@ -252,22 +216,16 @@
     "reason_exit": null
   },
   {
-    "id": 15,
+    "id": 13,
     "symbol": "FDS",
     "shares": 39,
-    "original_shares": 39,
-    "entry_price": 250.09,
-    "entry_time": "2026-07-06T14:33:56.158468+00:00",
-    "stop_loss": 231.0,
-    "initial_stop": 231.0,
-    "R": 19.090000000000003,
-    "current_stop": 231.0,
-    "target_price": 290.0,
+    "entry_price": 245.83,
+    "entry_time": "2026-07-06T14:33:57.161803Z",
+    "stop_loss": null,
+    "target_price": null,
     "rationale": "Fundamental: FactSet is a wide-moat, subscription-based financial data and analytics platform. 30.5% operating margins, 27% ROE, $621M FCF on an $8.9B market cap (~7% FCF yield), PEG 1.19, and analyst",
     "source": "claude",
     "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
     "exit_price": null,
     "exit_time": null,
     "pnl": null,
