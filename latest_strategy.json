@@ -1,34 +1,18 @@
 {
-  "analysis": "Market is in a confirmed uptrend (SPY +1.2% vs SMA50, slope +3.94%), which justifies staying long but not aggressively chasing. Portfolio is 79% deployed with four open positions, all in the green: LII (+3.56%), AMP (+8.77%), CI (+2.09%), A (+0.76%). None show thesis breaks \u2014 all remain above entry with intact fundamentals. AMP in particular has appreciated nicely and should be monitored for a trailing-stop raise to protect gains. LII is the largest position (~28% of equity) and is close to the 25% hard cap; no additions there.\n\nThe concerning signal is the track record: 22.2% win rate, profit factor 0.66x, Sortino -4.89, and the last five closed trades were all stops. This pattern demands extreme selectivity \u2014 no trades unless the setup is genuinely asymmetric. Available headroom for new buys is only $15,976, which further constrains sizing.\n\nOf the 30 screened candidates, most fail on at least one of: (1) too extended from SMA200 (MU +120%, MRVL +100%, FLEX +68%, AMAT +78%, CSCO +33%), (2) range position above 80% (HWM at 89%), (3) earnings within 2 weeks introducing binary risk (CTAS July 15, COF July 21, MRSH July 21, NOW July 22, FLEX July 22, NVR July 22, BX July 23, ALLE July 23), or (4) weak fundamentals relative to valuation.\n\nFDS (FactSet Research Systems) stands out as the single genuine asymmetric setup: high-quality subscription financial data business with 30%+ operating margins, 27% ROE, ~7% FCF yield, and a PEG of 1.19 after a significant drawdown from $442 to $250 (24% of 52w range). The stock has re-entered a confirming uptrend from the lower half of its range, with earnings not until September 17 (73 days), giving clear runway. Sizing is constrained by the $15,976 headroom cap. One trade only; cash remains the dominant position at ~21% plus the headroom reserve.",
-  "confidence_target_pct": 54,
+  "analysis": "MARKET & PORTFOLIO REVIEW (2026-07-07)\n\nMarket regime is UPTREND (SPY +2.0% vs SMA50, 20d slope +3.76%) \u2014 a supportive backdrop, but not a license to force trades.\n\nCRITICAL CONSTRAINT: Portfolio is 89% deployed across 5 positions with only $6,357 headroom for new buys. Proper 1.5% risk sizing on any quality candidate requires ~$20-25k in capital (for a stock with 6% stop distance). At $6,357 headroom, a new position would represent <0.5% risk \u2014 statistically meaningless and not worth the commission friction or mental overhead. The capacity constraint alone makes new BUYs inadvisable this cycle.\n\nHISTORICAL PERFORMANCE WARNING: 14.3% win rate and Sortino -3.81 are alarming signals. Five consecutive stop-outs (FICO, IQV, ADP, MSFT, ZBRA) suggest either entries are too early, stops too tight relative to volatility, or both. The system's own backtest shows no edge over buy-and-hold SPY. This demands more patience and higher conviction thresholds \u2014 NOT more trades.\n\nEXISTING POSITION ASSESSMENT:\n\u2014 AMP (+12.85%): Clear winner. Thesis intact. Should trail stop up to protect gains; suggest trailing to ~$455 (just below recent consolidation, ~10% below current price).\n\u2014 LII (+3.19%): HVAC compounder, uptrend basing, thesis intact. Hold.\n\u2014 A (+0.69%): Agilent basing in uptrend, thesis intact but slow. Hold with patience \u2014 earnings not until Aug 26.\n\u2014 FDS (+2.59%): Now 'extending' per trend data, +9.3% above SMA50 with 5.1% ATR. Not chasing further. Hold with existing stop; do NOT add.\n\u2014 CI (+0.04%): Essentially flat since entry. Health insurance sector faces persistent regulatory and political headwinds (Medicaid reform, ACA uncertainty). Zero price momentum. This is dead money risk. No thesis break confirmed yet, but CI is on watch \u2014 if price drops below $270 or sector news deteriorates, exit immediately. Do not add.\n\nNEW CANDIDATES REVIEW: Several intriguing setups exist (VEEV, EMR, DHR) but cannot be sized properly with $6,357 remaining headroom. MU, FLEX, MRVL, AMAT are extended (>70% of 52w range, >15% above SMA50) \u2014 hard AVOID per rules. COF and DHR have earnings in 14 days \u2014 poor entry timing. ZBRA just stopped us out; re-entry too soon. The honest answer is: no asymmetric setup exists that can be sized correctly given current capacity.\n\nCONCLUSION: Hold existing 5 positions. Tighten AMP trailing stop. Watch CI closely. Zero new trades this cycle. Protect the capital \u2014 the cash buffer and low portfolio heat (1.77%) are features, not bugs.",
+  "confidence_target_pct": 52,
   "trades": [
-    {
-      "symbol": "FDS",
-      "direction": "BUY",
-      "entry_strategy": "Limit order at $250 or better; accept fills up to $252 on market open strength. Do not chase above $253.",
-      "entry_price": 250.09,
-      "stop_loss": 231.0,
-      "stop_loss_pct": 0.076,
-      "atr_multiple": 1.5,
-      "target": 290.0,
-      "target_gain_pct": 0.16,
-      "risk_reward_ratio": 2.09,
-      "conviction": 62,
-      "holding_period": "position",
-      "rationale": "Fundamental: FactSet is a wide-moat, subscription-based financial data and analytics platform. 30.5% operating margins, 27% ROE, $621M FCF on an $8.9B market cap (~7% FCF yield), PEG 1.19, and analyst EPS revisions trending +1.2% higher. Revenue is sticky, recurring, and not economically sensitive in the same way as cyclicals. The stock has corrected ~43% from its 52w high of $442 to $250, creating a fair-price entry for a quality compounder. Technical: Currently at 24% of the 52w range (lower half \u2014 ideal Weinstein Stage 1/2 territory), with price just +0.4% above the 200-day SMA (recovering, not extended), SMA50 slope positive at +3.0%, and confirmed uptrend. No earnings until September 17 (73 days out), providing ample time for the thesis to play out without event risk. ATR-based stop at 1.5x gives a clean risk definition of ~7.6%.",
-      "exit_plan": "Exit if: (1) price closes below stop $231 (stop hit), (2) SMA50 turns negative for two consecutive weeks with price below SMA50 (trend break), (3) thesis deteriorates \u2014 subscriber churn acceleration, major client contract loss, or analyst EPS revisions turn sharply negative (-5%+ over 30 days), (4) position approaches September earnings with >20% open gain \u2014 consider trimming half to protect gains before binary event. Otherwise hold through earnings for position trade. Raise stop to breakeven once +8% gain achieved."
-    },
     {
       "symbol": "AMP",
       "direction": "BUY",
-      "entry_price": 491.61,
-      "stop_loss": 461.13,
-      "target": 589.93,
+      "entry_price": 510.04,
+      "stop_loss": 466.47,
+      "target": 612.05,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.225721784776899,
-      "rationale": "PYRAMID tranche 2: original lot held 6d at +8.8%; price $489.16 > SMA20 $460.90; adding $9,832 (20 sh) with combined break-even stop at $461.13.",
-      "entry_strategy": "Limit @ $491.61 (current +0.5%)",
+      "risk_reward_ratio": 2.3412898783566662,
+      "rationale": "PYRAMID tranche 2: original lot held 7d at +12.9%; price $507.50 > SMA20 $463.52; adding $9,691 (19 sh) with combined break-even stop at $466.47.",
+      "entry_strategy": "Limit @ $510.04 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -36,9 +20,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "7713b7f0f8fc106e",
-    "prompt_chars": 21998,
-    "generated_at": "2026-07-06T10:28:58.249252+00:00",
-    "code_sha": "f2f051a7ccee"
+    "prompt_sha256": "0429f51862dae041",
+    "prompt_chars": 22123,
+    "generated_at": "2026-07-07T10:26:14.175380+00:00",
+    "code_sha": "be60ac30fc5f"
   }
 }
