@@ -190,5 +190,13 @@
     "entry_price": 250.09,
     "order_id": "97756963-016e-4f1f-8732-fab2bdc51003",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-07-07",
+    "timestamp": "2026-07-07T15:34:10.858648+00:00",
+    "symbol": "AMP",
+    "decision": "skipped",
+    "gate": "kill_switch",
+    "detail": "day P&L -88.67% ($-89,495) breaches the -3% daily-loss halt \u2014 NO new entries today; existing stops/targets remain active"
   }
 ]
