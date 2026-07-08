@@ -1,18 +1,18 @@
 {
-  "analysis": "MARKET & PORTFOLIO REVIEW (2026-07-07)\n\nMarket regime is UPTREND (SPY +2.0% vs SMA50, 20d slope +3.76%) \u2014 a supportive backdrop, but not a license to force trades.\n\nCRITICAL CONSTRAINT: Portfolio is 89% deployed across 5 positions with only $6,357 headroom for new buys. Proper 1.5% risk sizing on any quality candidate requires ~$20-25k in capital (for a stock with 6% stop distance). At $6,357 headroom, a new position would represent <0.5% risk \u2014 statistically meaningless and not worth the commission friction or mental overhead. The capacity constraint alone makes new BUYs inadvisable this cycle.\n\nHISTORICAL PERFORMANCE WARNING: 14.3% win rate and Sortino -3.81 are alarming signals. Five consecutive stop-outs (FICO, IQV, ADP, MSFT, ZBRA) suggest either entries are too early, stops too tight relative to volatility, or both. The system's own backtest shows no edge over buy-and-hold SPY. This demands more patience and higher conviction thresholds \u2014 NOT more trades.\n\nEXISTING POSITION ASSESSMENT:\n\u2014 AMP (+12.85%): Clear winner. Thesis intact. Should trail stop up to protect gains; suggest trailing to ~$455 (just below recent consolidation, ~10% below current price).\n\u2014 LII (+3.19%): HVAC compounder, uptrend basing, thesis intact. Hold.\n\u2014 A (+0.69%): Agilent basing in uptrend, thesis intact but slow. Hold with patience \u2014 earnings not until Aug 26.\n\u2014 FDS (+2.59%): Now 'extending' per trend data, +9.3% above SMA50 with 5.1% ATR. Not chasing further. Hold with existing stop; do NOT add.\n\u2014 CI (+0.04%): Essentially flat since entry. Health insurance sector faces persistent regulatory and political headwinds (Medicaid reform, ACA uncertainty). Zero price momentum. This is dead money risk. No thesis break confirmed yet, but CI is on watch \u2014 if price drops below $270 or sector news deteriorates, exit immediately. Do not add.\n\nNEW CANDIDATES REVIEW: Several intriguing setups exist (VEEV, EMR, DHR) but cannot be sized properly with $6,357 remaining headroom. MU, FLEX, MRVL, AMAT are extended (>70% of 52w range, >15% above SMA50) \u2014 hard AVOID per rules. COF and DHR have earnings in 14 days \u2014 poor entry timing. ZBRA just stopped us out; re-entry too soon. The honest answer is: no asymmetric setup exists that can be sized correctly given current capacity.\n\nCONCLUSION: Hold existing 5 positions. Tighten AMP trailing stop. Watch CI closely. Zero new trades this cycle. Protect the capital \u2014 the cash buffer and low portfolio heat (1.77%) are features, not bugs.",
+  "analysis": "MARKET & PORTFOLIO REVIEW (2026-07-08): SPY remains in uptrend (+1.4% vs SMA50, slope +3.64%), a constructive backdrop. However, the portfolio is essentially at capacity \u2014 89% deployed across 5 positions with only $6,358 headroom before hitting the 95% gross cap. Trying to add a 6th position with $6,358 would create a trivially small ~0.6% allocation with negligible impact while adding complexity. The honest answer is: no room to add. EXISTING POSITIONS: AMP is the standout winner at +12.93% \u2014 thesis intact, no action needed. FDS has moved into 'uptrend extending' territory per the screener (+11.6% vs SMA50 with a wide 4.9% ATR), so it bears watching \u2014 if it fades back below its SMA50 or fails to hold recent highs, that would be a thesis-softening signal worth acting on, but no break yet at +5.07% gain. A, CI, and LII are all small gainers with intact trends; no thesis breaks identified. HISTORICAL PERFORMANCE FLAG: Win rate of 14.3% with Sortino of -3.36 is a clear warning that forcing trades has destroyed value in this account. Every recent loss was a stop-hit after a premature entry. The disciplined response is to stay patient. CANDIDATE SCREENING: MU shows extraordinary metrics but is +107% vs SMA200 with 11.1% ATR \u2014 far too extended and volatile. VEEV, WDAY, and SYF are the highest-quality setups fundamentally (low PEG, strong FCF), but with only $6,358 deployable, any position would be too small to size properly per risk rules (1-2% equity at risk requires ~$1,500-$2,000 risk capacity, which at standard ATR multiples implies positions of $20k+). CONCLUSION: Holding all 5 current positions. No new buys \u2014 capital is nearly fully deployed, historical entry discipline has been poor, and cash protection IS the alpha. The next opportunity will arise when an existing position stops out or hits target, freeing capital for a properly sized entry.",
   "confidence_target_pct": 52,
   "trades": [
     {
       "symbol": "AMP",
       "direction": "BUY",
-      "entry_price": 510.04,
-      "stop_loss": 466.47,
-      "target": 612.05,
+      "entry_price": 510.38,
+      "stop_loss": 466.58,
+      "target": 612.46,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 2.3412898783566662,
-      "rationale": "PYRAMID tranche 2: original lot held 7d at +12.9%; price $507.50 > SMA20 $463.52; adding $9,691 (19 sh) with combined break-even stop at $466.47.",
-      "entry_strategy": "Limit @ $510.04 (current +0.5%)",
+      "risk_reward_ratio": 2.3305936073059366,
+      "rationale": "PYRAMID tranche 2: original lot held 8d at +12.9%; price $507.84 > SMA20 $466.18; adding $9,697 (19 sh) with combined break-even stop at $466.58.",
+      "entry_strategy": "Limit @ $510.38 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -20,9 +20,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "0429f51862dae041",
-    "prompt_chars": 22123,
-    "generated_at": "2026-07-07T10:26:14.175380+00:00",
-    "code_sha": "be60ac30fc5f"
+    "prompt_sha256": "b3a1cd6190a74a91",
+    "prompt_chars": 22053,
+    "generated_at": "2026-07-08T10:26:21.069524+00:00",
+    "code_sha": "bd82de37b3e1"
   }
 }
