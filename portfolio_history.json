@@ -695,5 +695,51 @@
         "unrealized_pl": 325.6
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-08T21:37:54.963544+00:00",
+    "account": {
+      "equity": 99296.03,
+      "buying_power": 298747.2,
+      "cash": 27556.94,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "A",
+        "qty": 143.0,
+        "avg_entry_price": 129.71,
+        "current_price": 129.07,
+        "unrealized_pl": -91.52
+      },
+      {
+        "symbol": "AMP",
+        "qty": 41.0,
+        "avg_entry_price": 449.71,
+        "current_price": 490.58,
+        "unrealized_pl": 1675.67
+      },
+      {
+        "symbol": "CI",
+        "qty": 44.0,
+        "avg_entry_price": 281.87,
+        "current_price": 289.73,
+        "unrealized_pl": 345.84
+      },
+      {
+        "symbol": "FDS",
+        "qty": 39.0,
+        "avg_entry_price": 245.83,
+        "current_price": 247.82,
+        "unrealized_pl": 77.61
+      },
+      {
+        "symbol": "LII",
+        "qty": 20.0,
+        "avg_entry_price": 550.418,
+        "current_price": 537.76,
+        "unrealized_pl": -253.16
+      }
+    ]
   }
 ]

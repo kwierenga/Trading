@@ -214,3 +214,41 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-07-08 — LII closed (held 26.0d, +4.82%, $+494.00)
+<!-- pm-key: LII|2026-07-08T14:17:08|512.69 -->
+
+**Mechanical (auto-filled):**
+- Entry: $512.69 on 2026-06-12 → Exit: $537.39 on 2026-07-08 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: Lennox International is a high-quality industrial compounder — 76.8% ROE, 14.3% op margin, steady FCF. HVAC demand is structurally supported by aging infrastructure and energy-efficiency
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
+
+## 2026-07-08 — LII closed (held 6.9d, -6.63%, $-381.80)
+<!-- pm-key: LII|2026-07-08T14:17:08|575.57 -->
+
+**Mechanical (auto-filled):**
+- Entry: $575.57 on 2026-07-01 → Exit: $537.39 on 2026-07-08 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: PYRAMID tranche 2: original lot held 18d at +11.8%; price $572.95 > SMA20 $529.97; adding $9,789 (17 sh) with combined break-even stop at $538.98.
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
