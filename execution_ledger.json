@@ -198,5 +198,13 @@
     "decision": "skipped",
     "gate": "kill_switch",
     "detail": "day P&L -88.67% ($-89,495) breaches the -3% daily-loss halt \u2014 NO new entries today; existing stops/targets remain active"
+  },
+  {
+    "date": "2026-07-08",
+    "timestamp": "2026-07-08T14:33:48.663716+00:00",
+    "symbol": "AMP",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "AMP would be 30.1% of equity (existing $20,265 + new $9,697 = $29,963); cap is 30%"
   }
 ]
