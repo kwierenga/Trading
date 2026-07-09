@@ -206,5 +206,33 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "AMP would be 30.1% of equity (existing $20,265 + new $9,697 = $29,963); cap is 30%"
+  },
+  {
+    "date": "2026-07-09",
+    "timestamp": "2026-07-09T14:33:57.844177+00:00",
+    "symbol": "LII",
+    "decision": "skipped",
+    "gate": "non_buy",
+    "detail": "SELL not auto-executed (manual via Alpaca UI)"
+  },
+  {
+    "date": "2026-07-09",
+    "timestamp": "2026-07-09T14:33:59.485284+00:00",
+    "symbol": "WDAY",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $127.12, target $172.00; submit status pending_new",
+    "shares": 69,
+    "entry_price": 137.88,
+    "order_id": "907affd4-2e44-41f3-b20e-21da5c2234c5",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-07-09",
+    "timestamp": "2026-07-09T14:33:59.751088+00:00",
+    "symbol": "AMP",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "AMP would be 30.6% of equity (existing $20,693 + new $9,861 = $30,554); cap is 30%"
   }
 ]
