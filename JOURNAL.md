@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-06-30 → 2026-07-12
+
+_Sharpe +1.19, Sortino +1.56, MaxDD -2.6%, CAGR +18.1%, excess CAGR vs SPY -14.2% (quantstats, since inception)._
+
+**What worked / what didn't.** The stop discipline held mechanically on both LII trades — that's worth noting because the system did what it was designed to do, even when the outcome was a net loss on the pair (-$382 + $494 = +$112 combined, barely breakeven after two round trips). What's harder to evaluate: you re-entered LII a third time (currently -4.1% open) after stops hit it twice within the same week. That's a specific, concrete decision to examine — not a generalization. AMP at +12.7% is the standout position and is doing the work the strategy promises. The EOD journal entries were consistently left unfilled ("Add 1-2 sentences during your 15-min review"), which means the learning loop that was deliberately designed into the process didn't run.
+
+**What's puzzling or worth watching.** Three entries into LII in what appears to be a compressed window is an unusual concentration of attempts on a single name, especially after two stop-hits. The position sizing on the third entry (~$11k) is smaller than AMP or A, which may reflect deliberate risk reduction — or may just be what was available given the gross cap. It's not clear which. Cash went from 11% mid-week to 28% after the LII stops hit, then back to 18% after the 07-09 entries filled — that cash swing happened fast, and the screen apparently surfaced LII again almost immediately after it stopped you out. Whether that's the screen working correctly or a signal worth scrutinizing in the rules is an open question.
+
+**Reflective prompts for Klaas.** The EOD reflection fields were blank every day this week — what specifically got in the way of the 15-minute review, and is the format itself the obstacle or something else? After two stop-hits on LII within days, what would have had to be true about the setup for a third entry to be the right call, and did those conditions actually exist? The LTCG boundary bug found during the Sunday dry-run was a real error caught before it cost anything — what does that suggest about which other parts of the system haven't yet had an equivalent stress test?
+
+
+---
+
 ## [EOD] 2026-07-10 Friday
 **What happened.** No trades closed today. End equity $101,393, cash $18,220 (18% of equity), 6 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
