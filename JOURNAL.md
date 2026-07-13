@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [AM] 2026-07-13 Monday
+**Open questions.** Will the 1 proposed entries (AMP) fill at limit, or run away pre-market? What's the one thing that could derail the 52% confidence target? Any overnight news on these names worth checking before placing orders? 
+**Today's plan.** execute.yml fires automatically at 09:35 ET — re-evaluates each setup against the actual open and submits the survivors. To skip today, push SKIP_TODAY.flag with today's UTC date before 09:35 ET. Monitor 6 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
+
+---
+
 ## [WEEK] 2026-06-30 → 2026-07-12
 
 _Sharpe +1.19, Sortino +1.56, MaxDD -2.6%, CAGR +18.1%, excess CAGR vs SPY -14.2% (quantstats, since inception)._
