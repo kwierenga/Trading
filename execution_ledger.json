@@ -234,5 +234,13 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "AMP would be 30.6% of equity (existing $20,693 + new $9,861 = $30,554); cap is 30%"
+  },
+  {
+    "date": "2026-07-13",
+    "timestamp": "2026-07-13T14:33:58.372006+00:00",
+    "symbol": "AMP",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "AMP would be 30.4% of equity (existing $20,991 + new $10,186 = $31,177); cap is 30%"
   }
 ]
