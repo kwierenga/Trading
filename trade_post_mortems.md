@@ -252,3 +252,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-07-14 — AMP closed (held 14.9d, +15.68%, $+2,891.62)
+<!-- pm-key: AMP|2026-07-14T14:04:15|449.71 -->
+
+**Mechanical (auto-filled):**
+- Entry: $449.71 on 2026-06-29 → Exit: $520.24 on 2026-07-14 via target_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: Ameriprise is a high-quality wealth management and asset management franchise with 67% ROE, 37% operating margins, $3.4B FCF, and a forward P/E of just 9.5x — deeply cheap for this qualit
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
