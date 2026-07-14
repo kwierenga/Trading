@@ -242,5 +242,29 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "AMP would be 30.4% of equity (existing $20,991 + new $10,186 = $31,177); cap is 30%"
+  },
+  {
+    "date": "2026-07-14",
+    "timestamp": "2026-07-14T14:34:01.011482+00:00",
+    "symbol": "AMP",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $469.87, target $624.98; submit status pending_new",
+    "shares": 19,
+    "entry_price": 520.82,
+    "order_id": "afd32e05-4166-4bfa-9e0f-b15140afd6d2",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-07-14",
+    "timestamp": "2026-07-14T14:34:32.686416+00:00",
+    "symbol": "CI",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $290.76, target $367.22; submit status pending_new",
+    "shares": 33,
+    "entry_price": 306.02,
+    "order_id": "79c48c8f-042e-4c6e-9966-783bd684fa5e",
+    "fill_status": "unknown"
   }
 ]
