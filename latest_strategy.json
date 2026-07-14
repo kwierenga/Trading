@@ -1,18 +1,48 @@
 {
-  "analysis": "MARKET: SPY is in uptrend (+2.0% vs SMA50, slope +3.13%) \u2014 macro backdrop is constructive. However, the portfolio itself demands attention before any new capital is deployed.\n\nPORTFOLIO REVIEW: Six positions at 82% deployment already exceeds the strategy's 3-5 concentrated target. Remaining headroom is only ~$13,145 \u2014 too small for a properly sized new position in any candidate (a single 1.5% risk entry into a $190 stock would require ~$26k). Forcing a seventh position into a cramped book violates the concentration and sizing discipline.\n\nCRITICAL FLAG \u2014 LII: LII is the most urgent concern. It is NOT present in today's 30-stock screened candidate list, which means it likely failed the trend or quality filter that all other candidates passed. We have an existing position at avg $575.57, now $552.03 (-4.09%), and this is our THIRD trade in LII (prior trades: +4.82% and -6.63% via stop). Three attempts in the same name with deteriorating trend signals is a pattern that demands respect. If LII has slipped into a confirmed downtrend (explaining its absence from today's screen), the Weinstein framework is unambiguous: the thesis is broken. Recommend manually reviewing LII's chart against its SMA200 and considering an exit to free up $11k in capital and reduce the position count toward the 3-5 target.\n\nPERFORMANCE REALITY CHECK: Win rate 22.2%, profit factor 0.08x, Sortino -2.88. The losses are averaging 2.6x the wins. This is a stop-hunting pattern where entries are being made slightly too early and the stops are too tight relative to volatility, or entries are in names that reverse. The honest answer: do not add new risk until the existing book's thesis clarity improves.\n\nCANDIDATE REVIEW: VEEV stands out fundamentally (PEG 0.86, D/E only 1.41 \u2014 cleanest balance sheet in the list, 16.3% rev growth, $1.3B FCF) and technically (uptrend basing, 25% of 52w range). However at +12.8% above SMA50 it is extended for a new entry \u2014 the ideal entry would be on a pullback to the SMA50 (~$168). WDAY (already held) and FDS (already held) remain in the screen. No other candidate clears both a compelling fundamental AND a clean technical entry at current prices without an earnings event risk within two weeks. COF (8d), DHR (8d), DHI (8d), NOW (9d), BX (10d), ALLE (10d), ROP (10d) all have near-term earnings that make initiating new positions imprudent.\n\nDECISION: Zero new trades. Protect capital, monitor LII for exit, and wait for VEEV to pull back to SMA50 or for the book to create proper headroom. Cash is a position. Doing nothing well is a skill.",
-  "confidence_target_pct": 52,
+  "analysis": "MARKET REGIME: SPY is in a confirmed uptrend (+2.99% 20d SMA slope, price +1.1% above SMA50). Macro backdrop supports holding quality positions.\n\nPORTFOLIO REVIEW: Six positions is one to three above the 3-5 target range. AMP (+15.2%), CI (+8.0%), WDAY (+6.6%), FDS (+7.0%), and A (+3.3%) are all working \u2014 thesis intact across each. The outlier is LII (-4.33%), which is the most concerning holding: this is the third LII trade in the journal, with the prior two both ending in stop hits (-6.63% and +4.82%). The pattern suggests persistent difficulty finding a clean entry. More critically, LII does NOT appear on today's screened candidate list, implying it may have softened technically or fundamentally since entry. Recommend watching LII closely \u2014 any break below $530 (approximately 1.5x ATR below current price) should trigger an exit. The position is small ($11,013) so the damage is contained, but holding a name that fails its own quality/trend screen three times is a thesis-break signal.\n\nNEW TRADES: Capacity for new buys is only $13,058 \u2014 enough for one small position, but only if the setup is genuinely asymmetric. Several candidates are interesting (VEEV, ZBRA, BX), but all carry near-term disqualifiers: VEEV is extended +16.2% above SMA50 (chasing); BX has earnings in 9 days (binary event risk); ZBRA has earnings in 21 days and SMA50 acceleration that may be late-cycle. With 6 positions already open, $13K of headroom, and a historical profit factor of 0.08x, the evidence-based call is patience. A quiet cash book that protects the existing winners is the correct posture. No new buys are proposed this cycle.\n\nSUMMARY: Hold AMP, CI, WDAY, FDS, A. Monitor LII with a firm stop near $530 and be prepared to close it. No new entries \u2014 cash preservation and current-winner protection is the value-add today. Revisit when LII resolves, headroom increases, or a candidate pulls back to a cleaner entry (e.g., VEEV near its SMA50 ~$169-175).",
+  "confidence_target_pct": 54,
   "trades": [
     {
       "symbol": "AMP",
       "direction": "BUY",
-      "entry_price": 509.29,
-      "stop_loss": 466.23,
-      "target": 611.15,
+      "entry_price": 520.82,
+      "stop_loss": 469.87,
+      "target": 624.98,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 2.365536460752437,
-      "rationale": "PYRAMID tranche 2: original lot held 13d at +12.7%; price $506.76 > SMA20 $473.60; adding $9,677 (19 sh) with combined break-even stop at $466.23.",
-      "entry_strategy": "Limit @ $509.29 (current +0.5%)",
+      "risk_reward_ratio": 2.044357212953874,
+      "rationale": "PYRAMID tranche 2: original lot held 14d at +15.2%; price $518.23 > SMA20 $476.99; adding $9,896 (19 sh) with combined break-even stop at $469.87.",
+      "entry_strategy": "Limit @ $520.82 (current +0.5%)",
+      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
+      "is_pyramid": true,
+      "tranche": 2
+    },
+    {
+      "symbol": "CI",
+      "direction": "BUY",
+      "entry_price": 306.02,
+      "stop_loss": 290.76,
+      "target": 367.22,
+      "conviction": 75,
+      "holding_period": "swing",
+      "risk_reward_ratio": 4.010484927916126,
+      "rationale": "PYRAMID tranche 2: original lot held 17d at +7.9%; price $304.50 > SMA20 $286.23; adding $10,099 (33 sh) with combined break-even stop at $290.76.",
+      "entry_strategy": "Limit @ $306.02 (current +0.5%)",
+      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
+      "is_pyramid": true,
+      "tranche": 2
+    },
+    {
+      "symbol": "FDS",
+      "direction": "BUY",
+      "entry_price": 264.43,
+      "stop_loss": 253.85,
+      "target": 317.32,
+      "conviction": 75,
+      "holding_period": "swing",
+      "risk_reward_ratio": 4.999054820415872,
+      "rationale": "PYRAMID tranche 2: original lot held 7d at +7.0%; price $263.11 > SMA20 $236.39; adding $10,313 (39 sh) with combined break-even stop at $253.85.",
+      "entry_strategy": "Limit @ $264.43 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -20,9 +50,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "1f7dffd6a2e4c240",
-    "prompt_chars": 22050,
-    "generated_at": "2026-07-13T10:26:33.793543+00:00",
-    "code_sha": "fb459c47be90"
+    "prompt_sha256": "3fff4304bbee5fe8",
+    "prompt_chars": 21901,
+    "generated_at": "2026-07-14T10:30:59.014266+00:00",
+    "code_sha": "b08eef03f0ff"
   }
 }
