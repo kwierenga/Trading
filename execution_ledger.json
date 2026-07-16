@@ -266,5 +266,17 @@
     "entry_price": 306.02,
     "order_id": "79c48c8f-042e-4c6e-9966-783bd684fa5e",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-07-16",
+    "timestamp": "2026-07-16T14:33:55.803715+00:00",
+    "symbol": "WDAY",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $138.31, target $171.04; submit status pending_new",
+    "shares": 71,
+    "entry_price": 142.53,
+    "order_id": "1c5bad1b-0389-451a-8c7d-0b14534fef55",
+    "fill_status": "unknown"
   }
 ]
