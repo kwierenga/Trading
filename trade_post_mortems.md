@@ -271,3 +271,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-07-16 — CI closed (held 19.7d, +1.67%, $+154.88)
+<!-- pm-key: CI|2026-07-16T13:33:48|281.87 -->
+
+**Mechanical (auto-filled):**
+- Entry: $281.87 on 2026-06-26 → Exit: $286.56 on 2026-07-16 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: Cigna trades at fwd P/E 8.43 and PEG 0.84 — among the cheapest quality names in the S&P 500. FCF of $6.9B provides substantial capital return capacity. Healthcare insurance is a defensive
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---

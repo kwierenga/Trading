@@ -145,6 +145,24 @@
   },
   {
     "id": 9,
+    "symbol": "CI",
+    "shares": 33,
+    "entry_price": 281.87,
+    "entry_time": "2026-06-26T19:45:16.600945Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "FUNDAMENTAL: Cigna trades at fwd P/E 8.43 and PEG 0.84 \u2014 among the cheapest quality names in the S&P 500. FCF of $6.9B provides substantial capital return capacity. Healthcare insurance is a defensive",
+    "source": "claude",
+    "status": "closed",
+    "exit_price": 286.563334,
+    "exit_time": "2026-07-16T13:33:48.411698Z",
+    "pnl": 154.88,
+    "pnl_pct": 0.016651,
+    "duration_minutes": 28428.530179216665,
+    "reason_exit": "stop_hit"
+  },
+  {
+    "id": 10,
     "symbol": "A",
     "shares": 143,
     "entry_price": 129.71,
@@ -162,7 +180,7 @@
     "reason_exit": null
   },
   {
-    "id": 10,
+    "id": 11,
     "symbol": "LII",
     "shares": 20,
     "entry_price": 575.57,
@@ -180,9 +198,9 @@
     "reason_exit": null
   },
   {
-    "id": 11,
+    "id": 12,
     "symbol": "CI",
-    "shares": 44,
+    "shares": 11,
     "entry_price": 281.87,
     "entry_time": "2026-06-26T19:45:16.600945Z",
     "stop_loss": null,
@@ -198,7 +216,7 @@
     "reason_exit": null
   },
   {
-    "id": 12,
+    "id": 13,
     "symbol": "CI",
     "shares": 33,
     "entry_price": 300.99,
@@ -216,7 +234,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 14,
     "symbol": "AMP",
     "shares": 19,
     "entry_price": 520.609474,
@@ -234,7 +252,7 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 15,
     "symbol": "FDS",
     "shares": 39,
     "entry_price": 245.83,
@@ -252,7 +270,7 @@
     "reason_exit": null
   },
   {
-    "id": 15,
+    "id": 16,
     "symbol": "WDAY",
     "shares": 69,
     "entry_price": 135.32,
@@ -262,30 +280,6 @@
     "rationale": "Fundamental: Workday is a dominant enterprise HR and financial management cloud platform with $3.1B FCF on a $34B market cap \u2014 nearly 9% FCF yield. Revenue growth of 13.5% with fwd P/E of 10.91 and PE",
     "source": "claude",
     "status": "open",
-    "exit_price": null,
-    "exit_time": null,
-    "pnl": null,
-    "pnl_pct": null,
-    "duration_minutes": null,
-    "reason_exit": null
-  },
-  {
-    "id": 16,
-    "symbol": "WDAY",
-    "shares": 71,
-    "original_shares": 71,
-    "entry_price": 142.53,
-    "entry_time": "2026-07-16T14:33:55.803908+00:00",
-    "stop_loss": 138.31,
-    "initial_stop": 138.31,
-    "R": 4.219999999999999,
-    "current_stop": 138.31,
-    "target_price": 171.04,
-    "rationale": "PYRAMID tranche 2: original lot held 6d at +7.0%; price $141.82 > SMA20 $129.24; adding $10,262 (72 sh) with combined break-even stop at $138.31.",
-    "source": "claude",
-    "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
     "exit_price": null,
     "exit_time": null,
     "pnl": null,
