@@ -1,42 +1,6 @@
 [
   {
     "id": 1,
-    "symbol": "ZBRA",
-    "shares": 44,
-    "entry_price": 233.0,
-    "entry_time": "2026-06-09T14:50:23.481245Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "Fundamental: Zebra Technologies (enterprise barcode/RFID/automation hardware + software) is anomalously cheap \u2014 fwd P/E 11.25 and PEG 0.50 for a business growing revenue at 14.3% with $559M FCF. EPS r",
-    "source": "claude",
-    "status": "closed",
-    "exit_price": 215.79,
-    "exit_time": "2026-06-10T19:21:41.483663Z",
-    "pnl": -757.24,
-    "pnl_pct": -0.073863,
-    "duration_minutes": 1711.3000403,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 2,
-    "symbol": "MSFT",
-    "shares": 45,
-    "entry_price": 409.61,
-    "entry_time": "2026-06-09T14:34:01.299005Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "Fundamental: Microsoft is the highest-quality large-cap in the candidate list \u2014 46% operating margin, 34% ROE, 18.3% revenue growth, $37B FCF, and dominant positioning in enterprise AI (Azure OpenAI, ",
-    "source": "claude",
-    "status": "closed",
-    "exit_price": 388.432,
-    "exit_time": "2026-06-11T13:42:43.601009Z",
-    "pnl": -953.01,
-    "pnl_pct": -0.051703,
-    "duration_minutes": 2828.7050334,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 3,
     "symbol": "ADP",
     "shares": 81,
     "entry_price": 228.34,
@@ -54,7 +18,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 4,
+    "id": 2,
     "symbol": "IQV",
     "shares": 69,
     "entry_price": 180.56,
@@ -72,7 +36,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 5,
+    "id": 3,
     "symbol": "FICO",
     "shares": 9,
     "entry_price": 1182.78,
@@ -90,7 +54,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 6,
+    "id": 4,
     "symbol": "LII",
     "shares": 20,
     "entry_price": 512.69,
@@ -108,7 +72,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 7,
+    "id": 5,
     "symbol": "LII",
     "shares": 10,
     "entry_price": 575.57,
@@ -126,7 +90,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 8,
+    "id": 6,
     "symbol": "AMP",
     "shares": 41,
     "entry_price": 449.71,
@@ -144,7 +108,7 @@
     "reason_exit": "target_hit"
   },
   {
-    "id": 9,
+    "id": 7,
     "symbol": "CI",
     "shares": 33,
     "entry_price": 281.87,
@@ -162,7 +126,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 10,
+    "id": 8,
     "symbol": "A",
     "shares": 143,
     "entry_price": 129.71,
@@ -180,7 +144,7 @@
     "reason_exit": null
   },
   {
-    "id": 11,
+    "id": 9,
     "symbol": "LII",
     "shares": 20,
     "entry_price": 575.57,
@@ -198,7 +162,7 @@
     "reason_exit": null
   },
   {
-    "id": 12,
+    "id": 10,
     "symbol": "CI",
     "shares": 11,
     "entry_price": 281.87,
@@ -216,7 +180,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 11,
     "symbol": "CI",
     "shares": 33,
     "entry_price": 300.99,
@@ -234,7 +198,7 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 12,
     "symbol": "AMP",
     "shares": 19,
     "entry_price": 520.609474,
@@ -252,7 +216,7 @@
     "reason_exit": null
   },
   {
-    "id": 15,
+    "id": 13,
     "symbol": "FDS",
     "shares": 39,
     "entry_price": 245.83,
@@ -270,7 +234,25 @@
     "reason_exit": null
   },
   {
-    "id": 16,
+    "id": 14,
+    "symbol": "FDS",
+    "shares": 38,
+    "entry_price": 260.07,
+    "entry_time": "2026-07-17T14:33:52.632385Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "PYRAMID tranche 2: original lot held 10d at +6.8%; price $262.46 > SMA20 $238.97; adding $10,023 (38 sh) with combined break-even stop at $253.41.",
+    "source": "claude",
+    "status": "open",
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
+  },
+  {
+    "id": 15,
     "symbol": "WDAY",
     "shares": 69,
     "entry_price": 135.32,
@@ -288,46 +270,16 @@
     "reason_exit": null
   },
   {
-    "id": 17,
-    "symbol": "FDS",
-    "shares": 38,
-    "original_shares": 38,
-    "entry_price": 263.77,
-    "entry_time": "2026-07-17T14:33:52.241274+00:00",
-    "stop_loss": 253.41,
-    "initial_stop": 253.41,
-    "R": 10.359999999999985,
-    "current_stop": 253.41,
-    "target_price": 316.52,
-    "rationale": "PYRAMID tranche 2: original lot held 10d at +6.8%; price $262.46 > SMA20 $238.97; adding $10,023 (38 sh) with combined break-even stop at $253.41.",
-    "source": "claude",
-    "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
-    "exit_price": null,
-    "exit_time": null,
-    "pnl": null,
-    "pnl_pct": null,
-    "duration_minutes": null,
-    "reason_exit": null
-  },
-  {
-    "id": 18,
+    "id": 16,
     "symbol": "WDAY",
     "shares": 69,
-    "original_shares": 69,
-    "entry_price": 146.16,
-    "entry_time": "2026-07-17T14:33:53.348879+00:00",
-    "stop_loss": 140.08,
-    "initial_stop": 140.08,
-    "R": 6.079999999999984,
-    "current_stop": 140.08,
-    "target_price": 175.39,
+    "entry_price": 146.13,
+    "entry_time": "2026-07-17T14:40:46.557561Z",
+    "stop_loss": null,
+    "target_price": null,
     "rationale": "PYRAMID tranche 2: original lot held 7d at +6.0%; price $145.43 > SMA20 $130.17; adding $10,231 (70 sh) with combined break-even stop at $140.08.",
     "source": "claude",
     "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
     "exit_price": null,
     "exit_time": null,
     "pnl": null,
