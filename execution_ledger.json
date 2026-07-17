@@ -278,5 +278,37 @@
     "entry_price": 142.53,
     "order_id": "1c5bad1b-0389-451a-8c7d-0b14534fef55",
     "fill_status": "working (unfilled)"
+  },
+  {
+    "date": "2026-07-17",
+    "timestamp": "2026-07-17T14:33:51.153800+00:00",
+    "symbol": "A",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Healthcare sector would be 40.8% of equity (existing $31,614 + new $10,122 = $41,736); cap is 35%"
+  },
+  {
+    "date": "2026-07-17",
+    "timestamp": "2026-07-17T14:33:52.241105+00:00",
+    "symbol": "FDS",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $253.41, target $316.52; submit status pending_new",
+    "shares": 38,
+    "entry_price": 263.77,
+    "order_id": "60e9d945-6488-4661-833c-704cf8c82e65",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-07-17",
+    "timestamp": "2026-07-17T14:33:53.348663+00:00",
+    "symbol": "WDAY",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $140.08, target $175.39; submit status pending_new",
+    "shares": 69,
+    "entry_price": 146.16,
+    "order_id": "5dc295aa-2181-4dcf-8048-6e8df6b2e8cd",
+    "fill_status": "unknown"
   }
 ]
