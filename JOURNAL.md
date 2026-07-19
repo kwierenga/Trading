@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-07-07 → 2026-07-19
+
+_Sharpe +0.80, Sortino +1.09, MaxDD -2.6%, CAGR +11.9%, excess CAGR vs SPY -8.5% (quantstats, since inception)._
+
+**What worked / what didn't.** AMP was the week's clear standout: +15.7% in 14.9 days, exiting cleanly on a target hit — that's the strategy working as designed. The two LII trades are worth separating rather than averaging together: the first (+4.8%, 26 days, stop-hit exit) was a modest win that ran long before getting stopped; the second (-6.6%, 6.9 days, stop-hit) was a fast loss on what appears to be a re-entry into the same name. CI closed at +1.7% via stop-hit after nearly 20 days — a lot of time held for a thin gain, suggesting the thesis either never fully confirmed or the stop was too tight to give it room. The re-entry pattern on LII is the only structural concern this week; everything else executed within the rules.
+
+**What's puzzling or worth watching.** You re-entered LII while still carrying it as an open position — the closed short-duration loss and the current open position (now -5.5%) overlap in time, meaning you had exposure to LII in two separate lots simultaneously at some point. That's worth understanding: was that intentional sizing, or did a new signal fire on a name where the prior trade hadn't fully resolved? Separately, the "What we learned" fields in every EOD journal entry this week are blank. That's a consistent gap — the 15-minute review is happening mechanically but the reflection isn't being recorded, which limits your ability to detect patterns across weeks rather than just within them.
+
+**Reflective prompts for Klaas.** When LII triggered a new entry signal so shortly after the first stop-hit, what specifically in the setup justified re-engagement — and would you have taken that trade if it had been a name you'd never held before? CI spent nearly 20 days in the portfolio and exited on a stop rather than a target, ending at +1.7%; at what point during those three weeks did you suspect the thesis wasn't developing, and what kept you from acting on that earlier? The EOD "What we learned" sections are consistently empty this week — is the 15-minute review actually happening, or has the journaling become a form you're filling around rather than thinking through?
+
+
+---
+
 ## [EOD] 2026-07-17 Friday
 **What happened.** No trades closed today. End equity $101,159, cash $9,216 (9% of equity), 6 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
