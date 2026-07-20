@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [EOD] 2026-07-20 Monday
+**What happened.** Closed: WDAY (+3.8%), FDS (+2.2%). End equity $100,732, cash $18,441 (18% of equity), 6 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+
+---
+
 ## [AM] 2026-07-20 Monday
 **Open questions.** Screen produced no high-conviction setups today — is the market broadly extended, or are filters too tight? What would have to change for a setup to emerge tomorrow? With 6 open position(s), are any approaching their stops or targets? 
 **Today's plan.** Hold cash today — no high-conviction setups passed the screen. Patience is a position. Monitor 6 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 

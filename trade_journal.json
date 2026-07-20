@@ -127,6 +127,42 @@
   },
   {
     "id": 8,
+    "symbol": "WDAY",
+    "shares": 69,
+    "entry_price": 135.32,
+    "entry_time": "2026-07-09T14:34:01.547381Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "Fundamental: Workday is a dominant enterprise HR and financial management cloud platform with $3.1B FCF on a $34B market cap \u2014 nearly 9% FCF yield. Revenue growth of 13.5% with fwd P/E of 10.91 and PE",
+    "source": "claude",
+    "status": "closed",
+    "exit_price": 140.4,
+    "exit_time": "2026-07-20T13:32:34.346341Z",
+    "pnl": 350.52,
+    "pnl_pct": 0.037541,
+    "duration_minutes": 15778.546649333333,
+    "reason_exit": "stop_hit"
+  },
+  {
+    "id": 9,
+    "symbol": "FDS",
+    "shares": 38,
+    "entry_price": 245.83,
+    "entry_time": "2026-07-06T14:33:57.161803Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "Fundamental: FactSet is a wide-moat, subscription-based financial data and analytics platform. 30.5% operating margins, 27% ROE, $621M FCF on an $8.9B market cap (~7% FCF yield), PEG 1.19, and analyst",
+    "source": "claude",
+    "status": "closed",
+    "exit_price": 251.265789,
+    "exit_time": "2026-07-20T13:35:08.237984Z",
+    "pnl": 206.56,
+    "pnl_pct": 0.022112,
+    "duration_minutes": 20101.184603016667,
+    "reason_exit": "stop_hit"
+  },
+  {
+    "id": 10,
     "symbol": "A",
     "shares": 143,
     "entry_price": 129.71,
@@ -144,7 +180,7 @@
     "reason_exit": null
   },
   {
-    "id": 9,
+    "id": 11,
     "symbol": "LII",
     "shares": 20,
     "entry_price": 575.57,
@@ -162,7 +198,7 @@
     "reason_exit": null
   },
   {
-    "id": 10,
+    "id": 12,
     "symbol": "CI",
     "shares": 11,
     "entry_price": 281.87,
@@ -180,7 +216,7 @@
     "reason_exit": null
   },
   {
-    "id": 11,
+    "id": 13,
     "symbol": "CI",
     "shares": 33,
     "entry_price": 300.99,
@@ -198,7 +234,7 @@
     "reason_exit": null
   },
   {
-    "id": 12,
+    "id": 14,
     "symbol": "AMP",
     "shares": 19,
     "entry_price": 520.609474,
@@ -216,9 +252,9 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 15,
     "symbol": "FDS",
-    "shares": 39,
+    "shares": 1,
     "entry_price": 245.83,
     "entry_time": "2026-07-06T14:33:57.161803Z",
     "stop_loss": null,
@@ -234,7 +270,7 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 16,
     "symbol": "FDS",
     "shares": 38,
     "entry_price": 260.07,
@@ -252,14 +288,14 @@
     "reason_exit": null
   },
   {
-    "id": 15,
+    "id": 17,
     "symbol": "WDAY",
     "shares": 69,
-    "entry_price": 135.32,
-    "entry_time": "2026-07-09T14:34:01.547381Z",
+    "entry_price": 146.13,
+    "entry_time": "2026-07-17T14:40:46.557561Z",
     "stop_loss": null,
     "target_price": null,
-    "rationale": "Fundamental: Workday is a dominant enterprise HR and financial management cloud platform with $3.1B FCF on a $34B market cap \u2014 nearly 9% FCF yield. Revenue growth of 13.5% with fwd P/E of 10.91 and PE",
+    "rationale": "PYRAMID tranche 2: original lot held 7d at +6.0%; price $145.43 > SMA20 $130.17; adding $10,231 (70 sh) with combined break-even stop at $140.08.",
     "source": "claude",
     "status": "open",
     "exit_price": null,
@@ -270,15 +306,15 @@
     "reason_exit": null
   },
   {
-    "id": 16,
+    "id": 18,
     "symbol": "WDAY",
-    "shares": 69,
-    "entry_price": 146.13,
-    "entry_time": "2026-07-17T14:40:46.557561Z",
+    "shares": 71,
+    "entry_price": 140.992254,
+    "entry_time": "2026-07-20T13:33:28.913618Z",
     "stop_loss": null,
     "target_price": null,
-    "rationale": "PYRAMID tranche 2: original lot held 7d at +6.0%; price $145.43 > SMA20 $130.17; adding $10,231 (70 sh) with combined break-even stop at $140.08.",
-    "source": "claude",
+    "rationale": "",
+    "source": "alpaca_reconciled",
     "status": "open",
     "exit_price": null,
     "exit_time": null,

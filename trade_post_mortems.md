@@ -290,3 +290,41 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-07-20 — WDAY closed (held 11.0d, +3.75%, $+350.52)
+<!-- pm-key: WDAY|2026-07-20T13:32:34|135.32 -->
+
+**Mechanical (auto-filled):**
+- Entry: $135.32 on 2026-07-09 → Exit: $140.40 on 2026-07-20 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: Fundamental: Workday is a dominant enterprise HR and financial management cloud platform with $3.1B FCF on a $34B market cap — nearly 9% FCF yield. Revenue growth of 13.5% with fwd P/E of 10.91 and PE
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
+
+## 2026-07-20 — FDS closed (held 14.0d, +2.21%, $+206.56)
+<!-- pm-key: FDS|2026-07-20T13:35:08|245.83 -->
+
+**Mechanical (auto-filled):**
+- Entry: $245.83 on 2026-07-06 → Exit: $251.27 on 2026-07-20 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: Fundamental: FactSet is a wide-moat, subscription-based financial data and analytics platform. 30.5% operating margins, 27% ROE, $621M FCF on an $8.9B market cap (~7% FCF yield), PEG 1.19, and analyst
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
