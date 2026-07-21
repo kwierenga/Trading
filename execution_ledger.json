@@ -310,5 +310,13 @@
     "entry_price": 146.16,
     "order_id": "5dc295aa-2181-4dcf-8048-6e8df6b2e8cd",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-07-21",
+    "timestamp": "2026-07-21T14:33:57.304935+00:00",
+    "symbol": "VEEV",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Healthcare sector would be 41.5% of equity (existing $31,702 + new $10,140 = $41,842); cap is 35%"
   }
 ]
