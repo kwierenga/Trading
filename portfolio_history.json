@@ -1165,5 +1165,58 @@
         "unrealized_pl": 804.70054
       }
     ]
+  },
+  {
+    "timestamp": "2026-07-21T21:37:50.000318+00:00",
+    "account": {
+      "equity": 100250.22,
+      "buying_power": 290480.33,
+      "cash": 18441.44,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "A",
+        "qty": 143.0,
+        "avg_entry_price": 129.71,
+        "current_price": 132.86,
+        "unrealized_pl": 450.45
+      },
+      {
+        "symbol": "AMP",
+        "qty": 19.0,
+        "avg_entry_price": 520.609474,
+        "current_price": 528.37,
+        "unrealized_pl": 147.449994
+      },
+      {
+        "symbol": "CI",
+        "qty": 44.0,
+        "avg_entry_price": 296.21,
+        "current_price": 290.48,
+        "unrealized_pl": -252.12
+      },
+      {
+        "symbol": "FDS",
+        "qty": 39.0,
+        "avg_entry_price": 259.704872,
+        "current_price": 246.95,
+        "unrealized_pl": -497.440008
+      },
+      {
+        "symbol": "LII",
+        "qty": 20.0,
+        "avg_entry_price": 575.57,
+        "current_price": 529.88,
+        "unrealized_pl": -913.8
+      },
+      {
+        "symbol": "WDAY",
+        "qty": 140.0,
+        "avg_entry_price": 143.524429,
+        "current_price": 141.15,
+        "unrealized_pl": -332.42006
+      }
+    ]
   }
 ]
