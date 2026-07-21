@@ -1,12 +1,29 @@
 {
-  "analysis": "MARKET REGIME: SPY in uptrend (+2.32% 20d slope) \u2014 constructive backdrop, but the portfolio-level picture demands caution over aggression.\n\nEXISTING POSITION REVIEW:\n\u2022 A (+1.35%): Uptrend basing, thesis intact. ATR stop likely around $120-122. No action.\n\u2022 AMP (+1.40%): Modest gain, quality financial. Thesis intact. Watch for extended move.\n\u2022 CI (-4.14%): Down $12.26/share from avg cost. Healthcare has been under broad pressure. Prior CI trade also exited at stop (+1.67%). Not yet at thesis break but watching closely \u2014 if it violates the $270-275 range (SMA support), stop discipline applies. Monitor earnings Sep 17.\n\u2022 FDS (+2.07%): Clean basing uptrend, quality metrics strong. Thesis intact.\n\u2022 LII (-5.50%): Most concerning position. This is the THIRD LII entry in the trade journal \u2014 previous two were both stop-outs (-6.63% and +4.82% stop hit). Now -5.50% again. Pattern of failed entries on this name is a yellow flag. At $543.93 vs avg $575.57, the position is approaching the pain zone. No fundamental thesis break yet (HVAC cycle intact), but the repeated technical failures warrant tighter monitoring.\n\u2022 WDAY (+0.68%): Flat but uptrend basing, strong FCF ($3.1B), low fwd P/E (11.45x). Thesis intact.\n\nNEW TRADE CAPACITY ASSESSMENT: Only $4,174 of headroom (4.1% of equity). Portfolio already at 91% deployed across 6 positions \u2014 already above the 3-5 position target. Any new position could be sized at best $4,000, which at a proper 1.5% risk formula would produce a trivially small position (e.g., 20 shares of something at ~$200 with a $15 stop). This is not a meaningful allocation and would only add noise. VEEV and ZBRA are genuinely interesting setups (VEEV: PEG 0.88, D/E 1.41, fwd P/E 19.47, uptrend basing; ZBRA: fwd P/E 12.91, PEG 0.57, revenue growing 14.3%) but neither can be properly sized today. Forcing a sub-$5k entry on a $100k account violates the spirit of concentrated position discipline. DECISION: No new buys. Cash is the position. Revisit when LII or CI frees capital via their existing stops, creating real headroom for a proper entry in VEEV or ZBRA.",
-  "confidence_target_pct": 52,
-  "trades": [],
+  "analysis": "PORTFOLIO REVIEW: Six positions at 81% deployed \u2014 already above the 3-5 concentrated target. Two positions are absent from the screened candidate list, which is a yellow flag requiring explicit attention.\n\nLII (-7.29%, $533.58 vs $575.57 avg): Not present in the screened candidates, suggesting it may have failed the trend filter this cycle. A -7.3% drawdown from entry is substantial and momentum is clearly negative. Original stop was presumably set near 10-15% below entry (~$489). While the stop has not been triggered, the thesis warrants review \u2014 Lennox's HVAC demand cycle appears to be rolling over alongside mixed housing data. If price does not stabilize and reclaim $550 in the coming 2 weeks, the position should be exited at market to protect remaining capital. Thesis-break risk is elevated.\n\nCI (-4.14%, $283.94 vs $296.21 avg): Also absent from screened candidates. Cigna faces persistent Medicare Advantage pressure and regulatory uncertainty around pharmacy benefits. At -4.1%, the loss is manageable, but with no trend confirmation and sector headwinds, the risk/reward is asymmetric to the downside. Watch closely; if it fails to recover above $290, consider exiting.\n\nA, AMP, FDS, WDAY: All appear in the screened candidate list with basing uptrends. Theses intact \u2014 hold with existing stops.\n\nMARKET REGIME: SPY is mixed \u2014 barely below SMA50 but with a positive 20d slope. Not a fully bearish or bullish environment. With Sortino at -4.15, recent volatility has been predominantly downside. This argues for restraint on new additions.\n\nNEW TRADE: With only $13,472 of headroom, one carefully sized position is feasible. VEEV (Veeva Systems) offers the best combination of quality fundamentals (PEG 0.88, fortress balance sheet at D/E 1.41, $1.3B FCF, 16.3% revenue growth) with a genuine basing pattern at 30% of 52-week range, positive SMA50 slope, and 43 days before earnings \u2014 enough runway to develop. This is the single actionable setup worth initiating at reduced size given capacity constraints.",
+  "confidence_target_pct": 54,
+  "trades": [
+    {
+      "symbol": "VEEV",
+      "direction": "BUY",
+      "entry_strategy": "Limit order at $195.00 or better; accept fill up to $199 if market continues to show strength. Prefer entry on any intraday pullback toward the SMA50 zone. Do not chase above $200.",
+      "entry_price": 195.0,
+      "stop_loss": 180.5,
+      "stop_loss_pct": 0.074,
+      "atr_multiple": 2.0,
+      "target": 238.0,
+      "target_gain_pct": 0.221,
+      "risk_reward_ratio": 2.97,
+      "conviction": 64,
+      "holding_period": "position",
+      "rationale": "FUNDAMENTAL: Veeva is a dominant vertical-SaaS platform in life sciences (CRM, Vault, Data Cloud) with a near-monopolistic position in pharma. Fortress balance sheet \u2014 D/E of just 1.41, effectively debt-free for a software company. FCF of $1.3B on $32B market cap yields ~4% FCF yield. Forward P/E 19.67 and PEG 0.88 imply the market is pricing in modest growth when the business is delivering 16.3% revenue growth with 30.9% operating margins. EPS revisions modestly positive. TECHNICAL: Stock basing at the lower 30% of its 52-week range ($151-$306), establishing a floor after a deep correction. SMA50 slope turned positive (+4.9%), price reclaimed the SMA50 (+14.7% above it, but this reflects the basing rally not a late-stage extension since absolute price is still 5.3% below SMA200). Earnings 43 days out (Sep 2) provides adequate time to work before catalyst risk. Pattern resembles Stage 1-to-2 transition.",
+      "exit_plan": "Hard stop at $180.50 (2x ATR below entry, ~7.4%). Time stop: reassess fully if no progress toward $215 within 6 weeks. Thesis-break exits: (1) revenue growth decelerates below 12% at September earnings; (2) major pharma customer defection announced; (3) stock fails to hold SMA50 on a weekly close. Trim 30-50% of position if stock reaches $238 or gets extended more than 18% above SMA50 before earnings. Do not hold through September earnings at full size \u2014 reduce to half if the position has not hit target by late August."
+    }
+  ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "077e4a9e89cd28a2",
-    "prompt_chars": 22115,
-    "generated_at": "2026-07-20T10:27:54.835829+00:00",
-    "code_sha": "da5bced3bf58"
+    "prompt_sha256": "1edd177b22e99351",
+    "prompt_chars": 22111,
+    "generated_at": "2026-07-21T10:27:28.404705+00:00",
+    "code_sha": "e7b38b378c31"
   }
 }
