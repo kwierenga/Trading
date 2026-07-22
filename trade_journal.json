@@ -163,6 +163,42 @@
   },
   {
     "id": 10,
+    "symbol": "WDAY",
+    "shares": 69,
+    "entry_price": 146.13,
+    "entry_time": "2026-07-17T14:40:46.557561Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "PYRAMID tranche 2: original lot held 7d at +6.0%; price $145.43 > SMA20 $130.17; adding $10,231 (70 sh) with combined break-even stop at $140.08.",
+    "source": "claude",
+    "status": "closed",
+    "exit_price": 138.100423,
+    "exit_time": "2026-07-22T13:34:24.887574Z",
+    "pnl": -554.04,
+    "pnl_pct": -0.054948,
+    "duration_minutes": 7133.63883355,
+    "reason_exit": "stop_hit"
+  },
+  {
+    "id": 11,
+    "symbol": "WDAY",
+    "shares": 2,
+    "entry_price": 140.992254,
+    "entry_time": "2026-07-20T13:33:28.913618Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "",
+    "source": "alpaca_reconciled",
+    "status": "closed",
+    "exit_price": 138.100423,
+    "exit_time": "2026-07-22T13:34:24.887574Z",
+    "pnl": -5.78,
+    "pnl_pct": -0.020511,
+    "duration_minutes": 2880.9328992666665,
+    "reason_exit": "stop_hit"
+  },
+  {
+    "id": 12,
     "symbol": "A",
     "shares": 143,
     "entry_price": 129.71,
@@ -180,7 +216,7 @@
     "reason_exit": null
   },
   {
-    "id": 11,
+    "id": 13,
     "symbol": "LII",
     "shares": 20,
     "entry_price": 575.57,
@@ -198,7 +234,7 @@
     "reason_exit": null
   },
   {
-    "id": 12,
+    "id": 14,
     "symbol": "CI",
     "shares": 11,
     "entry_price": 281.87,
@@ -216,7 +252,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 15,
     "symbol": "CI",
     "shares": 33,
     "entry_price": 300.99,
@@ -234,7 +270,7 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 16,
     "symbol": "AMP",
     "shares": 19,
     "entry_price": 520.609474,
@@ -252,7 +288,7 @@
     "reason_exit": null
   },
   {
-    "id": 15,
+    "id": 17,
     "symbol": "FDS",
     "shares": 1,
     "entry_price": 245.83,
@@ -270,7 +306,7 @@
     "reason_exit": null
   },
   {
-    "id": 16,
+    "id": 18,
     "symbol": "FDS",
     "shares": 38,
     "entry_price": 260.07,
@@ -288,27 +324,9 @@
     "reason_exit": null
   },
   {
-    "id": 17,
+    "id": 19,
     "symbol": "WDAY",
     "shares": 69,
-    "entry_price": 146.13,
-    "entry_time": "2026-07-17T14:40:46.557561Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "PYRAMID tranche 2: original lot held 7d at +6.0%; price $145.43 > SMA20 $130.17; adding $10,231 (70 sh) with combined break-even stop at $140.08.",
-    "source": "claude",
-    "status": "open",
-    "exit_price": null,
-    "exit_time": null,
-    "pnl": null,
-    "pnl_pct": null,
-    "duration_minutes": null,
-    "reason_exit": null
-  },
-  {
-    "id": 18,
-    "symbol": "WDAY",
-    "shares": 71,
     "entry_price": 140.992254,
     "entry_time": "2026-07-20T13:33:28.913618Z",
     "stop_loss": null,

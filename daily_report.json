@@ -1954,5 +1954,101 @@
       "noops": 0,
       "skipped_no_R": 6
     }
+  },
+  {
+    "timestamp": "2026-07-22T21:36:46.912137+00:00",
+    "date": "2026-07-22",
+    "equity": 99370.3,
+    "cash": 28246.57,
+    "positions": 6,
+    "closed_trades": [
+      {
+        "symbol": "WDAY",
+        "pnl": -554.04,
+        "pnl_pct": -0.054948,
+        "reason_exit": "stop_hit",
+        "duration_minutes": 7133.63883355
+      },
+      {
+        "symbol": "WDAY",
+        "pnl": -5.78,
+        "pnl_pct": -0.020511,
+        "reason_exit": "stop_hit",
+        "duration_minutes": 2880.9328992666665
+      }
+    ],
+    "turnover": {
+      "period_days": 30,
+      "trades": 8,
+      "avg_holding_days": 12.422420436459781,
+      "short_term_gains": 4097.58,
+      "long_term_gains": 0.0,
+      "realized_gain": 3155.9599999999996,
+      "estimated_tax_owed": 1311.2256,
+      "tax_drag": 696.5886
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 103467.14,
+      "shadow_return_pct": 0.03467141745175928,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 99370.3,
+      "strategy_return_pct": -0.006296999999999997,
+      "spread_pct": -0.040968417451759276
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "A",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "AMP",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "CI",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "FDS",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "LII",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "WDAY",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 6
+    }
   }
 ]

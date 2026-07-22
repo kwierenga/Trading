@@ -328,3 +328,41 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-07-22 — WDAY closed (held 5.0d, -5.49%, $-554.04)
+<!-- pm-key: WDAY|2026-07-22T13:34:24|146.13 -->
+
+**Mechanical (auto-filled):**
+- Entry: $146.13 on 2026-07-17 → Exit: $138.10 on 2026-07-22 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: PYRAMID tranche 2: original lot held 7d at +6.0%; price $145.43 > SMA20 $130.17; adding $10,231 (70 sh) with combined break-even stop at $140.08.
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
+
+## 2026-07-22 — WDAY closed (held 2.0d, -2.05%, $-5.78)
+<!-- pm-key: WDAY|2026-07-22T13:34:24|140.992254 -->
+
+**Mechanical (auto-filled):**
+- Entry: $140.99 on 2026-07-20 → Exit: $138.10 on 2026-07-22 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: (no pre-trade rationale recorded)
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
