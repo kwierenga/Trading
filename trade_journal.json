@@ -199,6 +199,24 @@
   },
   {
     "id": 12,
+    "symbol": "WDAY",
+    "shares": 69,
+    "entry_price": 140.992254,
+    "entry_time": "2026-07-20T13:33:28.913618Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "",
+    "source": "alpaca_reconciled",
+    "status": "closed",
+    "exit_price": 127.12,
+    "exit_time": "2026-07-23T19:50:05.394368Z",
+    "pnl": -957.19,
+    "pnl_pct": -0.09839,
+    "duration_minutes": 4696.6080125,
+    "reason_exit": "stop_hit"
+  },
+  {
+    "id": 13,
     "symbol": "A",
     "shares": 143,
     "entry_price": 129.71,
@@ -216,7 +234,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 14,
     "symbol": "LII",
     "shares": 20,
     "entry_price": 575.57,
@@ -234,7 +252,7 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 15,
     "symbol": "CI",
     "shares": 11,
     "entry_price": 281.87,
@@ -252,7 +270,7 @@
     "reason_exit": null
   },
   {
-    "id": 15,
+    "id": 16,
     "symbol": "CI",
     "shares": 33,
     "entry_price": 300.99,
@@ -270,7 +288,7 @@
     "reason_exit": null
   },
   {
-    "id": 16,
+    "id": 17,
     "symbol": "AMP",
     "shares": 19,
     "entry_price": 520.609474,
@@ -288,7 +306,7 @@
     "reason_exit": null
   },
   {
-    "id": 17,
+    "id": 18,
     "symbol": "FDS",
     "shares": 1,
     "entry_price": 245.83,
@@ -306,7 +324,7 @@
     "reason_exit": null
   },
   {
-    "id": 18,
+    "id": 19,
     "symbol": "FDS",
     "shares": 38,
     "entry_price": 260.07,
@@ -315,24 +333,6 @@
     "target_price": null,
     "rationale": "PYRAMID tranche 2: original lot held 10d at +6.8%; price $262.46 > SMA20 $238.97; adding $10,023 (38 sh) with combined break-even stop at $253.41.",
     "source": "claude",
-    "status": "open",
-    "exit_price": null,
-    "exit_time": null,
-    "pnl": null,
-    "pnl_pct": null,
-    "duration_minutes": null,
-    "reason_exit": null
-  },
-  {
-    "id": 19,
-    "symbol": "WDAY",
-    "shares": 69,
-    "entry_price": 140.992254,
-    "entry_time": "2026-07-20T13:33:28.913618Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "",
-    "source": "alpaca_reconciled",
     "status": "open",
     "exit_price": null,
     "exit_time": null,

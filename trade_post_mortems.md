@@ -366,3 +366,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-07-23 — WDAY closed (held 3.3d, -9.84%, $-957.19)
+<!-- pm-key: WDAY|2026-07-23T19:50:05|140.992254 -->
+
+**Mechanical (auto-filled):**
+- Entry: $140.99 on 2026-07-20 → Exit: $127.12 on 2026-07-23 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: (no pre-trade rationale recorded)
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
