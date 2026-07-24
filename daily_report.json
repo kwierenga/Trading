@@ -2132,5 +2132,79 @@
       "noops": 0,
       "skipped_no_R": 5
     }
+  },
+  {
+    "timestamp": "2026-07-24T21:36:50.213968+00:00",
+    "date": "2026-07-24",
+    "equity": 100259.75,
+    "cash": 37017.79,
+    "positions": 5,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 9,
+      "avg_holding_days": 11.40454409263246,
+      "short_term_gains": 4097.58,
+      "long_term_gains": 0.0,
+      "realized_gain": 2198.7699999999995,
+      "estimated_tax_owed": 1311.2256,
+      "tax_drag": 696.5886
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 102862.97,
+      "shadow_return_pct": 0.028629651849112925,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 100259.75,
+      "strategy_return_pct": 0.0025975000000000303,
+      "spread_pct": -0.026032151849112894
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "A",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "AMP",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "CI",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "FDS",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "LII",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 5
+    }
   }
 ]
