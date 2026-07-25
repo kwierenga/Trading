@@ -376,12 +376,12 @@ eventually, to RULEBOOK.md.
 - Pre-trade rationale: (no pre-trade rationale recorded)
 
 **Reflective (fill within 24h):**
-- What I expected to happen: _(fill in within 24h)_
-- What actually happened: _(fill in within 24h)_
-- What surprised me: _(fill in within 24h)_
-- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
-- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
-- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
-- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+- What I expected to happen: Continuation. This was the system's pick, not a discretionary call of mine — I trusted its thesis that WDAY was cheap and had started to work, so I expected it to keep climbing.
+- What actually happened: It fell ~13% in three days while the broad market was flat. I first assumed macro (Iran / market jitters), but the data and news showed it was software-specific — a Morgan Stanley downgrade (07-20, EW→UW, PT $185→$145) and the OpenAI "Presence" SaaS-sector selloff (07-22) — not a market-wide move.
+- What surprised me: That it was sector- and name-specific, not market-wide. SPY was flat while WDAY dropped 13%, so the broad index completely hid a software-only rout.
+- Entry timing right in retrospect? (Y/N + why): No. Maybe it's genuinely cheap now, but buying was still a gamble — the big drop happened a while ago and no actual climb has occurred yet. Cheap without a confirmed turn is a falling knife, and the algo not only bought it but pyramided into it.
+- Exit timing right in retrospect? (Y/N + why): Reasonable — the stop limited the damage on a real repricing (downgrade + sector disruption), as long as WDAY doesn't fully rebound. Not a case of the stop being too tight.
+- Did I override the system anywhere? (size/stop/hold/exit + why): No. WDAY was the algorithm's recommendation and its automated buys/pyramids; I let the Phase-3 system run and didn't intervene.
+- What would I do differently? (or "nothing — process worked"): Wait for an actual climb — a confirmed turn — before buying a beaten-down name, instead of buying just because it's cheap (don't catch the falling knife). Watch the sector/segment trend and single-name news, not only the broad market. The algo shouldn't buy or pyramid into cheap names that are still in a sustained sector downtrend. The specific triggers (the downgrade, the OpenAI launch) weren't predictable, but the vulnerability was — a falling knife in a declining sector with heavy insider selling was primed to drop on any catalyst, and those flags (including the Form 4 insider data the system already has) should gate the entry. Worth testing as a rule.
 
 ---
