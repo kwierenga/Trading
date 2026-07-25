@@ -27,12 +27,13 @@ a conscious waiver in RULEBOOK.md. Gates do not move because the date arrived.
 | 10 | 1-share live smoke test | ⬜ Week 4, after 6+7 |
 | 11 | Alpaca account email notifications | ⬜ **KLAAS** — 5 min in Alpaca console |
 | 12 | Tax-tracking dry-run | ✅ 2026-07-05: verified on live journal + fixed a real off-by-one (anniversary-day sale was labeled LTCG; IRS requires >1 year — `test_ltcg_boundary.py` pins it) |
-| 13 | Rotate Anthropic key | ⬜ **KLAAS** — bundle with cron-job.org PAT (expires **2026-08-04**) |
+| 13 | Rotate Anthropic key | 🟡 **KLAAS** — cron-job.org PAT ✅ rotated 2026-07-25 (→2027-07-25); Anthropic key still to rotate |
 | 14 | Rollback playbook | ✅ [ROLLBACK.md](ROLLBACK.md), written 2026-07-05 |
 
-Beyond the checklist: PAT rotation is the single most time-critical item —
-the cron-job.org jobs are the de facto PRIMARY triggers and their PAT dies on
-go-live day itself. Rotate week 1-2, update both cron-job.org jobs.
+Beyond the checklist: the cron-job.org PAT (was the single most time-critical
+item — it would have died on go-live day) is ✅ **rotated 2026-07-25 → 2027-07-25**,
+both jobs updated and TEST-RUN green. Remaining KLAAS creds: Anthropic key
+rotation, Alpaca live account + keys + notifications.
 
 ### Item 5 design — branch protection without breaking the bots
 

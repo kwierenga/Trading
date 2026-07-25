@@ -72,8 +72,9 @@ memory `trading_lessons.md` (distilled patterns), memory
    (separate `live-execute` env + reviewers + wait timer, fresh live keys,
    branch protection, 1-share smoke test, daily dollar-loss kill switch,
    rollback playbook…). Conscious skip with reason is allowed; silent skip is not.
-3. **Credential collision**: the cron-job.org PAT expires **2026-08-04** —
-   right before the wiring window. Rotate it as part of the same pass.
+3. **Credential collision**: ✅ the cron-job.org PAT was rotated 2026-07-25 →
+   now expires **2027-07-25** (both backup jobs on it). No longer collides with
+   the wiring window.
 4. **Promotion audit**: every Tier 2 row above must be Tier 1 or consciously
    waived in writing, in this file, before the first live order.
 
