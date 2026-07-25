@@ -12,6 +12,18 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [NOTE] 2026-07-25 Saturday — session: PAT rotation, liveness alert, first 2 post-mortems
+
+**What happened.** Rotated the cron-job.org backup PAT (old token expired 2026-08-04) onto one fresh fine-grained token (→2027-07-25) across both jobs, verified end-to-end, old tokens deleted; built + cloud-verified a backup-liveness alert in eod.yml (silent PAT expiry → loud email). Filled the first 2 of 22 reflective post-mortems via /post-mortem (WDAY −9.84%, AMP +15.68%). Real acct noted at $1,750, already in SPY; "go live at $3k" reaffirmed as manual SPY + RULEBOOK (algo stays paper until the 5 gates pass).
+
+**What we learned.** WDAY was an ENTRY/value-trap error (falling knife in a disrupted SaaS sector, $113M insider selling), not stops-too-tight — RULEBOOK 3.4 tally stays 0/1; AMP won because it was cheap in a range-bound healthy sector (same screen, opposite trend/sector context = the differentiator worth encoding). Pyramiding is 0-for-3 and structurally contradicts fixed take-profit targets — both fire on "strong winner near highs", producing the AMP same-day sell-$520/rebuy-$518 churn.
+
+**Open questions.** Pyramiding decision (RULEBOOK 2.1): drop it, or commit to a trailing-stop lane? Sector-trend + insider-selling entry filter: build a pre-committed test only at 3+ value-trap occurrences (1/3 so far). Both logged in memory, awaiting Klaas's decision / recurrence.
+
+**Tomorrow's plan.** Klaas to pick the pyramiding lane (drop vs trailing-stop) so it can be written as the RULEBOOK 2.1 resolution; optionally start the long-lead Alpaca live-account application (go-live item #6). Next session: confirm Monday's EOD ran the new "Check backup-trigger liveness" step cleanly.
+
+---
+
 ## [EOD] 2026-07-24 Friday
 **What happened.** No trades closed today. End equity $100,260, cash $37,018 (37% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 

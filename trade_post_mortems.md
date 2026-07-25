@@ -262,13 +262,13 @@ eventually, to RULEBOOK.md.
 - Pre-trade rationale: FUNDAMENTAL: Ameriprise is a high-quality wealth management and asset management franchise with 67% ROE, 37% operating margins, $3.4B FCF, and a forward P/E of just 9.5x — deeply cheap for this qualit
 
 **Reflective (fill within 24h):**
-- What I expected to happen: _(fill in within 24h)_
-- What actually happened: _(fill in within 24h)_
-- What surprised me: _(fill in within 24h)_
-- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
-- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
-- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
-- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+- What I expected to happen: A sound "cheap quality" pick in a healthy market — I expected it to work over time, but didn't expect the gain to come this fast.
+- What actually happened: It hit its +15.68% target in 15 days; the original lot sold at $520 via the bracket's take-profit leg.
+- What surprised me: How rapidly it rose — I wouldn't have anticipated a 15% gain that quickly.
+- Entry timing right in retrospect? (Y/N + why): Yes — it's a different, healthier market/sector than WDAY, and the stock had been stable/range-bound rather than falling. A good pick.
+- Exit timing right in retrospect? (Y/N + why): Yes — the target (a take-profit limit pre-committed at entry) was well-timed; AMP ran a touch more then stalled ~$525.
+- Did I override the system anywhere? (size/stop/hold/exit + why): No — this was the algorithm's pick and its automated target-sale + pyramid; I let the Phase-3 system run.
+- What would I do differently? (or "nothing — process worked"): All in all the algo performed very well on this one. The one blemish: the pyramid re-bought a tranche at $518 the same day the take-profit sold the original lot at $520 — churn that booked a taxable gain for no economic change. Candidate fix: after a profit-taking sale don't re-buy the same name for a cooldown period, and/or don't pyramid a lot already sitting at its take-profit target.
 
 ---
 
