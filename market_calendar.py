@@ -49,6 +49,20 @@ def is_us_trading_day(date=None) -> bool:
     return not sched.empty
 
 
+def trading_days_between(start_date, end_date) -> int:
+    """
+    Count NYSE trading sessions strictly after `start_date` up to and including
+    `end_date` (both datetime.date). Returns 0 if end_date <= start_date.
+
+    Used by check_backup_liveness.py to age the last backup dispatch in trading
+    days, so intervening weekends/holidays don't read as staleness.
+    """
+    if end_date <= start_date:
+        return 0
+    sched = _get_nyse().schedule(start_date=start_date, end_date=end_date)
+    return int(sum(1 for d in sched.index.date if d > start_date))
+
+
 if __name__ == "__main__":
     today_ny = datetime.now(EST).strftime("%Y-%m-%d %A")
     if is_us_trading_day():

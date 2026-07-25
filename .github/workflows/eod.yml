@@ -34,6 +34,7 @@ jobs:
     environment: paper
     permissions:
       contents: write  # to commit JOURNAL.md back to main
+      actions: read    # to read backup-trigger run history (liveness check)
 
     steps:
       - name: Checkout
@@ -113,6 +114,19 @@ jobs:
             echo "Push failed after 3 attempts."
             exit 1
           fi
+
+      # Backup-trigger liveness check — turns a silent cron-job.org PAT expiry
+      # into a loud alert email. Best-effort: check_backup_liveness.py always
+      # exits 0, so it can never fail the EOD job. Runs even if an earlier step
+      # failed so a dead backup is still caught.
+      - name: Check backup-trigger liveness
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python check_backup_liveness.py
 
       # Dead-man's-switch heartbeat — confirms the EOD cron fired. No-op until
       # the HEALTHCHECK_UUID_EOD secret is set.
