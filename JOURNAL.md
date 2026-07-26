@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-07-14 → 2026-07-26
+
+_Sharpe +0.22, Sortino +0.29, MaxDD -3.8%, CAGR +2.2%, excess CAGR vs SPY -13.5% (quantstats, since inception)._
+
+**What worked / what didn't.** AMP's +15.7% exit via target hit was the week's clean win — a cheap entry in a healthy, range-bound sector with no structural headwinds. That's the strategy working as designed. Everything else was noise or worse. WDAY is the real story: three separate entries, all stopped out, totaling roughly -$1,500 in realized losses across 10 days of combined holding. The journal already correctly identifies this as an entry error rather than stop placement — but the fact that WDAY was re-entered twice after the first stop hit is the pattern that matters most. CI, FDS, and WDAY (the +1.7%, +2.2%, +3.8% exits) all closed via stop hits with minimal gain, which suggests positions that were never truly working from the open, not setups that ran and pulled back.
+
+**What's puzzling or worth watching.** The journal's EOD "What we learned" fields are blank for every single day this week. That's six missed 15-minute reviews in a row. This isn't a minor admin gap — it's the primary feedback loop between what the system does and what Klaas thinks about it, and it ran dark all week. Separately, cash swung from 18% to 37% of equity mid-week as positions were stopped out and not replaced, while the screen simultaneously produced no high-conviction setups on three of five days. That combination — shrinking position count, rising cash, empty screens — is worth naming: it may reflect a genuinely extended market, or it may reflect filters that tighten procyclically in volatile conditions. The open position in LII at -6.0% unrealized is also sitting close to what would be a meaningful loss if stopped; it hasn't appeared in any journal commentary.
+
+**Reflective prompts for Klaas.** What was the specific reasoning behind re-entering WDAY after the first stop hit, and would that reasoning survive a written pre-trade checklist that included sector trend and insider flow — or did the re-entries happen faster than that checklist would have allowed? The blank EOD fields suggest the 15-minute review isn't happening consistently: what's the actual friction point, and is the format the problem or is something else getting in the way? LII is down 6.0% unrealized and hasn't appeared in any journal entry this week — what is the current thesis, and has anything changed in the underlying that would warrant checking it against the original entry rationale?
+
+
+---
+
 ## [NOTE] 2026-07-25 Saturday — session: PAT rotation, liveness alert, first 2 post-mortems
 
 **What happened.** Rotated the cron-job.org backup PAT (old token expired 2026-08-04) onto one fresh fine-grained token (→2027-07-25) across both jobs, verified end-to-end, old tokens deleted; built + cloud-verified a backup-liveness alert in eod.yml (silent PAT expiry → loud email). Filled the first 2 of 22 reflective post-mortems via /post-mortem (WDAY −9.84%, AMP +15.68%). Real acct noted at $1,750, already in SPY; "go live at $3k" reaffirmed as manual SPY + RULEBOOK (algo stays paper until the 5 gates pass).
