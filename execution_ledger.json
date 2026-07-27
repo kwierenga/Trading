@@ -337,7 +337,7 @@
     "shares": 26,
     "entry_price": 471.5,
     "order_id": "332634fa-71ac-44a6-b588-6403debda962",
-    "fill_status": "unknown"
+    "fill_status": "working (unfilled)"
   },
   {
     "date": "2026-07-27",
