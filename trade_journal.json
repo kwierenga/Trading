@@ -340,5 +340,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 20,
+    "symbol": "MCO",
+    "shares": 26,
+    "original_shares": 26,
+    "entry_price": 471.5,
+    "entry_time": "2026-07-27T14:33:49.583370+00:00",
+    "stop_loss": 448.0,
+    "initial_stop": 448.0,
+    "R": 23.5,
+    "current_stop": 448.0,
+    "target_price": 530.0,
+    "rationale": "FUNDAMENTAL: Moody's is a near-monopoly rating agency benefiting from secular growth in global debt issuance and data/analytics demand. Operating margin of 49.5% and ROE of 76.9% reflect the durable c",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]

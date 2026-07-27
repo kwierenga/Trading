@@ -326,5 +326,25 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Healthcare sector would be 42.5% of equity (existing $32,514 + new $9,971 = $42,485); cap is 35%"
+  },
+  {
+    "date": "2026-07-27",
+    "timestamp": "2026-07-27T14:33:49.583156+00:00",
+    "symbol": "MCO",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $448.00, target $530.00; submit status pending_new",
+    "shares": 26,
+    "entry_price": 471.5,
+    "order_id": "332634fa-71ac-44a6-b588-6403debda962",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-07-27",
+    "timestamp": "2026-07-27T14:33:50.885192+00:00",
+    "symbol": "A",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Healthcare sector would be 42.1% of equity (existing $32,579 + new $10,027 = $42,606); cap is 35%"
   }
 ]
