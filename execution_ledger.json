@@ -346,5 +346,13 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Healthcare sector would be 42.1% of equity (existing $32,579 + new $10,027 = $42,606); cap is 35%"
+  },
+  {
+    "date": "2026-07-28",
+    "timestamp": "2026-07-28T15:24:24.527365+00:00",
+    "symbol": "A",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Healthcare sector would be 42.3% of equity (existing $33,129 + new $10,255 = $43,383); cap is 35%"
   }
 ]
