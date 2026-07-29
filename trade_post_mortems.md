@@ -385,3 +385,60 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): Wait for an actual climb — a confirmed turn — before buying a beaten-down name, instead of buying just because it's cheap (don't catch the falling knife). Watch the sector/segment trend and single-name news, not only the broad market. The algo shouldn't buy or pyramid into cheap names that are still in a sustained sector downtrend. The specific triggers (the downgrade, the OpenAI launch) weren't predictable, but the vulnerability was — a falling knife in a declining sector with heavy insider selling was primed to drop on any catalyst, and those flags (including the Form 4 insider data the system already has) should gate the entry. Worth testing as a rule.
 
 ---
+
+## 2026-07-29 — LII closed (held 27.8d, -18.70%, $-2,153.01)
+<!-- pm-key: LII|2026-07-29T13:34:45|575.57 -->
+
+**Mechanical (auto-filled):**
+- Entry: $575.57 on 2026-07-01 → Exit: $467.92 on 2026-07-29 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: PYRAMID tranche 2: original lot held 18d at +11.8%; price $572.95 > SMA20 $529.97; adding $9,789 (17 sh) with combined break-even stop at $538.98.
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
+
+## 2026-07-29 — FDS closed (held 23.0d, +17.97%, $+44.18)
+<!-- pm-key: FDS|2026-07-29T13:55:22|245.83 -->
+
+**Mechanical (auto-filled):**
+- Entry: $245.83 on 2026-07-06 → Exit: $290.01 on 2026-07-29 via target_hit
+- Tax bucket: STCG
+- Pre-trade rationale: Fundamental: FactSet is a wide-moat, subscription-based financial data and analytics platform. 30.5% operating margins, 27% ROE, $621M FCF on an $8.9B market cap (~7% FCF yield), PEG 1.19, and analyst
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
+
+## 2026-07-29 — FDS closed (held 12.0d, +11.51%, $+1,137.72)
+<!-- pm-key: FDS|2026-07-29T13:55:22|260.07 -->
+
+**Mechanical (auto-filled):**
+- Entry: $260.07 on 2026-07-17 → Exit: $290.01 on 2026-07-29 via target_hit
+- Tax bucket: STCG
+- Pre-trade rationale: PYRAMID tranche 2: original lot held 10d at +6.8%; price $262.46 > SMA20 $238.97; adding $10,023 (38 sh) with combined break-even stop at $253.41.
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
