@@ -322,5 +322,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 19,
+    "symbol": "LMT",
+    "shares": 22,
+    "original_shares": 22,
+    "entry_price": 569.2,
+    "entry_time": "2026-07-30T14:33:52.778100+00:00",
+    "stop_loss": 539.3,
+    "initial_stop": 539.3,
+    "R": 29.90000000000009,
+    "current_stop": 539.3,
+    "target_price": 652.0,
+    "rationale": "Fundamental: Lockheed Martin is a high-quality defense compounder with 89% ROE, $5.6B FCF, $10.4B operating cash flow, and 10.5% revenue growth. Defense budgets are structurally elevated across NATO, ",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]

@@ -362,5 +362,25 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Healthcare sector would be 42.7% of equity (existing $33,268 + new $10,028 = $43,296); cap is 35%"
+  },
+  {
+    "date": "2026-07-30",
+    "timestamp": "2026-07-30T14:33:52.777922+00:00",
+    "symbol": "LMT",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $539.30, target $652.00; submit status pending_new",
+    "shares": 22,
+    "entry_price": 569.2,
+    "order_id": "5f8895ef-b76d-4a41-b009-2b617163fbed",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-07-30",
+    "timestamp": "2026-07-30T14:33:53.378830+00:00",
+    "symbol": "A",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Healthcare sector would be 42.3% of equity (existing $32,457 + new $10,011 = $42,468); cap is 35%"
   }
 ]
