@@ -1,49 +1,34 @@
 {
-  "analysis": "MARKET & PORTFOLIO REVIEW (2026-07-29): Market regime is MIXED \u2014 SPY is marginally below its SMA50 (-0.7%) with a modestly positive 20d slope. This is not a high-conviction environment for adding risk aggressively; selectivity is paramount.\n\nEXISTING POSITIONS:\n\u2022 A (+7.55%): In uptrend-extending mode per screened data. Carry the position but watch for distribution signs above $145; tighten mental stop toward $125.\n\u2022 AMP (+5.00%): Modest gain, not in screened candidate list so I cannot fully re-evaluate, but the position is small and within normal parameters. Hold.\n\u2022 CI (+1.64%): Small gain, thesis intact. Not in screened list but position is within tolerance. Hold.\n\u2022 FDS (+9.30%): Already in the screened list as an uptrend-basing setup at fair valuation. Position is profitable; let it run toward prior highs. No need to add \u2014 concentration would increase materially.\n\u2022 LII (-7.74%): THIS IS THE CONCERN. LII is the only holding NOT appearing in the screened candidate list (which requires no confirmed downtrend). A -7.74% loss from entry and absence from the quality+trend screen is a meaningful thesis-break signal. Stop at avg $575.57 less ~12% structural stop puts hard floor around ~$506. Current price $531 is above that, but downside momentum + failing trend filter = tighten stop to ~$505-510 range (roughly 2x ATR below current) and be prepared to exit if that level breaks. Do not average down.\n\nNEW TRADE CANDIDATES: Only one setup passes all filters with genuine asymmetry \u2014 ROP (Roper Technologies). It is a high-quality serial software acquirer trading at a 15.6x trailing / 16.2x fwd P/E, which is unusually cheap for a business with 27.7% operating margins, $2.3B FCF, and 8.5% revenue growth. It sits at just 25% of its 52-week range (Stage 1\u21922 basing territory), SMA50 slope is barely positive signalling the base is still being constructed rather than extended. Earnings are 85 days out (Oct 22), giving a clean runway. ATR-based stop produces a ~6.5% drawdown max \u2014 well within rules \u2014 and a reasonable target to $440 (prior resistance zone) delivers 2.6x risk/reward. Sized to risk 1.5% of equity, position fits within both the 25% concentration cap and the $31,903 headroom. WDAY is explicitly excluded given three consecutive stop-outs \u2014 the system has no edge there currently. VEEV and LMT are interesting but VEEV is 14.6% above SMA50 (extended for fresh entry) and LMT would push us to 6 positions in a MIXED tape. One high-conviction add is the right call; cash at 36% of equity is a feature, not a bug.",
-  "confidence_target_pct": 58,
+  "analysis": "Market regime is MIXED (SPY -1.9% vs SMA50 but recovering slope). The portfolio is running very lean at 0.86% heat which is appropriate given the Sortino ratio of -4.30 and profit factor below 1.0x \u2014 the recent track record demands selectivity, not aggression. Existing positions: A is healthy at +8.16% with uptrend extending and thesis intact, let it run. AMP is small at +3.78% and fine. CI at -1.46% is concerning \u2014 it did NOT appear on the screened candidate list, suggesting it may have failed the trend filter; the managed-care sector faces Medicaid cut headwinds and regulatory uncertainty. CI should be exited on any further deterioration or if price closes below the original stop. With ~57% in cash and a mixed-regime backdrop, the correct posture is one high-conviction addition at most. LMT stands out: defense spending is structurally higher post-Ukraine/Taiwan risk repricing, the company is a quality compounder with 89% ROE and $5.6B FCF, forward P/E of 17.4x is fair, analyst EPS revisions are positive, and at 61% of its 52-week range with a clean uptrend not yet overextended (+8.2% vs SMA50), the technical setup is acceptable. Earnings are 82 days out, giving ample time. All other high-scoring candidates are either too extended (CTAS 88%, CSX 88%, DAL 83%, NSC 82%, STLD 82%) or have SMA50 well below price (BRO +19%, ADP +17%, FDS +16%, VRSK +16%) with earnings risk. FDS has earnings in 49 days and is already extended \u2014 not the right entry. MU's ATR implies a stop exceeding the 15% ceiling. Cash remains the dominant position, which is appropriate given the mixed regime and our demonstrated edge deficit.",
+  "confidence_target_pct": 52,
   "trades": [
     {
-      "symbol": "ROP",
+      "symbol": "LMT",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $375 or better; accept fills up to $378. Prefer entry on any intraday dip toward SMA50 support if market pulls back this week.",
-      "entry_price": 375.02,
-      "stop_loss": 350.72,
-      "stop_loss_pct": 0.065,
+      "entry_strategy": "Limit order at $569 or better; acceptable to enter on any intraday pullback toward $560. Do not chase above $575.",
+      "entry_price": 569.2,
+      "stop_loss": 539.3,
+      "stop_loss_pct": 0.0525,
       "atr_multiple": 1.75,
-      "target": 440.0,
-      "target_gain_pct": 0.173,
-      "risk_reward_ratio": 2.66,
-      "conviction": 65,
+      "target": 652.0,
+      "target_gain_pct": 0.145,
+      "risk_reward_ratio": 2.76,
+      "conviction": 68,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Roper Technologies is a best-in-class serial acquirer of niche vertical software businesses. Fwd P/E of ~16x is well below the S&P median for a company with 27.7% operating margins, $2.3B annual FCF, and consistent mid-to-high single digit organic revenue growth. Analyst EPS revisions ticked up +1.0% in the past 60 days. The balance sheet (D/E 60) is conservatively managed. This is a 'wonderful business at a fair price' setup \u2014 Roper rarely trades this cheaply on a forward earnings basis. TECHNICAL: Price sits at just 25% of its 52-week range ($313-$558), consistent with a Stage 1 base building toward Stage 2 breakout. UPTREND (basing) classification is confirmed. SMA50 slope is barely positive (+0.2%) \u2014 this is the early inflection where Weinstein's 'basing knife' philosophy applies best. The stock is +10.8% vs SMA50, which is modestly extended but acceptable for a basing pattern. Earnings October 22 give 85 days of clean runway for the thesis to develop before binary event risk.",
-      "exit_plan": "Stop: hard stop at $350.72 (1.75x ATR below entry); trail stop up as price advances. Thesis-break conditions: SMA50 slope turns negative for two consecutive weeks; acquisition announced at a materially dilutive price; forward estimates revised down >5% in a single quarter. Time stop: reassess if price has not made progress toward $410 within 10 weeks of entry. Pre-earnings lightening: consider trimming 30-40% of position by Oct 15 to reduce binary earnings risk if position is sitting at a gain."
+      "rationale": "Fundamental: Lockheed Martin is a high-quality defense compounder with 89% ROE, $5.6B FCF, $10.4B operating cash flow, and 10.5% revenue growth. Defense budgets are structurally elevated across NATO, driving multi-year backlog expansion in F-35, missiles, and hypersonics. Forward P/E of 17.4x is fair for a capital-return-heavy business with durable government contracts. Analyst EPS revisions are +1.7% positive. Debt/equity at 234% is elevated but well-covered by cash flows. Technical: Stock is in a confirmed uptrend at 61% of its 52-week range \u2014 not late-cycle. Price is +8.2% above SMA50 with SMA50 still sloping upward at +1.1%/20d, indicating trend is intact but not extended. The 52-week high of $672 provides a natural measured-move target. Next earnings October 20 (82 days out), giving a clean trading window without immediate binary risk.",
+      "exit_plan": "Exit if: (1) stop at $539.30 hit; (2) price closes below SMA50 on high volume with no recovery within 3 days; (3) a material deterioration in US defense budget outlook or prolonged continuing resolution freezing procurement; (4) if held past 1 year and thesis intact, convert to LTCG hold. Trim 50% of position near $650 target and trail remainder."
     },
     {
       "symbol": "A",
       "direction": "BUY",
-      "entry_price": 141.24,
-      "stop_loss": 132.9,
-      "target": 169.49,
+      "entry_price": 141.0,
+      "stop_loss": 132.79,
+      "target": 169.2,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.387290167865706,
-      "rationale": "PYRAMID tranche 2: original lot held 47d at +7.5%; price $140.54 > SMA20 $134.02; adding $10,169 (72 sh) with combined break-even stop at $132.90.",
-      "entry_strategy": "Limit @ $141.24 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
-    },
-    {
-      "symbol": "FDS",
-      "direction": "BUY",
-      "entry_price": 267.23,
-      "stop_loss": 262.1,
-      "target": 320.68,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 10.419103313840163,
-      "rationale": "PYRAMID tranche 2: original lot held 22d at +9.3%; price $265.90 > SMA20 $249.18; adding $10,155 (38 sh) with combined break-even stop at $262.10.",
-      "entry_strategy": "Limit @ $267.23 (current +0.5%)",
+      "risk_reward_ratio": 3.4348355663824557,
+      "rationale": "PYRAMID tranche 2: original lot held 48d at +8.2%; price $140.30 > SMA20 $134.40; adding $10,011 (71 sh) with combined break-even stop at $132.79.",
+      "entry_strategy": "Limit @ $141.00 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -51,9 +36,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "55150cf422be6741",
-    "prompt_chars": 22134,
-    "generated_at": "2026-07-29T10:30:03.857843+00:00",
-    "code_sha": "e32b6a004ebb"
+    "prompt_sha256": "cfe8ed132135f3f8",
+    "prompt_chars": 21871,
+    "generated_at": "2026-07-30T10:26:08.067879+00:00",
+    "code_sha": "0a4348ec73ff"
   }
 }
