@@ -1,44 +1,29 @@
 {
-  "analysis": "Market regime is MIXED (SPY -1.9% vs SMA50 but recovering slope). The portfolio is running very lean at 0.86% heat which is appropriate given the Sortino ratio of -4.30 and profit factor below 1.0x \u2014 the recent track record demands selectivity, not aggression. Existing positions: A is healthy at +8.16% with uptrend extending and thesis intact, let it run. AMP is small at +3.78% and fine. CI at -1.46% is concerning \u2014 it did NOT appear on the screened candidate list, suggesting it may have failed the trend filter; the managed-care sector faces Medicaid cut headwinds and regulatory uncertainty. CI should be exited on any further deterioration or if price closes below the original stop. With ~57% in cash and a mixed-regime backdrop, the correct posture is one high-conviction addition at most. LMT stands out: defense spending is structurally higher post-Ukraine/Taiwan risk repricing, the company is a quality compounder with 89% ROE and $5.6B FCF, forward P/E of 17.4x is fair, analyst EPS revisions are positive, and at 61% of its 52-week range with a clean uptrend not yet overextended (+8.2% vs SMA50), the technical setup is acceptable. Earnings are 82 days out, giving ample time. All other high-scoring candidates are either too extended (CTAS 88%, CSX 88%, DAL 83%, NSC 82%, STLD 82%) or have SMA50 well below price (BRO +19%, ADP +17%, FDS +16%, VRSK +16%) with earnings risk. FDS has earnings in 49 days and is already extended \u2014 not the right entry. MU's ATR implies a stop exceeding the 15% ceiling. Cash remains the dominant position, which is appropriate given the mixed regime and our demonstrated edge deficit.",
-  "confidence_target_pct": 52,
+  "analysis": "MARKET & PORTFOLIO REVIEW: SPY regime is MIXED \u2014 price slightly below SMA50 but the 20-day slope is modestly positive (+1.21%). This is not a time to be aggressive; one disciplined addition to an existing quality setup is the right posture. Overall portfolio heat is low (1.34%) and max drawdown contained (3.81%), which is good. The Sortino of -3.66 reflects some recent stop-outs (WDAY x2, LII) and means downside vol has outpaced upside \u2014 reinforcing the need for disciplined entries.\n\nPOSITION REVIEW:\n\u2014 A (+6.94%): Thesis intact; uptrend extending. ALERT: Earnings Aug 26 (26 days). Consider trimming 20-30% before the print or be prepared to hold through volatility.\n\u2014 AMP (+4.58%): Not in screened list but performing fine. Monitor.\n\u2014 CI (-2.89%): FLAG \u2014 CI does NOT appear in this cycle's screened candidates. This may indicate it failed the 'no confirmed downtrend' filter. The position is -2.89% from cost but the thesis warrants scrutiny. If CI continues to lag or breaks below $275, exit on thesis-break grounds even before a formal stop is hit.\n\u2014 LMT (+2.40%): In screened list, uptrend extending, thesis intact.\n\u2014 MCO (+2.36%): Not in screened list but performing fine. Monitor.\n\nNEW TRADE RATIONALE: Portfolio has $28,092 headroom and is at 5 positions (upper bound of the 3-5 target). I will propose one trade only \u2014 FDS \u2014 which offers the single clearest asymmetric setup on the board. We have two prior profitable closed trades in FDS (+17.97%, +11.51%), the fundamental profile is excellent, and the technical setup is a Stage 1-to-2 basing transition with the stock in the lower 36% of its 52-week range. Forward P/E of 13.35 is compelling for a 27% ROE, 30%+ margin business. All other candidates are either too extended in range (TRV 85%, NSC 80%, IQV 89%), in mixed/sideways trends without basing clarity, or carry lower conviction on fundamentals. Cash preservation and single high-conviction addition is the correct call here.",
+  "confidence_target_pct": 58,
   "trades": [
     {
-      "symbol": "LMT",
+      "symbol": "FDS",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $569 or better; acceptable to enter on any intraday pullback toward $560. Do not chase above $575.",
-      "entry_price": 569.2,
-      "stop_loss": 539.3,
-      "stop_loss_pct": 0.0525,
-      "atr_multiple": 1.75,
-      "target": 652.0,
-      "target_gain_pct": 0.145,
-      "risk_reward_ratio": 2.76,
-      "conviction": 68,
+      "entry_strategy": "Limit order at $263 or better; accept fills up to $268. On any pullback toward $255-258 (near SMA50), add aggressively within position size. Do not chase above $272 \u2014 wait for a reset.",
+      "entry_price": 263.0,
+      "stop_loss": 243.0,
+      "stop_loss_pct": 0.076,
+      "atr_multiple": 1.52,
+      "target": 310.0,
+      "target_gain_pct": 0.179,
+      "risk_reward_ratio": 2.35,
+      "conviction": 72,
       "holding_period": "position",
-      "rationale": "Fundamental: Lockheed Martin is a high-quality defense compounder with 89% ROE, $5.6B FCF, $10.4B operating cash flow, and 10.5% revenue growth. Defense budgets are structurally elevated across NATO, driving multi-year backlog expansion in F-35, missiles, and hypersonics. Forward P/E of 17.4x is fair for a capital-return-heavy business with durable government contracts. Analyst EPS revisions are +1.7% positive. Debt/equity at 234% is elevated but well-covered by cash flows. Technical: Stock is in a confirmed uptrend at 61% of its 52-week range \u2014 not late-cycle. Price is +8.2% above SMA50 with SMA50 still sloping upward at +1.1%/20d, indicating trend is intact but not extended. The 52-week high of $672 provides a natural measured-move target. Next earnings October 20 (82 days out), giving a clean trading window without immediate binary risk.",
-      "exit_plan": "Exit if: (1) stop at $539.30 hit; (2) price closes below SMA50 on high volume with no recovery within 3 days; (3) a material deterioration in US defense budget outlook or prolonged continuing resolution freezing procurement; (4) if held past 1 year and thesis intact, convert to LTCG hold. Trim 50% of position near $650 target and trail remainder."
-    },
-    {
-      "symbol": "A",
-      "direction": "BUY",
-      "entry_price": 141.0,
-      "stop_loss": 132.79,
-      "target": 169.2,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 3.4348355663824557,
-      "rationale": "PYRAMID tranche 2: original lot held 48d at +8.2%; price $140.30 > SMA20 $134.40; adding $10,011 (71 sh) with combined break-even stop at $132.79.",
-      "entry_strategy": "Limit @ $141.00 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
+      "rationale": "FUNDAMENTAL: FactSet is a durable, capital-light financial data business with 27% ROE, 30.5% operating margins, $621M FCF, and a forward P/E of 13.35 \u2014 exceptional value for this quality tier. PEG of 1.30 signals fair-to-undervalued pricing. Revenue growth is steady at +6.4% with analyst EPS revisions trending slightly positive. We have direct experience with this name: two prior exits at +17.97% and +11.51% confirm the thesis cycle. TECHNICAL: Stock is in the lower 36% of its 52-week range \u2014 well off the $396 high \u2014 and is in a confirmed basing/early uptrend. SMA50 slope has inflected positively at +6.0%/20d. At +7.7% above SMA50, the stock is not yet extended. ATR at 5% of price provides a healthy stop distance without being excessive. Earnings are 48 days out (Sept 17), giving adequate runway for the position to develop before the next catalyst event.",
+      "exit_plan": "Primary exit: price target $310 (~18% gain). Stop: $243 (hard stop, 1.52x ATR). Thesis-break conditions: (1) FDS breaks below SMA200 on volume, (2) earnings show revenue deceleration below 4% or margin compression, (3) broad financial data sector de-rating. Time stop: reassess if no progress toward target within 60 days. Pre-earnings (Sept 10): decide to hold or trim to half-size based on position P&L and market conditions \u2014 do not hold full size through earnings given the 5% ATR."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "cfe8ed132135f3f8",
-    "prompt_chars": 21871,
-    "generated_at": "2026-07-30T10:26:08.067879+00:00",
-    "code_sha": "0a4348ec73ff"
+    "prompt_sha256": "a3ce3fe12344083c",
+    "prompt_chars": 22069,
+    "generated_at": "2026-07-31T10:26:19.977055+00:00",
+    "code_sha": "055743d98947"
   }
 }
