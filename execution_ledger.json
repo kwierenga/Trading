@@ -382,5 +382,13 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Healthcare sector would be 42.3% of equity (existing $32,457 + new $10,011 = $42,468); cap is 35%"
+  },
+  {
+    "date": "2026-07-31",
+    "timestamp": "2026-07-31T14:34:01.752716+00:00",
+    "symbol": "FDS",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Financial Services sector would be 37.3% of equity (existing $22,782 + new $14,728 = $37,510); cap is 35%"
   }
 ]
