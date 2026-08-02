@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-07-21 → 2026-08-02
+
+_Sharpe +0.54, Sortino +0.73, MaxDD -3.8%, CAGR +7.1%, excess CAGR vs SPY -12.2% (quantstats, since inception)._
+
+**What worked / what didn't.** FDS delivered twice — both exits hit targets, one after 23 days (+$44, frustratingly small dollar gain despite 18% return, suggesting undersizing) and one after 12 days (+$1,138, the week's anchor win). The stops worked mechanically on WDAY: three separate entries, three stop-hits, cumulative loss of ~$1,517. That's not a stop calibration problem — that's the same thesis re-entered twice after it failed once, which the Saturday post-mortem already flagged as an entry error. LII is the blunt one: -18.7% over 28 days and $2,153 gone, the largest dollar loss of the week, on a position that had ample time to be re-evaluated before the stop finally triggered.
+
+**What's puzzling or worth watching.** The journal's "What we learned" fields are blank for every single EOD entry this week. The reflection infrastructure exists but isn't being used in real time — which means the Saturday post-mortem is doing all the work that should have been distributed across five evenings. That's a process gap, not a judgment. Also worth watching: CI is now sitting at -5.8% unrealized and is the only open loser. It entered after the LII stop-hit, in a week where the portfolio was already absorbing significant losses. Whether the CI entry was a deliberate re-deployment of capital or coincidental timing is not visible in the record.
+
+**Reflective prompts for Klaas.** WDAY was entered three times — what specific condition would have had to change between entry two and entry three for a third attempt to be rule-compliant, and does that condition appear anywhere in the current RULEBOOK? LII lost $2,153 over 28 days while FDS gained $1,138 over 12 — both were held through a full month-end; what would "thesis-break" have looked like for LII at day 14, and would you have acted on it? The EOD reflection fields were blank all week — is the 15-minute review actually happening, and if so, what's preventing it from producing even one written sentence?
+
+
+---
+
 ## [EOD] 2026-07-31 Friday
 **What happened.** No trades closed today. End equity $100,978, cash $33,147 (33% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
