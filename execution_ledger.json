@@ -390,5 +390,25 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Financial Services sector would be 37.3% of equity (existing $22,782 + new $14,728 = $37,510); cap is 35%"
+  },
+  {
+    "date": "2026-08-04",
+    "timestamp": "2026-08-04T14:34:01.390273+00:00",
+    "symbol": "FDS",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Financial Services sector would be 36.2% of equity (existing $23,097 + new $13,423 = $36,521); cap is 35%"
+  },
+  {
+    "date": "2026-08-04",
+    "timestamp": "2026-08-04T14:34:02.681974+00:00",
+    "symbol": "AMP",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $530.71, target $656.23; submit status pending_new",
+    "shares": 18,
+    "entry_price": 546.86,
+    "order_id": "dd7598ff-45e7-410f-9479-237f639229bc",
+    "fill_status": "unknown"
   }
 ]

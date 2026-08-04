@@ -322,5 +322,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 19,
+    "symbol": "AMP",
+    "shares": 18,
+    "original_shares": 18,
+    "entry_price": 546.86,
+    "entry_time": "2026-08-04T14:34:02.682153+00:00",
+    "stop_loss": 530.71,
+    "initial_stop": 530.71,
+    "R": 16.149999999999977,
+    "current_stop": 530.71,
+    "target_price": 656.23,
+    "rationale": "PYRAMID tranche 2: original lot held 20d at +6.0%; price $544.14 > SMA20 $522.55; adding $9,843 (18 sh) with combined break-even stop at $530.71.",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
