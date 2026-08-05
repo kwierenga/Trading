@@ -1,34 +1,49 @@
 {
-  "analysis": "Market regime is a moderate uptrend (SPY +0.4% vs SMA50, 20d slope +1.13%) \u2014 constructive but not breakout-momentum conditions, which supports selective new entries. PORTFOLIO REVIEW: A (+7.78%), AMP (+6.04%), LMT (+4.01%), and MCO (+2.59%) are all trending well with theses intact \u2014 hold all four. CI (-5.80%) is the critical problem: managed care faces ongoing regulatory and political headwinds, the position is approaching a -6% unrealized loss, and \u2014 most telling \u2014 CI does not appear anywhere in today's 30-candidate screened list, meaning it has failed quality and/or trend filters that all other holdings pass. This is an unambiguous thesis-break signal. I am recommending an immediate exit of CI at market (~$279) and documenting it here; because CI is an existing holding not on the screened list it cannot appear as a formal JSON trade, but the sell instruction is clear: exit CI, accept the ~$580 realized loss, and redeploy into a confirmed setup. Freeing CI's ~$12,300 + existing $33,147 cash = ~$45,400 available. FOR NEW BUYS: FDS (FactSet Research Systems) is the top-ranked screened candidate by setup score and the single best combination of quality-value-trend in today's list. Fundamentally: ROE 27%, op margin 30.5%, FCF $621M, fwd P/E 13.69 (cheap for a moat-y financial data business), PEG 1.21. Technically: only 37% of its 52-week range \u2014 classic Stage 1-to-Stage 2 basing territory, SMA50 slope turning positive at +6.3%. Two prior closed trades from this portfolio in FDS returned +17.97% and +11.51%, confirming the thesis. Earnings are 44 days out (Sept 17) \u2014 enough runway to build the position while maintaining the option to reduce size ahead of the event. No second new buy is proposed: the portfolio reaches 5 positions (A, AMP, LMT, MCO + FDS) with ~27% remaining cash, which is appropriate given the moderate-only market regime and the Sortino ratio of -3.49 signaling recent disproportionate downside. Cash is a position \u2014 no forcing of additional trades.",
-  "confidence_target_pct": 62,
+  "analysis": "MARKET REGIME: SPY in confirmed uptrend (+3.5% vs SMA50, slope +1.03%), providing a favorable backdrop. Portfolio is 67% deployed across 5 positions with $28K headroom for new buys.\n\nPORTFOLIO REVIEW:\n- A (+7.32%): Performing well. CAUTION: earnings in 21 days (2026-08-26). Thesis intact; consider this a binary risk event. No action yet but be prepared to manage.\n- AMP (+6.33%): Healthy gain, thesis intact. Hold.\n- LMT (+5.62%): Defense spending thesis intact, steady performer. Hold.\n- MCO (+2.66%): Slow but positive. Moody's quality franchise unchanged. Hold.\n- CI (-7.44%): FLAGGED. Cigna is the portfolio's weak link. Healthcare managed care sector has faced significant headwinds (elevated MLR, policy uncertainty). At -7.44% the stop is not yet hit (original stop likely near $251-252), but the stock is trading below cost with downward pressure. Thesis should be reviewed \u2014 if managed care fundamentals continue to deteriorate or CI closes below $265 on volume, treat that as a thesis break and exit without waiting for the hard stop.\n\nNEW OPPORTUNITY: DHR (Danaher) is the standout candidate. It sits at 42% of its 52w range (Stage 1-2 transition zone), UPTREND with an accelerating SMA50 slope (+5.4%), and is only +3.4% above its SMA50 \u2014 not overextended. Fundamentally, Danaher is a compounding machine: $4.3B FCF, $6.6B operating cash flow, PEG 1.29, and analyst EPS revisions trending higher (+2.2%). Earnings are 76 days out, removing near-term binary risk. The setup \u2014 basing in the lower half of its range with a recovering SMA50 slope and minimal SMA50 extension \u2014 is exactly the Weinstein Stage 1-2 pattern we seek.\n\nAll other top candidates either are too extended (APH 93%, CNC 89%, NSC 89%, STLD 89%, TROW 84%, TRV 86% of 52w range), have earnings imminent (JKHY 13d), or lack a clean enough technical setup. Disciplined pass on the rest. One quality trade > three mediocre ones.",
+  "confidence_target_pct": 63,
   "trades": [
     {
-      "symbol": "FDS",
+      "symbol": "DHR",
       "direction": "BUY",
-      "entry_strategy": "Initiate at market or limit ~$260-263 on any intraday pullback; prefer entry within 2% of current price to maintain favorable R/R. Do not chase above $270 \u2014 wait for next base if missed.",
-      "entry_price": 263.2,
-      "stop_loss": 241.1,
-      "stop_loss_pct": 0.084,
+      "entry_strategy": "Limit order at $194.78 or better on any mild intraday pullback toward $193-195. Do not chase above $198 \u2014 if it runs without us, let it go.",
+      "entry_price": 194.78,
+      "stop_loss": 179.5,
+      "stop_loss_pct": 0.0785,
       "atr_multiple": 1.75,
-      "target": 308.0,
-      "target_gain_pct": 0.17,
-      "risk_reward_ratio": 2.03,
-      "conviction": 73,
+      "target": 235.0,
+      "target_gain_pct": 0.2065,
+      "risk_reward_ratio": 2.63,
+      "conviction": 68,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: FactSet is a high-quality financial data and analytics compounder \u2014 ROE 27%, operating margin 30.5%, FCF $621M on a $9.6B market cap (FCF yield ~6.5%), forward P/E of only 13.69 with PEG 1.21. Revenue growth of 6.4% is steady and recurring (subscription model). The stock was above $389 less than a year ago; it has re-rated to a level that prices in very modest growth expectations, creating asymmetry. EPS revisions are modestly positive (+1.6%). TECHNICAL: At only 37% of its 52-week range ($188-$390), this is the ideal basing entry zone. SMA50 slope has inflected sharply positive (+6.3% over 20 days), price is +7% above both SMA50 and SMA200 \u2014 early Stage 2 breakout from a lengthy base, not an extended late-cycle entry. ATR-based stop of 1.75x (~$22 below entry) gives a natural stop at ~$241 (8.4%), well within the 4-15% allowable range. Position sizing: 68 shares \u00d7 $263 = $17,878 (17.7% of equity \u2014 below 25% cap); worst-case stop hit = $1,501 = 1.48% of equity \u2014 within the 1-2% risk budget. PRIOR TRACK RECORD: Two prior FDS trades in this book closed at +17.97% and +11.51% \u2014 the thesis has been repeatedly validated.",
-      "exit_plan": "Primary exit: target ~$308 (17% gain, consistent with prior realized gains in FDS). Hard stop: $241.10 (1.75x ATR below entry). THESIS BREAK conditions: (1) FDS drops below SMA200 on volume with no fundamental catalyst; (2) earnings on Sept 17 produce revenue miss + guide-down; (3) broader financial-data sector multiple compression (competitor print signals pricing pressure). TIME STOP: If FDS has not made material progress toward target within 90 days post-entry, re-evaluate versus opportunity cost. Reduce position by 50% heading into Sept 17 earnings if position is profitable, to protect gains from binary event risk."
+      "rationale": "FUNDAMENTAL: Danaher is a best-in-class life sciences and diagnostics platform with $4.3B in FCF, an exceptional operating model (post-Veralto spinoff), and improving revenue trajectory (+5.5%). Fwd P/E of ~21x with PEG 1.29 is a fair price for compounding quality. Analyst EPS revisions trending up +2.2% over 60 days. TECHNICAL: DHR sits at 42% of its 52w range \u2014 prime Stage 1-2 basing territory. SMA50 slope has turned meaningfully positive (+5.4%) and price is only +3.4% above SMA50, meaning the trend is resuming without being overextended. This is the ideal entry window before the trend becomes crowded. 76 days to next earnings removes near-term event risk.",
+      "exit_plan": "Hard stop at $179.50 (1.75x ATR below entry, ~7.85% risk). Thesis break conditions: (1) SMA50 slope reverses negative again, (2) revenue growth decelerates materially below 4%, (3) FCF deteriorates. Time stop: re-evaluate if no progress toward $215 within 8 weeks. Target is $235 (mid-point back to 52w high of $241) \u2014 take partial profits there and trail remainder. Prefer to hold past 1-year mark if thesis intact for LTCG treatment, but position label is 'position' given uncertainty."
     },
     {
       "symbol": "AMP",
       "direction": "BUY",
-      "entry_price": 546.86,
-      "stop_loss": 530.71,
-      "target": 656.23,
+      "entry_price": 556.35,
+      "stop_loss": 535.31,
+      "target": 667.62,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 6.772136222910227,
-      "rationale": "PYRAMID tranche 2: original lot held 20d at +6.0%; price $544.14 > SMA20 $522.55; adding $9,843 (18 sh) with combined break-even stop at $530.71.",
-      "entry_strategy": "Limit @ $546.86 (current +0.5%)",
+      "risk_reward_ratio": 5.288498098859296,
+      "rationale": "PYRAMID tranche 2: original lot held 21d at +6.3%; price $553.58 > SMA20 $527.22; adding $10,014 (18 sh) with combined break-even stop at $535.31.",
+      "entry_strategy": "Limit @ $556.35 (current +0.5%)",
+      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
+      "is_pyramid": true,
+      "tranche": 2
+    },
+    {
+      "symbol": "LMT",
+      "direction": "BUY",
+      "entry_price": 592.28,
+      "stop_loss": 570.41,
+      "target": 710.74,
+      "conviction": 75,
+      "holding_period": "swing",
+      "risk_reward_ratio": 5.416552354823961,
+      "rationale": "PYRAMID tranche 2: original lot held 5d at +5.6%; price $589.33 > SMA20 $544.35; adding $10,069 (17 sh) with combined break-even stop at $570.41.",
+      "entry_strategy": "Limit @ $592.28 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -36,9 +51,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "eee6a125fcbed6b5",
-    "prompt_chars": 22093,
-    "generated_at": "2026-08-04T10:28:34.271395+00:00",
-    "code_sha": "313110ee4c06"
+    "prompt_sha256": "00ca718806ea92ae",
+    "prompt_chars": 22171,
+    "generated_at": "2026-08-05T10:26:07.438327+00:00",
+    "code_sha": "94a96439ea4a"
   }
 }
