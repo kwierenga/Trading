@@ -2712,5 +2712,67 @@
       "noops": 0,
       "skipped_no_R": 4
     }
+  },
+  {
+    "timestamp": "2026-08-05T21:38:57.899075+00:00",
+    "date": "2026-08-05",
+    "equity": 100800.36,
+    "cash": 24922.51,
+    "positions": 4,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 10,
+      "avg_holding_days": 9.381466767020834,
+      "short_term_gains": 4630.599999999999,
+      "long_term_gains": 0.0,
+      "realized_gain": 1492.11,
+      "estimated_tax_owed": 1481.792,
+      "tax_drag": 787.202
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 106742.69,
+      "shadow_return_pct": 0.06742690487309311,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 100800.36,
+      "strategy_return_pct": 0.00800360000000011,
+      "spread_pct": -0.059423304873093
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "AMP",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "LMT",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "MCO",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [
+        "A: no matching journal entry"
+      ],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 3
+    }
   }
 ]

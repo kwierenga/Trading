@@ -442,3 +442,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-07-16 — CI closed (held 2.0d, -4.79%, $-476.08)
+<!-- pm-key: CI|2026-07-16T13:33:48|300.99 -->
+
+**Mechanical (auto-filled):**
+- Entry: $300.99 on 2026-07-14 → Exit: $286.56 on 2026-07-16 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: PYRAMID tranche 2: original lot held 17d at +7.9%; price $304.50 > SMA20 $286.23; adding $10,099 (33 sh) with combined break-even stop at $290.76.
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
