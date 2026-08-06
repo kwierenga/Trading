@@ -446,5 +446,13 @@
     "entry_price": 592.28,
     "order_id": "9a0d67e1-b0b8-44c4-b879-c70d48ffdd79",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-08-06",
+    "timestamp": "2026-08-06T14:33:49.248091+00:00",
+    "symbol": "PGR",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Financial Services sector would be 51.4% of equity (existing $32,953 + new $18,723 = $51,676); cap is 35%"
   }
 ]
