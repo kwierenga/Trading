@@ -1,59 +1,29 @@
 {
-  "analysis": "MARKET REGIME: SPY in confirmed uptrend (+3.5% vs SMA50, slope +1.03%), providing a favorable backdrop. Portfolio is 67% deployed across 5 positions with $28K headroom for new buys.\n\nPORTFOLIO REVIEW:\n- A (+7.32%): Performing well. CAUTION: earnings in 21 days (2026-08-26). Thesis intact; consider this a binary risk event. No action yet but be prepared to manage.\n- AMP (+6.33%): Healthy gain, thesis intact. Hold.\n- LMT (+5.62%): Defense spending thesis intact, steady performer. Hold.\n- MCO (+2.66%): Slow but positive. Moody's quality franchise unchanged. Hold.\n- CI (-7.44%): FLAGGED. Cigna is the portfolio's weak link. Healthcare managed care sector has faced significant headwinds (elevated MLR, policy uncertainty). At -7.44% the stop is not yet hit (original stop likely near $251-252), but the stock is trading below cost with downward pressure. Thesis should be reviewed \u2014 if managed care fundamentals continue to deteriorate or CI closes below $265 on volume, treat that as a thesis break and exit without waiting for the hard stop.\n\nNEW OPPORTUNITY: DHR (Danaher) is the standout candidate. It sits at 42% of its 52w range (Stage 1-2 transition zone), UPTREND with an accelerating SMA50 slope (+5.4%), and is only +3.4% above its SMA50 \u2014 not overextended. Fundamentally, Danaher is a compounding machine: $4.3B FCF, $6.6B operating cash flow, PEG 1.29, and analyst EPS revisions trending higher (+2.2%). Earnings are 76 days out, removing near-term binary risk. The setup \u2014 basing in the lower half of its range with a recovering SMA50 slope and minimal SMA50 extension \u2014 is exactly the Weinstein Stage 1-2 pattern we seek.\n\nAll other top candidates either are too extended (APH 93%, CNC 89%, NSC 89%, STLD 89%, TROW 84%, TRV 86% of 52w range), have earnings imminent (JKHY 13d), or lack a clean enough technical setup. Disciplined pass on the rest. One quality trade > three mediocre ones.",
-  "confidence_target_pct": 63,
+  "analysis": "Market regime is UPTREND (SPY +3.2% vs SMA50, positive slope) \u2014 a supportive backdrop, but selectivity still matters. Portfolio review: (1) A (Agilent) has earnings in 20 days (Aug 26) \u2014 the position is up 8.79% and thesis is intact, but near-term binary risk is real; I recommend setting a mental stop just below the Aug earnings gap and being prepared to trim if the stock gaps down on results. Not a forced sell \u2014 the quality case holds. (2) AMP, LMT, MCO all tracking trend quietly with no thesis breaks. Portfolio heat is very low at 1.51%, deployment at 75%, and there is ~$19.9k headroom for one additional position. Among the 30 screened candidates, most are either extended (TRV, NSC, NDAQ, TROW all above 75% of 52-week range), mixed-trend with a declining SMA50 (TYL, CTSH, NOC, HSY), or face near-term earnings risk (JKHY in 12 days, ULTA in 21 days). One genuinely asymmetric setup stands out: PGR (Progressive) is resting almost exactly at its SMA50 (+0.7%) in a confirmed uptrend, sitting at 48% of 52-week range, with best-in-class insurance fundamentals. A tight ATR of 2.6% allows a properly sized position within the remaining headroom. One trade proposed; no forced additions beyond that.",
+  "confidence_target_pct": 62,
   "trades": [
     {
-      "symbol": "DHR",
+      "symbol": "PGR",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $194.78 or better on any mild intraday pullback toward $193-195. Do not chase above $198 \u2014 if it runs without us, let it go.",
-      "entry_price": 194.78,
-      "stop_loss": 179.5,
-      "stop_loss_pct": 0.0785,
-      "atr_multiple": 1.75,
+      "entry_strategy": "Limit order at $212.50 or better, ideally on a pullback to or just above the SMA50 (~$211). Do not chase above $215.",
+      "entry_price": 212.76,
+      "stop_loss": 201.7,
+      "stop_loss_pct": 0.052,
+      "atr_multiple": 2.0,
       "target": 235.0,
-      "target_gain_pct": 0.2065,
-      "risk_reward_ratio": 2.63,
-      "conviction": 68,
+      "target_gain_pct": 0.105,
+      "risk_reward_ratio": 2.02,
+      "conviction": 72,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Danaher is a best-in-class life sciences and diagnostics platform with $4.3B in FCF, an exceptional operating model (post-Veralto spinoff), and improving revenue trajectory (+5.5%). Fwd P/E of ~21x with PEG 1.29 is a fair price for compounding quality. Analyst EPS revisions trending up +2.2% over 60 days. TECHNICAL: DHR sits at 42% of its 52w range \u2014 prime Stage 1-2 basing territory. SMA50 slope has turned meaningfully positive (+5.4%) and price is only +3.4% above SMA50, meaning the trend is resuming without being overextended. This is the ideal entry window before the trend becomes crowded. 76 days to next earnings removes near-term event risk.",
-      "exit_plan": "Hard stop at $179.50 (1.75x ATR below entry, ~7.85% risk). Thesis break conditions: (1) SMA50 slope reverses negative again, (2) revenue growth decelerates materially below 4%, (3) FCF deteriorates. Time stop: re-evaluate if no progress toward $215 within 8 weeks. Target is $235 (mid-point back to 52w high of $241) \u2014 take partial profits there and trail remainder. Prefer to hold past 1-year mark if thesis intact for LTCG treatment, but position label is 'position' given uncertainty."
-    },
-    {
-      "symbol": "AMP",
-      "direction": "BUY",
-      "entry_price": 556.35,
-      "stop_loss": 535.31,
-      "target": 667.62,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 5.288498098859296,
-      "rationale": "PYRAMID tranche 2: original lot held 21d at +6.3%; price $553.58 > SMA20 $527.22; adding $10,014 (18 sh) with combined break-even stop at $535.31.",
-      "entry_strategy": "Limit @ $556.35 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
-    },
-    {
-      "symbol": "LMT",
-      "direction": "BUY",
-      "entry_price": 592.28,
-      "stop_loss": 570.41,
-      "target": 710.74,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 5.416552354823961,
-      "rationale": "PYRAMID tranche 2: original lot held 5d at +5.6%; price $589.33 > SMA20 $544.35; adding $10,069 (17 sh) with combined break-even stop at $570.41.",
-      "entry_strategy": "Limit @ $592.28 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
+      "rationale": "FUNDAMENTAL: Progressive is arguably the best-run personal auto insurer in the US. ROE of 34.9%, P/E of 10.68 trailing (13.06 fwd), and $15.1B in FCF reflect a structural cost and pricing advantage driven by Snapshot telematics and disciplined underwriting. Revenue growth 7.3% YoY with analyst EPS revisions trending higher (+0.4%). Insurance is benefiting from a hard pricing cycle and Progressive is the clear share-gainer. TECHNICAL: Price is in a confirmed UPTREND, sitting only +0.7% above its rising SMA50 (slope +3.1%), at 48% of 52-week range \u2014 classic Stage 1-to-2 basing territory. This is a low-risk entry point against a defined support level rather than a momentum chase. ATR of 2.6% is among the tightest in the candidate set, enabling a properly sized position with a 2x ATR stop at $201.70 (5.2% below entry). Earnings are 69 days out (Oct 14), well outside the near-term noise window.",
+      "exit_plan": "Exit if: (1) price closes below stop $201.70 (thesis invalidated technically); (2) combined ratio deterioration signals underwriting discipline breaking down; (3) broader market turns confirmed downtrend; (4) stock reaches $235 target (reassess thesis at that point for LTCG hold extension); (5) time stop \u2014 if no meaningful progress within 90 days, review allocation against opportunity cost."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "00ca718806ea92ae",
-    "prompt_chars": 22171,
-    "generated_at": "2026-08-05T10:26:07.438327+00:00",
-    "code_sha": "94a96439ea4a"
+    "prompt_sha256": "5d99a8d867a4ce75",
+    "prompt_chars": 22094,
+    "generated_at": "2026-08-06T10:26:23.380161+00:00",
+    "code_sha": "4b2f1a6f613e"
   }
 }
