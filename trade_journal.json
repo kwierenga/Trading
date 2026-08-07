@@ -268,5 +268,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 16,
+    "symbol": "TEL",
+    "shares": 87,
+    "original_shares": 87,
+    "entry_price": 215.08,
+    "entry_time": "2026-08-07T14:33:51.726985+00:00",
+    "stop_loss": 202.82,
+    "initial_stop": 202.82,
+    "R": 12.26000000000002,
+    "current_stop": 202.82,
+    "target_price": 258.0,
+    "rationale": "FUNDAMENTAL: TE Connectivity is a high-quality industrial connector company with direct exposure to AI data center buildout, EV adoption, and defense modernization \u2014 three durable secular tailwinds. P",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
