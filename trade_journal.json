@@ -19,24 +19,6 @@
   },
   {
     "id": 2,
-    "symbol": "AMP",
-    "shares": 41,
-    "entry_price": 449.71,
-    "entry_time": "2026-06-29T16:08:46.136636Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "FUNDAMENTAL: Ameriprise is a high-quality wealth management and asset management franchise with 67% ROE, 37% operating margins, $3.4B FCF, and a forward P/E of just 9.5x \u2014 deeply cheap for this qualit",
-    "source": "claude",
-    "status": "closed",
-    "exit_price": 520.237317,
-    "exit_time": "2026-07-14T14:04:15.977706Z",
-    "pnl": 2891.62,
-    "pnl_pct": 0.156828,
-    "duration_minutes": 21475.49735116667,
-    "reason_exit": "target_hit"
-  },
-  {
-    "id": 3,
     "symbol": "CI",
     "shares": 33,
     "entry_price": 300.99,
@@ -54,7 +36,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 4,
+    "id": 3,
     "symbol": "WDAY",
     "shares": 69,
     "entry_price": 135.32,
@@ -72,7 +54,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 5,
+    "id": 4,
     "symbol": "FDS",
     "shares": 38,
     "entry_price": 245.83,
@@ -90,7 +72,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 6,
+    "id": 5,
     "symbol": "WDAY",
     "shares": 69,
     "entry_price": 146.13,
@@ -108,7 +90,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 7,
+    "id": 6,
     "symbol": "WDAY",
     "shares": 2,
     "entry_price": 140.992254,
@@ -126,7 +108,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 8,
+    "id": 7,
     "symbol": "WDAY",
     "shares": 69,
     "entry_price": 140.992254,
@@ -144,7 +126,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 9,
+    "id": 8,
     "symbol": "FDS",
     "shares": 1,
     "entry_price": 245.83,
@@ -162,7 +144,7 @@
     "reason_exit": "target_hit"
   },
   {
-    "id": 10,
+    "id": 9,
     "symbol": "FDS",
     "shares": 38,
     "entry_price": 260.07,
@@ -180,7 +162,7 @@
     "reason_exit": "target_hit"
   },
   {
-    "id": 11,
+    "id": 10,
     "symbol": "AMP",
     "shares": 19,
     "entry_price": 520.609474,
@@ -198,7 +180,7 @@
     "reason_exit": null
   },
   {
-    "id": 12,
+    "id": 11,
     "symbol": "AMP",
     "shares": 18,
     "entry_price": 556.32,
@@ -216,7 +198,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 12,
     "symbol": "MCO",
     "shares": 26,
     "entry_price": 471.16,
@@ -234,7 +216,7 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 13,
     "symbol": "LMT",
     "shares": 22,
     "entry_price": 558.586818,
@@ -252,7 +234,7 @@
     "reason_exit": null
   },
   {
-    "id": 15,
+    "id": 14,
     "symbol": "LMT",
     "shares": 17,
     "entry_price": 587.4,
@@ -270,22 +252,16 @@
     "reason_exit": null
   },
   {
-    "id": 16,
+    "id": 15,
     "symbol": "TEL",
     "shares": 87,
-    "original_shares": 87,
-    "entry_price": 215.08,
-    "entry_time": "2026-08-07T14:33:51.726985+00:00",
-    "stop_loss": 202.82,
-    "initial_stop": 202.82,
-    "R": 12.26000000000002,
-    "current_stop": 202.82,
-    "target_price": 258.0,
+    "entry_price": 215.07,
+    "entry_time": "2026-08-07T15:41:41.215469Z",
+    "stop_loss": null,
+    "target_price": null,
     "rationale": "FUNDAMENTAL: TE Connectivity is a high-quality industrial connector company with direct exposure to AI data center buildout, EV adoption, and defense modernization \u2014 three durable secular tailwinds. P",
     "source": "claude",
     "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
     "exit_price": null,
     "exit_time": null,
     "pnl": null,
