@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-07-28 → 2026-08-09
+
+_Sharpe +0.81, Sortino +1.10, MaxDD -3.8%, CAGR +10.8%, excess CAGR vs SPY -22.4% (quantstats, since inception)._
+
+**What worked / what didn't.** The two FDS exits both hit targets cleanly — one after 23 days (+18%, $44 dollar gain) and one after 12 days (+11.5%, $1,138). The dollar disparity between those two is worth sitting with: the same percentage move on what appears to be a much smaller position produced nearly nothing in P&L terms, suggesting position sizing was inconsistent across the two entries rather than scaled to conviction or setup quality. The open book looks healthy on paper (A at +12.5% is the standout), but four of five positions are clustered between +0.6% and +2.9% — early days, no conclusions yet. DHR was proposed on 8/5 but does not appear in open positions, so it either didn't fill or was culled at 09:35; that outcome isn't recorded anywhere visible.
+
+**What's puzzling or worth watching.** Cash swung from 33% to 25% to 6% across the week, driven by TEL filling Friday. That's a fast concentration move in the final session — worth checking whether that timing was intentional or just when the queue cleared. The EOD "What we learned" fields are blank every single day this week. That's not a journaling style choice; it means the 15-minute review either isn't happening or isn't producing anything written down, which makes it impossible to reconstruct what you actually observed versus what the system auto-generated. PGR was proposed 8/6 and also doesn't appear in the open book — same documentation gap as DHR.
+
+**Reflective prompts for Klaas.** The two FDS trades had identical exit logic (target_hit) but a 26x difference in dollar outcome — what drove the position size difference between them, and does that sizing reflect how you actually ranked the two setups at entry? The EOD learning fields are blank all week — is the 15-minute review happening but just not being written, and if so, what would it cost you to type one sentence before closing the laptop? DHR and PGR were surfaced by the screen, proposed in the AM note, and then vanished without explanation — do you have a reliable record of why each one was rejected at 09:35, and would that record change how you screen tomorrow?
+
+
+---
+
 ## [EOD] 2026-08-07 Friday
 **What happened.** No trades closed today. End equity $101,678, cash $6,211 (6% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
