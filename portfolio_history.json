@@ -1795,5 +1795,51 @@
         "unrealized_pl": 109.62
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-10T21:26:57.809398+00:00",
+    "account": {
+      "equity": 102697.71,
+      "buying_power": 263269.23,
+      "cash": 6211.14,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "A",
+        "qty": 143.0,
+        "avg_entry_price": 129.71,
+        "current_price": 148.72,
+        "unrealized_pl": 2718.43
+      },
+      {
+        "symbol": "AMP",
+        "qty": 37.0,
+        "avg_entry_price": 537.982162,
+        "current_price": 557.53,
+        "unrealized_pl": 723.270006
+      },
+      {
+        "symbol": "LMT",
+        "qty": 39.0,
+        "avg_entry_price": 571.14641,
+        "current_price": 603.0,
+        "unrealized_pl": 1242.29001
+      },
+      {
+        "symbol": "MCO",
+        "qty": 26.0,
+        "avg_entry_price": 471.16,
+        "current_price": 478.14,
+        "unrealized_pl": 181.48
+      },
+      {
+        "symbol": "TEL",
+        "qty": 87.0,
+        "avg_entry_price": 215.07,
+        "current_price": 214.28,
+        "unrealized_pl": -68.73
+      }
+    ]
   }
 ]
