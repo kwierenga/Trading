@@ -1,29 +1,12 @@
 {
-  "analysis": "Market regime is confirmed UPTREND (SPY +3% vs SMA50, positive slope) which supports staying invested, but deployment is already at 75% with $19,874 of headroom before hitting the 95% gross cap. Portfolio health is good: A (+9%), AMP (+4%), LMT (+2%), MCO (+1%) \u2014 all theses intact with no stop proximity concerns. The Sortino ratio of -4.56 is a red flag on downside risk-adjusted returns and argues for disciplined position sizing on any new entry. Three recent WDAY stop-outs (all losers) reinforce the need to wait for true basing confirmation before re-entering high-volatility names. WDAY is back on the screened list (+21.8% vs SMA50, earnings in 20 days) \u2014 too extended and too close to earnings to re-enter now. VEEV and DASH are similarly extended (+19% above SMA50). ADBE and TYL are MIXED/SIDEWAYS \u2014 no confirmed uptrend. The one genuinely asymmetric new setup is TEL (TE Connectivity): industrial-grade connector business with strong AI/EV/defense tailwinds, PEG 0.94 (cheapest quality name in the screen), 13.8% revenue growth, $2.3B FCF, only 38% of 52w range, and just +4.1% above SMA50 \u2014 not extended. Earnings are 82 days out giving ample runway. Position is sized to the $19,874 headroom constraint, bringing total deployment to ~94% of gross cap. No existing positions require SELL action at this time.",
-  "confidence_target_pct": 62,
-  "trades": [
-    {
-      "symbol": "TEL",
-      "direction": "BUY",
-      "entry_strategy": "Limit order at $215.00 or better on any intraday pullback toward SMA50 (~$206). Do not chase if price surges above $222 before fill.",
-      "entry_price": 215.08,
-      "stop_loss": 202.82,
-      "stop_loss_pct": 0.057,
-      "atr_multiple": 1.5,
-      "target": 258.0,
-      "target_gain_pct": 0.2,
-      "risk_reward_ratio": 3.51,
-      "conviction": 72,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: TE Connectivity is a high-quality industrial connector company with direct exposure to AI data center buildout, EV adoption, and defense modernization \u2014 three durable secular tailwinds. PEG of 0.94 is the lowest among quality candidates, fwd P/E 16.7x on 13.8% revenue growth represents genuine value. FCF of $2.3B is well-covered, D/E 43 is conservative for the sector, and EPS revisions are trending up +2.1%. TECHNICAL: Price is in confirmed UPTREND (basing), sitting at just 38% of its 52-week range \u2014 well within Stage 1-to-2 transition territory. Only +4.1% above SMA50, so entry is not extended. SMA50 slope is flat (+0.1%), meaning the base is still forming rather than running away. ATR-based stop at 1.5x gives a clean 5.7% risk buffer below a meaningful support zone. Next earnings 82 days out removes near-term binary event risk. Position sized at ~92 shares = ~$19,787, within the $19,874 headroom constraint.",
-      "exit_plan": "Exit if: (1) price closes below $202.82 stop on a daily basis; (2) revenue growth decelerates materially below 10% at next earnings report (thesis break); (3) stock rallies to $258 target (~52w high zone) and shows distribution/reversal signals; (4) macro shift causes industrial/capex cycle to reverse; (5) time stop \u2014 reassess if no meaningful progress after 90 days. If position moves +10%, raise stop to breakeven to protect capital."
-    }
-  ],
+  "analysis": "MARKET REGIME: SPY is in a confirmed uptrend (+3.6% vs SMA50, positive slope) which is constructive, but this backdrop does NOT justify forcing trades. The portfolio is already 94% deployed across 5 positions with only $1,125 of remaining headroom \u2014 far below the minimum needed to properly size even the smallest position (1.5% equity risk on a $101k book = ~$1,525 at risk; a $6 stop on a $50 stock would need 254 shares = $12,700 in capital, well above available room). CAPACITY VERDICT: No new buys are possible without violating sizing discipline or breaching the 25% concentration cap.\n\nEXISTING POSITION REVIEW:\n- A (+12.54%): Agilent is working well. Thesis (life-sciences instrumentation quality compounder) intact. No technical deterioration. Hold.\n- AMP (+2.60%): Ameriprise is plodding but above water. Wealth management thesis intact in a rising market. Hold.\n- LMT (+3.13%): Defense spending tailwinds remain. Thesis intact. Hold.\n- MCO (+1.42%): Moody's credit-cycle and data-services business is durable. Modest gain, no reason to exit.\n- TEL (+0.59%): TE Connectivity appears on today's screened candidate list (basing, fundamentals solid, positive EPS revisions). Thesis intact, trend basing constructively. Hold.\n\nNO SELLS RECOMMENDED: None of the five positions shows a thesis-break signal (fundamental deterioration, price below stop, or sector headwind reversal). Selling a quality business in a functioning uptrend simply to generate cash would be performance-chasing in reverse.\n\nWHY ZERO NEW BUYS TODAY: (1) Physical capacity constraint \u2014 $1,125 remaining headroom cannot support a properly sized position. (2) The portfolio is already at max concentration (5 positions). (3) WDAY has re-appeared on the candidate list but is +27.5% above its SMA50 and earnings in 17 days \u2014 far too extended and near-term binary risk; the three prior stop-outs here reinforce discipline. (4) APH is at 90% of its 52-week range \u2014 prohibited by hard rules. (5) Several interesting names (ADBE, IT, BRO, ROP) are either too extended above SMA50 or have downward-sloping SMA50 \u2014 do not meet the basing entry criterion at these levels. Cash is a position. Patience here IS the edge.",
+  "confidence_target_pct": 55,
+  "trades": [],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "2f81412c22430979",
-    "prompt_chars": 21951,
-    "generated_at": "2026-08-07T10:23:50.998734+00:00",
-    "code_sha": "f54327e5f286"
+    "prompt_sha256": "0e5707a687e74d99",
+    "prompt_chars": 22084,
+    "generated_at": "2026-08-10T10:25:53.785447+00:00",
+    "code_sha": "15d0260bf733"
   }
 }
