@@ -466,5 +466,13 @@
     "entry_price": 215.08,
     "order_id": "3364dc52-9bf9-4027-b43c-919ba1968977",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-08-11",
+    "timestamp": "2026-08-11T14:34:03.071445+00:00",
+    "symbol": "LMT",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "LMT would be 32.6% of equity (existing $23,364 + new $10,305 = $33,669); cap is 30%"
   }
 ]
