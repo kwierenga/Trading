@@ -1,12 +1,28 @@
 {
-  "analysis": "MARKET REGIME: SPY is in a confirmed uptrend (+3.6% vs SMA50, positive slope) which is constructive, but this backdrop does NOT justify forcing trades. The portfolio is already 94% deployed across 5 positions with only $1,125 of remaining headroom \u2014 far below the minimum needed to properly size even the smallest position (1.5% equity risk on a $101k book = ~$1,525 at risk; a $6 stop on a $50 stock would need 254 shares = $12,700 in capital, well above available room). CAPACITY VERDICT: No new buys are possible without violating sizing discipline or breaching the 25% concentration cap.\n\nEXISTING POSITION REVIEW:\n- A (+12.54%): Agilent is working well. Thesis (life-sciences instrumentation quality compounder) intact. No technical deterioration. Hold.\n- AMP (+2.60%): Ameriprise is plodding but above water. Wealth management thesis intact in a rising market. Hold.\n- LMT (+3.13%): Defense spending tailwinds remain. Thesis intact. Hold.\n- MCO (+1.42%): Moody's credit-cycle and data-services business is durable. Modest gain, no reason to exit.\n- TEL (+0.59%): TE Connectivity appears on today's screened candidate list (basing, fundamentals solid, positive EPS revisions). Thesis intact, trend basing constructively. Hold.\n\nNO SELLS RECOMMENDED: None of the five positions shows a thesis-break signal (fundamental deterioration, price below stop, or sector headwind reversal). Selling a quality business in a functioning uptrend simply to generate cash would be performance-chasing in reverse.\n\nWHY ZERO NEW BUYS TODAY: (1) Physical capacity constraint \u2014 $1,125 remaining headroom cannot support a properly sized position. (2) The portfolio is already at max concentration (5 positions). (3) WDAY has re-appeared on the candidate list but is +27.5% above its SMA50 and earnings in 17 days \u2014 far too extended and near-term binary risk; the three prior stop-outs here reinforce discipline. (4) APH is at 90% of its 52-week range \u2014 prohibited by hard rules. (5) Several interesting names (ADBE, IT, BRO, ROP) are either too extended above SMA50 or have downward-sloping SMA50 \u2014 do not meet the basing entry criterion at these levels. Cash is a position. Patience here IS the edge.",
-  "confidence_target_pct": 55,
-  "trades": [],
+  "analysis": "MARKET & PORTFOLIO OVERVIEW: SPY is in a healthy uptrend (+3.5% vs SMA50, +0.85% slope), so macro backdrop is constructive. However, the portfolio is essentially at full capacity: 94% deployed across 5 positions with only $1,077 of headroom remaining \u2014 not enough to meaningfully size any new entry. The hard cap is 95% gross, so no new BUY is practically feasible today.\n\nEXISTING POSITION REVIEW:\n\u2022 A (+14.66%): Thesis intact, clean uptrend. No action needed. Consider whether to let it run toward LTCG threshold (entered ~8-9 months ago based on hold time implied by FDS trades).\n\u2022 LMT (+5.52%): Defense spending thesis intact, positive trend. Hold.\n\u2022 AMP (+3.63%): Wealth management compounder, modest gain, no thesis break. Hold.\n\u2022 MCO (+1.48%): Moody's is a high-quality toll-road business. Slow start but no deterioration. Hold.\n\u2022 TEL (-0.37%): Essentially at cost. In candidate list as UPTREND (basing), fwd P/E 16.6x, 13.8% revenue growth. Slightly below SMA200 (-1.9%) is a yellow flag but not a thesis break. No stop triggered. Hold with vigilance \u2014 a close below ~$204 (near 200-day and prior support) would prompt reassessment.\n\nPERFORMANCE CONCERN: Profit factor of 0.55 and Sortino of -1.90 are below acceptable thresholds, driven largely by three consecutive WDAY stop-outs. The lesson: avoid chasing extended breakouts in high-multiple software names. Current positions are more defensively valued (fwd P/Es in the 15\u201320x range for most names).\n\nNEW TRADE DECISION: With $1,077 of remaining capacity, no new position can be sized to even 1% of equity without breaching the gross cap. Several candidates are genuinely interesting (ADBE at fwd 9.93x P/E with 12.7% revenue growth in a basing pattern; CRM at fwd 12.73x with 13.3% growth; BRO with 32.4% revenue growth and clean uptrend) \u2014 but entering any of them with $1,077 would be a token rounding error, not a real position. Forcing a micro-entry to 'stay busy' is exactly the discipline failure this strategy warns against.\n\nRECOMMENDATION: Hold all five positions. Keep $6K cash as dry powder. If TEL breaks below ~$204 and stops out, that frees ~$18\u201319K to rotate into one of the higher-conviction candidates (ADBE or BRO) at proper sizing. Patience here IS the alpha \u2014 manufacturing a sixth trade with $1K available capital would be noise, not signal.",
+  "confidence_target_pct": 58,
+  "trades": [
+    {
+      "symbol": "LMT",
+      "direction": "BUY",
+      "entry_price": 606.18,
+      "stop_loss": 578.43,
+      "target": 727.42,
+      "conviction": 75,
+      "holding_period": "swing",
+      "risk_reward_ratio": 4.36900900900901,
+      "rationale": "PYRAMID tranche 2: original lot held 11d at +5.5%; price $603.16 > SMA20 $557.42; adding $9,699 (16 sh) with combined break-even stop at $578.43.",
+      "entry_strategy": "Limit @ $606.18 (current +0.5%)",
+      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
+      "is_pyramid": true,
+      "tranche": 2
+    }
+  ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "0e5707a687e74d99",
-    "prompt_chars": 22084,
-    "generated_at": "2026-08-10T10:25:53.785447+00:00",
-    "code_sha": "15d0260bf733"
+    "prompt_sha256": "afec888588758f78",
+    "prompt_chars": 22022,
+    "generated_at": "2026-08-11T10:22:45.334919+00:00",
+    "code_sha": "a1b2716887ea"
   }
 }
