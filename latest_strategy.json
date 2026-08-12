@@ -1,28 +1,12 @@
 {
-  "analysis": "MARKET & PORTFOLIO OVERVIEW: SPY is in a healthy uptrend (+3.5% vs SMA50, +0.85% slope), so macro backdrop is constructive. However, the portfolio is essentially at full capacity: 94% deployed across 5 positions with only $1,077 of headroom remaining \u2014 not enough to meaningfully size any new entry. The hard cap is 95% gross, so no new BUY is practically feasible today.\n\nEXISTING POSITION REVIEW:\n\u2022 A (+14.66%): Thesis intact, clean uptrend. No action needed. Consider whether to let it run toward LTCG threshold (entered ~8-9 months ago based on hold time implied by FDS trades).\n\u2022 LMT (+5.52%): Defense spending thesis intact, positive trend. Hold.\n\u2022 AMP (+3.63%): Wealth management compounder, modest gain, no thesis break. Hold.\n\u2022 MCO (+1.48%): Moody's is a high-quality toll-road business. Slow start but no deterioration. Hold.\n\u2022 TEL (-0.37%): Essentially at cost. In candidate list as UPTREND (basing), fwd P/E 16.6x, 13.8% revenue growth. Slightly below SMA200 (-1.9%) is a yellow flag but not a thesis break. No stop triggered. Hold with vigilance \u2014 a close below ~$204 (near 200-day and prior support) would prompt reassessment.\n\nPERFORMANCE CONCERN: Profit factor of 0.55 and Sortino of -1.90 are below acceptable thresholds, driven largely by three consecutive WDAY stop-outs. The lesson: avoid chasing extended breakouts in high-multiple software names. Current positions are more defensively valued (fwd P/Es in the 15\u201320x range for most names).\n\nNEW TRADE DECISION: With $1,077 of remaining capacity, no new position can be sized to even 1% of equity without breaching the gross cap. Several candidates are genuinely interesting (ADBE at fwd 9.93x P/E with 12.7% revenue growth in a basing pattern; CRM at fwd 12.73x with 13.3% growth; BRO with 32.4% revenue growth and clean uptrend) \u2014 but entering any of them with $1,077 would be a token rounding error, not a real position. Forcing a micro-entry to 'stay busy' is exactly the discipline failure this strategy warns against.\n\nRECOMMENDATION: Hold all five positions. Keep $6K cash as dry powder. If TEL breaks below ~$204 and stops out, that frees ~$18\u201319K to rotate into one of the higher-conviction candidates (ADBE or BRO) at proper sizing. Patience here IS the alpha \u2014 manufacturing a sixth trade with $1K available capital would be noise, not signal.",
-  "confidence_target_pct": 58,
-  "trades": [
-    {
-      "symbol": "LMT",
-      "direction": "BUY",
-      "entry_price": 606.18,
-      "stop_loss": 578.43,
-      "target": 727.42,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 4.36900900900901,
-      "rationale": "PYRAMID tranche 2: original lot held 11d at +5.5%; price $603.16 > SMA20 $557.42; adding $9,699 (16 sh) with combined break-even stop at $578.43.",
-      "entry_strategy": "Limit @ $606.18 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
-    }
-  ],
+  "analysis": "PORTFOLIO REVIEW (Aug 12, 2026): The book is effectively full at 94% deployment with only $1,055 of gross-cap headroom remaining \u2014 far too little to size any meaningful new position. Adding a position of $1,055 would be a rounding error and violate the spirit of the 1\u20132% equity-at-risk rule. No trades today.\n\nEXISTING POSITIONS: A (+15.25%) is the standout winner \u2014 thesis intact (quality analytical instrumentation, strong FCF), no reason to exit early. AMP (+4.65%) and LMT (+4.53%) are progressing normally; both are quality businesses in mild uptrends. MCO (+1.13%) and TEL (+1.68%) are barely off cost \u2014 no thesis breaks visible, just slow movers. Portfolio heat is only 1.88% despite near-full deployment, which reflects relatively tight stops and quality names not in distress.\n\nPERFORMANCE HONESTY: Profit factor 0.55x and Sortino -1.60 are poor. The three WDAY stop-outs show the real cost of forced entries; the two FDS wins show what patient, high-conviction setups can do. The lesson is clear: wait for the Weinstein Stage 1\u21922 transition with proper sizing capacity, not just a quality screen pass.\n\nCANDIDATE SCAN: Several interesting names exist (ADBE at fair valuation with strong FCF; BRO with accelerating revenue; CRM with compelling fwd P/E of 12.7x) but CRM reports in 14 days and ADBE in 29 days \u2014 entering ahead of catalysts that could gap either way is speculation, not edge. IT is 24.8% above SMA50 \u2014 extended late-cycle entry. FDS, which we traded profitably twice, is now 12.5% above SMA50 and 15% above SMA200 with earnings in 36 days \u2014 not a fresh basing setup. No candidate clears both the asymmetric setup AND the sizing capacity hurdle simultaneously.\n\nACTION: Hold all five positions. Let A run toward its prior range highs. Keep stops current on MCO and TEL. Cash is the sixth position today. Revisit if A or another position hits target or stop, freeing capacity for a properly sized new entry.",
+  "confidence_target_pct": 55,
+  "trades": [],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "afec888588758f78",
-    "prompt_chars": 22022,
-    "generated_at": "2026-08-11T10:22:45.334919+00:00",
-    "code_sha": "a1b2716887ea"
+    "prompt_sha256": "1078ddc7d90b73a1",
+    "prompt_chars": 21972,
+    "generated_at": "2026-08-12T10:28:35.309552+00:00",
+    "code_sha": "4f77663dc542"
   }
 }
