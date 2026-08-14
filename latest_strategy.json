@@ -1,33 +1,18 @@
 {
-  "analysis": "MARKET & PORTFOLIO OVERVIEW: SPY is in a confirmed uptrend (+3.3% vs SMA50, positive slope), which is constructive. However, the portfolio is already at 94% deployment with only ~$1,060 of headroom for new buys \u2014 far too little to size any new position properly (minimum useful entry on a $103k book would be ~$10k-15k). Forcing a trade into a $1,060 slot is not discipline; it is noise. The historical profit factor of 0.55x (losing money net across 15 trades) and negative Sortino of -1.40 reinforce that this cycle's priority is capital preservation and letting existing winners run \u2014 NOT manufacturing new activity.\n\nEXISTING POSITION REVIEW:\n\u2022 A (+14.3%): Strong gain. Agilent is not in today's screened list \u2014 worth watching whether it failed trend filter in a future cycle \u2014 but the position is profitable and there is no thesis-break signal yet. Hold.\n\u2022 AMP (+5.0%): Solid performer in an uptrend, quality financial. Hold.\n\u2022 LMT (+6.1%): Defense thesis intact, basing in uptrend. Hold.\n\u2022 TEL (-0.4%): Appears on today's screened candidate list as UPTREND/basing with solid rev growth (+13.8%) and positive EPS revisions. Flat performance is within noise; no thesis break. Hold.\n\u2022 MCO (+1.4%): FLAGGED \u2014 Moody's does NOT appear in today's screened candidates list (30 names that passed quality + no-confirmed-downtrend filters). Given MCO is clearly a quality business (ROE, margins, moat), the likely failure is the trend filter \u2014 suggesting MCO may now be in a confirmed downtrend or deteriorating tape. At only +1.42% gain, the risk/reward of continuing to hold a position that likely failed trend screening is asymmetric to the downside. Recommend monitoring closely; if MCO breaks below its SMA50 or fails to recapture it within 2-3 weeks, exit to protect capital and free ~$12k for a better-setup candidate. Do NOT sell into this session without confirming trend deterioration \u2014 a forced sell on a +1.4% position without price confirmation is also wrong.\n\nNEW TRADES: ZERO. The capacity constraint alone disqualifies new entries. Even the best candidate (e.g., BR or IDXX basing setups) cannot be sized to 1-2% equity risk with $1,060 available. Beyond capacity: several high-ranking candidates (IT, WDAY, CTSH) are already +19-22% above SMA50, which violates the 'not extended' rule. FDS earnings in 35 days create binary risk. DG and WDAY both have earnings in 14 days \u2014 untradeable per thesis. The right answer is patience. Protecting the 94% already deployed and waiting for a natural exit (target hit or stop hit on an existing position) before adding is the disciplined move. Cash is a position. A quiet book in this regime is a success.",
-  "confidence_target_pct": 55,
+  "analysis": "PORTFOLIO REVIEW & MARKET CONTEXT: Market regime is healthy UPTREND (+4.0% vs SMA50), which is constructive for existing longs. However, the portfolio is already deployed at 94% of equity across 5 positions with only $1,037 of remaining headroom \u2014 effectively zero capacity for any meaningfully sized new position. The hard constraint alone rules out new buys this cycle.\n\nEXISTING POSITION ASSESSMENT:\n- A (+15.1%): Clear winner. Thesis intact, still basing well. No action.\n- AMP (+6.08%): Steady, no thesis break. Hold.\n- LMT (+4.84%): Defense sector stable, no thesis break. Hold.\n- MCO (+3.66%): Smallest position at ~$12.7k. Tracking modestly. No thesis break.\n- TEL (+0.22%): Essentially flat since entry. TEL also appears in screened candidates and still passes quality + trend filters (uptrend, basing, PEG 0.92, strong FCF). No thesis break, but the lack of momentum is worth monitoring. If it fails to make progress over the next 2-4 weeks, consider exiting to redeploy into a higher-conviction setup.\n\nHISTORICAL PERFORMANCE CONCERN: Profit factor of 0.55x and Sortino of -0.87 are below acceptable thresholds. The three consecutive WDAY stop-hits suggest entry timing discipline needs tightening \u2014 specifically, avoiding entries when SMA50 slope is negative or price is extended above SMA50. This cycle's candidate scan shows several extended names (IT +23% vs SMA50, CTSH +21.6%, BR +14.9%, PTC +20.7%) that would violate the 'not extended' entry rule regardless of headroom.\n\nBEST SCREENED CANDIDATES IF CAPACITY EXISTED: ADBE (PEG 0.66, fwd P/E 9.84, massive FCF, basing near SMA200) and CCL (PEG 0.96, strong uptrend, solid FCF) are the most interesting setups on fundamentals + trend alignment. Both would require either freeing capital by exiting TEL or waiting for a position to hit target/stop naturally.\n\nCONCLUSION: Zero new trades this cycle. Capital preservation and patience are the correct posture. If TEL stalls another 2-3 weeks without progress, consider exiting to free ~$18.7k in capacity for a higher-conviction entry \u2014 likely ADBE or CCL at a better technical setup. Forcing a trade with $1,037 in headroom would violate sizing rules and serve no purpose.",
+  "confidence_target_pct": 52,
   "trades": [
     {
       "symbol": "AMP",
       "direction": "BUY",
-      "entry_price": 567.9,
-      "stop_loss": 545.03,
-      "target": 681.48,
+      "entry_price": 573.53,
+      "stop_loss": 546.87,
+      "target": 688.24,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 4.966331438565808,
-      "rationale": "PYRAMID tranche 2: original lot held 29d at +5.0%; price $565.07 > SMA20 $542.54; adding $10,222 (18 sh) with combined break-even stop at $545.03.",
-      "entry_strategy": "Limit @ $567.90 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
-    },
-    {
-      "symbol": "LMT",
-      "direction": "BUY",
-      "entry_price": 609.75,
-      "stop_loss": 579.46,
-      "target": 731.7,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 4.0260812149224225,
-      "rationale": "PYRAMID tranche 2: original lot held 13d at +6.5%; price $606.72 > SMA20 $566.17; adding $9,756 (16 sh) with combined break-even stop at $579.46.",
-      "entry_strategy": "Limit @ $609.75 (current +0.5%)",
+      "risk_reward_ratio": 4.302700675168799,
+      "rationale": "PYRAMID tranche 2: original lot held 30d at +6.1%; price $570.68 > SMA20 $544.50; adding $10,324 (18 sh) with combined break-even stop at $546.87.",
+      "entry_strategy": "Limit @ $573.53 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -35,9 +20,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "a1ff74edcea9fad8",
-    "prompt_chars": 21980,
-    "generated_at": "2026-08-13T10:25:49.794789+00:00",
-    "code_sha": "ddfa89f2ffe8"
+    "prompt_sha256": "fadf808fb5afee19",
+    "prompt_chars": 21967,
+    "generated_at": "2026-08-14T10:25:36.007673+00:00",
+    "code_sha": "52dbc62b1cf2"
   }
 }
