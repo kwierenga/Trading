@@ -490,5 +490,13 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "LMT would be 32.2% of equity (existing $23,488 + new $9,756 = $33,244); cap is 30%"
+  },
+  {
+    "date": "2026-08-14",
+    "timestamp": "2026-08-14T14:33:50.441404+00:00",
+    "symbol": "AMP",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "AMP would be 30.4% of equity (existing $21,109 + new $10,324 = $31,432); cap is 30%"
   }
 ]
