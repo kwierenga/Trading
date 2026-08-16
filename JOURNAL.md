@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-08-04 → 2026-08-16
+
+_Sharpe +1.46, Sortino +2.03, MaxDD -3.8%, CAGR +20.4%, excess CAGR vs SPY -12.0% (quantstats, since inception)._
+
+**What worked / what didn't.** The five existing positions did the work this week — A in particular (+14.5%) is carrying meaningful weight, and LMT and AMP are contributing solidly. No new positions were successfully added despite entries being proposed on four of the seven trading days (TEL on 8/7, PGR on 8/6, LMT on 8/11 and 8/13, AMP on 8/13 and 8/14). TEL appears to have filled at some point given it's now in the book at +0.5%, but PGR never made it in despite a 62% confidence rating — that's the one name that got screened, proposed, and then silently dropped. The journal's "What we learned" fields are blank every single day, which means a week of live market observation went unrecorded.
+
+**What's puzzling or worth watching.** Cash has been locked at exactly $6,211 since 8/7 — eleven digits of precision, zero movement — which suggests the system is functioning but no new capital was actually deployed after TEL. PGR was proposed Thursday morning with conviction equal to TEL's, held 25% cash that day, and then vanished from the portfolio by Friday with no journal note explaining why. That's a gap worth understanding: was it a price miss, a news event, a rule that disqualified it at 09:35, or a manual skip? Separately, confidence scores are declining across the week's proposals (62% → 58% → 55% → 52%), which could be noise or could reflect the screen seeing something systematically deteriorating in setup quality as the market extended.
+
+**Reflective prompts for Klaas.** What specifically caused PGR to not fill on 8/6, and do you actually know the answer, or are you reconstructing it now from memory? The blank "What we learned" fields suggest the 15-minute EOD review isn't happening — is the review discipline the thing you want to protect most in this process, and if so, what's getting in the way of two sentences a day? A sits at +14.5% unrealized with no exit logic visible in the journal — what does your thesis-break criterion look like for that position, and has anything this week nudged you closer to or further from it?
+
+
+---
+
 ## [EOD] 2026-08-14 Friday
 **What happened.** No trades closed today. End equity $103,446, cash $6,211 (6% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
