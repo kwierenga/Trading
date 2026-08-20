@@ -522,5 +522,25 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "LMT would be 32.6% of equity (existing $23,490 + new $10,374 = $33,863); cap is 30%"
+  },
+  {
+    "date": "2026-08-20",
+    "timestamp": "2026-08-20T14:33:54.376855+00:00",
+    "symbol": "IDXX",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $519.50, target $650.00; submit status pending_new",
+    "shares": 26,
+    "entry_price": 562.2,
+    "order_id": "1c7d0de4-8533-4247-a950-8a46d07c688c",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-08-20",
+    "timestamp": "2026-08-20T14:33:55.211597+00:00",
+    "symbol": "MCO",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Financial Services sector would be 42.6% of equity (existing $33,612 + new $9,990 = $43,603); cap is 35%"
   }
 ]

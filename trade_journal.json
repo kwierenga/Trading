@@ -268,5 +268,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 16,
+    "symbol": "IDXX",
+    "shares": 26,
+    "original_shares": 26,
+    "entry_price": 562.2,
+    "entry_time": "2026-08-20T14:33:54.377038+00:00",
+    "stop_loss": 519.5,
+    "initial_stop": 519.5,
+    "R": 42.700000000000045,
+    "current_stop": 519.5,
+    "target_price": 650.0,
+    "rationale": "FUNDAMENTAL: IDEXX is among the highest-quality businesses in the S&P 500. Veterinary diagnostics is a sticky, recurring-revenue model \u2014 pet owners do not defer cancer screenings for dogs the way they",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
