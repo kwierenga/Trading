@@ -1,18 +1,34 @@
 {
-  "analysis": "MARKET REGIME: SPY in confirmed uptrend (+2.4% vs SMA50, +0.77% 20d slope) \u2014 a constructive backdrop, but not a license to chase. PORTFOLIO CAPACITY: With 94% deployment and only $1,110 of remaining headroom, there is effectively zero capacity for a new meaningful position. Adding a $1,100 position would be a rounding error and violate disciplined sizing, so new buys are off the table this cycle regardless of candidate quality. POSITION REVIEW \u2014 all five held: (1) A +12.67%: Agilent continues to trend well, thesis intact, hold and trail stop higher; (2) AMP +4.49%: Ameriprise solid, financial services uptrend; (3) LMT +6.15%: Defense outperformer, thesis intact; (4) MCO +3.10%: Moody's grinding higher, hold; (5) TEL -4.70%: TE Connectivity is the book's weak link \u2014 currently mixed/sideways basing, -5.9% below SMA200, and our cost basis is $215.07 vs. $204.97 market. However, fundamental thesis remains intact: PEG 0.93, fwd P/E 15.88, rev growth +13.8%, EPS revisions positive +2.1%, and ATR-based stop (entry minus ~2x ATR ~6.5pt) would be near $189-192. TEL has NOT broken thesis or stop \u2014 hold but monitor closely; a close below $195 or deteriorating EPS revisions would be the trigger to exit. HISTORICAL PERFORMANCE FLAGS: Profit factor of 0.55 and Sortino of -2.47 are sobering. This confirms the mandate \u2014 do not manufacture trades. The three WDAY stop-outs reveal the danger of forcing entries in choppy, extended names. CANDIDATES REVIEWED: Several compelling names exist (KKR PEG 0.59, ADBE fwd P/E 9.57, RDDT 61% rev growth, IT low P/E) but none can be sized properly given current deployment. Even the best setup is worthless at $1,100 exposure. CONCLUSION: Cash conservation and position stewardship IS the alpha this cycle. Hold the book, tighten trailing stops on A (consider moving stop to near breakeven ~$130-132 to lock gains), and wait for capacity to open organically via target hits or stop-outs before adding new exposure.",
-  "confidence_target_pct": 52,
+  "analysis": "MARKET REGIME: SPY in confirmed uptrend (+2.5% vs SMA50, slope +0.82%). Conditions support selective new exposure but discipline around quality and entry timing remains paramount given our poor historical profit factor (0.55x) and negative Sortino ratio (-1.72). We cannot afford sloppy entries.\n\nEXISTING POSITION REVIEW:\n- AMP (+4.05%): Thesis intact. Financial services quality compounder, momentum healthy. Hold.\n- LMT (+3.23%): Defense thesis intact, geopolitical tailwinds, sector performing. Hold.\n- MCO (+5.49%): Best performer; Moody's credit ratings franchise \u2014 durable moat, compounding nicely. Hold.\n- TEL (-5.03%): FLAGGED. Price at $204.26 vs entry $215.07, now trading BELOW SMA50 and SMA200. At 2x ATR (~$6.30) below original entry the stop would be ~$202. We are testing that level now. The fundamental thesis (connector/electrification, fwd P/E 15.77, PEG 0.88, 13.8% revenue growth) remains intact, but trend is MIXED/SIDEWAYS. Monitor daily \u2014 if TEL closes below $202, honor the stop and exit. Do not average down. The position has not technically stopped out yet, but it is on watch.\n\nNEW TRADE RATIONALE: One new position is appropriate given $23,238 headroom and room for a 5th slot. IDXX (IDEXX Laboratories) stands out as the highest-quality setup in the screened list: exceptional moat (veterinary diagnostics recurring revenue), ROE 74%, 35% operating margin, $909M FCF, only 15% into its 52-week range (deep Stage 1/2 transition territory), and barely reclaiming SMA50 (+0.2%) with SMA50 slope turning positive. This is the textbook 'basing knife, not falling knife' entry. Valuation is premium (fwd P/E 33.6) but justified for this quality tier. Earnings are 74 days out, providing a safe holding window. All other high-ranked candidates either are too extended above SMA50 (IT +28%, CTSH +24.9%, ADBE +17.8%), have near-term earnings risk (LULU 14d, ADBE 21d), show declining EPS revisions (HCA -2.9%, AOS -1.8%), or represent sector overlap (HII vs LMT). Adding IDXX brings total deployment to ~92%, within the 95% gross cap.",
+  "confidence_target_pct": 58,
   "trades": [
     {
-      "symbol": "LMT",
+      "symbol": "IDXX",
       "direction": "BUY",
-      "entry_price": 610.21,
-      "stop_loss": 579.6,
-      "target": 732.25,
+      "entry_strategy": "Limit order at $562 or better on a slight intraday pullback to the SMA50 zone. If price gaps above $570 on open, wait for a retest of SMA50 before initiating.",
+      "entry_price": 562.2,
+      "stop_loss": 519.5,
+      "stop_loss_pct": 0.076,
+      "atr_multiple": 2.0,
+      "target": 650.0,
+      "target_gain_pct": 0.156,
+      "risk_reward_ratio": 2.06,
+      "conviction": 70,
+      "holding_period": "position",
+      "rationale": "FUNDAMENTAL: IDEXX is among the highest-quality businesses in the S&P 500. Veterinary diagnostics is a sticky, recurring-revenue model \u2014 pet owners do not defer cancer screenings for dogs the way they delay elective procedures for themselves. ROE of 74.2%, operating margin 35%, FCF $909M, and 9.7% revenue growth justify a premium multiple. Fwd P/E 33.6 is not cheap, but this is a wide-moat compounder that has historically traded at 40-60x. At 15% into its 52-week range after pulling back from $766, we are buying quality at a meaningful discount to recent highs. EPS revisions are modestly positive (+1.3% over 60d). TECHNICAL: Price is re-crossing the SMA50 (currently +0.2%) after a prolonged basing period below both SMAs. SMA50 slope has turned positive at +1.1%. The 52-week range position of 15% is Stage 1/2 transition territory \u2014 exactly where Weinstein's methodology calls for entries. ATR(14) at 3.8% is healthy volatility, not excessive. Stop at 2x ATR (~$42.70 below entry, 7.6%) places us below the recent basing low, giving the position room to breathe while keeping portfolio heat under 1.5%.",
+      "exit_plan": "Primary stop: $519.50 (2x ATR below entry, hard stop). Target: $650 based on partial mean-reversion toward 52-week high. Thesis-break conditions: SMA50 slope turns negative AND price closes back below SMA50 for 3+ consecutive days; or revenue growth decelerates below 5% in next earnings report (Nov 2, 74 days out); or new competitive entrant disrupts veterinary diagnostics pricing. Time stop: If price has not made progress toward $600 within 90 days with no thesis improvement, reassess. Do not hold through earnings if in a loss position."
+    },
+    {
+      "symbol": "MCO",
+      "direction": "BUY",
+      "entry_price": 499.52,
+      "stop_loss": 481.07,
+      "target": 599.42,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.9869323750408334,
-      "rationale": "PYRAMID tranche 2: original lot held 19d at +6.1%; price $607.17 > SMA20 $584.61; adding $9,763 (16 sh) with combined break-even stop at $579.60.",
-      "entry_strategy": "Limit @ $610.21 (current +0.5%)",
+      "risk_reward_ratio": 5.414634146341466,
+      "rationale": "PYRAMID tranche 2: original lot held 20d at +5.5%; price $497.03 > SMA20 $481.81; adding $9,990 (20 sh) with combined break-even stop at $481.07.",
+      "entry_strategy": "Limit @ $499.52 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -20,9 +36,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "617e8d40da6d0301",
-    "prompt_chars": 22005,
-    "generated_at": "2026-08-19T10:11:09.854422+00:00",
-    "code_sha": "7efaeadd0aa8"
+    "prompt_sha256": "281eb9c77752e7f8",
+    "prompt_chars": 21959,
+    "generated_at": "2026-08-20T10:14:00.858219+00:00",
+    "code_sha": "1aa4db5ede77"
   }
 }
