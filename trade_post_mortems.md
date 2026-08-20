@@ -461,3 +461,41 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-08-20 — TEL closed (held 12.9d, -6.52%, $-1,220.70)
+<!-- pm-key: TEL|2026-08-20T13:35:13|215.07 -->
+
+**Mechanical (auto-filled):**
+- Entry: $215.07 on 2026-08-07 → Exit: $201.04 on 2026-08-20 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: TE Connectivity is a high-quality industrial connector company with direct exposure to AI data center buildout, EV adoption, and defense modernization — three durable secular tailwinds. P
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
+
+## 2026-08-20 — LMT closed (held 21.2d, +2.06%, $+195.99)
+<!-- pm-key: LMT|2026-08-20T19:30:36|558.586818 -->
+
+**Mechanical (auto-filled):**
+- Entry: $558.59 on 2026-07-30 → Exit: $570.12 on 2026-08-20 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: Fundamental: Lockheed Martin is a high-quality defense compounder with 89% ROE, $5.6B FCF, $10.4B operating cash flow, and 10.5% revenue growth. Defense budgets are structurally elevated across NATO,
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
