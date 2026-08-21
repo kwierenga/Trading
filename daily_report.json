@@ -3537,5 +3537,72 @@
       "noops": 0,
       "skipped_no_R": 4
     }
+  },
+  {
+    "timestamp": "2026-08-21T21:21:34.412426+00:00",
+    "date": "2026-08-21",
+    "equity": 101568.57,
+    "cash": 41037.24,
+    "positions": 4,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 5,
+      "avg_holding_days": 14.465238851516204,
+      "short_term_gains": 1377.89,
+      "long_term_gains": 0.0,
+      "realized_gain": -800.0000000000001,
+      "estimated_tax_owed": 440.92480000000006,
+      "tax_drag": 234.24130000000005
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 106835.51,
+      "shadow_return_pct": 0.06835513178844232,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 101568.57,
+      "strategy_return_pct": 0.015685700000000136,
+      "spread_pct": -0.05266943178844219
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "AMP",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "IDXX",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "LMT",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "MCO",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 4
+    }
   }
 ]
