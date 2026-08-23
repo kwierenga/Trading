@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-08-11 → 2026-08-23
+
+_Sharpe +0.64, Sortino +0.85, MaxDD -3.8%, CAGR +8.0%, excess CAGR vs SPY -16.7% (quantstats, since inception)._
+
+**What worked / what didn't.** The stop discipline executed cleanly on both closes: TEL hit its stop at -6.5% ($1,221 loss, ~13 days held) and the first LMT position was stopped out at +2.1% ($196 gain, ~21 days held). TEL is the only real damage this week — a meaningful loss relative to the LMT gain, and worth noting that the system held TEL for nearly two weeks before the stop triggered, so this wasn't a quick flush. The re-entry into LMT on Aug 19 is now sitting at -3.0% unrealized, which means Klaas is back in the same name that just stopped out two days earlier. That's not automatically wrong, but it's a specific fact that deserves scrutiny. MCO at +6.8% and AMP at +3.3% are the constructive positions right now.
+
+**What's puzzling or worth watching.** The cash position swung dramatically — from 6% of equity early in the week to 40% by Friday. That's not gradual; it's a near-complete portfolio reshuffling in a few days driven by two stops firing and two new entries filling. The journal's "What we learned" fields are blank for every EOD entry this week. That's a process gap: the reflective loop exists on paper but isn't being used in real time, which means the daily surprises and hypothesis-tests are going unrecorded when they're freshest. Also, LMT appeared as a proposed entry on Aug 13, Aug 17, and Aug 19 — three separate screening cycles flagged the same name across different days. Whether that reflects genuine repeated signal or the screen re-surfacing a familiar name as conditions drift is unclear from the data alone.
+
+**Reflective prompts for Klaas.** Re-entering LMT two days after a stop-out is a concrete decision — what specifically changed in the setup between Aug 20 (exit) and Aug 19 (new entry proposed), and was that difference visible before the order was placed or only rationalized afterward? TEL's loss was roughly 6x the size of LMT's gain; given that both exited via the same stop mechanism, is the position-sizing between those two entries something you'd calibrate differently in hindsight, or do you consider the sizing appropriate given what you knew at entry? The EOD "What we learned" fields were left blank every day this week — is that because nothing notable happened, because the 15-minute review isn't actually happening, or because the prompt doesn't match how you naturally process the day?
+
+
+---
+
 ## [EOD] 2026-08-21 Friday
 **What happened.** No trades closed today. End equity $101,569, cash $41,037 (40% of equity), 4 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
