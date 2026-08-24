@@ -1,24 +1,6 @@
 [
   {
     "id": 1,
-    "symbol": "LII",
-    "shares": 30,
-    "entry_price": 575.57,
-    "entry_time": "2026-07-01T17:32:34.936625Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "PYRAMID tranche 2: original lot held 18d at +11.8%; price $572.95 > SMA20 $529.97; adding $9,789 (17 sh) with combined break-even stop at $538.98.",
-    "source": "claude",
-    "status": "closed",
-    "exit_price": 537.39,
-    "exit_time": "2026-07-08T14:17:08.063783Z",
-    "pnl": -1145.4,
-    "pnl_pct": -0.066334,
-    "duration_minutes": 9884.5521193,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 2,
     "symbol": "CI",
     "shares": 33,
     "entry_price": 300.99,
@@ -36,7 +18,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 3,
+    "id": 2,
     "symbol": "WDAY",
     "shares": 69,
     "entry_price": 135.32,
@@ -54,7 +36,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 4,
+    "id": 3,
     "symbol": "FDS",
     "shares": 38,
     "entry_price": 245.83,
@@ -72,7 +54,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 5,
+    "id": 4,
     "symbol": "WDAY",
     "shares": 69,
     "entry_price": 146.13,
@@ -90,7 +72,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 6,
+    "id": 5,
     "symbol": "WDAY",
     "shares": 2,
     "entry_price": 140.992254,
@@ -108,7 +90,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 7,
+    "id": 6,
     "symbol": "WDAY",
     "shares": 69,
     "entry_price": 140.992254,
@@ -126,7 +108,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 8,
+    "id": 7,
     "symbol": "FDS",
     "shares": 1,
     "entry_price": 245.83,
@@ -144,7 +126,7 @@
     "reason_exit": "target_hit"
   },
   {
-    "id": 9,
+    "id": 8,
     "symbol": "FDS",
     "shares": 38,
     "entry_price": 260.07,
@@ -162,7 +144,7 @@
     "reason_exit": "target_hit"
   },
   {
-    "id": 10,
+    "id": 9,
     "symbol": "TEL",
     "shares": 87,
     "entry_price": 215.07,
@@ -180,7 +162,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 11,
+    "id": 10,
     "symbol": "LMT",
     "shares": 17,
     "entry_price": 558.586818,
@@ -198,7 +180,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 12,
+    "id": 11,
     "symbol": "AMP",
     "shares": 19,
     "entry_price": 520.609474,
@@ -216,7 +198,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 12,
     "symbol": "AMP",
     "shares": 18,
     "entry_price": 556.32,
@@ -234,7 +216,7 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 13,
     "symbol": "MCO",
     "shares": 26,
     "entry_price": 471.16,
@@ -252,7 +234,7 @@
     "reason_exit": null
   },
   {
-    "id": 15,
+    "id": 14,
     "symbol": "LMT",
     "shares": 5,
     "entry_price": 558.586818,
@@ -270,7 +252,7 @@
     "reason_exit": null
   },
   {
-    "id": 16,
+    "id": 15,
     "symbol": "LMT",
     "shares": 17,
     "entry_price": 587.4,
@@ -288,7 +270,7 @@
     "reason_exit": null
   },
   {
-    "id": 17,
+    "id": 16,
     "symbol": "IDXX",
     "shares": 26,
     "entry_price": 558.522692,
@@ -306,22 +288,16 @@
     "reason_exit": null
   },
   {
-    "id": 18,
+    "id": 17,
     "symbol": "SYK",
     "shares": 38,
-    "original_shares": 38,
-    "entry_price": 329.0,
-    "entry_time": "2026-08-24T14:34:05.870140+00:00",
-    "stop_loss": 310.5,
-    "initial_stop": 310.5,
-    "R": 18.5,
-    "current_stop": 310.5,
-    "target_price": 384.0,
+    "entry_price": 328.94,
+    "entry_time": "2026-08-24T15:36:47.285053Z",
+    "stop_loss": null,
+    "target_price": null,
     "rationale": "FUNDAMENTAL: Stryker is a best-in-class medical device compounder \u2014 Mako robotic surgery platform growing double-digits, diversified across ortho, neuro, and MedSurg, 27% operating margins, $4.1B FCF,",
     "source": "claude",
     "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
     "exit_price": null,
     "exit_time": null,
     "pnl": null,
