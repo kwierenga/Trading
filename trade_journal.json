@@ -304,5 +304,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 18,
+    "symbol": "SYK",
+    "shares": 38,
+    "original_shares": 38,
+    "entry_price": 329.0,
+    "entry_time": "2026-08-24T14:34:05.870140+00:00",
+    "stop_loss": 310.5,
+    "initial_stop": 310.5,
+    "R": 18.5,
+    "current_stop": 310.5,
+    "target_price": 384.0,
+    "rationale": "FUNDAMENTAL: Stryker is a best-in-class medical device compounder \u2014 Mako robotic surgery platform growing double-digits, diversified across ortho, neuro, and MedSurg, 27% operating margins, $4.1B FCF,",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]

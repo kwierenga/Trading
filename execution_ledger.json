@@ -558,5 +558,25 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Financial Services sector would be 43.1% of equity (existing $33,753 + new $10,025 = $43,778); cap is 35%"
+  },
+  {
+    "date": "2026-08-24",
+    "timestamp": "2026-08-24T14:34:05.869899+00:00",
+    "symbol": "SYK",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $310.50, target $384.00; submit status pending_new",
+    "shares": 38,
+    "entry_price": 329.0,
+    "order_id": "aead549f-8490-410b-84b7-62b5d958ae16",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-08-24",
+    "timestamp": "2026-08-24T14:34:11.262113+00:00",
+    "symbol": "MCO",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Financial Services sector would be 43.4% of equity (existing $34,063 + new $10,117 = $44,180); cap is 35%"
   }
 ]
