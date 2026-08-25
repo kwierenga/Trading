@@ -304,5 +304,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 18,
+    "symbol": "ROP",
+    "shares": 30,
+    "original_shares": 30,
+    "entry_price": 415.51,
+    "entry_time": "2026-08-25T14:33:50.580103+00:00",
+    "stop_loss": 395.57,
+    "initial_stop": 395.57,
+    "R": 19.939999999999998,
+    "current_stop": 395.57,
+    "target_price": 490.0,
+    "rationale": "FUNDAMENTAL: Roper Technologies is a capital-light, software-and-data compounder that acquires niche vertical-market software businesses \u2014 a Buffett-style wonderful business. 27.7% operating margins, ",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]

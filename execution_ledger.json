@@ -578,5 +578,25 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Financial Services sector would be 43.4% of equity (existing $34,063 + new $10,117 = $44,180); cap is 35%"
+  },
+  {
+    "date": "2026-08-25",
+    "timestamp": "2026-08-25T14:33:50.579858+00:00",
+    "symbol": "ROP",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $395.57, target $490.00; submit status pending_new",
+    "shares": 30,
+    "entry_price": 415.51,
+    "order_id": "4d12e47a-343f-4f09-b50a-1a5325781e77",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-08-25",
+    "timestamp": "2026-08-25T14:33:51.150132+00:00",
+    "symbol": "MCO",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Financial Services sector would be 43.0% of equity (existing $33,944 + new $9,764 = $43,708); cap is 35%"
   }
 ]
