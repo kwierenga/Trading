@@ -1,34 +1,34 @@
 {
-  "analysis": "MARKET & PORTFOLIO REVIEW (2026-08-24): SPY remains in a healthy uptrend (+1.9% vs SMA50, slope positive) so the macro backdrop supports selective long exposure. However, our own track record demands humility \u2014 profit factor 0.44x and Sortino -3.57 signal that prior stock-picks have destroyed value vs. buy-and-hold. The honest lesson: be fewer, better, and more patient.\n\nEXISTING POSITIONS: AMP (+3.27%) and MCO (+6.83%) are performing well; theses intact, no action needed. IDXX (-0.29%) is essentially flat \u2014 veterinary diagnostics is a compounding business and a small loss in a choppy market is not thesis-break; hold. LMT (-2.78%) is the weak link. Defense spending tailwinds remain real (NATO budgets, US supplemental), but LMT underperforms peers and the broader market. It is not yet at stop, so no forced exit, but the position warrants close monitoring \u2014 if price fails to reclaim the $580 entry area within the next 4-6 weeks, or defense budget news deteriorates, close it. We already have 4 positions (at the lower bound of our 3-5 target), so adding one more quality name to 5 total is appropriate given $35.9k headroom.\n\nNEW BUY RATIONALE: Stryker (SYK) is the single cleanest asymmetric setup on the screen: (1) Fundamental \u2014 premier medical-device compounder with 27% op margins, $4.1B FCF, 9.4% revenue growth, and a forward P/E of ~20x that is reasonable for the quality; surgical robotics (Mako) and implant volume recovery post-COVID create a multi-year growth runway. (2) Technical \u2014 at only +0.9% above SMA50 with a +4.2%/20d slope, SYK is just beginning a Stage 1\u21922 transition after a ~15% pullback from 52-week highs. At the 44th percentile of its 52-week range, it is not extended. This is exactly the Weinstein basing-to-breakout window the strategy targets. Earnings 66 days out give sufficient runway to establish the position without binary event risk at entry. One new position (SYK) brings the book to 5 \u2014 a full, disciplined slate. No further new buys are warranted this cycle; remaining cash serves as a buffer and optionality for thesis-break exits.",
-  "confidence_target_pct": 52,
+  "analysis": "MARKET REGIME: SPY uptrend intact (+1.5% vs SMA50, 20d slope +1.08%). Constructive backdrop but not a license to force deployment. EXISTING POSITION REVIEW: AMP (+4.3%) and MCO (+8.5%) are performing well; theses intact, hold. LMT (-2.90%) small loss \u2014 defense sector thesis still valid (geopolitical spend), within normal volatility, no thesis break. SYK (-0.74%) essentially flat; SMA50 slope +4.1% is encouraging, hold. IDXX (+0.18%) is a concern \u2014 essentially flat, lacks momentum. Not a thesis break, but a low-conviction hold consuming ~14% of equity; monitor closely and exit if it loses SMA50 or fundamentals deteriorate. Portfolio heat is very low (1.44%), which is healthy. PERFORMANCE CONTEXT: Profit factor 0.60x and Sortino -2.92 are sobering \u2014 they argue strongly against forcing trades to manufacture alpha. The bar for a new position must be high. CANDIDATE SCREEN: Most quality names are extended above SMA50 (ADBE +18%, RMD +12%, ACN +22%, PTC +19%) or carry sector overlap with existing positions (NOC duplicates LMT defense exposure). ADBE has earnings in 16 days \u2014 binary risk. CVNA and HOOD carry excessive debt and speculative valuation risk. ONE GENUINE SETUP: ROP (Roper Technologies) is a rare combination of Buffett-quality fundamentals (27.7% op margin, $2.3B FCF, 17x fwd earnings, software-centric compounder) at a technically acceptable entry \u2014 48% of 52w range, strong SMA50 slope (+8.4%), confirmed uptrend, and +12.9% above SMA50 is within the acceptable threshold (<20%). Headroom constrains position to ~56 shares (~22.8% of equity). Risk is 1.1% of equity \u2014 disciplined. All other candidates either have sector overlap, are too extended, carry near-term earnings risk, or lack the quality/technical combination required. Recommending one focused trade; remaining cash (~$5K) held as buffer.",
+  "confidence_target_pct": 54,
   "trades": [
     {
-      "symbol": "SYK",
+      "symbol": "ROP",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $329.00 or better; acceptable to pay up to $332 if momentum accelerates past the SMA50. Prefer entry on a flat-to-slightly-down open day to improve fill.",
-      "entry_price": 329.0,
-      "stop_loss": 310.5,
-      "stop_loss_pct": 0.056,
+      "entry_strategy": "Buy at market or limit at $415; alternatively wait for any intraday pullback toward $410 before entry. Do not chase if price gaps above $425 before fill.",
+      "entry_price": 415.51,
+      "stop_loss": 395.57,
+      "stop_loss_pct": 0.048,
       "atr_multiple": 2.0,
-      "target": 384.0,
-      "target_gain_pct": 0.167,
-      "risk_reward_ratio": 2.97,
-      "conviction": 68,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Stryker is a best-in-class medical device compounder \u2014 Mako robotic surgery platform growing double-digits, diversified across ortho, neuro, and MedSurg, 27% operating margins, $4.1B FCF, conservative balance sheet (D/E 64). Forward P/E ~20x for a business with this quality and 9-10% organic growth is a fair price. Analyst revisions flat but not negative \u2014 no earnings-estimate deterioration risk. TECHNICAL: SYK is basing at the 44th percentile of its 52-week range after a ~15% correction from $390 highs. Price is only 0.9% above SMA50 with the 20-day SMA50 slope accelerating to +4.2% \u2014 classic early Stage 2 confirmation without being extended. ATR of 2.8% allows a clean 2x ATR stop at ~$18.50 below entry, keeping position risk at ~1.4% of equity. Risk/reward to prior highs near $385 is ~3:1.",
-      "exit_plan": "Primary stop: $310.50 (2x ATR below entry). Thesis-break conditions: (1) quarterly revenue growth decelerates below 6% or op margins compress meaningfully; (2) Mako placement data disappoints; (3) price closes two consecutive weeks below the 50-week SMA. Time stop: if SYK has not moved +8% or more within 10 weeks of entry, re-evaluate whether the setup was valid. Hold through earnings (Oct 29) if position is profitable and stop has not been touched \u2014 consider tightening stop to breakeven ahead of that date. Target $384 represents a return toward the 52-week high; if reached, take half off and trail remaining with a 10% trailing stop for potential LTCG qualification."
+      "target": 490.0,
+      "target_gain_pct": 0.179,
+      "risk_reward_ratio": 3.74,
+      "conviction": 63,
+      "holding_period": "LTCG",
+      "rationale": "FUNDAMENTAL: Roper Technologies is a capital-light, software-and-data compounder that acquires niche vertical-market software businesses \u2014 a Buffett-style wonderful business. 27.7% operating margins, $2.3B free cash flow, fwd P/E 17.1x, PEG 1.78. Revenue growth of 8.5% with high recurring revenue base. Analyst EPS revisions modestly positive (+1.8%). No near-term earnings risk (Oct 22). TECHNICAL: Confirmed uptrend, SMA50 slope +8.4% per month (strong and accelerating), price at 48% of 52w range (middle zone \u2014 not extended on absolute basis), +12.9% above SMA50 within the acceptable <20% threshold per rules. 52w range $313-$525 leaves meaningful upside runway to prior highs. Entry at 2.0x ATR stop ($19.94 risk/share) keeps total position risk at ~1.1% of equity. Position sized at 56 shares ($23,249, 22.8% of equity) constrained by available headroom.",
+      "exit_plan": "Primary stop: $395.57 (2.0x ATR, -4.8%). Thesis-break exits: (1) SMA50 slope turns negative for two consecutive weeks; (2) FCF guidance cut or margin compression in earnings report; (3) transformative debt-funded acquisition that changes the capital-light model. Time stop: reassess at 6 months if price has not made progress toward target. Intend to hold past 1-year mark for LTCG treatment if thesis remains intact. Trim 25-33% of position near $490 if reached quickly (within 3 months) to de-risk remainder into LTCG territory."
     },
     {
       "symbol": "MCO",
       "direction": "BUY",
-      "entry_price": 505.84,
-      "stop_loss": 483.81,
-      "target": 607.01,
+      "entry_price": 513.91,
+      "stop_loss": 486.76,
+      "target": 616.69,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 4.59237403540627,
-      "rationale": "PYRAMID tranche 2: original lot held 24d at +6.8%; price $503.32 > SMA20 $483.48; adding $10,117 (20 sh) with combined break-even stop at $483.81.",
-      "entry_strategy": "Limit @ $505.84 (current +0.5%)",
+      "risk_reward_ratio": 3.7856353591160286,
+      "rationale": "PYRAMID tranche 2: original lot held 25d at +8.5%; price $511.35 > SMA20 $484.80; adding $9,764 (19 sh) with combined break-even stop at $486.76.",
+      "entry_strategy": "Limit @ $513.91 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -36,9 +36,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "81bbcafd63abf556",
-    "prompt_chars": 21981,
-    "generated_at": "2026-08-24T10:22:03.857664+00:00",
-    "code_sha": "9638c344ce4c"
+    "prompt_sha256": "78955c53530aa87f",
+    "prompt_chars": 22022,
+    "generated_at": "2026-08-25T10:14:35.047339+00:00",
+    "code_sha": "8aaace5d6cf3"
   }
 }
