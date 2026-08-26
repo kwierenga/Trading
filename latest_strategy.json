@@ -1,34 +1,18 @@
 {
-  "analysis": "MARKET REGIME: SPY uptrend intact (+1.5% vs SMA50, 20d slope +1.08%). Constructive backdrop but not a license to force deployment. EXISTING POSITION REVIEW: AMP (+4.3%) and MCO (+8.5%) are performing well; theses intact, hold. LMT (-2.90%) small loss \u2014 defense sector thesis still valid (geopolitical spend), within normal volatility, no thesis break. SYK (-0.74%) essentially flat; SMA50 slope +4.1% is encouraging, hold. IDXX (+0.18%) is a concern \u2014 essentially flat, lacks momentum. Not a thesis break, but a low-conviction hold consuming ~14% of equity; monitor closely and exit if it loses SMA50 or fundamentals deteriorate. Portfolio heat is very low (1.44%), which is healthy. PERFORMANCE CONTEXT: Profit factor 0.60x and Sortino -2.92 are sobering \u2014 they argue strongly against forcing trades to manufacture alpha. The bar for a new position must be high. CANDIDATE SCREEN: Most quality names are extended above SMA50 (ADBE +18%, RMD +12%, ACN +22%, PTC +19%) or carry sector overlap with existing positions (NOC duplicates LMT defense exposure). ADBE has earnings in 16 days \u2014 binary risk. CVNA and HOOD carry excessive debt and speculative valuation risk. ONE GENUINE SETUP: ROP (Roper Technologies) is a rare combination of Buffett-quality fundamentals (27.7% op margin, $2.3B FCF, 17x fwd earnings, software-centric compounder) at a technically acceptable entry \u2014 48% of 52w range, strong SMA50 slope (+8.4%), confirmed uptrend, and +12.9% above SMA50 is within the acceptable threshold (<20%). Headroom constrains position to ~56 shares (~22.8% of equity). Risk is 1.1% of equity \u2014 disciplined. All other candidates either have sector overlap, are too extended, carry near-term earnings risk, or lack the quality/technical combination required. Recommending one focused trade; remaining cash (~$5K) held as buffer.",
-  "confidence_target_pct": 54,
+  "analysis": "MARKET REGIME: SPY in uptrend (+1.8% vs SMA50, slope +1.16%). Conditions broadly supportive but many candidates are extended well above their SMA50, limiting fresh entry quality.\n\nPORTFOLIO REVIEW \u2014 6 positions is already above the 3-5 target concentration. 84% deployed leaves only $11,112 headroom, which is structurally too small to size any new position meaningfully (worst-case 1-2% equity risk = ~$1,018-$2,036, but with $11k headroom max position sizes yield only 0.35-0.45% equity risk at proper stops \u2014 effectively too small to matter).\n\nPOSITION-BY-POSITION: (1) MCO +8.9% \u2014 thesis intact, quality moat, hold. (2) AMP +4.14% \u2014 solid, hold. (3) ROP +0.54% \u2014 slow but ROP is on the candidate list at 47% of 52w range and 11.8% above SMA50 \u2014 getting extended, monitor. (4) SYK +0.50% \u2014 healthcare, basing well, hold. (5) IDXX -1.26% \u2014 minor drawdown, thesis (premium vet diagnostics) intact, hold but watch. (6) LMT -4.13% \u2014 FLAG FOR REVIEW. LMT is not present in today's screened candidate list, suggesting it may have failed a quality or trend filter. This is the second LMT trade; the first was also stopped out (+2.06% on stop_hit). Current unrealized loss is ~$529 on a $12,251 position. If stop is not already set, set it at ~$527 (roughly 1.5x ATR ~$14 below current ~$557). Do not add to this position. Consider treating any close below $527 as a thesis-break exit that frees ~$12k for a better-ranked candidate.\n\nNEW BUYS \u2014 Screened candidates show multiple concerns: ADBE has earnings in 15 days (Sept 10) \u2014 avoid. ACN (+21.7% above SMA50), INTU (+18.2%), BR (+19.6%), NOW (+15.5%) are all too extended for a quality-value entry. NOC at 17% of range and barely above SMA50 is technically the best setup (defense spending thesis intact, basing) but we already carry LMT in the same sector; doubling defense before LMT resolves adds uncompensated sector concentration. UHS is cheap (P/E 7x) but EPS revisions are -5.2% \u2014 earnings power may be declining. TSCO has -11.4% EPS revision \u2014 avoid.\n\nHONEST VERDICT: With 6 open positions, 84% deployment, $11k headroom that cannot support meaningful sizing, and a win rate of only 25% with profit factor 0.15x (the recent WDAY triple-stop pattern is especially concerning), the disciplined answer is zero new trades today. Cash is a position. Forcing a 7th name into $11k is manufacturing activity, not alpha. Priority actions: (1) Set or confirm LMT stop near $527; (2) let MCO and AMP run with trailing stops; (3) if LMT exits, evaluate NOC as a like-for-like defense replacement at better technicals with proper sizing (~$13-14k at 1.5x ATR stop).",
+  "confidence_target_pct": 42,
   "trades": [
-    {
-      "symbol": "ROP",
-      "direction": "BUY",
-      "entry_strategy": "Buy at market or limit at $415; alternatively wait for any intraday pullback toward $410 before entry. Do not chase if price gaps above $425 before fill.",
-      "entry_price": 415.51,
-      "stop_loss": 395.57,
-      "stop_loss_pct": 0.048,
-      "atr_multiple": 2.0,
-      "target": 490.0,
-      "target_gain_pct": 0.179,
-      "risk_reward_ratio": 3.74,
-      "conviction": 63,
-      "holding_period": "LTCG",
-      "rationale": "FUNDAMENTAL: Roper Technologies is a capital-light, software-and-data compounder that acquires niche vertical-market software businesses \u2014 a Buffett-style wonderful business. 27.7% operating margins, $2.3B free cash flow, fwd P/E 17.1x, PEG 1.78. Revenue growth of 8.5% with high recurring revenue base. Analyst EPS revisions modestly positive (+1.8%). No near-term earnings risk (Oct 22). TECHNICAL: Confirmed uptrend, SMA50 slope +8.4% per month (strong and accelerating), price at 48% of 52w range (middle zone \u2014 not extended on absolute basis), +12.9% above SMA50 within the acceptable <20% threshold per rules. 52w range $313-$525 leaves meaningful upside runway to prior highs. Entry at 2.0x ATR stop ($19.94 risk/share) keeps total position risk at ~1.1% of equity. Position sized at 56 shares ($23,249, 22.8% of equity) constrained by available headroom.",
-      "exit_plan": "Primary stop: $395.57 (2.0x ATR, -4.8%). Thesis-break exits: (1) SMA50 slope turns negative for two consecutive weeks; (2) FCF guidance cut or margin compression in earnings report; (3) transformative debt-funded acquisition that changes the capital-light model. Time stop: reassess at 6 months if price has not made progress toward target. Intend to hold past 1-year mark for LTCG treatment if thesis remains intact. Trim 25-33% of position near $490 if reached quickly (within 3 months) to de-risk remainder into LTCG territory."
-    },
     {
       "symbol": "MCO",
       "direction": "BUY",
-      "entry_price": 513.91,
-      "stop_loss": 486.76,
-      "target": 616.69,
+      "entry_price": 515.68,
+      "stop_loss": 487.51,
+      "target": 618.82,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.7856353591160286,
-      "rationale": "PYRAMID tranche 2: original lot held 25d at +8.5%; price $511.35 > SMA20 $484.80; adding $9,764 (19 sh) with combined break-even stop at $486.76.",
-      "entry_strategy": "Limit @ $513.91 (current +0.5%)",
+      "risk_reward_ratio": 3.6613418530351525,
+      "rationale": "PYRAMID tranche 2: original lot held 26d at +8.9%; price $513.11 > SMA20 $486.30; adding $9,798 (19 sh) with combined break-even stop at $487.51.",
+      "entry_strategy": "Limit @ $515.68 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -36,9 +20,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "78955c53530aa87f",
-    "prompt_chars": 22022,
-    "generated_at": "2026-08-25T10:14:35.047339+00:00",
-    "code_sha": "8aaace5d6cf3"
+    "prompt_sha256": "2d880ea59a8df3fc",
+    "prompt_chars": 22061,
+    "generated_at": "2026-08-26T10:19:48.309947+00:00",
+    "code_sha": "a6b1c9f384fb"
   }
 }
