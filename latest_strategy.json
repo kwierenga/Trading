@@ -1,18 +1,34 @@
 {
-  "analysis": "MARKET REGIME: SPY in uptrend (+1.8% vs SMA50, slope +1.16%). Conditions broadly supportive but many candidates are extended well above their SMA50, limiting fresh entry quality.\n\nPORTFOLIO REVIEW \u2014 6 positions is already above the 3-5 target concentration. 84% deployed leaves only $11,112 headroom, which is structurally too small to size any new position meaningfully (worst-case 1-2% equity risk = ~$1,018-$2,036, but with $11k headroom max position sizes yield only 0.35-0.45% equity risk at proper stops \u2014 effectively too small to matter).\n\nPOSITION-BY-POSITION: (1) MCO +8.9% \u2014 thesis intact, quality moat, hold. (2) AMP +4.14% \u2014 solid, hold. (3) ROP +0.54% \u2014 slow but ROP is on the candidate list at 47% of 52w range and 11.8% above SMA50 \u2014 getting extended, monitor. (4) SYK +0.50% \u2014 healthcare, basing well, hold. (5) IDXX -1.26% \u2014 minor drawdown, thesis (premium vet diagnostics) intact, hold but watch. (6) LMT -4.13% \u2014 FLAG FOR REVIEW. LMT is not present in today's screened candidate list, suggesting it may have failed a quality or trend filter. This is the second LMT trade; the first was also stopped out (+2.06% on stop_hit). Current unrealized loss is ~$529 on a $12,251 position. If stop is not already set, set it at ~$527 (roughly 1.5x ATR ~$14 below current ~$557). Do not add to this position. Consider treating any close below $527 as a thesis-break exit that frees ~$12k for a better-ranked candidate.\n\nNEW BUYS \u2014 Screened candidates show multiple concerns: ADBE has earnings in 15 days (Sept 10) \u2014 avoid. ACN (+21.7% above SMA50), INTU (+18.2%), BR (+19.6%), NOW (+15.5%) are all too extended for a quality-value entry. NOC at 17% of range and barely above SMA50 is technically the best setup (defense spending thesis intact, basing) but we already carry LMT in the same sector; doubling defense before LMT resolves adds uncompensated sector concentration. UHS is cheap (P/E 7x) but EPS revisions are -5.2% \u2014 earnings power may be declining. TSCO has -11.4% EPS revision \u2014 avoid.\n\nHONEST VERDICT: With 6 open positions, 84% deployment, $11k headroom that cannot support meaningful sizing, and a win rate of only 25% with profit factor 0.15x (the recent WDAY triple-stop pattern is especially concerning), the disciplined answer is zero new trades today. Cash is a position. Forcing a 7th name into $11k is manufacturing activity, not alpha. Priority actions: (1) Set or confirm LMT stop near $527; (2) let MCO and AMP run with trailing stops; (3) if LMT exits, evaluate NOC as a like-for-like defense replacement at better technicals with proper sizing (~$13-14k at 1.5x ATR stop).",
-  "confidence_target_pct": 42,
+  "analysis": "Market regime is confirmed uptrend (SPY +1.8% vs SMA50, 20d slope +1.22%), which is supportive, but our portfolio metrics demand humility: 25% win rate, 0.15x profit factor, and a -2.82 Sortino ratio are sobering. Three WDAY losses in sequence exposed a discipline gap around re-entering a failing thesis \u2014 that must not repeat. The core lesson: we are not generating stock-picking alpha, so risk management and selectivity ARE the edge.\n\nEXISTING POSITION REVIEW:\n- AMP (+4.15%): Thesis intact \u2014 quality financial services compounder. Hold.\n- MCO (+9.21%): Best performer. Ratings/analytics business secular tailwind unchanged. Hold.\n- ROP (+1.17%): Working, SMA50 slope now +8.4% \u2014 momentum accelerating under us. Hold.\n- SYK (+0.22%): Flat but thesis (medtech compounding, aging population) intact; in the candidate screen as basing uptrend. Hold.\n- IDXX (-0.91%): Small unrealized loss; vet diagnostics recurring revenue thesis unchanged, not at stop. Hold.\n- LMT (-2.90%): Defense spending demand remains elevated globally; position is underwater but not at stop. Thesis holds; monitor closely for further deterioration.\n\nNEW TRADE CAPACITY: With 84% deployed and only ~$11,098 headroom, this is NOT a time to add multiple positions. One small, well-reasoned addition is the ceiling. Extended candidates (IT +24% vs SMA50, BR +17%, ACN +18%) are late-cycle entries \u2014 hard rule says avoid. ADBE earnings in 14 days \u2014 avoid event risk. INTU has -9% EPS revision trend \u2014 skip. EXE has -10.6% revenue growth and -7.5% EPS revisions \u2014 declining business, skip. TSCO has -11.4% EPS revisions and is -16.5% below SMA200 \u2014 skip.\n\nBest remaining setup within budget: KKR. Alt asset management has secular AUM growth tailwinds (pension/insurance rotation to alternatives), PEG of 0.55 and fwd P/E ~14.7 represent genuine value for the growth profile, and the stock is basing at 39% of its 52w range with SMA50 slope accelerating +5.4%. Not extended. Earnings 70 days away. Small position sizing respects budget and keeps portfolio heat within bounds.",
+  "confidence_target_pct": 52,
   "trades": [
+    {
+      "symbol": "KKR",
+      "direction": "BUY",
+      "entry_strategy": "Limit order at $108.50 or better; if market opens above, wait for a 1-3% intraday pullback toward SMA50 before entry. Do not chase above $112.",
+      "entry_price": 108.5,
+      "stop_loss": 102.0,
+      "stop_loss_pct": 0.06,
+      "atr_multiple": 1.6,
+      "target": 126.0,
+      "target_gain_pct": 0.161,
+      "risk_reward_ratio": 2.69,
+      "conviction": 60,
+      "holding_period": "position",
+      "rationale": "FUNDAMENTAL: KKR is a premier alternative asset manager with a PEG of 0.55 and fwd P/E ~14.7 \u2014 genuinely cheap for a business growing AUM at a double-digit secular rate driven by pension and insurance capital rotating into private credit, infrastructure, and real assets. Revenue growth of 7.8% with positive EPS revisions (flat to slight positive) in a rising rate environment where alt managers earn higher carried interest and credit spreads. Op margin 20.6% reflects high-quality fee-based earnings. TECHNICAL: Stock is basing at 39% of its 52w range, SMA50 slope at +5.4% (accelerating), and is +7.8% above SMA50 \u2014 constructive but not extended. This is Stage 1 to Stage 2 transition territory. ATR of 3.7% supports a clean 1.6x ATR stop (~6% below entry) that fits within the drawdown tolerance rule. Earnings not until Nov 5 (70 days), giving the thesis time to develop without near-term event risk.",
+      "exit_plan": "Stop loss at $102.00 if hit. Exit if: (1) earnings season reveals AUM outflows or margin compression; (2) price closes below SMA50 on elevated volume after a failed breakout attempt; (3) broader financial sector enters confirmed downtrend. At target $126, reassess \u2014 if business momentum and SMA structure remain intact, consider trimming 50% and letting remainder ride toward LTCG threshold. Time stop: reassess thesis at 90 days if price is flat and below $108."
+    },
     {
       "symbol": "MCO",
       "direction": "BUY",
-      "entry_price": 515.68,
-      "stop_loss": 487.51,
-      "target": 618.82,
+      "entry_price": 517.12,
+      "stop_loss": 488.11,
+      "target": 620.54,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.6613418530351525,
-      "rationale": "PYRAMID tranche 2: original lot held 26d at +8.9%; price $513.11 > SMA20 $486.30; adding $9,798 (19 sh) with combined break-even stop at $487.51.",
-      "entry_strategy": "Limit @ $515.68 (current +0.5%)",
+      "risk_reward_ratio": 3.564977593933126,
+      "rationale": "PYRAMID tranche 2: original lot held 27d at +9.2%; price $514.55 > SMA20 $487.92; adding $9,825 (19 sh) with combined break-even stop at $488.11.",
+      "entry_strategy": "Limit @ $517.12 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -20,9 +36,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "2d880ea59a8df3fc",
-    "prompt_chars": 22061,
-    "generated_at": "2026-08-26T10:19:48.309947+00:00",
-    "code_sha": "a6b1c9f384fb"
+    "prompt_sha256": "847b7e49bd42399e",
+    "prompt_chars": 22067,
+    "generated_at": "2026-08-27T10:26:44.787921+00:00",
+    "code_sha": "084032b96ea2"
   }
 }
