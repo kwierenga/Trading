@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [EOD] 2026-08-28 Friday
+**What happened.** No trades closed today. End equity $102,446, cash $16,203 (16% of equity), 6 open position(s). 
+**What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
+
+---
+
 ## [AM] 2026-08-28 Friday
 **Open questions.** Will the 1 proposed entries (MCO) fill at limit, or run away pre-market? What's the one thing that could derail the 52% confidence target? Any overnight news on these names worth checking before placing orders? 
 **Today's plan.** execute.yml fires automatically at 09:35 ET — re-evaluates each setup against the actual open and submits the survivors. To skip today, push SKIP_TODAY.flag with today's UTC date before 09:35 ET. Monitor 6 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
