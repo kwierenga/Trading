@@ -622,5 +622,13 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Financial Services sector would be 43.0% of equity (existing $33,875 + new $9,825 = $43,700); cap is 35%"
+  },
+  {
+    "date": "2026-08-28",
+    "timestamp": "2026-08-28T14:33:57.656064+00:00",
+    "symbol": "MCO",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Financial Services sector would be 42.8% of equity (existing $33,963 + new $9,720 = $43,682); cap is 35%"
   }
 ]
