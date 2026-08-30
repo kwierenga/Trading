@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-08-18 → 2026-08-30
+
+_Sharpe +0.91, Sortino +1.23, MaxDD -3.8%, CAGR +11.7%, excess CAGR vs SPY -13.1% (quantstats, since inception)._
+
+**What worked / what didn't.** The stop discipline held on both closes: TEL was cut at -6.5% after roughly 13 days, LMT at +2.1% after 21 days. The asymmetry is the problem — a full stop-loss on TEL erased six LMT gains. LMT is also back in the book as a new position, now sitting at -2.9% unrealized, which means the system re-entered a name it just exited for a small gain. Whether that re-entry was driven by fresh signal or anchoring to a familiar name is worth scrutinizing. MCO was proposed as an entry on at least four consecutive mornings (Aug 21, 24, 25, 26, 28) before apparently filling, and it's now the portfolio's strongest performer at +9.3% — patience on limit orders paid off there, assuming the fill wasn't just luck on a gap down.
+
+**What's puzzling or worth watching.** Cash ran from 41% of equity on Aug 20 down to 16% by Aug 25 as new positions were added, which is a meaningful concentration shift in five trading days. The "What we learned" fields are blank every single day — the 15-minute EOD review either isn't happening or isn't being recorded, and that's the only place in the system where real-time hypothesis-testing gets captured. Losing that data means the week is a sequence of prices, not a sequence of observations. LMT being both a closed trade and an open position deserves its own audit: was the re-entry intentional, documented with a fresh thesis, or did the system just regenerate it because the momentum screen re-qualified it?
+
+**Reflective prompts for Klaas.** The EOD "What we learned" sections are empty all week — is the review actually happening but not being written down, or is it not happening at all, and what does that tell you about where your attention goes after the close? TEL lost roughly six times what LMT gained; looking back at the TEL entry, was there a signal at the time that the setup was weaker than the confidence score suggested, or did it look identical to the winners? LMT was sold via stop and then re-bought within the same week — what specific condition changed that justified treating it as a new thesis rather than a re-entry into a position the market just told you was wrong?
+
+
+---
+
 ## [EOD] 2026-08-28 Friday
 **What happened.** No trades closed today. End equity $102,446, cash $16,203 (16% of equity), 6 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
