@@ -2492,5 +2492,65 @@
         "unrealized_pl": 66.5
       }
     ]
+  },
+  {
+    "timestamp": "2026-08-31T21:20:59.292894+00:00",
+    "account": {
+      "equity": 101492.92,
+      "buying_power": 269418.24,
+      "cash": 3854.82,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "AMP",
+        "qty": 37.0,
+        "avg_entry_price": 537.982162,
+        "current_price": 553.11,
+        "unrealized_pl": 559.730006
+      },
+      {
+        "symbol": "AON",
+        "qty": 38.0,
+        "avg_entry_price": 324.96,
+        "current_price": 323.0,
+        "unrealized_pl": -74.48
+      },
+      {
+        "symbol": "IDXX",
+        "qty": 26.0,
+        "avg_entry_price": 558.522692,
+        "current_price": 556.69,
+        "unrealized_pl": -47.649992
+      },
+      {
+        "symbol": "LMT",
+        "qty": 22.0,
+        "avg_entry_price": 580.85155,
+        "current_price": 560.2478,
+        "unrealized_pl": -453.2825
+      },
+      {
+        "symbol": "MCO",
+        "qty": 26.0,
+        "avg_entry_price": 471.16,
+        "current_price": 504.64,
+        "unrealized_pl": 870.48
+      },
+      {
+        "symbol": "ROP",
+        "qty": 30.0,
+        "avg_entry_price": 411.14,
+        "current_price": 424.64,
+        "unrealized_pl": 405.0
+      },
+      {
+        "symbol": "SYK",
+        "qty": 38.0,
+        "avg_entry_price": 328.94,
+        "current_price": 322.1,
+        "unrealized_pl": -259.92
+      }
+    ]
   }
 ]
