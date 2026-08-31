@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [AM] 2026-08-31 Monday
+**Open questions.** Will the 2 proposed entries (NVDA, MCO) fill at limit, or run away pre-market? What's the one thing that could derail the 58% confidence target? Any overnight news on these names worth checking before placing orders? 
+**Today's plan.** execute.yml fires automatically at 09:35 ET — re-evaluates each setup against the actual open and submits the survivors. To skip today, push SKIP_TODAY.flag with today's UTC date before 09:35 ET. Monitor 6 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
+
+---
+
 ## [WEEK] 2026-08-18 → 2026-08-30
 
 _Sharpe +0.91, Sortino +1.23, MaxDD -3.8%, CAGR +11.7%, excess CAGR vs SPY -13.1% (quantstats, since inception)._

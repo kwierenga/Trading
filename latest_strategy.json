@@ -1,18 +1,34 @@
 {
-  "analysis": "MARKET REGIME: SPY uptrend (+2.4% vs SMA50, +1.27% 20d slope) provides a constructive backdrop, but discipline demands we look at the whole picture before acting.\n\nPORTFOLIO REVIEW: We are running 6 positions at 84% deployment \u2014 already ABOVE the 3-5 concentrated position target. Headroom for new buys is only $11,125, which is too small to build a properly sized position at 1-2% equity risk without violating concentration or risk rules. Three positions are underwater: IDXX (-2.42%), LMT (-2.52%), SYK (-1.99%). None have hit stops, and losses are within normal ATR noise, so thesis-break selling is not warranted yet. The three working positions \u2014 MCO (+8.04%), AMP (+3.31%), ROP (+2.81%) \u2014 should be held. SYK appears on the candidate screener as MIXED/SIDEWAYS with a positive SMA50 slope (+3.6%), so its technical picture is not deteriorating further. IDXX and LMT are not on the candidate list, meaning they are not passing the current quality+trend screen; this warrants closer monitoring but not immediate exits on sub-3% losses.\n\nHISTORICAL PERFORMANCE FLAG: A 25% win rate with a 0.15x profit factor and Sortino of -3.70 is a serious warning. The main culprit is the repeated WDAY entries (three separate stop-outs). The lesson: do not add new positions when the book is already full and the edge data is negative. Cash here is not laziness \u2014 it is disciplined risk management.\n\nCANDIDATE SCREEN ASSESSMENT: Several interesting names exist \u2014 SCHW (strong SMA50 slope +8.6%, 80% range position \u2014 borderline extended), APH (extending, 78% range \u2014 avoid), NOC (basing, 18% range but already have LMT in defense), GEHC (basing setup but healthcare already covered via IDXX and SYK). Most high-scoring names are either too extended above SMA50 (PTC +20%, ACN +21%, BR +17%, TYL +18%), in overlapping sectors, or lack the headroom to size properly. No candidate offers a genuinely asymmetric setup that clears all hurdles simultaneously: quality + basing entry + sector diversification + available capacity.\n\nCONCLUSION: Correct action is zero new trades. Preserve the $16K cash cushion. Let the three working positions compound. Monitor IDXX and LMT stops closely. Reassess when positions close and cash increases, or when a candidate offers a cleaner entry.",
-  "confidence_target_pct": 52,
+  "analysis": "PORTFOLIO REVIEW: Market is in a confirmed uptrend (+2.0% vs SMA50, positive slope) but the book is already over-deployed at 84% with 6 positions \u2014 above the 3-5 concentrated target. Historical metrics are a clear warning: 25% win rate, 0.15x profit factor, and a -2.35 Sortino ratio all signal that forcing trades has destroyed value. The mandate is capital preservation and discipline, not activity.\n\nPOSITION-BY-POSITION: AMP (+3.97%) and MCO (+9.29%) are performing well; thesis intact, hold. ROP (+2.64%) and SYK (+0.48%) are grinding slowly \u2014 no thesis break but watch for stall. IDXX (-0.63%) is essentially flat and tying up ~14% of equity in a sideways drift; if it fails to resolve upward within 4-6 weeks, it becomes a capital-efficiency problem. LMT (-2.68%) is the most concerning \u2014 this is a re-entry after the prior LMT was stopped out at +2.06%, and the position is already underwater. Defense spending uncertainty and the pattern of a failed re-entry warrant close monitoring; exit on any close below the entry average less 7-8% (~$540).\n\nNEW TRADE LOGIC: With only ~$11,085 of headroom, new sizing is constrained to roughly 10% of equity \u2014 not ideal for concentration, but still worth acting on IF the setup is genuinely asymmetric. Of all 30 screened candidates, NVDA stands alone on the quality dimension: 105.9% revenue growth, 66.2% op margins, $41.8B FCF, $134B operating cash flow, +20.4% EPS revision tailwind, PEG 0.63, and AI infrastructure demand that is durable over years. Technically, it sits at 75% of its 52-week range with only +4.4% above SMA50 (not extended), confirmed uptrend, and the SMA50 slope is still rising. This is acceptable entry territory for a LTCG hold. No other candidate combines this quality with this setup quality \u2014 I am not proposing trades in HOOD (D/E 240, speculative), ZBRA (86% range, SMA50 slope +19.5% = extended), SCHW (88% range, extended), or IT (+25.9% above SMA50 = extended). One measured NVDA position is the only trade that clears the bar today.",
+  "confidence_target_pct": 58,
   "trades": [
+    {
+      "symbol": "NVDA",
+      "direction": "BUY",
+      "entry_strategy": "Limit at $217.55 or better; accept up to $220 on strength. Prefer a 1-2 day pullback toward $214-216 to improve entry. Do not chase above $222.",
+      "entry_price": 217.55,
+      "stop_loss": 205.37,
+      "stop_loss_pct": 0.056,
+      "atr_multiple": 1.75,
+      "target": 270.0,
+      "target_gain_pct": 0.241,
+      "risk_reward_ratio": 4.3,
+      "conviction": 75,
+      "holding_period": "LTCG",
+      "rationale": "FUNDAMENTAL: NVDA is the clearest example of a dominant-moat business in a secular growth wave. Revenue +105.9% YoY, operating margin 66.2%, FCF $41.8B, and EPS revisions +20.4% in the last 60 days all point to an accelerating, not slowing, earnings cycle driven by AI infrastructure spend. PEG of 0.63 and fwd P/E of 14.21 make this arguably cheap relative to growth once you discount the AI capex cycle. TECHNICAL: Price is at 75% of 52-week range \u2014 not at an extreme. At only +4.4% above SMA50 with the SMA50 slope still in mild positive territory (+1.1%), this is a basing UPTREND entry, not a late-cycle chase. Stop at 1.75x ATR14 ($6.96) = $205.37, a 5.6% drawdown. Sizing constrained to ~51 shares by the $11,085 headroom cap, risking $621 (0.6% of equity) \u2014 well within the 1-2% heat rule. Intend to hold past 12 months for LTCG tax treatment if thesis remains intact.",
+      "exit_plan": "Stop at $205.37 (1.75x ATR, hard rule). Thesis-break exit: if quarterly revenue growth drops below 40% for two consecutive quarters OR operating margins compress below 55%, reassess and likely exit regardless of price. Time stop: reassess after 6 months if price has not moved toward $240+. Near 52w high ($235.47) may see temporary resistance \u2014 do not exit there, trim only if position has grown to >20% of equity. Hold past 1-year mark if trajectory is intact to capture LTCG rate. Earnings are 78 days out (Nov 17) \u2014 no position adjustment needed before then unless stop is hit."
+    },
     {
       "symbol": "MCO",
       "direction": "BUY",
-      "entry_price": 511.57,
-      "stop_loss": 485.78,
-      "target": 613.88,
+      "entry_price": 517.52,
+      "stop_loss": 488.28,
+      "target": 621.02,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.967041488949202,
-      "rationale": "PYRAMID tranche 2: original lot held 28d at +8.0%; price $509.02 > SMA20 $489.30; adding $9,720 (19 sh) with combined break-even stop at $485.78.",
-      "entry_strategy": "Limit @ $511.57 (current +0.5%)",
+      "risk_reward_ratio": 3.5396716826265378,
+      "rationale": "PYRAMID tranche 2: original lot held 31d at +9.3%; price $514.95 > SMA20 $491.18; adding $9,833 (19 sh) with combined break-even stop at $488.28.",
+      "entry_strategy": "Limit @ $517.52 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -20,9 +36,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "2a1423728f5f7a7f",
-    "prompt_chars": 22090,
-    "generated_at": "2026-08-28T10:28:13.567688+00:00",
-    "code_sha": "80a729ee5508"
+    "prompt_sha256": "7aefacc69f1b0528",
+    "prompt_chars": 22093,
+    "generated_at": "2026-08-31T10:14:22.461351+00:00",
+    "code_sha": "0941a0d34ae1"
   }
 }
