@@ -630,5 +630,21 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Financial Services sector would be 42.8% of equity (existing $33,963 + new $9,720 = $43,682); cap is 35%"
+  },
+  {
+    "date": "2026-08-31",
+    "timestamp": "2026-08-31T14:34:00.135508+00:00",
+    "symbol": "NVDA",
+    "decision": "skipped",
+    "gate": "gross",
+    "detail": "NVDA would push gross to 102.7% of equity (current $85,733 + new $18,927 = $104,660); cap is 95% ($96,839), headroom $11,106. NO margin on the automated path."
+  },
+  {
+    "date": "2026-08-31",
+    "timestamp": "2026-08-31T14:34:02.134732+00:00",
+    "symbol": "MCO",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Financial Services sector would be 42.7% of equity (existing $33,743 + new $9,833 = $43,576); cap is 35%"
   }
 ]
