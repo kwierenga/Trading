@@ -1,34 +1,18 @@
 {
-  "analysis": "PORTFOLIO REVIEW: Market is in a confirmed uptrend (+2.0% vs SMA50, positive slope) but the book is already over-deployed at 84% with 6 positions \u2014 above the 3-5 concentrated target. Historical metrics are a clear warning: 25% win rate, 0.15x profit factor, and a -2.35 Sortino ratio all signal that forcing trades has destroyed value. The mandate is capital preservation and discipline, not activity.\n\nPOSITION-BY-POSITION: AMP (+3.97%) and MCO (+9.29%) are performing well; thesis intact, hold. ROP (+2.64%) and SYK (+0.48%) are grinding slowly \u2014 no thesis break but watch for stall. IDXX (-0.63%) is essentially flat and tying up ~14% of equity in a sideways drift; if it fails to resolve upward within 4-6 weeks, it becomes a capital-efficiency problem. LMT (-2.68%) is the most concerning \u2014 this is a re-entry after the prior LMT was stopped out at +2.06%, and the position is already underwater. Defense spending uncertainty and the pattern of a failed re-entry warrant close monitoring; exit on any close below the entry average less 7-8% (~$540).\n\nNEW TRADE LOGIC: With only ~$11,085 of headroom, new sizing is constrained to roughly 10% of equity \u2014 not ideal for concentration, but still worth acting on IF the setup is genuinely asymmetric. Of all 30 screened candidates, NVDA stands alone on the quality dimension: 105.9% revenue growth, 66.2% op margins, $41.8B FCF, $134B operating cash flow, +20.4% EPS revision tailwind, PEG 0.63, and AI infrastructure demand that is durable over years. Technically, it sits at 75% of its 52-week range with only +4.4% above SMA50 (not extended), confirmed uptrend, and the SMA50 slope is still rising. This is acceptable entry territory for a LTCG hold. No other candidate combines this quality with this setup quality \u2014 I am not proposing trades in HOOD (D/E 240, speculative), ZBRA (86% range, SMA50 slope +19.5% = extended), SCHW (88% range, extended), or IT (+25.9% above SMA50 = extended). One measured NVDA position is the only trade that clears the bar today.",
-  "confidence_target_pct": 58,
+  "analysis": "MANAGE-ONLY MODE \u2014 96% of equity deployed across 7 positions, zero headroom for new buys. Analysis focuses entirely on portfolio hygiene and thesis review.\n\nMARKET BACKDROP: SPY is in confirmed uptrend (+1.7% vs SMA50, positive 20d slope), so the macro tailwind is supportive. However, that is no excuse to ignore the deeply troubling internal metrics: win rate 16.7%, profit factor 0.07x, Sortino -3.87. These numbers indicate the current approach is destroying risk-adjusted value, not preserving it. The core issue is adverse selection \u2014 losers are cut at ~4% but winners only captured ~2%, so the stop discipline is correct but the entry quality has been poor.\n\nPOSITION-BY-POSITION REVIEW:\n\n\u2022 MCO (+7.11%, $13,121): Best performer. Moody's is a high-quality compounder with strong pricing power. Thesis intact. HOLD and consider trailing stop to lock in gains if momentum fades.\n\n\u2022 AMP (+2.81%, $20,465): Working and ~20% of equity \u2014 near the concentration cap. Ameriprise is a quality wealth manager benefiting from rate environment. Thesis intact but size warrants monitoring. HOLD but do not add.\n\n\u2022 ROP (+3.28%, $12,739): Roper Technologies \u2014 industrial software compounder, thesis intact. HOLD.\n\n\u2022 AON (-0.91%, $12,236): Minor loss within normal noise for a quality insurance broker. Thesis intact. HOLD but confirm stop is properly placed (~4-6% below entry based on AON's ATR profile).\n\n\u2022 IDXX (-0.33%, $14,474): Essentially flat. Idexx is a premium-moat vet diagnostics business. Loss is noise, not thesis break. HOLD but watch for deterioration below SMA50.\n\n\u2022 SYK (-1.35%, $12,331): Minor loss. Stryker is a high-quality medical device compounder. No thesis break. HOLD.\n\n\u2022 LMT (-3.73%, $12,302): Most concerning position. Lockheed Martin has been a persistent laggard \u2014 the prior LMT position was also exited via stop. At -3.73% from average entry of $580.85, current price $559.20. LMT's ATR is approximately 2.5-3% of price, meaning a 1.5-2x ATR stop from entry would be roughly $562-$552. We are already near/through that range. The defense budget environment remains uncertain and LMT is structurally heavier than peers. THESIS IS WEAKENING \u2014 this position is a candidate for exit on any further weakness or if $550 breaks on a closing basis.\n\nOVER-CONCENTRATION CONCERN: 7 positions violates the stated 3-5 target. With 4 positions roughly flat or losing and only 3 in the green, the portfolio is running too many mediocre ideas simultaneously \u2014 exactly what the strategy warns against. When LMT or any other position hits its stop, do NOT replace it with a new name until headroom permits a properly-sized, high-conviction entry.\n\nACTION: No trades proposed this cycle. Enforce existing stops. Let winners run. Exit LMT at market open if $550 is violated on a closing basis \u2014 do not override the stop in hopes of a recovery. Reducing to 5-6 positions naturally as stops are hit will restore the capacity to act decisively when a truly asymmetric setup emerges.",
+  "confidence_target_pct": 38,
   "trades": [
-    {
-      "symbol": "NVDA",
-      "direction": "BUY",
-      "entry_strategy": "Limit at $217.55 or better; accept up to $220 on strength. Prefer a 1-2 day pullback toward $214-216 to improve entry. Do not chase above $222.",
-      "entry_price": 217.55,
-      "stop_loss": 205.37,
-      "stop_loss_pct": 0.056,
-      "atr_multiple": 1.75,
-      "target": 270.0,
-      "target_gain_pct": 0.241,
-      "risk_reward_ratio": 4.3,
-      "conviction": 75,
-      "holding_period": "LTCG",
-      "rationale": "FUNDAMENTAL: NVDA is the clearest example of a dominant-moat business in a secular growth wave. Revenue +105.9% YoY, operating margin 66.2%, FCF $41.8B, and EPS revisions +20.4% in the last 60 days all point to an accelerating, not slowing, earnings cycle driven by AI infrastructure spend. PEG of 0.63 and fwd P/E of 14.21 make this arguably cheap relative to growth once you discount the AI capex cycle. TECHNICAL: Price is at 75% of 52-week range \u2014 not at an extreme. At only +4.4% above SMA50 with the SMA50 slope still in mild positive territory (+1.1%), this is a basing UPTREND entry, not a late-cycle chase. Stop at 1.75x ATR14 ($6.96) = $205.37, a 5.6% drawdown. Sizing constrained to ~51 shares by the $11,085 headroom cap, risking $621 (0.6% of equity) \u2014 well within the 1-2% heat rule. Intend to hold past 12 months for LTCG tax treatment if thesis remains intact.",
-      "exit_plan": "Stop at $205.37 (1.75x ATR, hard rule). Thesis-break exit: if quarterly revenue growth drops below 40% for two consecutive quarters OR operating margins compress below 55%, reassess and likely exit regardless of price. Time stop: reassess after 6 months if price has not moved toward $240+. Near 52w high ($235.47) may see temporary resistance \u2014 do not exit there, trim only if position has grown to >20% of equity. Hold past 1-year mark if trajectory is intact to capture LTCG rate. Earnings are 78 days out (Nov 17) \u2014 no position adjustment needed before then unless stop is hit."
-    },
     {
       "symbol": "MCO",
       "direction": "BUY",
-      "entry_price": 517.52,
-      "stop_loss": 488.28,
-      "target": 621.02,
+      "entry_price": 507.16,
+      "stop_loss": 484.38,
+      "target": 608.59,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.5396716826265378,
-      "rationale": "PYRAMID tranche 2: original lot held 31d at +9.3%; price $514.95 > SMA20 $491.18; adding $9,833 (19 sh) with combined break-even stop at $488.28.",
-      "entry_strategy": "Limit @ $517.52 (current +0.5%)",
+      "risk_reward_ratio": 4.452589991220363,
+      "rationale": "PYRAMID tranche 2: original lot held 32d at +7.1%; price $504.64 > SMA20 $490.67; adding $10,143 (20 sh) with combined break-even stop at $484.38.",
+      "entry_strategy": "Limit @ $507.16 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -36,9 +20,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "7aefacc69f1b0528",
-    "prompt_chars": 22093,
-    "generated_at": "2026-08-31T10:14:22.461351+00:00",
-    "code_sha": "0941a0d34ae1"
+    "prompt_sha256": "6d015bff2132c91a",
+    "prompt_chars": 22354,
+    "generated_at": "2026-09-01T10:13:20.623376+00:00",
+    "code_sha": "92158730d672"
   }
 }
