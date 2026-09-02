@@ -537,3 +537,41 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-09-02 — LMT closed (held 34.0d, -3.50%, $-97.63)
+<!-- pm-key: LMT|2026-09-02T13:36:34|558.586818 -->
+
+**Mechanical (auto-filled):**
+- Entry: $558.59 on 2026-07-30 → Exit: $539.06 on 2026-09-02 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: Fundamental: Lockheed Martin is a high-quality defense compounder with 89% ROE, $5.6B FCF, $10.4B operating cash flow, and 10.5% revenue growth. Defense budgets are structurally elevated across NATO,
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
+
+## 2026-09-02 — LMT closed (held 28.0d, -8.23%, $-821.78)
+<!-- pm-key: LMT|2026-09-02T13:36:34|587.4 -->
+
+**Mechanical (auto-filled):**
+- Entry: $587.40 on 2026-08-05 → Exit: $539.06 on 2026-09-02 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: PYRAMID tranche 2: original lot held 5d at +5.6%; price $589.33 > SMA20 $544.35; adding $10,069 (17 sh) with combined break-even stop at $570.41.
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
