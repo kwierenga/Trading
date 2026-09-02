@@ -1,28 +1,45 @@
 {
-  "analysis": "MANAGE-ONLY MODE \u2014 96% of equity deployed across 7 positions, zero headroom for new buys. Analysis focuses entirely on portfolio hygiene and thesis review.\n\nMARKET BACKDROP: SPY is in confirmed uptrend (+1.7% vs SMA50, positive 20d slope), so the macro tailwind is supportive. However, that is no excuse to ignore the deeply troubling internal metrics: win rate 16.7%, profit factor 0.07x, Sortino -3.87. These numbers indicate the current approach is destroying risk-adjusted value, not preserving it. The core issue is adverse selection \u2014 losers are cut at ~4% but winners only captured ~2%, so the stop discipline is correct but the entry quality has been poor.\n\nPOSITION-BY-POSITION REVIEW:\n\n\u2022 MCO (+7.11%, $13,121): Best performer. Moody's is a high-quality compounder with strong pricing power. Thesis intact. HOLD and consider trailing stop to lock in gains if momentum fades.\n\n\u2022 AMP (+2.81%, $20,465): Working and ~20% of equity \u2014 near the concentration cap. Ameriprise is a quality wealth manager benefiting from rate environment. Thesis intact but size warrants monitoring. HOLD but do not add.\n\n\u2022 ROP (+3.28%, $12,739): Roper Technologies \u2014 industrial software compounder, thesis intact. HOLD.\n\n\u2022 AON (-0.91%, $12,236): Minor loss within normal noise for a quality insurance broker. Thesis intact. HOLD but confirm stop is properly placed (~4-6% below entry based on AON's ATR profile).\n\n\u2022 IDXX (-0.33%, $14,474): Essentially flat. Idexx is a premium-moat vet diagnostics business. Loss is noise, not thesis break. HOLD but watch for deterioration below SMA50.\n\n\u2022 SYK (-1.35%, $12,331): Minor loss. Stryker is a high-quality medical device compounder. No thesis break. HOLD.\n\n\u2022 LMT (-3.73%, $12,302): Most concerning position. Lockheed Martin has been a persistent laggard \u2014 the prior LMT position was also exited via stop. At -3.73% from average entry of $580.85, current price $559.20. LMT's ATR is approximately 2.5-3% of price, meaning a 1.5-2x ATR stop from entry would be roughly $562-$552. We are already near/through that range. The defense budget environment remains uncertain and LMT is structurally heavier than peers. THESIS IS WEAKENING \u2014 this position is a candidate for exit on any further weakness or if $550 breaks on a closing basis.\n\nOVER-CONCENTRATION CONCERN: 7 positions violates the stated 3-5 target. With 4 positions roughly flat or losing and only 3 in the green, the portfolio is running too many mediocre ideas simultaneously \u2014 exactly what the strategy warns against. When LMT or any other position hits its stop, do NOT replace it with a new name until headroom permits a properly-sized, high-conviction entry.\n\nACTION: No trades proposed this cycle. Enforce existing stops. Let winners run. Exit LMT at market open if $550 is violated on a closing basis \u2014 do not override the stop in hopes of a recovery. Reducing to 5-6 positions naturally as stops are hit will restore the capacity to act decisively when a truly asymmetric setup emerges.",
-  "confidence_target_pct": 38,
+  "analysis": "MANAGE-ONLY MODE \u2014 book is 106% deployed with negative cash (-$5,984), hard-blocked from new buys. Two urgent portfolio hygiene issues identified:\n\n1. AMP OVER-CONCENTRATION: AMP at $29,845 = ~29.9% of equity, breaching the 25% hard cap ($24,994 max). Must trim ~9 shares to comply with the concentration rule. This is a mechanical obligation, not a bearish call.\n\n2. LMT THESIS BREAK: LMT is down 6.21% from avg cost of $580.85 (current $544.75). Critically, LMT does NOT appear in today's screened candidate list, meaning it has likely failed the trend/quality filter \u2014 consistent with a confirmed downtrend. This is the same name that was previously stopped out (+2.06% exit was the prior closed trade, suggesting this is a re-entry that is now going wrong). A prior stop-hit on the same ticker followed by a new losing position is a pattern of repeated loss on one name \u2014 classic thesis-break territory. Exiting preserves $11,984 of capital and fixes the negative cash.\n\n3. IDXX WATCH: Down 2.23%, sitting at only 8% of its 52-week range, -10.7% vs SMA200. Technically weak but not yet a forced exit; monitor for continued deterioration. Earnings Nov 2 add binary risk.\n\n4. SYK WATCH: Down 3.02%, not in screened candidates. Not forcing an exit yet \u2014 loss is within tolerance \u2014 but thesis should be reviewed.\n\n5. MCO (+5.0%), ROP (+1.74%), AON (+0.41%) all positive; thesis intact for all three.\n\nPerformance context: Win rate 16.7%, Sortino -6.22, profit factor 0.07x \u2014 these are alarming metrics. The primary fix is discipline: do not add new positions until the book is properly sized, cash is positive, and only genuinely asymmetric setups present themselves. Selling LMT and trimming AMP brings cash positive and fixes concentration. No new buys proposed (hard-blocked and no genuine setup merits overriding that).",
+  "confidence_target_pct": 52,
   "trades": [
     {
-      "symbol": "MCO",
-      "direction": "BUY",
-      "entry_price": 507.16,
-      "stop_loss": 484.38,
-      "target": 608.59,
-      "conviction": 75,
+      "symbol": "LMT",
+      "direction": "SELL",
+      "entry_strategy": "Market sell all 22 shares at open to exit deteriorating position. LMT is absent from screened candidates (likely failed trend filter), implying confirmed downtrend. Do not wait for a bounce \u2014 the position is already down 6.2% and the pattern of stop-hit then re-entry loss on the same name is a thesis-break signal.",
+      "entry_price": 544.75,
+      "stop_loss": 572.0,
+      "stop_loss_pct": 0.05,
+      "atr_multiple": 1.7,
+      "target": 500.0,
+      "target_gain_pct": 0.082,
+      "risk_reward_ratio": 1.6,
+      "conviction": 72,
       "holding_period": "swing",
-      "risk_reward_ratio": 4.452589991220363,
-      "rationale": "PYRAMID tranche 2: original lot held 32d at +7.1%; price $504.64 > SMA20 $490.67; adding $10,143 (20 sh) with combined break-even stop at $484.38.",
-      "entry_strategy": "Limit @ $507.16 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
+      "rationale": "Fundamental: Defense spending visibility has deteriorated and LMT failed to appear on today's quality+trend screen, suggesting fundamental or momentum deterioration since entry. Technical: Price at $544.75 vs avg cost $580.85 is -6.21% and trending lower. LMT previously triggered a stop-hit exit; re-entry has now compounded the loss. Two stop-hits on the same name within months is a clear thesis-break indicator per Weinstein discipline. Exiting frees $11,984, moves cash from -$5,984 toward positive, and removes a confirmed downtrend position from the book.",
+      "exit_plan": "Full exit \u2014 no partial. If LMT recovers above $572 (prior support, ~5% above current) before fill, reassess whether downtrend thesis is still valid. Otherwise execute at market open. No re-entry until LMT re-appears in screened candidates with confirmed basing pattern."
+    },
+    {
+      "symbol": "AMP",
+      "direction": "SELL",
+      "entry_strategy": "Sell 9 shares of AMP at market to trim from ~55 shares ($29,845, ~29.9% of equity) to ~46 shares (~$24,961, ~24.9% of equity). This is a mechanical compliance trim to meet the 25% per-position hard cap \u2014 not a bearish directional call.",
+      "entry_price": 542.64,
+      "stop_loss": 558.0,
+      "stop_loss_pct": 0.028,
+      "atr_multiple": 1.0,
+      "target": 542.64,
+      "target_gain_pct": 0.003,
+      "risk_reward_ratio": 2.0,
+      "conviction": 85,
+      "holding_period": "LTCG",
+      "rationale": "Fundamental: AMP (Ameriprise Financial) remains a high-quality compounder with strong ROE and consistent earnings \u2014 no change to the long-term thesis. Technical: Position is modestly in the green (+0.34%), so trimming now locks in a small gain on the sold tranche at a fair price. The sole reason for this trim is the 25% concentration hard cap \u2014 at $29,845 the position is ~$4,851 over the cap. Selling 9 shares at ~$542.64 brings the position to ~$24,961 (~24.9% of equity), restoring compliance.",
+      "exit_plan": "Trim only \u2014 retain 46 shares as a core LTCG position. If AMP rallies strongly above $558 and overall book exposure permits, reassess whether to rebuild. Exit remaining 46 shares if: (1) price closes below the 200-day SMA on elevated volume, (2) earnings show meaningful ROE compression, or (3) financial advisory sector faces structural regulatory headwind that breaks the compounding thesis."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "6d015bff2132c91a",
-    "prompt_chars": 22354,
-    "generated_at": "2026-09-01T10:13:20.623376+00:00",
-    "code_sha": "92158730d672"
+    "prompt_sha256": "b008445d58d6ff5b",
+    "prompt_chars": 22345,
+    "generated_at": "2026-09-02T10:14:27.209842+00:00",
+    "code_sha": "d9a037cec7d2"
   }
 }
