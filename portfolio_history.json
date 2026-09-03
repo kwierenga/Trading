@@ -2665,5 +2665,51 @@
         "unrealized_pl": -636.5
       }
     ]
+  },
+  {
+    "timestamp": "2026-09-03T21:21:14.948654+00:00",
+    "account": {
+      "equity": 100720.45,
+      "buying_power": 293678.48,
+      "cash": 17671.21,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "AMP",
+        "qty": 55.0,
+        "avg_entry_price": 540.805818,
+        "current_price": 565.08,
+        "unrealized_pl": 1335.08001
+      },
+      {
+        "symbol": "AON",
+        "qty": 38.0,
+        "avg_entry_price": 324.96,
+        "current_price": 327.0,
+        "unrealized_pl": 77.52
+      },
+      {
+        "symbol": "IDXX",
+        "qty": 26.0,
+        "avg_entry_price": 558.522692,
+        "current_price": 529.29,
+        "unrealized_pl": -760.049992
+      },
+      {
+        "symbol": "MCO",
+        "qty": 26.0,
+        "avg_entry_price": 471.16,
+        "current_price": 504.3,
+        "unrealized_pl": 861.64
+      },
+      {
+        "symbol": "ROP",
+        "qty": 30.0,
+        "avg_entry_price": 411.14,
+        "current_price": 422.35,
+        "unrealized_pl": 336.3
+      }
+    ]
   }
 ]

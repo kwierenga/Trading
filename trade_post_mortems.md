@@ -575,3 +575,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-09-03 — SYK closed (held 9.9d, -5.63%, $-703.38)
+<!-- pm-key: SYK|2026-09-03T14:07:25|328.94 -->
+
+**Mechanical (auto-filled):**
+- Entry: $328.94 on 2026-08-24 → Exit: $310.43 on 2026-09-03 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: Stryker is a best-in-class medical device compounder — Mako robotic surgery platform growing double-digits, diversified across ortho, neuro, and MedSurg, 27% operating margins, $4.1B FCF,
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
