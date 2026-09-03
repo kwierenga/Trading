@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [AM] 2026-09-03 Thursday
+**Open questions.** Screen produced no high-conviction setups today — is the market broadly extended, or are filters too tight? What would have to change for a setup to emerge tomorrow? With 6 open position(s), are any approaching their stops or targets? 
+**Today's plan.** Hold cash today — no high-conviction setups passed the screen. Patience is a position. Monitor 6 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
+
+---
+
 ## [EOD] 2026-09-02 Wednesday
 **What happened.** Closed: LMT (-3.5%), LMT (-8.2%). End equity $99,891, cash $5,875 (6% of equity), 6 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
