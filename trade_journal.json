@@ -268,5 +268,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 16,
+    "symbol": "RMD",
+    "shares": 54,
+    "original_shares": 54,
+    "entry_price": 229.19,
+    "entry_time": "2026-09-04T14:33:52.984240+00:00",
+    "stop_loss": 216.35,
+    "initial_stop": 216.35,
+    "R": 12.840000000000003,
+    "current_stop": 216.35,
+    "target_price": 265.0,
+    "rationale": "FUNDAMENTAL: ResMed is the dominant global player in CPAP devices and cloud-connected respiratory care software. The GLP-1 / Ozempic overhang that crushed the stock from $280+ to $182 in 2023\u201324 is no",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]

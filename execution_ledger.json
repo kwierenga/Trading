@@ -654,5 +654,25 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Financial Services sector would be 54.8% of equity (existing $45,869 + new $9,636 = $55,505); cap is 35%"
+  },
+  {
+    "date": "2026-09-04",
+    "timestamp": "2026-09-04T14:33:52.984046+00:00",
+    "symbol": "RMD",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $216.35, target $265.00; submit status pending_new",
+    "shares": 54,
+    "entry_price": 229.19,
+    "order_id": "de046bd8-63d6-4a85-a8b3-ea240d422164",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-09-04",
+    "timestamp": "2026-09-04T14:33:54.140064+00:00",
+    "symbol": "MCO",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Financial Services sector would be 65.8% of equity (existing $55,931 + new $9,630 = $65,561); cap is 35%"
   }
 ]
