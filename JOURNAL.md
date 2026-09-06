@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-08-25 → 2026-09-06
+
+_Sharpe -0.00, Sortino -0.00, MaxDD -3.8%, CAGR -0.9%, excess CAGR vs SPY -24.5% (quantstats, since inception)._
+
+**What worked / what didn't.** All three closures were stop-hits — none were discretionary exits — which means the rules worked mechanically, but the underlying setups did not. LMT is the sharper concern: two separate positions, entered roughly a week apart, both stopped out on the same day (Sep 2), losing a combined $920. That's not bad luck on one trade; it suggests the thesis on LMT was re-entered before it was genuinely reset, or that position sizing didn't account for the correlation between the two lots. SYK lasted under ten days before hitting its stop, which at -5.6% on a $12K-ish position suggests either the entry was too early in a developing setup or the stop was too tight for SYK's normal volatility. AMP and MCO are the week's bright spots — both in positive territory and among the larger positions — but it's too early to treat those as confirmation of anything.
+
+**What's puzzling or worth watching.** The journal's "What we learned" fields are blank every single day this week. That's worth naming plainly: eleven journal entries, zero actual observations recorded. The AM questions are consistently sharp — thesis-break monitoring, confidence targets, overnight news — but nothing is being written down afterward. Separately, equity started the week at roughly $102K and ended near $99.8K, a drawdown that happened almost entirely mid-week when both LMT positions closed simultaneously. IDXX is sitting at -4.1% unrealized and is the position closest to its stop; it hasn't shown up in any AM planning entries this week, which is either because the thesis is intact or because it's being passively held without active monitoring.
+
+**Reflective prompts for Klaas.** The two LMT positions closed on the same day — did the second LMT entry have a genuinely different thesis and entry trigger from the first, or was it effectively doubling down on a thesis that was already under pressure? The EOD "What we learned" sections are blank all week — is the 15-minute review actually happening, and if so, what's getting in the way of writing even one sentence? IDXX is down 4.1% and hasn't appeared in any morning planning this week — what is the current stop level, and what would a thesis-break look like for that position specifically?
+
+
+---
+
 ## [EOD] 2026-09-04 Friday
 **What happened.** No trades closed today. End equity $99,784, cash $5,416 (5% of equity), 6 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
