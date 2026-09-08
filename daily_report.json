@@ -4412,5 +4412,82 @@
       "noops": 0,
       "skipped_no_R": 5
     }
+  },
+  {
+    "timestamp": "2026-09-08T21:19:31.550811+00:00",
+    "date": "2026-09-08",
+    "equity": 97804.8,
+    "cash": 30738.73,
+    "positions": 4,
+    "closed_trades": [
+      {
+        "symbol": "ROP",
+        "pnl": -505.9,
+        "pnl_pct": -0.041016,
+        "reason_exit": "stop_hit",
+        "duration_minutes": 20105.608387533335
+      },
+      {
+        "symbol": "IDXX",
+        "pnl": -1027.33,
+        "pnl_pct": -0.070745,
+        "reason_exit": "stop_hit",
+        "duration_minutes": 27308.482327966667
+      }
+    ],
+    "turnover": {
+      "period_days": 30,
+      "trades": 7,
+      "avg_holding_days": 19.843276718561505,
+      "short_term_gains": 195.99,
+      "long_term_gains": 0.0,
+      "realized_gain": -4180.73,
+      "estimated_tax_owed": 62.716800000000006,
+      "tax_drag": 33.31830000000001
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 106442.42,
+      "shadow_return_pct": 0.06442424494810162,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 97804.8,
+      "strategy_return_pct": -0.02195199999999997,
+      "spread_pct": -0.08637624494810159
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "AMP",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "MCO",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "RMD",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [
+        "AON: no matching journal entry"
+      ],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 3
+    }
   }
 ]

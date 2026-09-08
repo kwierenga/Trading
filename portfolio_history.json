@@ -2764,5 +2764,44 @@
         "unrealized_pl": -157.344
       }
     ]
+  },
+  {
+    "timestamp": "2026-09-08T21:19:31.550997+00:00",
+    "account": {
+      "equity": 97804.8,
+      "buying_power": 301195.69,
+      "cash": 30738.73,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "AMP",
+        "qty": 55.0,
+        "avg_entry_price": 540.805818,
+        "current_price": 556.67,
+        "unrealized_pl": 872.53001
+      },
+      {
+        "symbol": "AON",
+        "qty": 38.0,
+        "avg_entry_price": 324.96,
+        "current_price": 315.79,
+        "unrealized_pl": -348.46
+      },
+      {
+        "symbol": "MCO",
+        "qty": 26.0,
+        "avg_entry_price": 471.16,
+        "current_price": 481.25,
+        "unrealized_pl": 262.34
+      },
+      {
+        "symbol": "RMD",
+        "qty": 54.0,
+        "avg_entry_price": 226.94,
+        "current_price": 221.05,
+        "unrealized_pl": -318.06
+      }
+    ]
   }
 ]

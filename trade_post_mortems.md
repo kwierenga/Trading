@@ -594,3 +594,41 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-09-08 — ROP closed (held 14.0d, -4.10%, $-505.90)
+<!-- pm-key: ROP|2026-09-08T13:39:28|411.14 -->
+
+**Mechanical (auto-filled):**
+- Entry: $411.14 on 2026-08-25 → Exit: $394.28 on 2026-09-08 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: Roper Technologies is a capital-light, software-and-data compounder that acquires niche vertical-market software businesses — a Buffett-style wonderful business. 27.7% operating margins,
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
+
+## 2026-09-08 — IDXX closed (held 19.0d, -7.07%, $-1,027.33)
+<!-- pm-key: IDXX|2026-09-08T13:42:25|558.522692 -->
+
+**Mechanical (auto-filled):**
+- Entry: $558.52 on 2026-08-20 → Exit: $519.01 on 2026-09-08 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: IDEXX is among the highest-quality businesses in the S&P 500. Veterinary diagnostics is a sticky, recurring-revenue model — pet owners do not defer cancer screenings for dogs the way they
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
