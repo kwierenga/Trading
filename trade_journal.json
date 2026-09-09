@@ -268,5 +268,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 16,
+    "symbol": "BR",
+    "shares": 72,
+    "original_shares": 72,
+    "entry_price": 168.62,
+    "entry_time": "2026-09-09T14:33:52.465198+00:00",
+    "stop_loss": 160.06,
+    "initial_stop": 160.06,
+    "R": 8.560000000000002,
+    "current_stop": 160.06,
+    "target_price": 200.0,
+    "rationale": "FUNDAMENTAL: Broadridge is a dominant financial infrastructure/proxy-services business with a near-monopoly on shareholder communications processing. ROE 40.9%, operating margin 24.6%, $1.2B FCF, low ",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]

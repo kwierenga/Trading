@@ -674,5 +674,17 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Financial Services sector would be 65.8% of equity (existing $55,931 + new $9,630 = $65,561); cap is 35%"
+  },
+  {
+    "date": "2026-09-09",
+    "timestamp": "2026-09-09T14:33:52.465001+00:00",
+    "symbol": "BR",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $160.06, target $200.00; submit status pending_new",
+    "shares": 72,
+    "entry_price": 168.62,
+    "order_id": "dde78ece-3973-4f81-a00d-14d9f24f9872",
+    "fill_status": "unknown"
   }
 ]
