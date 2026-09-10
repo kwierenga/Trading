@@ -632,3 +632,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-09-10 — RMD closed (held 6.0d, -4.82%, $-590.76)
+<!-- pm-key: RMD|2026-09-10T13:32:49|226.94 -->
+
+**Mechanical (auto-filled):**
+- Entry: $226.94 on 2026-09-04 → Exit: $216.00 on 2026-09-10 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: ResMed is the dominant global player in CPAP devices and cloud-connected respiratory care software. The GLP-1 / Ozempic overhang that crushed the stock from $280+ to $182 in 2023–24 is no
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---

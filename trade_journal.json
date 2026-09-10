@@ -181,6 +181,24 @@
   },
   {
     "id": 11,
+    "symbol": "RMD",
+    "shares": 54,
+    "entry_price": 226.94,
+    "entry_time": "2026-09-04T14:33:53.825642Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "FUNDAMENTAL: ResMed is the dominant global player in CPAP devices and cloud-connected respiratory care software. The GLP-1 / Ozempic overhang that crushed the stock from $280+ to $182 in 2023\u201324 is no",
+    "source": "claude",
+    "status": "closed",
+    "exit_price": 216.0,
+    "exit_time": "2026-09-10T13:32:49.832002Z",
+    "pnl": -590.76,
+    "pnl_pct": -0.048207,
+    "duration_minutes": 8578.933439333334,
+    "reason_exit": "stop_hit"
+  },
+  {
+    "id": 12,
     "symbol": "MCO",
     "shares": 26,
     "entry_price": 471.16,
@@ -198,7 +216,7 @@
     "reason_exit": null
   },
   {
-    "id": 12,
+    "id": 13,
     "symbol": "AMP",
     "shares": 18,
     "entry_price": 556.32,
@@ -216,7 +234,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 14,
     "symbol": "AMP",
     "shares": 18,
     "entry_price": 546.61,
@@ -225,24 +243,6 @@
     "target_price": null,
     "rationale": "",
     "source": "alpaca_reconciled",
-    "status": "open",
-    "exit_price": null,
-    "exit_time": null,
-    "pnl": null,
-    "pnl_pct": null,
-    "duration_minutes": null,
-    "reason_exit": null
-  },
-  {
-    "id": 14,
-    "symbol": "RMD",
-    "shares": 54,
-    "entry_price": 226.94,
-    "entry_time": "2026-09-04T14:33:53.825642Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "FUNDAMENTAL: ResMed is the dominant global player in CPAP devices and cloud-connected respiratory care software. The GLP-1 / Ozempic overhang that crushed the stock from $280+ to $182 in 2023\u201324 is no",
-    "source": "claude",
     "status": "open",
     "exit_price": null,
     "exit_time": null,

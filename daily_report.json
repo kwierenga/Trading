@@ -4556,5 +4556,73 @@
       "noops": 0,
       "skipped_no_R": 4
     }
+  },
+  {
+    "timestamp": "2026-09-10T21:19:08.742025+00:00",
+    "date": "2026-09-10",
+    "equity": 96629.85,
+    "cash": 41921.06,
+    "positions": 3,
+    "closed_trades": [
+      {
+        "symbol": "RMD",
+        "pnl": -590.76,
+        "pnl_pct": -0.048207,
+        "reason_exit": "stop_hit",
+        "duration_minutes": 8578.933439333334
+      }
+    ],
+    "turnover": {
+      "period_days": 30,
+      "trades": 8,
+      "avg_holding_days": 18.10756621201678,
+      "short_term_gains": 195.99,
+      "long_term_gains": 0.0,
+      "realized_gain": -4771.49,
+      "estimated_tax_owed": 62.716800000000006,
+      "tax_drag": 33.31830000000001
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 105357.32,
+      "shadow_return_pct": 0.05357320447610081,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 96629.85,
+      "strategy_return_pct": -0.03370149999999994,
+      "spread_pct": -0.08727470447610075
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "AMP",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "BR",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "MCO",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 3
+    }
   }
 ]
