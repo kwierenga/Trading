@@ -1,29 +1,29 @@
 {
-  "analysis": "MARKET REGIME: SPY is in uptrend (+1.1% vs SMA50, positive slope). Constructive backdrop but not a reason to force new positions.\n\nEXISTING POSITIONS REVIEW:\n- AMP (+2.93%): Thesis intact. Quality financial with strong FCF and ROE. Hold.\n- AON (-2.45%): Within normal noise for this name. Insurance brokerage quality thesis unchanged. Hold.\n- MCO (+2.19%): Moody's performing well. Hold.\n- RMD (-1.95%): Appears in today's screened list as UPTREND (basing) \u2014 no thesis break. Slightly underwater but within ATR. Hold.\n\nNone of the four positions have hit stops or broken thesis. No SELLs warranted today.\n\nPORTFOLIO CONTEXT: Win rate of 9.1% and Profit Factor of 0.03x demand ruthless selectivity. Sortino of -9.12 reflects significant downside volatility. The lesson: only enter when setup is genuinely asymmetric. Headroom for one more position: ~$25,841 (buying-power constraint) and $24,484 (25% equity cap). This allows one additional position at most.\n\nNEW TRADE RATIONALE: Broadridge Financial (BR) screens as the cleanest setup \u2014 30% of 52-week range (lower third, Stage 1\u21922 transition territory), SMA50 slope turning sharply positive (+8.6% in 20 days), still -3.3% below SMA200 giving upside runway before resistance. Fundamentals are strong: ROE 40.9%, op margin 24.6%, $1.2B FCF, fwd P/E 14.57 \u2014 cheap for this quality. Analyst EPS revision +1.2% positive. Earnings not until Nov 3 (55 days out), giving time for the position to develop. Sector is Technology/financial infrastructure which diversifies from the financial-heavy existing book (AMP, AON, MCO). Risk/reward is genuinely asymmetric at 3.6:1. This is a basing-knife entry, not a falling-knife chase.",
-  "confidence_target_pct": 47,
+  "analysis": "Market regime is a mild uptrend (SPY only +0.6% vs SMA50, 20d slope +1.43%) \u2014 not a roaring bull, more a tentative recovery. The portfolio's historical performance demands blunt honesty: a 10% win rate, Profit Factor of 0.04x, and Sortino of -10.58 signal that we have been overtrading or entering at poor risk/reward setups. Capital preservation is the overriding mandate this cycle. EXISTING POSITION REVIEW: (1) AMP at +2.05% \u2014 uptrend extending, near 52w high at 87% range position. Thesis intact, hold but do not add. (2) BR at -0.29% \u2014 flat, basing uptrend at 29% range position. Thesis intact, hold. (3) MCO at +0.72% \u2014 slight gain, thesis intact, hold. (4) RMD at -3.28% \u2014 FLAGGED. RMD does not appear in today's screened candidates, meaning it may be failing trend or quality filters. At -3.28% it is not yet at stop, but the thesis is weakening. Watch closely; exit if it closes below its original stop or if trend confirms down. Do not add to this name. NEW TRADE ANALYSIS: With only ~$25k headroom and a poor track record, this is not the moment to be aggressive. Of the 30 candidates, one stands out for quality-at-value in the lower half of its range: CTSH (Cognizant). Cheap valuation (fwd P/E 9.21, PEG 0.91), positive EPS revisions, strong FCF, and a basing setup in the lower 42% of its 52w range. However, it is already +9.7% above SMA50 \u2014 too extended for a fresh market-order entry. A limit on pullback is the only acceptable entry. No other candidates clear both the fundamental and technical bars simultaneously without being too extended (RJF, BMY, AMP, SCHW all >75% range position) or carrying near-term earnings risk within 3 weeks (ACN reports Oct 1). One disciplined limit-order trade is proposed; everything else remains cash. Cash at ~31% of equity is appropriate given the risk metrics.",
+  "confidence_target_pct": 42,
   "trades": [
     {
-      "symbol": "BR",
+      "symbol": "CTSH",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $168.50 or better; accept fill on any intraday pullback to the SMA50 area. Do not chase above $172.",
-      "entry_price": 168.62,
-      "stop_loss": 160.06,
-      "stop_loss_pct": 0.051,
-      "atr_multiple": 1.75,
-      "target": 200.0,
-      "target_gain_pct": 0.186,
-      "risk_reward_ratio": 3.65,
-      "conviction": 63,
+      "entry_strategy": "Limit order at $56.00 on a pullback toward the SMA50 area (~$53-56). Do NOT chase at current price of $58.20 which is already +9.7% above SMA50. Set GTC limit and let the trade come to us. If price never pulls back and continues higher, let it go \u2014 there will be other setups.",
+      "entry_price": 56.0,
+      "stop_loss": 52.5,
+      "stop_loss_pct": 0.0625,
+      "atr_multiple": 1.77,
+      "target": 67.0,
+      "target_gain_pct": 0.196,
+      "risk_reward_ratio": 3.14,
+      "conviction": 55,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Broadridge is a dominant financial infrastructure/proxy-services business with a near-monopoly on shareholder communications processing. ROE 40.9%, operating margin 24.6%, $1.2B FCF, low capex intensity. Fwd P/E 14.57 is cheap relative to quality and SaaS-like recurring revenue mix. Revenue growing 7.5% with positive EPS revision. D/E 123 is elevated but manageable given predictable cash flows and long client contracts. TECHNICAL: Price at 30% of 52-week range \u2014 lower third, prime Stage 1\u21922 basing zone. SMA50 slope +8.6% in 20 days signals momentum shift. Still -3.3% below SMA200, leaving the 200MA as a natural magnetic target and subsequent resistance. Price held the $134 lows convincingly. Entry here is buying the base breakout attempt, not chasing a run.",
-      "exit_plan": "Stop hit at $160.06 (full exit, no averaging down). Exit if price closes two consecutive weeks below the SMA50 once the trend is established. Exit ahead of earnings (Nov 3) if position is not yet profitable and we are uncomfortable holding through the event. Target of $200 represents the SMA200 convergence zone and is realistic 2-4 months out. If thesis holds and LTCG boundary approaches (one year), reassess for tax-efficient hold extension."
+      "rationale": "FUNDAMENTAL: Cognizant is an undervalued, capital-light IT services business. Forward P/E of 9.21 and PEG of 0.91 price in almost no growth premium despite +4.5% revenue growth and strong FCF ($2.2B). ROE 14.9%, op margin 17.5%, D/E only 14.5x \u2014 balance sheet is clean relative to peers. Analyst EPS revisions +2.3% over 60 days suggest estimates are stabilizing and potentially inflecting. Enterprise IT cost optimization trends benefit efficient outsourcers like CTSH. TECHNICAL: Basing pattern at 42% of the 52w range is Stage 1-to-2 transition territory per the strategy mandate. SMA50 slope is +10.9% (strong rising support). Current overextension vs SMA50 (+9.7%) means we need to wait for consolidation. A pullback to $56 would put price closer to SMA50 and improve risk/reward materially. Stop at $52.50 is 1.77x ATR below a $56 entry \u2014 within the 1.5-2.0x rule and well under the 15% ceiling.",
+      "exit_plan": "(1) Hard stop hit at $52.50 \u2014 exit immediately, no questions. (2) Earnings on 2026-10-28: if thesis (stable IT spending, margin stability) breaks on the print, exit the next trading day regardless of price. (3) Time stop: if position has not moved meaningfully toward target by end of November 2026, reassess and trim. (4) Thesis break: if EPS revisions turn materially negative (>5% downward revision in 30 days) or revenue growth decelerates below 2%, exit. (5) Take partial profits at $63 (~12.5% gain) to lock in some return if target approaches quickly."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "b4100f7b5149b73d",
-    "prompt_chars": 22059,
-    "generated_at": "2026-09-09T10:15:16.063471+00:00",
-    "code_sha": "dde50d323eb4"
+    "prompt_sha256": "e1ded9b4a77bd50e",
+    "prompt_chars": 22019,
+    "generated_at": "2026-09-10T10:15:41.228899+00:00",
+    "code_sha": "6c45980acc11"
   }
 }
