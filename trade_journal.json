@@ -19,42 +19,6 @@
   },
   {
     "id": 2,
-    "symbol": "FDS",
-    "shares": 38,
-    "entry_price": 260.07,
-    "entry_time": "2026-07-17T14:33:52.632385Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "PYRAMID tranche 2: original lot held 10d at +6.8%; price $262.46 > SMA20 $238.97; adding $10,023 (38 sh) with combined break-even stop at $253.41.",
-    "source": "claude",
-    "status": "closed",
-    "exit_price": 251.265789,
-    "exit_time": "2026-07-20T13:35:08.237984Z",
-    "pnl": -334.56,
-    "pnl_pct": -0.033853,
-    "duration_minutes": 4261.260093316667,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 3,
-    "symbol": "WDAY",
-    "shares": 71,
-    "entry_price": 140.992254,
-    "entry_time": "2026-07-20T13:33:28.913618Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "",
-    "source": "alpaca_reconciled",
-    "status": "closed",
-    "exit_price": 138.100423,
-    "exit_time": "2026-07-22T13:34:24.887574Z",
-    "pnl": -205.32,
-    "pnl_pct": -0.020511,
-    "duration_minutes": 2880.9328992666665,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 4,
     "symbol": "TEL",
     "shares": 87,
     "entry_price": 215.07,
@@ -72,7 +36,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 5,
+    "id": 3,
     "symbol": "LMT",
     "shares": 17,
     "entry_price": 558.586818,
@@ -90,7 +54,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 6,
+    "id": 4,
     "symbol": "LMT",
     "shares": 5,
     "entry_price": 558.586818,
@@ -108,7 +72,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 7,
+    "id": 5,
     "symbol": "LMT",
     "shares": 17,
     "entry_price": 587.4,
@@ -126,7 +90,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 8,
+    "id": 6,
     "symbol": "SYK",
     "shares": 38,
     "entry_price": 328.94,
@@ -144,7 +108,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 9,
+    "id": 7,
     "symbol": "ROP",
     "shares": 30,
     "entry_price": 411.14,
@@ -162,7 +126,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 10,
+    "id": 8,
     "symbol": "IDXX",
     "shares": 26,
     "entry_price": 558.522692,
@@ -180,7 +144,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 11,
+    "id": 9,
     "symbol": "RMD",
     "shares": 54,
     "entry_price": 226.94,
@@ -198,7 +162,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 12,
+    "id": 10,
     "symbol": "MCO",
     "shares": 26,
     "entry_price": 471.16,
@@ -216,7 +180,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 11,
     "symbol": "AMP",
     "shares": 18,
     "entry_price": 556.32,
@@ -234,7 +198,7 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 12,
     "symbol": "AMP",
     "shares": 18,
     "entry_price": 546.61,
@@ -252,7 +216,7 @@
     "reason_exit": null
   },
   {
-    "id": 15,
+    "id": 13,
     "symbol": "BR",
     "shares": 72,
     "entry_price": 168.59,
@@ -270,22 +234,16 @@
     "reason_exit": null
   },
   {
-    "id": 16,
+    "id": 14,
     "symbol": "NVDA",
     "shares": 70,
-    "original_shares": 70,
-    "entry_price": 218.36,
-    "entry_time": "2026-09-11T14:34:04.139488+00:00",
-    "stop_loss": 203.0,
-    "initial_stop": 203.0,
-    "R": 15.360000000000014,
-    "current_stop": 203.0,
-    "target_price": 255.0,
+    "entry_price": 218.34,
+    "entry_time": "2026-09-11T19:30:09.369248Z",
+    "stop_loss": null,
+    "target_price": null,
     "rationale": "FUNDAMENTAL: NVDA is the dominant picks-and-shovels play on the AI infrastructure buildout \u2014 106% revenue growth, 66% operating margin, 117% ROE, $41.8B FCF, and the highest positive EPS revision (+22",
     "source": "claude",
     "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
     "exit_price": null,
     "exit_time": null,
     "pnl": null,
