@@ -686,5 +686,17 @@
     "entry_price": 168.62,
     "order_id": "dde78ece-3973-4f81-a00d-14d9f24f9872",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-09-11",
+    "timestamp": "2026-09-11T14:34:04.139310+00:00",
+    "symbol": "NVDA",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $203.00, target $255.00; submit status pending_new",
+    "shares": 70,
+    "entry_price": 218.36,
+    "order_id": "5946d1e3-16eb-4165-9e48-8c3c0749fa18",
+    "fill_status": "unknown"
   }
 ]

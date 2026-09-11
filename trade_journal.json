@@ -268,5 +268,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 16,
+    "symbol": "NVDA",
+    "shares": 70,
+    "original_shares": 70,
+    "entry_price": 218.36,
+    "entry_time": "2026-09-11T14:34:04.139488+00:00",
+    "stop_loss": 203.0,
+    "initial_stop": 203.0,
+    "R": 15.360000000000014,
+    "current_stop": 203.0,
+    "target_price": 255.0,
+    "rationale": "FUNDAMENTAL: NVDA is the dominant picks-and-shovels play on the AI infrastructure buildout \u2014 106% revenue growth, 66% operating margin, 117% ROE, $41.8B FCF, and the highest positive EPS revision (+22",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
