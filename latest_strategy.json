@@ -1,29 +1,29 @@
 {
-  "analysis": "Market regime is a mild uptrend (SPY only +0.6% vs SMA50, 20d slope +1.43%) \u2014 not a roaring bull, more a tentative recovery. The portfolio's historical performance demands blunt honesty: a 10% win rate, Profit Factor of 0.04x, and Sortino of -10.58 signal that we have been overtrading or entering at poor risk/reward setups. Capital preservation is the overriding mandate this cycle. EXISTING POSITION REVIEW: (1) AMP at +2.05% \u2014 uptrend extending, near 52w high at 87% range position. Thesis intact, hold but do not add. (2) BR at -0.29% \u2014 flat, basing uptrend at 29% range position. Thesis intact, hold. (3) MCO at +0.72% \u2014 slight gain, thesis intact, hold. (4) RMD at -3.28% \u2014 FLAGGED. RMD does not appear in today's screened candidates, meaning it may be failing trend or quality filters. At -3.28% it is not yet at stop, but the thesis is weakening. Watch closely; exit if it closes below its original stop or if trend confirms down. Do not add to this name. NEW TRADE ANALYSIS: With only ~$25k headroom and a poor track record, this is not the moment to be aggressive. Of the 30 candidates, one stands out for quality-at-value in the lower half of its range: CTSH (Cognizant). Cheap valuation (fwd P/E 9.21, PEG 0.91), positive EPS revisions, strong FCF, and a basing setup in the lower 42% of its 52w range. However, it is already +9.7% above SMA50 \u2014 too extended for a fresh market-order entry. A limit on pullback is the only acceptable entry. No other candidates clear both the fundamental and technical bars simultaneously without being too extended (RJF, BMY, AMP, SCHW all >75% range position) or carrying near-term earnings risk within 3 weeks (ACN reports Oct 1). One disciplined limit-order trade is proposed; everything else remains cash. Cash at ~31% of equity is appropriate given the risk metrics.",
-  "confidence_target_pct": 42,
+  "analysis": "MARKET & REGIME: SPY is essentially flat vs SMA50 with a modest upward slope \u2014 a mixed regime that warrants selectivity, not aggression. Cash preservation is valid here.\n\nPORTFOLIO REVIEW:\n\u2022 AMP (+2.35%): Now at 88% of 52-week range and +13.8% above SMA200 \u2014 entering extended territory. Thesis intact (exceptional ROE, wealth management tailwinds, strong EPS revisions), but stop should be trailed up to protect gains. Do NOT add to this position.\n\u2022 BR (-0.21%): Nearly flat, basing/extending uptrend at 29% range position. Thesis holds. Hold.\n\u2022 MCO (-0.81%): Moody's did not appear in today's screened candidate list, which is mildly concerning. Fundamentally still excellent, but -0.81% is within noise. Monitor closely; if it cannot regain entry price within 2-3 weeks or breaks thesis (ratings business under regulatory pressure), exit.\n\nPERFORMANCE HONESTY: A 9.1% win rate and Sortino of -11.14 demand serious humility. The systematic losses suggest entries have been premature or the market environment has been adverse. This argues for raising the bar on new trades dramatically \u2014 only genuinely asymmetric setups with clean fundamentals AND technical confirmation.\n\nNEW TRADE LOGIC: One candidate stands out above the noise: NVDA. Revenue growth of 106%, operating margin of 66%, ROE of 117%, EPS revision of +22.2% in 60 days \u2014 this is the highest-quality business in the screened universe by a wide margin. Technically it is basing (not extended), +3% vs SMA50, 76% range position (below the 90% avoid threshold), with positive SMA50 slope. AI infrastructure capex cycle shows no sign of inflection. One focused position sized to risk ~1.5% of equity. All other candidates either have weaker quality profiles, extended technicals, or imminent earnings risk (ACN reports in 20 days). Remaining $16k+ in cash after this trade is intentional \u2014 preserving dry powder given the track record.",
+  "confidence_target_pct": 54,
   "trades": [
     {
-      "symbol": "CTSH",
+      "symbol": "NVDA",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $56.00 on a pullback toward the SMA50 area (~$53-56). Do NOT chase at current price of $58.20 which is already +9.7% above SMA50. Set GTC limit and let the trade come to us. If price never pulls back and continues higher, let it go \u2014 there will be other setups.",
-      "entry_price": 56.0,
-      "stop_loss": 52.5,
-      "stop_loss_pct": 0.0625,
-      "atr_multiple": 1.77,
-      "target": 67.0,
-      "target_gain_pct": 0.196,
-      "risk_reward_ratio": 3.14,
-      "conviction": 55,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Cognizant is an undervalued, capital-light IT services business. Forward P/E of 9.21 and PEG of 0.91 price in almost no growth premium despite +4.5% revenue growth and strong FCF ($2.2B). ROE 14.9%, op margin 17.5%, D/E only 14.5x \u2014 balance sheet is clean relative to peers. Analyst EPS revisions +2.3% over 60 days suggest estimates are stabilizing and potentially inflecting. Enterprise IT cost optimization trends benefit efficient outsourcers like CTSH. TECHNICAL: Basing pattern at 42% of the 52w range is Stage 1-to-2 transition territory per the strategy mandate. SMA50 slope is +10.9% (strong rising support). Current overextension vs SMA50 (+9.7%) means we need to wait for consolidation. A pullback to $56 would put price closer to SMA50 and improve risk/reward materially. Stop at $52.50 is 1.77x ATR below a $56 entry \u2014 within the 1.5-2.0x rule and well under the 15% ceiling.",
-      "exit_plan": "(1) Hard stop hit at $52.50 \u2014 exit immediately, no questions. (2) Earnings on 2026-10-28: if thesis (stable IT spending, margin stability) breaks on the print, exit the next trading day regardless of price. (3) Time stop: if position has not moved meaningfully toward target by end of November 2026, reassess and trim. (4) Thesis break: if EPS revisions turn materially negative (>5% downward revision in 30 days) or revenue growth decelerates below 2%, exit. (5) Take partial profits at $63 (~12.5% gain) to lock in some return if target approaches quickly."
+      "entry_strategy": "Buy at market or limit at $218 on any intraday dip toward SMA50; avoid chasing above $222",
+      "entry_price": 218.36,
+      "stop_loss": 203.0,
+      "stop_loss_pct": 0.0703,
+      "atr_multiple": 2.01,
+      "target": 255.0,
+      "target_gain_pct": 0.1678,
+      "risk_reward_ratio": 2.39,
+      "conviction": 72,
+      "holding_period": "LTCG",
+      "rationale": "FUNDAMENTAL: NVDA is the dominant picks-and-shovels play on the AI infrastructure buildout \u2014 106% revenue growth, 66% operating margin, 117% ROE, $41.8B FCF, and the highest positive EPS revision (+22.2%) of any screened candidate. Forward P/E of 14x for this growth profile is genuinely inexpensive. Hyperscaler capex guidance remains robust through 2026-2027 with no evidence of demand inflection. TECHNICAL: Price is basing constructively at 76% of 52-week range (below the 90% extended threshold). SMA50 slope is +2.9% (trending), price is only +3% above SMA50 (not overextended), and +10.9% above SMA200. The recent sideways consolidation after the prior move suggests digestion, not distribution. Earnings are 67 days out (Nov 17), giving sufficient time for the trade to mature before that binary event.",
+      "exit_plan": "Exit if: (1) stop at $203 is hit; (2) earnings miss on Nov 17 causes a gap below SMA200; (3) multiple hyperscaler capex guidance cuts signal structural demand destruction; (4) price reaches $255 target \u2014 reassess whether to take partial profits or hold for LTCG. Time stop: if price has not made meaningful progress toward target within 90 days, reassess position size and thesis strength. Do NOT add to position if AMP or BR stop out simultaneously."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "e1ded9b4a77bd50e",
-    "prompt_chars": 22019,
-    "generated_at": "2026-09-10T10:15:41.228899+00:00",
-    "code_sha": "6c45980acc11"
+    "prompt_sha256": "6c1818df516219eb",
+    "prompt_chars": 21958,
+    "generated_at": "2026-09-11T10:16:48.920241+00:00",
+    "code_sha": "f0c944872022"
   }
 }
