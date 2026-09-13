@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-09-01 → 2026-09-13
+
+_Sharpe -0.81, Sortino -1.02, MaxDD -6.6%, CAGR -11.2%, excess CAGR vs SPY -31.3% (quantstats, since inception)._
+
+**What worked / what didn't.** Six closes, six losses, all via stop-hit — that's the week in full. The one bright spot is AMP (+3.1%), which is the only position showing meaningful positive drift. The two LMT positions are worth singling out: entering a second position in the same name while the first was already underwater and ultimately stopped out within the same week is a concentration decision that compounded a single-thesis failure into the week's largest combined dollar loss (~$920). SYK and IDXX were both stopped out in under 20 days, suggesting entries that were either poorly timed relative to near-term support or sized before the setup had confirmed. RMD lasted six days. The stops are working mechanically — losses were contained — but the entry side is what deserves scrutiny.
+
+**What's puzzling or worth watching.** The portfolio went from ~5% cash on Sept 4 to ~27% cash by week's end, almost entirely driven by stops firing rather than deliberate de-risking. That's a passive cash build, not an active one, and it coincided with the screen producing no high-conviction setups on two separate mornings. That pattern — stops clearing positions while the screen simultaneously goes quiet — could mean the market environment shifted mid-week in a way the strategy is reacting to but not yet explicitly naming. Also notable: the "What we learned" fields in every EOD journal entry are blank. A week with six stop-outs and no written reflection is a gap worth acknowledging directly.
+
+**Reflective prompts for Klaas.** The two LMT trades closed on the same day with a combined loss of ~$920 — what was the reasoning for carrying a second LMT position while the first was already in drawdown, and does the rules framework explicitly address adding to or re-entering a name that hasn't resolved? The EOD reflection fields were left blank all week despite significant activity — is the 15-minute review actually happening, and if so, what's preventing it from being written down? Given that five of six entries were stopped out in 20 days or less, what does that suggest about where in the setup lifecycle you were entering — were these breakouts, pullbacks, or something less defined?
+
+
+---
+
 ## [EOD] 2026-09-11 Friday
 **What happened.** No trades closed today. End equity $97,016, cash $26,637 (27% of equity), 4 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
