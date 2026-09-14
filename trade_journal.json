@@ -250,5 +250,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 15,
+    "symbol": "TMUS",
+    "shares": 66,
+    "original_shares": 66,
+    "entry_price": 182.33,
+    "entry_time": "2026-09-14T14:33:55.409133+00:00",
+    "stop_loss": 173.5,
+    "initial_stop": 173.5,
+    "R": 8.830000000000013,
+    "current_stop": 173.5,
+    "target_price": 210.0,
+    "rationale": "FUNDAMENTAL: T-Mobile is a quality compounder \u2014 $11.3B FCF, 25.2% op margin, fwd P/E 12.63, PEG 0.64. The company has structurally taken postpaid subscriber share from AT&T and Verizon for five consec",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
