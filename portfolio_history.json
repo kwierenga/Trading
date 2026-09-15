@@ -2952,5 +2952,51 @@
         "unrealized_pl": -417.27
       }
     ]
+  },
+  {
+    "timestamp": "2026-09-15T21:20:46.842161+00:00",
+    "account": {
+      "equity": 96586.19,
+      "buying_power": 278457.15,
+      "cash": 14633.37,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "AMP",
+        "qty": 55.0,
+        "avg_entry_price": 540.805818,
+        "current_price": 559.34,
+        "unrealized_pl": 1019.38001
+      },
+      {
+        "symbol": "BR",
+        "qty": 72.0,
+        "avg_entry_price": 168.59,
+        "current_price": 170.25,
+        "unrealized_pl": 119.52
+      },
+      {
+        "symbol": "MCO",
+        "qty": 26.0,
+        "avg_entry_price": 471.16,
+        "current_price": 467.2,
+        "unrealized_pl": -102.96
+      },
+      {
+        "symbol": "NVDA",
+        "qty": 70.0,
+        "avg_entry_price": 218.34,
+        "current_price": 212.47,
+        "unrealized_pl": -410.9
+      },
+      {
+        "symbol": "TMUS",
+        "qty": 66.0,
+        "avg_entry_price": 181.872728,
+        "current_price": 180.47,
+        "unrealized_pl": -92.580048
+      }
+    ]
   }
 ]

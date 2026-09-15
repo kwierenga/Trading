@@ -232,5 +232,23 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 14,
+    "symbol": "TMUS",
+    "shares": 66,
+    "entry_price": 181.872728,
+    "entry_time": "2026-09-15T13:33:34.764468Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "",
+    "source": "alpaca_reconciled",
+    "status": "open",
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
