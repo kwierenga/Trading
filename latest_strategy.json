@@ -1,29 +1,29 @@
 {
-  "analysis": "MARKET & PORTFOLIO REVIEW: SPY is in a mild uptrend (+0.3% vs SMA50, slope +1.39%) \u2014 conditions are constructive but not euphoric. The portfolio sits at 73% deployed across 4 positions. AMP (+3.27%), BR (+3.44%), and MCO (+0.82%) are all thesis-intact with no red flags. NVDA (-2.80%) is worth monitoring: the position is modestly underwater from avg $218.34, now $212.23, but remains well above any reasonable stop level. The AI infrastructure thesis is intact; no action warranted yet. However, NVDA is the weakest link and warrants a tighter watch \u2014 if it breaks below $195 on volume, the setup has deteriorated.\n\nHARD TRUTH ON TRACK RECORD: 12.5% win rate and 0.04 profit factor are not noise \u2014 they signal this strategy is not generating alpha versus passive SPY. The honest directive is to raise the conviction bar sharply and resist the urge to deploy remaining ~$21.8k headroom unless a genuinely asymmetric setup appears. Most candidates this cycle are either: (a) too extended in their 52-week range (>80%), (b) carry earnings risk within 35 days, (c) show flat or declining EPS revisions, or (d) lack the basing-plus-value combination the strategy demands.\n\nONE HIGH-CONVICTION SETUP: ADBE (Adobe) stands out as the single actionable candidate. Fwd P/E of 9.60 and PEG of 0.61 are historically cheap for a world-class software franchise with 61.9% ROE, 34.8% op margins, and $9.1B FCF. The stock is at 41% of its 52-week range \u2014 basing, not extended \u2014 with SMA50 slope accelerating at +10%. Critically, earnings are 85 days out (Dec 9), providing a clean window to establish a position without immediate binary event risk. This is a quality compounder bought at a fair-to-cheap price while the trend has stopped going down. EPS revisions are only flat (+0.5%), which is a mild negative, but the valuation and technicals together justify a modest position. All other candidates with better momentum (ZBRA, NTAP, HPE) are too extended (>80% of range or >20% above SMA50). Energy names (EXE, EQT) have declining revenues. CVNA and HOOD carry excessive debt and volatility. Passing on all others. Cash remains a position \u2014 one trade is the right call here.",
-  "confidence_target_pct": 52,
+  "analysis": "PORTFOLIO REVIEW: Five positions are all within tolerable ranges \u2014 AMP is the only meaningful winner (+3.43%). MCO, NVDA, and TMUS are all modestly underwater but have not hit stops or broken thesis. Portfolio heat is low at 1.70%, which is healthy given the mixed regime. No position requires an immediate exit. PERFORMANCE CONTEXT: The track record (12.5% win rate, profit factor 0.04x, Sortino -11.38) is a hard warning signal. The strategy is not generating alpha. This demands maximum selectivity \u2014 proposing trades just to stay active would be the worst mistake. MARKET REGIME: MIXED. SPY is essentially flat vs SMA50, with only a modest positive 20d slope. This is not a high-conviction environment for new entries. CAPACITY: Only $9,800 of headroom remains for new buys after the 95% gross cap is applied. This constrains sizing to roughly one small position. NEW TRADE DECISION: Of the 30 candidates, ADBE stands out as the one genuinely asymmetric setup. It is trading at 9.31x forward earnings and PEG 0.64 \u2014 historically cheap for a company with 61.9% ROE, $9.1B FCF, 34.8% operating margins, and 12.9% revenue growth. It sits at 37% of its 52-week range, still -3.1% vs SMA200 (not extended), with SMA50 slope accelerating at +10.4%. This is a quality company in early-stage recovery, not a chasing-the-high entry. Earnings are 84 days out (Dec 9), giving a clean holding window. The limited headroom caps position size to ~38 shares (~$9,800), producing a small but properly sized risk position. All other candidates are either too extended (CPAY 90%, TRV 87%, NTAP 85%, A 82%, ZBRA 78%), have mixed/declining fundamentals (MOS negative FCF, ROE -5.1%), have earnings too soon (FDS 14 days, ACN 15 days, SCHW 29 days, TRV 30 days), or are overcrowded growth plays at stretched multiples (PLTR 147x PE, ANET 59x with 81% range position). One disciplined trade, the rest in cash.",
+  "confidence_target_pct": 42,
   "trades": [
     {
       "symbol": "ADBE",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $265.00 or better; acceptable to enter on a mild pullback toward $260 (near SMA50 support). Do not chase above $272.",
-      "entry_price": 265.0,
-      "stop_loss": 248.0,
-      "stop_loss_pct": 0.064,
-      "atr_multiple": 1.53,
-      "target": 320.0,
-      "target_gain_pct": 0.208,
-      "risk_reward_ratio": 3.25,
-      "conviction": 65,
+      "entry_strategy": "Limit order at $257 or better; accept fill up to $260. Prefer entry on a slight intraday dip toward SMA50 (~$255). Do not chase above $262.",
+      "entry_price": 257.76,
+      "stop_loss": 235.6,
+      "stop_loss_pct": 0.086,
+      "atr_multiple": 2.0,
+      "target": 310.0,
+      "target_gain_pct": 0.203,
+      "risk_reward_ratio": 2.35,
+      "conviction": 62,
       "holding_period": "LTCG",
-      "rationale": "FUNDAMENTAL: Adobe trades at fwd P/E 9.6x and PEG 0.61 \u2014 historically cheap for a business with 61.9% ROE, 34.8% operating margins, $9.1B FCF, and 12.9% revenue growth. The market has re-rated the stock down ~27% from its 52w high on AI competition fears, but Adobe's integration of AI into Creative Cloud, Document Cloud, and Experience Cloud is a durable moat narrative. At this valuation, the risk/reward tilts strongly in favor of long-term holders. TECHNICAL: At 41% of 52-week range, price is basing and not extended. SMA50 slope has accelerated to +10% over 20 days \u2014 momentum building. Price is only +4.8% above SMA50, well within the acceptable entry zone. ATR is 4.2%, implying moderate volatility with a clean 1.5x ATR stop at $248 (6.4% risk). Earnings are 85 days out (Dec 9), providing a clear runway. Stop distance of $17 on 80 shares = $1,360 risk = 1.40% of equity, within the 1-2% sizing rule.",
-      "exit_plan": "Primary exit: target $320 (~21% gain) or stop $248 (6.4% loss). Thesis-break conditions: (1) revenue growth decelerates below 8% YoY \u2014 signals market share loss to AI competitors; (2) forward P/E re-rates above 18x without commensurate earnings growth \u2014 valuation overshoot; (3) price closes more than two consecutive weeks below SMA50 on elevated volume. If held past Dec 9 earnings with thesis intact, reassess but do not sell purely on time. Prefer to hold past 1-year mark for LTCG treatment if fundamentals remain sound. Time stop: if price is flat or negative 60 days post-entry with no technical improvement, reassess capital deployment."
+      "rationale": "FUNDAMENTAL \u2014 Adobe is trading at 9.31x forward earnings and a PEG of 0.64, both historically cheap for a business with 61.9% ROE, 34.8% operating margins, $9.1B in annual FCF, and 12.9% revenue growth. The AI-integration narrative (Firefly, generative tools across Creative Cloud) supports re-acceleration. The stock has de-rated sharply from its highs on competitive AI fears \u2014 those fears appear increasingly priced in at current multiples. TECHNICAL \u2014 At 37% of the 52-week range and -3.1% vs SMA200, this is a basing setup in the lower half, not a late-cycle chase. SMA50 slope has accelerated to +10.4% over 20 days, suggesting institutional accumulation. Price is close to SMA50 (+1.4%), offering a well-defined risk level. Earnings are Dec 9 (84 days), providing a clean multi-month holding window. Stop at 2x ATR(14) = $22.16 below entry = $235.60, which is below recent basing support. Position sized at 38 shares (~$9,795) \u2014 uses available $9,800 headroom, risks ~$842 (0.87% of equity), well within 1-2% per-trade risk budget.",
+      "exit_plan": "Exit if: (1) stop at $235.60 is hit \u2014 thesis invalid; (2) price closes below $245 on high volume suggesting distribution before stop is formally triggered; (3) fundamental thesis breaks \u2014 e.g., a major revenue guidance cut at Dec earnings, or evidence of structural market share loss to AI competitors; (4) position held past 12 months and thesis is intact \u2014 reassess at Dec 2027 for LTCG treatment. If stock reaches $295-300 (~15% gain), raise stop to breakeven and let the rest run toward $310 target."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "284f64d90fe181bc",
-    "prompt_chars": 21976,
-    "generated_at": "2026-09-15T10:14:33.581755+00:00",
-    "code_sha": "67b125daec46"
+    "prompt_sha256": "e17b64189b10c050",
+    "prompt_chars": 22056,
+    "generated_at": "2026-09-16T10:12:20.007053+00:00",
+    "code_sha": "df439312da0c"
   }
 }
