@@ -651,3 +651,41 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-09-16 — AMP closed (held 42.2d, -3.81%, $-381.60)
+<!-- pm-key: AMP|2026-09-16T19:14:51|556.32 -->
+
+**Mechanical (auto-filled):**
+- Entry: $556.32 on 2026-08-05 → Exit: $535.12 on 2026-09-16 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: PYRAMID tranche 2: original lot held 21d at +6.3%; price $553.58 > SMA20 $527.22; adding $10,014 (18 sh) with combined break-even stop at $535.31.
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
+
+## 2026-09-16 — TMUS closed (held 1.3d, -4.61%, $-553.26)
+<!-- pm-key: TMUS|2026-09-16T19:34:42|181.872728 -->
+
+**Mechanical (auto-filled):**
+- Entry: $181.87 on 2026-09-15 → Exit: $173.49 on 2026-09-16 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: (no pre-trade rationale recorded)
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---

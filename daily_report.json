@@ -4832,5 +4832,87 @@
       "noops": 0,
       "skipped_no_R": 5
     }
+  },
+  {
+    "timestamp": "2026-09-16T21:21:52.029676+00:00",
+    "date": "2026-09-16",
+    "equity": 94694.43,
+    "cash": 35715.87,
+    "positions": 4,
+    "closed_trades": [
+      {
+        "symbol": "AMP",
+        "pnl": -381.6,
+        "pnl_pct": -0.038108,
+        "reason_exit": "stop_hit",
+        "duration_minutes": 60704.67738925
+      },
+      {
+        "symbol": "TMUS",
+        "pnl": -553.26,
+        "pnl_pct": -0.046091,
+        "reason_exit": "stop_hit",
+        "duration_minutes": 1801.1272997333333
+      }
+    ],
+    "turnover": {
+      "period_days": 30,
+      "trades": 10,
+      "avg_holding_days": 18.826733850792824,
+      "short_term_gains": 195.99,
+      "long_term_gains": 0.0,
+      "realized_gain": -5706.35,
+      "estimated_tax_owed": 62.716800000000006,
+      "tax_drag": 33.31830000000001
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 104826.65,
+      "shadow_return_pct": 0.04826653397300018,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 94694.43,
+      "strategy_return_pct": -0.05305570000000004,
+      "spread_pct": -0.10132223397300022
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "AMP",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "BR",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "MCO",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "NVDA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 4
+    }
   }
 ]
