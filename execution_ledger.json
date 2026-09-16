@@ -718,5 +718,13 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Technology sector would be 39.7% of equity (existing $27,153 + new $11,130 = $38,283); cap is 35%"
+  },
+  {
+    "date": "2026-09-16",
+    "timestamp": "2026-09-16T14:33:58.766813+00:00",
+    "symbol": "ADBE",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 36.9% of equity (existing $27,150 + new $8,248 = $35,398); cap is 35%"
   }
 ]
