@@ -250,5 +250,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 15,
+    "symbol": "ULTA",
+    "shares": 18,
+    "original_shares": 18,
+    "entry_price": 530.0,
+    "entry_time": "2026-09-17T14:33:48.763452+00:00",
+    "stop_loss": 492.0,
+    "initial_stop": 492.0,
+    "R": 38.0,
+    "current_stop": 492.0,
+    "target_price": 635.0,
+    "rationale": "FUNDAMENTAL: Ulta Beauty is a high-quality specialty retailer with exceptional economics \u2014 ROE of 46.1%, FCF of $914M, and operating cash flow of $1.6B. Fwd P/E of 16.5x is reasonable for this quality",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
