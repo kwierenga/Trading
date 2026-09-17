@@ -1,29 +1,29 @@
 {
-  "analysis": "PORTFOLIO REVIEW: Five positions are all within tolerable ranges \u2014 AMP is the only meaningful winner (+3.43%). MCO, NVDA, and TMUS are all modestly underwater but have not hit stops or broken thesis. Portfolio heat is low at 1.70%, which is healthy given the mixed regime. No position requires an immediate exit. PERFORMANCE CONTEXT: The track record (12.5% win rate, profit factor 0.04x, Sortino -11.38) is a hard warning signal. The strategy is not generating alpha. This demands maximum selectivity \u2014 proposing trades just to stay active would be the worst mistake. MARKET REGIME: MIXED. SPY is essentially flat vs SMA50, with only a modest positive 20d slope. This is not a high-conviction environment for new entries. CAPACITY: Only $9,800 of headroom remains for new buys after the 95% gross cap is applied. This constrains sizing to roughly one small position. NEW TRADE DECISION: Of the 30 candidates, ADBE stands out as the one genuinely asymmetric setup. It is trading at 9.31x forward earnings and PEG 0.64 \u2014 historically cheap for a company with 61.9% ROE, $9.1B FCF, 34.8% operating margins, and 12.9% revenue growth. It sits at 37% of its 52-week range, still -3.1% vs SMA200 (not extended), with SMA50 slope accelerating at +10.4%. This is a quality company in early-stage recovery, not a chasing-the-high entry. Earnings are 84 days out (Dec 9), giving a clean holding window. The limited headroom caps position size to ~38 shares (~$9,800), producing a small but properly sized risk position. All other candidates are either too extended (CPAY 90%, TRV 87%, NTAP 85%, A 82%, ZBRA 78%), have mixed/declining fundamentals (MOS negative FCF, ROE -5.1%), have earnings too soon (FDS 14 days, ACN 15 days, SCHW 29 days, TRV 30 days), or are overcrowded growth plays at stretched multiples (PLTR 147x PE, ANET 59x with 81% range position). One disciplined trade, the rest in cash.",
-  "confidence_target_pct": 42,
+  "analysis": "PORTFOLIO REVIEW: All four positions (AMP, BR, MCO, NVDA) are marginally underwater (-0.65% to -1.77%) but none show thesis breaks. These are quality businesses at fair prices that passed both fundamental and technical filters. Losses are within normal noise; no forced exits warranted. However, the historical performance demands honest acknowledgment \u2014 10% win rate and 0.03x profit factor indicates the execution has been poor. The mandate here is to be disciplined, not to manufacture activity.\n\nMARKET REGIME: MIXED (-0.7% vs SMA50 but rising 20d slope). Not a confirmed bull phase. This calls for high selectivity on new entries and smaller position additions.\n\nNEW TRADE RATIONALE: With 4 open positions and $30,964 headroom, capacity exists for one more name to reach the 5-position maximum. The sole candidate meeting all criteria \u2014 basing in the lower half of the 52w range, confirmed uptrend, quality fundamentals, sufficient earnings runway \u2014 is ULTA. Most other high-quality names (ANET, NTAP, CPAY, CRM, TRV, A) are extended (>85% of 52w range and/or >15% above SMA50), violating entry timing rules. ACN has earnings in 14 days \u2014 too risky to enter. CMG and DG are MIXED/SIDEWAYS (not confirmed uptrends). Given the track record, only one high-conviction trade is proposed; cash is the remainder. Preserving capital and waiting for clearer setups is the right posture.",
+  "confidence_target_pct": 52,
   "trades": [
     {
-      "symbol": "ADBE",
+      "symbol": "ULTA",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $257 or better; accept fill up to $260. Prefer entry on a slight intraday dip toward SMA50 (~$255). Do not chase above $262.",
-      "entry_price": 257.76,
-      "stop_loss": 235.6,
-      "stop_loss_pct": 0.086,
+      "entry_strategy": "Limit order at $528-532 (near current market price). Prefer a 1-2 day mild pullback to $525-528 to improve entry. Do not chase above $535.",
+      "entry_price": 530.0,
+      "stop_loss": 492.0,
+      "stop_loss_pct": 0.0717,
       "atr_multiple": 2.0,
-      "target": 310.0,
-      "target_gain_pct": 0.203,
-      "risk_reward_ratio": 2.35,
+      "target": 635.0,
+      "target_gain_pct": 0.198,
+      "risk_reward_ratio": 2.76,
       "conviction": 62,
-      "holding_period": "LTCG",
-      "rationale": "FUNDAMENTAL \u2014 Adobe is trading at 9.31x forward earnings and a PEG of 0.64, both historically cheap for a business with 61.9% ROE, 34.8% operating margins, $9.1B in annual FCF, and 12.9% revenue growth. The AI-integration narrative (Firefly, generative tools across Creative Cloud) supports re-acceleration. The stock has de-rated sharply from its highs on competitive AI fears \u2014 those fears appear increasingly priced in at current multiples. TECHNICAL \u2014 At 37% of the 52-week range and -3.1% vs SMA200, this is a basing setup in the lower half, not a late-cycle chase. SMA50 slope has accelerated to +10.4% over 20 days, suggesting institutional accumulation. Price is close to SMA50 (+1.4%), offering a well-defined risk level. Earnings are Dec 9 (84 days), providing a clean multi-month holding window. Stop at 2x ATR(14) = $22.16 below entry = $235.60, which is below recent basing support. Position sized at 38 shares (~$9,795) \u2014 uses available $9,800 headroom, risks ~$842 (0.87% of equity), well within 1-2% per-trade risk budget.",
-      "exit_plan": "Exit if: (1) stop at $235.60 is hit \u2014 thesis invalid; (2) price closes below $245 on high volume suggesting distribution before stop is formally triggered; (3) fundamental thesis breaks \u2014 e.g., a major revenue guidance cut at Dec earnings, or evidence of structural market share loss to AI competitors; (4) position held past 12 months and thesis is intact \u2014 reassess at Dec 2027 for LTCG treatment. If stock reaches $295-300 (~15% gain), raise stop to breakeven and let the rest run toward $310 target."
+      "holding_period": "position",
+      "rationale": "FUNDAMENTAL: Ulta Beauty is a high-quality specialty retailer with exceptional economics \u2014 ROE of 46.1%, FCF of $914M, and operating cash flow of $1.6B. Fwd P/E of 16.5x is reasonable for this quality level, with 8.9% revenue growth and a dominant loyalty ecosystem (44M+ members) providing durable competitive advantage. Minimal EPS revision drag (+0.4%) but no deterioration. TECHNICAL: Price at 31% of 52w range, basing above key support with SMA50 slope rising at +6.1%. Just +2.6% above SMA50 \u2014 confirmed uptrend without being extended. ATR of 3.5% produces a 2x ATR stop at $492, placing the stop 7.2% below entry \u2014 within the 4-15% valid zone. Earnings not until Dec 3 (77 days), giving a clean holding window. Position sizing: 38 shares * $530 = $20,140 (21.2% of equity, within 25% cap); worst-case loss = 38 * $38 = $1,444 = 1.52% of equity.",
+      "exit_plan": "Exit if: (1) price closes below $492 stop; (2) thesis break \u2014 same-store sales growth turns negative or loyalty program metrics deteriorate materially in Dec 3 earnings; (3) stock rallies into the $635-650 zone and shows distribution/reversal signs ahead of target; (4) time stop \u2014 if price has not made progress toward target within 10 weeks of entry, reassess and exit regardless of price level; (5) market regime shifts to confirmed downtrend (SPY below SMA200)."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "e17b64189b10c050",
-    "prompt_chars": 22056,
-    "generated_at": "2026-09-16T10:12:20.007053+00:00",
-    "code_sha": "df439312da0c"
+    "prompt_sha256": "b9c28e5cbe9daa13",
+    "prompt_chars": 21933,
+    "generated_at": "2026-09-17T10:13:58.174696+00:00",
+    "code_sha": "4cd9748839b3"
   }
 }
