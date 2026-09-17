@@ -3037,5 +3037,44 @@
         "unrealized_pl": -272.727
       }
     ]
+  },
+  {
+    "timestamp": "2026-09-17T21:21:50.081011+00:00",
+    "account": {
+      "equity": 95101.17,
+      "buying_power": 290058.08,
+      "cash": 35715.87,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "AMP",
+        "qty": 37.0,
+        "avg_entry_price": 550.631067,
+        "current_price": 545.7,
+        "unrealized_pl": -182.449479
+      },
+      {
+        "symbol": "BR",
+        "qty": 72.0,
+        "avg_entry_price": 168.59,
+        "current_price": 164.31,
+        "unrealized_pl": -308.16
+      },
+      {
+        "symbol": "MCO",
+        "qty": 26.0,
+        "avg_entry_price": 471.16,
+        "current_price": 461.88,
+        "unrealized_pl": -241.28
+      },
+      {
+        "symbol": "NVDA",
+        "qty": 70.0,
+        "avg_entry_price": 218.34,
+        "current_price": 219.36,
+        "unrealized_pl": 71.4
+      }
+    ]
   }
 ]
