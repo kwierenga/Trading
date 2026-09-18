@@ -738,5 +738,13 @@
     "entry_price": 530.0,
     "order_id": "c6145df1-ec44-45b4-b35e-825339af3bef",
     "fill_status": "working (unfilled)"
+  },
+  {
+    "date": "2026-09-18",
+    "timestamp": "2026-09-18T14:33:55.621973+00:00",
+    "symbol": "TEL",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 41.0% of equity (existing $27,156 + new $11,742 = $38,898); cap is 35%"
   }
 ]
