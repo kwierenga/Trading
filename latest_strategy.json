@@ -1,29 +1,29 @@
 {
-  "analysis": "PORTFOLIO REVIEW: All four positions (AMP, BR, MCO, NVDA) are marginally underwater (-0.65% to -1.77%) but none show thesis breaks. These are quality businesses at fair prices that passed both fundamental and technical filters. Losses are within normal noise; no forced exits warranted. However, the historical performance demands honest acknowledgment \u2014 10% win rate and 0.03x profit factor indicates the execution has been poor. The mandate here is to be disciplined, not to manufacture activity.\n\nMARKET REGIME: MIXED (-0.7% vs SMA50 but rising 20d slope). Not a confirmed bull phase. This calls for high selectivity on new entries and smaller position additions.\n\nNEW TRADE RATIONALE: With 4 open positions and $30,964 headroom, capacity exists for one more name to reach the 5-position maximum. The sole candidate meeting all criteria \u2014 basing in the lower half of the 52w range, confirmed uptrend, quality fundamentals, sufficient earnings runway \u2014 is ULTA. Most other high-quality names (ANET, NTAP, CPAY, CRM, TRV, A) are extended (>85% of 52w range and/or >15% above SMA50), violating entry timing rules. ACN has earnings in 14 days \u2014 too risky to enter. CMG and DG are MIXED/SIDEWAYS (not confirmed uptrends). Given the track record, only one high-conviction trade is proposed; cash is the remainder. Preserving capital and waiting for clearer setups is the right posture.",
+  "analysis": "Market regime is a mild uptrend (SPY +0.4% vs SMA50, 20d slope +1.25%) \u2014 constructive but not euphoric. The portfolio is 62% deployed across 4 positions, all slightly underwater but none at thesis-break levels: AMP (-0.90%), BR (-2.54%), MCO (-1.96%) are minor losses well within their stop bands; NVDA (+1.15%) is the only current winner and the only candidate reappearing on the screen with exceptional fundamentals (105% rev growth, 66% op margin, PEG 0.45, +22.6% EPS revision). No existing position shows a thesis break \u2014 all four are quality businesses in an uptrend; recommend holding with current stops.\n\nThe historical performance demands humility: 10% win rate, 0.03 profit factor, Sortino -13.17. This is a clear signal to be very selective with new entries and to avoid forcing trades to manufacture activity. The bar for any new buy is genuine asymmetry: basing in lower 52w range, quality fundamentals, and a risk/reward above 2.5x.\n\nScanning the 30 candidates: most are extended (PSX at 100% of range +20.5% above SMA50, APA at 93%, COP at 86%, ZBRA at 81%). A handful have basing setups in the lower half of the range. TEL (TE Connectivity) stands out as the most disciplined entry: 24% of 52w range, only +0.3% above SMA50 (just emerging from base), forward P/E 16, PEG 0.87, ROE 23.3%, op margin 20.8%, solid FCF of $2.3B, and a modest +2.3% EPS revision. It is a Stage 1 to Stage 2 transition candidate \u2014 exactly what the strategy targets. Risk/reward is ~2.8x with proper stops. Earnings are 40 days out (Oct 28) which is a known catalyst risk; position sizing is reduced accordingly and an earnings-eve exit rule is included. No other candidate clears both the technical (basing, not extended) and fundamental bars simultaneously with sufficient asymmetry to justify a second new trade given available headroom of ~$31k and the imperative to preserve capital.",
   "confidence_target_pct": 52,
   "trades": [
     {
-      "symbol": "ULTA",
+      "symbol": "TEL",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $528-532 (near current market price). Prefer a 1-2 day mild pullback to $525-528 to improve entry. Do not chase above $535.",
-      "entry_price": 530.0,
-      "stop_loss": 492.0,
-      "stop_loss_pct": 0.0717,
-      "atr_multiple": 2.0,
-      "target": 635.0,
-      "target_gain_pct": 0.198,
-      "risk_reward_ratio": 2.76,
-      "conviction": 62,
+      "entry_strategy": "Limit order at $206.00 or better on any intraday dip; if price gaps above $208 without a pullback, skip the trade and wait for a retest of the SMA50 (~$205). Do not chase.",
+      "entry_price": 206.0,
+      "stop_loss": 195.1,
+      "stop_loss_pct": 0.053,
+      "atr_multiple": 1.75,
+      "target": 238.0,
+      "target_gain_pct": 0.155,
+      "risk_reward_ratio": 2.9,
+      "conviction": 60,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Ulta Beauty is a high-quality specialty retailer with exceptional economics \u2014 ROE of 46.1%, FCF of $914M, and operating cash flow of $1.6B. Fwd P/E of 16.5x is reasonable for this quality level, with 8.9% revenue growth and a dominant loyalty ecosystem (44M+ members) providing durable competitive advantage. Minimal EPS revision drag (+0.4%) but no deterioration. TECHNICAL: Price at 31% of 52w range, basing above key support with SMA50 slope rising at +6.1%. Just +2.6% above SMA50 \u2014 confirmed uptrend without being extended. ATR of 3.5% produces a 2x ATR stop at $492, placing the stop 7.2% below entry \u2014 within the 4-15% valid zone. Earnings not until Dec 3 (77 days), giving a clean holding window. Position sizing: 38 shares * $530 = $20,140 (21.2% of equity, within 25% cap); worst-case loss = 38 * $38 = $1,444 = 1.52% of equity.",
-      "exit_plan": "Exit if: (1) price closes below $492 stop; (2) thesis break \u2014 same-store sales growth turns negative or loyalty program metrics deteriorate materially in Dec 3 earnings; (3) stock rallies into the $635-650 zone and shows distribution/reversal signs ahead of target; (4) time stop \u2014 if price has not made progress toward target within 10 weeks of entry, reassess and exit regardless of price level; (5) market regime shifts to confirmed downtrend (SPY below SMA200)."
+      "rationale": "FUNDAMENTAL: TE Connectivity is a high-quality industrial connector and sensor business with 23.3% ROE, 20.8% operating margin, $2.3B FCF, and accelerating revenue growth (+13.8%). Forward P/E of 16 with PEG 0.87 represents fair-to-cheap valuation for the quality level. EPS revisions are modestly positive (+2.3%). The business is a secular beneficiary of EV/electrification and industrial automation tailwinds. TECHNICAL: TEL is basing at just 24% of its 52-week range (well off the $246 high), trading only +0.3% above its SMA50 \u2014 the textbook Stage 1-to-2 transition the strategy targets. SMA50 slope is flat-to-slightly-positive (+0.1%), suggesting the base is stabilizing. ATR is 3.1% of price, giving clean stop placement at 1.75x ATR below entry (~5.3%) without being too wide or too tight. Risk/reward to prior high zone (~$238) is approximately 2.9:1.",
+      "exit_plan": "1) Stop hit at $195.10 \u2014 exit immediately, no averaging down. 2) Earnings eve (Oct 27) \u2014 if position is profitable, consider trimming 50% before the Oct 28 report to avoid binary event risk; if at a loss approaching stop, exit fully before earnings. 3) Thesis break: if TEL drops back below its SMA200 on volume or EPS revisions turn negative, exit regardless of stop level. 4) Time stop: if no progress toward $215 within 8 weeks, reassess and consider closing to redeploy. 5) Target $238 \u2014 take partial profits (50%) and trail stop on remainder toward SMA50."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "b9c28e5cbe9daa13",
-    "prompt_chars": 21933,
-    "generated_at": "2026-09-17T10:13:58.174696+00:00",
-    "code_sha": "4cd9748839b3"
+    "prompt_sha256": "e3a86a830d22817e",
+    "prompt_chars": 21992,
+    "generated_at": "2026-09-18T10:13:33.607822+00:00",
+    "code_sha": "397d7fda8f03"
   }
 }
