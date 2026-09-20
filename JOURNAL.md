@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-09-08 → 2026-09-20
+
+_Sharpe -1.20, Sortino -1.48, MaxDD -8.5%, CAGR -16.0%, excess CAGR vs SPY -34.7% (quantstats, since inception)._
+
+**What worked / what didn't.** Every closed position this week exited via stop, across five different names and holding periods ranging from 1.3 to 42 days — that consistency is the most important data point. The stops worked mechanically as designed, which isn't nothing. But TMUS held 1.3 days before stopping out, and AMP held 42 days before doing the same: those are very different failure modes that the identical exit label obscures. IDXX was the largest dollar loss at -$1,027 after 19 days, suggesting the position had size relative to the others and the thesis didn't assert itself over nearly three weeks. RMD stopped out after only 6 days, which raises a question about entry timing rather than the name itself.
+
+**What's puzzling or worth watching.** Cash jumped to 43% of equity mid-week after RMD closed, then settled at 37% by Friday — but the proposed entries (CTSH, ULTA, TEL, ADBE across four consecutive mornings) apparently did not fill or were skipped, because the open position count held flat at 3–4 all week while cash stayed elevated. That's worth understanding: was the system declining those setups at the open re-evaluation, or did limit prices miss? Also notable: AMP appears in both the closed list (stopped out -3.8% on Sep 16) and the open positions at end of week (-1.1% unrealized). That implies a re-entry into the same name within the same week, which is a pattern worth examining deliberately rather than letting it happen automatically.
+
+**Reflective prompts for Klaas.** The journal's "What we learned" fields were left blank every single day this week — given that five stops fired, what does it say about the review habit that there was nothing written on the days it mattered most? TMUS entered Monday and stopped Wednesday after 1.3 days: at a 53% confidence entry, what would have had to be true at the open on Monday for that trade to not be taken — and was any of it visible? AMP was re-entered after stopping out, which may be perfectly defensible, but was that re-entry a rules-based signal or a reaction to seeing a familiar name appear in the candidate list again?
+
+
+---
+
 ## [EOD] 2026-09-18 Friday
 **What happened.** No trades closed today. End equity $95,341, cash $35,716 (37% of equity), 4 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
