@@ -5048,5 +5048,72 @@
       "noops": 0,
       "skipped_no_R": 4
     }
+  },
+  {
+    "timestamp": "2026-09-21T21:21:52.926144+00:00",
+    "date": "2026-09-21",
+    "equity": 95424.37,
+    "cash": 35715.87,
+    "positions": 4,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 8,
+      "avg_holding_days": 19.268642671484375,
+      "short_term_gains": 0.0,
+      "long_term_gains": 0.0,
+      "realized_gain": -4681.64,
+      "estimated_tax_owed": 0.0,
+      "tax_drag": 0.0
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 106907.27,
+      "shadow_return_pct": 0.06907268456777627,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 95424.37,
+      "strategy_return_pct": -0.04575630000000008,
+      "spread_pct": -0.11482898456777635
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "AMP",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "BR",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "MCO",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "NVDA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 4
+    }
   }
 ]
