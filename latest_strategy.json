@@ -1,29 +1,29 @@
 {
-  "analysis": "Market regime is a mild uptrend (SPY +0.4% vs SMA50, 20d slope +1.25%) \u2014 constructive but not euphoric. The portfolio is 62% deployed across 4 positions, all slightly underwater but none at thesis-break levels: AMP (-0.90%), BR (-2.54%), MCO (-1.96%) are minor losses well within their stop bands; NVDA (+1.15%) is the only current winner and the only candidate reappearing on the screen with exceptional fundamentals (105% rev growth, 66% op margin, PEG 0.45, +22.6% EPS revision). No existing position shows a thesis break \u2014 all four are quality businesses in an uptrend; recommend holding with current stops.\n\nThe historical performance demands humility: 10% win rate, 0.03 profit factor, Sortino -13.17. This is a clear signal to be very selective with new entries and to avoid forcing trades to manufacture activity. The bar for any new buy is genuine asymmetry: basing in lower 52w range, quality fundamentals, and a risk/reward above 2.5x.\n\nScanning the 30 candidates: most are extended (PSX at 100% of range +20.5% above SMA50, APA at 93%, COP at 86%, ZBRA at 81%). A handful have basing setups in the lower half of the range. TEL (TE Connectivity) stands out as the most disciplined entry: 24% of 52w range, only +0.3% above SMA50 (just emerging from base), forward P/E 16, PEG 0.87, ROE 23.3%, op margin 20.8%, solid FCF of $2.3B, and a modest +2.3% EPS revision. It is a Stage 1 to Stage 2 transition candidate \u2014 exactly what the strategy targets. Risk/reward is ~2.8x with proper stops. Earnings are 40 days out (Oct 28) which is a known catalyst risk; position sizing is reduced accordingly and an earnings-eve exit rule is included. No other candidate clears both the technical (basing, not extended) and fundamental bars simultaneously with sufficient asymmetry to justify a second new trade given available headroom of ~$31k and the imperative to preserve capital.",
-  "confidence_target_pct": 52,
+  "analysis": "Market regime: SPY is in a moderate uptrend (+0.5% vs SMA50, slope +1.21%), which is constructive but not euphoric. No reason to panic-cash, but no reason to chase either.\n\nPORTFOLIO REVIEW \u2014 honest assessment required:\nThe track record is deeply alarming: 10% win rate, avg loss -5.37%, avg win +2.06%, profit factor 0.03x, Sortino -12.81. This is materially underperforming a passive SPY hold. Five consecutive stop-outs reinforce that entries have been poorly timed and/or position sizing has absorbed losses that compound into real damage. The mandate here is capital preservation first.\n\nExisting positions:\n- NVDA (+2.86%): Only winner. Still on screened list with extraordinary fundamentals (ROE 117%, op margin 66%, EPS revision +22.6%). Hold; consider tightening stop to protect the gain.\n- AMP (-1.14%): Not appearing in this cycle's screened candidates \u2014 may be drifting on quality metrics. Loss is modest but the prior AMP trade was also stopped out (-3.81%). Watch closely; if price falls through SMA50 decisively, consider exiting.\n- MCO (-0.55%): Essentially flat, thesis (duopoly ratings business) intact. Not in screened list this cycle \u2014 hold but monitor.\n- BR (-3.24%): Most concerning. Not in screened list, underwater, and the trend of losses on prior stops is a warning. If stop level is reached, respect it.\n\nNew trades: Given 63% deployment and the catastrophic win rate, I am proposing only ONE new position \u2014 TEL \u2014 which offers the cleanest Stage 1-to-2 basing setup on the screened list: 21% of 52w range, SMA50 essentially flat (-0.4%), positive SMA50 slope, quality fundamentals at a fair price (fwd P/E 15.9, PEG 0.88). All other high-scoring candidates are either extended (ANET 88%, CVX 89%, APA 90%, ZBRA 80%+), have imminent earnings risk (FDS 9d, ACN 10d), show declining EPS revisions (UHS -4.6%, PSKY -4.7%, MOS -16.5%), or are extended from SMA50 (CRM +15.2%, PLTR +12.2%). Cash preservation is the right call for the remainder of the headroom.",
+  "confidence_target_pct": 40,
   "trades": [
     {
       "symbol": "TEL",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $206.00 or better on any intraday dip; if price gaps above $208 without a pullback, skip the trade and wait for a retest of the SMA50 (~$205). Do not chase.",
-      "entry_price": 206.0,
-      "stop_loss": 195.1,
-      "stop_loss_pct": 0.053,
-      "atr_multiple": 1.75,
-      "target": 238.0,
-      "target_gain_pct": 0.155,
-      "risk_reward_ratio": 2.9,
-      "conviction": 60,
+      "entry_strategy": "Limit at $205.00 or on a small intraday pullback to the $202-205 zone; do not chase above $208. The stock is basing tightly around SMA50 \u2014 a day of mild weakness is a better entry than market-order urgency.",
+      "entry_price": 205.0,
+      "stop_loss": 196.0,
+      "stop_loss_pct": 0.0439,
+      "atr_multiple": 1.46,
+      "target": 230.0,
+      "target_gain_pct": 0.122,
+      "risk_reward_ratio": 2.78,
+      "conviction": 54,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: TE Connectivity is a high-quality industrial connector and sensor business with 23.3% ROE, 20.8% operating margin, $2.3B FCF, and accelerating revenue growth (+13.8%). Forward P/E of 16 with PEG 0.87 represents fair-to-cheap valuation for the quality level. EPS revisions are modestly positive (+2.3%). The business is a secular beneficiary of EV/electrification and industrial automation tailwinds. TECHNICAL: TEL is basing at just 24% of its 52-week range (well off the $246 high), trading only +0.3% above its SMA50 \u2014 the textbook Stage 1-to-2 transition the strategy targets. SMA50 slope is flat-to-slightly-positive (+0.1%), suggesting the base is stabilizing. ATR is 3.1% of price, giving clean stop placement at 1.75x ATR below entry (~5.3%) without being too wide or too tight. Risk/reward to prior high zone (~$238) is approximately 2.9:1.",
-      "exit_plan": "1) Stop hit at $195.10 \u2014 exit immediately, no averaging down. 2) Earnings eve (Oct 27) \u2014 if position is profitable, consider trimming 50% before the Oct 28 report to avoid binary event risk; if at a loss approaching stop, exit fully before earnings. 3) Thesis break: if TEL drops back below its SMA200 on volume or EPS revisions turn negative, exit regardless of stop level. 4) Time stop: if no progress toward $215 within 8 weeks, reassess and consider closing to redeploy. 5) Target $238 \u2014 take partial profits (50%) and trail stop on remainder toward SMA50."
+      "rationale": "FUNDAMENTAL: TE Connectivity is a high-quality industrial connector and sensor business with durable competitive advantages in harsh-environment electronics. Fwd P/E 15.9, PEG 0.88, ROE 23.3%, operating margin 20.8%, and $2.3B FCF give a clear margin of safety. Revenue growth of 13.8% and EPS revisions +2.3% confirm the business is growing, not deteriorating. The stock trades at a material discount to its 52w high ($246), suggesting it was sold off on macro/sector rotation rather than fundamental deterioration. TECHNICAL: At 21% of its 52w range, TEL sits in the lower half where risk/reward is best. Price is -0.4% from SMA50 with SMA50 slope barely positive (+0.2%) \u2014 the classic Weinstein Stage 1 basing-to-Stage 2 transition. The stock has not confirmed a downtrend and is consolidating above recent support near $194. ATR-based stop at $196 gives 4.4% downside risk with ~12% upside to fair-value recovery, yielding RR >2.7x. Earnings 37 days out provide adequate runway before binary event risk.",
+      "exit_plan": "Hard stop at $196. Time stop: if stock fails to make progress toward SMA200 within 8 weeks, reassess and exit even without stop being hit. Thesis-break: exit on any earnings miss paired with downward guidance revision. Trail stop up by 1x ATR for every 5% gain above entry. Do not hold through earnings if the stock has not shown meaningful progress \u2014 consider reducing to half size before the Oct 28 print if position is flat or negative."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "e3a86a830d22817e",
-    "prompt_chars": 21992,
-    "generated_at": "2026-09-18T10:13:33.607822+00:00",
-    "code_sha": "397d7fda8f03"
+    "prompt_sha256": "8fdb3f9d9ebebdaa",
+    "prompt_chars": 21932,
+    "generated_at": "2026-09-21T10:13:57.325762+00:00",
+    "code_sha": "0b71c3c49556"
   }
 }
