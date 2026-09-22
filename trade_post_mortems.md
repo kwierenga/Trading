@@ -689,3 +689,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-09-22 — AMP closed (held 20.9d, -3.12%, $-306.72)
+<!-- pm-key: AMP|2026-09-22T13:33:41|546.61 -->
+
+**Mechanical (auto-filled):**
+- Entry: $546.61 on 2026-09-01 → Exit: $529.57 on 2026-09-22 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: (no pre-trade rationale recorded)
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
