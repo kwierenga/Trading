@@ -754,5 +754,13 @@
     "decision": "skipped",
     "gate": "conviction",
     "detail": "conviction 54% below 60% floor"
+  },
+  {
+    "date": "2026-09-22",
+    "timestamp": "2026-09-22T14:34:00.077119+00:00",
+    "symbol": "TEL",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 41.6% of equity (existing $27,693 + new $11,761 = $39,454); cap is 35%"
   }
 ]
