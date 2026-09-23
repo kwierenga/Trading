@@ -1,29 +1,29 @@
 {
-  "analysis": "MARKET & PORTFOLIO REVIEW: SPY remains in confirmed uptrend (+2% vs SMA50, positive slope), which supports holding existing longs and selectively adding high-conviction setups. However, the historical record (10% win rate, profit factor 0.03x, Sortino -12.69) demands extreme discipline \u2014 each new trade must clear a high bar. EXISTING POSITIONS: AMP (-2.71%), BR (-2.35%), MCO (-1.09%) are all within normal noise, thesis intact; no stop-level violations observed. NVDA (+4.14%) is the only winner and looks constructive with strong EPS revisions (+22.6%) and approaching 52w high \u2014 hold. I will not add to NVDA here at 89% range position (+6% vs SMA50); that is extended late-cycle territory. NEW SETUP \u2014 TEL: TE Connectivity is the standout candidate. It sits at only 30% of its 52w range (lower half, Stage 1\u21922 basing territory), has a forward P/E of 16.26 and PEG of 0.88 (genuine value), solid FCF of $2.3B, ROE 23.3%, and 13.8% revenue growth. Price is just +1.7% above SMA50 (not extended) and -1.8% below SMA200 \u2014 an imminent SMA200 breakout would confirm Stage 2. This is the only candidate offering both fundamental quality at fair price AND a non-extended technical entry. All other top-ranked candidates (PSX 92% range, ZBRA 82%, APA 86%, ANET 95%) are too extended. HOOD and PLTR are speculative and high-volatility. Given 4 existing positions already (at the target concentration level), I am recommending only 1 new buy \u2014 TEL \u2014 sized conservatively within the 25% cap and 1-2% portfolio heat rule. Remaining cash post-trade remains substantial, providing optionality.",
+  "analysis": "MARKET & PORTFOLIO OVERVIEW: SPY is in a confirmed uptrend (+2.0% vs SMA50, positive 20d slope), providing a permissive backdrop for long exposure. The portfolio is deployed at 52% equity across 4 positions. However, the track record demands humility: a 9.1% win rate and 0.03x profit factor signal that sizing discipline and selectivity are more important than activity right now.\n\nEXISTING POSITION REVIEW:\n- AMP (-6.35%): Most concerning holding. We have been stopped out of AMP TWICE previously (-3.12%, -3.81%), and the third attempt is now -6.35%. The pattern of repeated entries into a losing name is a behavioral red flag. AMP does not appear in today's screened candidate list, which may indicate trend deterioration. If this position breaks below its stop, do NOT re-enter a fourth time without a materially different setup.\n- BR (-3.30%) and MCO (-0.25%): Both underwater but within tolerable ranges. However, AMP + BR + MCO represents 3 financial-sector positions, all in the red simultaneously. This is over-concentration in a single sector. No fresh capital should go toward adding more financial exposure.\n- NVDA (+4.91%): The only winner; confirmed uptrend, strong fundamentals, appears on today's screened list. Thesis intact \u2014 hold.\n\nNEW TRADE RATIONALE: With 4 positions already open (top of the 3-5 range) and a struggling track record, the bar for a new entry is high. One setup clears it: TEL (TE Connectivity) is basing at only 30% of its 52-week range with SMA50 slope just turning positive \u2014 the textbook Stage 1\u21922 Weinstein transition this strategy was designed to exploit. Valuation is reasonable (fwd PEG 0.90, fwd P/E 16.5) and quality metrics are solid. No other candidates are compelling enough to add a 6th position against our current track record. Cash remains the preferred default for remaining headroom if TEL entry is not confirmed.",
   "confidence_target_pct": 48,
   "trades": [
     {
       "symbol": "TEL",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $210 or better; will also accept entry on any intraday pullback toward $207-208 (near SMA50 support). Do not chase above $213.",
+      "entry_strategy": "Limit order at $210.00 or better. Prefer entry on a minor intraday pullback toward $207-208 (closer to SMA50). Do not chase above $213. Confirm the basing zone above $200 remains intact before executing.",
       "entry_price": 210.01,
-      "stop_loss": 199.5,
-      "stop_loss_pct": 0.05,
-      "atr_multiple": 1.67,
-      "target": 246.0,
-      "target_gain_pct": 0.171,
-      "risk_reward_ratio": 3.43,
-      "conviction": 62,
+      "stop_loss": 200.55,
+      "stop_loss_pct": 0.045,
+      "atr_multiple": 1.5,
+      "target": 236.0,
+      "target_gain_pct": 0.124,
+      "risk_reward_ratio": 2.76,
+      "conviction": 63,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: TE Connectivity is a high-quality industrial technology business with durable competitive advantages in connectors and sensors (mission-critical components). Fwd P/E 16.26 and PEG 0.88 represent genuine fair-to-cheap valuation for a company with 23.3% ROE, 20.8% operating margins, $2.3B FCF, and 13.8% revenue growth. EPS revisions are modestly positive (+1.0%). D/E of 43 is conservative. TECHNICAL: TEL sits at only 30% of its 52-week range \u2014 lower half, classic Stage 1 basing territory. Price is just +1.7% above SMA50 (not extended) while still -1.8% below SMA200. A sustained move above SMA200 (~$214) would confirm Stage 2 breakout. SMA50 slope (+0.3%) is flat-to-rising, consistent with accumulation. ATR is 3% ($6.30); a 1.67x ATR stop at $199.50 is ~5% below entry, within the 4-15% corridor. Size: 113 shares \u00d7 $210 = $23,730 (24.9% of equity, at the concentration cap). Worst-case risk = 113 \u00d7 $10.51 = $1,188 = 1.25% of equity \u2014 within the 1-2% heat budget.",
-      "exit_plan": "PRIMARY STOPS: Hard stop at $199.50 (1.67x ATR). TIME STOP: Reassess if price has not reached $220 within 8 weeks \u2014 may reduce if momentum stalls without SMA200 breakout. THESIS BREAK: Exit immediately if revenue growth guidance cuts materially or company signals demand softness in automotive/industrial end markets. EARNINGS (Oct 28): Reduce to half-size before earnings if position is not profitable by then, to limit binary risk. TARGET APPROACH: Trim 1/3 near $235 (prior consolidation), let remaining run toward $246 52w high."
+      "rationale": "FUNDAMENTAL: TE Connectivity is a high-quality industrial-technology connector business with a 23.3% ROE, 20.8% operating margin, $2.3B FCF, and 13.8% revenue growth. Forward PEG of 0.90 and fwd P/E of 16.5x represent fair value for this quality profile. EPS revisions are modestly positive. The business has durable exposure to automotive electrification, industrial automation, and data infrastructure \u2014 secular growth vectors. TECHNICAL: At 30% of its 52-week range ($194-$246), TEL is in the lower half of its range \u2014 the preferred basing zone for this strategy. Price is only +1.7% above SMA50, and the SMA50 slope has just turned marginally positive (+0.3%) after being flat, signaling a potential Stage 1 to Stage 2 transition. This is exactly the entry profile the strategy targets: quality at fair value when the trend has stopped going down. Stop at 1.5x ATR ($9.46 below entry at $200.55) defines clear risk with a 4.5% stop, well within rules. Position sized to 113 shares ($23,731) \u2014 capped at 25% of equity \u2014 with worst-case risk of ~$1,069 (1.12% of portfolio heat).",
+      "exit_plan": "PRIMARY STOP: $200.55 on a daily close below (1.5x ATR). THESIS BREAK: Exit immediately if TEL closes below $194 (52-week low broken) or if SMA50 rolls over with price below it for two consecutive weeks. EARNINGS RISK: Earnings are Oct 28 (35 days). If the position is profitable heading into earnings, consider trimming 50% before the report to reduce binary risk. TIME STOP: If TEL has not made progress toward $220 within 8 weeks, reassess momentum. PROFIT TRAIL: If price exceeds $225, trail stop to breakeven; if it reaches $230, trail stop to $218 to lock in partial gain."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "18f7793132ff90b7",
-    "prompt_chars": 21970,
-    "generated_at": "2026-09-22T10:13:33.148864+00:00",
-    "code_sha": "1ecf522e67b8"
+    "prompt_sha256": "da786416b829e02e",
+    "prompt_chars": 21885,
+    "generated_at": "2026-09-23T10:14:54.856687+00:00",
+    "code_sha": "3ba1bda1e071"
   }
 }
