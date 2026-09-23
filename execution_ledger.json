@@ -762,5 +762,13 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Technology sector would be 41.6% of equity (existing $27,693 + new $11,761 = $39,454); cap is 35%"
+  },
+  {
+    "date": "2026-09-23",
+    "timestamp": "2026-09-23T14:34:05.793501+00:00",
+    "symbol": "TEL",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 41.4% of equity (existing $27,597 + new $11,761 = $39,357); cap is 35%"
   }
 ]
