@@ -5185,5 +5185,67 @@
       "noops": 0,
       "skipped_no_R": 3
     }
+  },
+  {
+    "timestamp": "2026-09-23T21:23:08.677974+00:00",
+    "date": "2026-09-23",
+    "equity": 94645.94,
+    "cash": 45248.13,
+    "positions": 4,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 9,
+      "avg_holding_days": 19.45177368926183,
+      "short_term_gains": 0.0,
+      "long_term_gains": 0.0,
+      "realized_gain": -4988.360000000001,
+      "estimated_tax_owed": 0.0,
+      "tax_drag": 0.0
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 106215.83,
+      "shadow_return_pct": 0.06215830009593937,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 94645.94,
+      "strategy_return_pct": -0.05354059999999994,
+      "spread_pct": -0.1156989000959393
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "BR",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "MCO",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "NVDA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [
+        "AMP: no matching journal entry"
+      ],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 3
+    }
   }
 ]
