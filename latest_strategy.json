@@ -1,29 +1,29 @@
 {
-  "analysis": "MARKET & PORTFOLIO OVERVIEW: SPY is in a confirmed uptrend (+2.0% vs SMA50, positive 20d slope), providing a permissive backdrop for long exposure. The portfolio is deployed at 52% equity across 4 positions. However, the track record demands humility: a 9.1% win rate and 0.03x profit factor signal that sizing discipline and selectivity are more important than activity right now.\n\nEXISTING POSITION REVIEW:\n- AMP (-6.35%): Most concerning holding. We have been stopped out of AMP TWICE previously (-3.12%, -3.81%), and the third attempt is now -6.35%. The pattern of repeated entries into a losing name is a behavioral red flag. AMP does not appear in today's screened candidate list, which may indicate trend deterioration. If this position breaks below its stop, do NOT re-enter a fourth time without a materially different setup.\n- BR (-3.30%) and MCO (-0.25%): Both underwater but within tolerable ranges. However, AMP + BR + MCO represents 3 financial-sector positions, all in the red simultaneously. This is over-concentration in a single sector. No fresh capital should go toward adding more financial exposure.\n- NVDA (+4.91%): The only winner; confirmed uptrend, strong fundamentals, appears on today's screened list. Thesis intact \u2014 hold.\n\nNEW TRADE RATIONALE: With 4 positions already open (top of the 3-5 range) and a struggling track record, the bar for a new entry is high. One setup clears it: TEL (TE Connectivity) is basing at only 30% of its 52-week range with SMA50 slope just turning positive \u2014 the textbook Stage 1\u21922 Weinstein transition this strategy was designed to exploit. Valuation is reasonable (fwd PEG 0.90, fwd P/E 16.5) and quality metrics are solid. No other candidates are compelling enough to add a 6th position against our current track record. Cash remains the preferred default for remaining headroom if TEL entry is not confirmed.",
+  "analysis": "MARKET: SPY in confirmed uptrend (+1.1% vs SMA50, slope +1.12%), constructive backdrop. However, the portfolio's historical record (9.1% win rate, 0.03x profit factor, Sortino -14.13) demands extreme selectivity \u2014 adding mediocre positions to chase activity would compound losses. EXISTING POSITIONS REVIEW: AMP (-8.1%) is the primary concern \u2014 this name has now triggered stops twice previously (-3.12%, -3.81%) and is down significantly again. AMP does not appear in the current screened candidate list, suggesting it may have failed the trend filter; the pattern of repeated losses on this name is a thesis-break signal. I strongly recommend reviewing the AMP stop level (entry $547.12, two prior stops hit) and being prepared to exit on any further weakness rather than re-entering a third time. BR (-3.05%) is now in MIXED/SIDEWAYS per the current screen and trading below both SMAs \u2014 thesis is weakening though stop not imminent; monitor closely. MCO (+0.28%) and NVDA (+2.02%) are performing and can be held. Capacity: 52% deployed across 4 positions, $40.5k headroom for one more position. NEW TRADES: Given the track record, only one genuinely asymmetric setup warrants action. FOXA offers a low forward valuation (fwd P/E 10.94, PEG 1.15) combined with 28% revenue growth, 25% operating margin, and confirmed uptrend at only 57% of 52w range \u2014 mid-range basing territory. This is one of the few candidates that combines quality fundamentals with a non-extended technical picture and a proper risk/reward. Earnings are 35 days out, giving time for a position to work before binary event. No other candidate clears the bar: extended names (FTNT 100%, A 100%, FAST 90%, KO 88%, DXCM 88%) are late-cycle entries; MIXED/SIDEWAYS candidates (ADBE, ADSK, BX, CBOE) lack trend confirmation. Staying mostly-cash is correct discipline given the track record.",
   "confidence_target_pct": 48,
   "trades": [
     {
-      "symbol": "TEL",
+      "symbol": "FOXA",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $210.00 or better. Prefer entry on a minor intraday pullback toward $207-208 (closer to SMA50). Do not chase above $213. Confirm the basing zone above $200 remains intact before executing.",
-      "entry_price": 210.01,
-      "stop_loss": 200.55,
-      "stop_loss_pct": 0.045,
-      "atr_multiple": 1.5,
-      "target": 236.0,
-      "target_gain_pct": 0.124,
-      "risk_reward_ratio": 2.76,
-      "conviction": 63,
+      "entry_strategy": "Limit order at $63.96 current price or better; accept up to $64.50 on a small intraday pullback. Do not chase above $65. Prefer to see price hold above $63 intraday before executing.",
+      "entry_price": 63.96,
+      "stop_loss": 60.25,
+      "stop_loss_pct": 0.058,
+      "atr_multiple": 2.0,
+      "target": 73.5,
+      "target_gain_pct": 0.149,
+      "risk_reward_ratio": 2.57,
+      "conviction": 62,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: TE Connectivity is a high-quality industrial-technology connector business with a 23.3% ROE, 20.8% operating margin, $2.3B FCF, and 13.8% revenue growth. Forward PEG of 0.90 and fwd P/E of 16.5x represent fair value for this quality profile. EPS revisions are modestly positive. The business has durable exposure to automotive electrification, industrial automation, and data infrastructure \u2014 secular growth vectors. TECHNICAL: At 30% of its 52-week range ($194-$246), TEL is in the lower half of its range \u2014 the preferred basing zone for this strategy. Price is only +1.7% above SMA50, and the SMA50 slope has just turned marginally positive (+0.3%) after being flat, signaling a potential Stage 1 to Stage 2 transition. This is exactly the entry profile the strategy targets: quality at fair value when the trend has stopped going down. Stop at 1.5x ATR ($9.46 below entry at $200.55) defines clear risk with a 4.5% stop, well within rules. Position sized to 113 shares ($23,731) \u2014 capped at 25% of equity \u2014 with worst-case risk of ~$1,069 (1.12% of portfolio heat).",
-      "exit_plan": "PRIMARY STOP: $200.55 on a daily close below (1.5x ATR). THESIS BREAK: Exit immediately if TEL closes below $194 (52-week low broken) or if SMA50 rolls over with price below it for two consecutive weeks. EARNINGS RISK: Earnings are Oct 28 (35 days). If the position is profitable heading into earnings, consider trimming 50% before the report to reduce binary risk. TIME STOP: If TEL has not made progress toward $220 within 8 weeks, reassess momentum. PROFIT TRAIL: If price exceeds $225, trail stop to breakeven; if it reaches $230, trail stop to $218 to lock in partial gain."
+      "rationale": "FUNDAMENTAL: Fox Corporation trades at a compelling forward P/E of 10.94 with PEG of 1.15 despite 28.1% revenue growth and a 25.2% operating margin \u2014 this is a quality media franchise (news, sports rights) being priced cheaply relative to cash generation ($2.0B operating CF). The business benefits from live sports rights that are structurally insulated from streaming disruption. Analyst EPS revisions are positive (+1.9% in 60 days). D/E of 64 is manageable. TECHNICAL: Price is in a confirmed uptrend, sitting at 57% of the 52-week range \u2014 mid-range basing, not an extended late-cycle entry. Price is only +1.4% above both SMA50 and SMA200, meaning we are buying near the base of a fresh trend rather than chasing. SMA50 slope is +9.3% \u2014 trend is accelerating. Stop at 2x ATR provides a clean $60.25 level below recent consolidation. Earnings are 35 days out, providing a window for the position to develop.",
+      "exit_plan": "Exit at $73.50 target (near prior resistance and toward 52w high of $75.41). Hard stop at $60.25 (2x ATR). Pre-earnings review at day 30 \u2014 if position is not showing momentum by then, reduce size by half before the Oct 29 earnings binary. Thesis break: if revenue growth guidance is cut materially or sports rights economics deteriorate. Time stop: reassess at 90 days if target not reached and trend flattens."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "da786416b829e02e",
-    "prompt_chars": 21885,
-    "generated_at": "2026-09-23T10:14:54.856687+00:00",
-    "code_sha": "3ba1bda1e071"
+    "prompt_sha256": "54d9617ed9893d5e",
+    "prompt_chars": 22004,
+    "generated_at": "2026-09-24T10:13:15.770498+00:00",
+    "code_sha": "09760696b422"
   }
 }
