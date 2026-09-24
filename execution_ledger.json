@@ -770,5 +770,17 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Technology sector would be 41.4% of equity (existing $27,597 + new $11,761 = $39,357); cap is 35%"
+  },
+  {
+    "date": "2026-09-24",
+    "timestamp": "2026-09-24T14:33:59.872384+00:00",
+    "symbol": "FOXA",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $60.25, target $73.50; submit status pending_new",
+    "shares": 184,
+    "entry_price": 63.96,
+    "order_id": "c6c65722-e965-4149-9094-6fd50ae309ee",
+    "fill_status": "unknown"
   }
 ]
