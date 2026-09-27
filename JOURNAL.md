@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-09-15 → 2026-09-27
+
+_Sharpe -1.44, Sortino -1.77, MaxDD -9.1%, CAGR -18.2%, excess CAGR vs SPY -39.6% (quantstats, since inception)._
+
+**What worked / what didn't.** The stop discipline held — all three closes were exits via stop, not discretionary panic, which is what the rules are for. But the pattern is hard to ignore: AMP was entered twice, stopped out twice (−3.8% after 42 days, −3.1% after 21 days), and the open position is now sitting at −9.9% unrealized. That is three separate bites at the same name with no closed winner to show for it. TMUS was stopped out in 1.3 days — essentially a failed entry that never developed. TEL was queued as a proposed entry across at least four consecutive morning plans and apparently never filled, which means either the limit was consistently too tight or the setup kept failing re-evaluation at the open; the journal never captured which.
+
+**What's puzzling or worth watching.** The portfolio is 36% cash and every open position is underwater except NVDA. That combination — meaningful cash drag, no open winners outside one name — is worth sitting with, not because it signals anything definitive after one week, but because it raises a process question: are new entries being screened out by a market that's genuinely extended, or are the filters calibrated to conditions that no longer exist? The TEL saga is a specific anomaly: four or more days of it appearing in the plan with no resolution recorded in the journal. The EOD "what we learned" sections are blank every single day this week, which means the learning loop that was designed into the process simply didn't run.
+
+**Reflective prompts for Klaas.** What is the actual rule for re-entering a name that has already stopped you out once — and did that rule get applied before the second AMP entry, or was the re-entry driven by something else? The TEL setup appeared in morning plans from at least September 17 through September 23 without a recorded fill or explicit rejection — what does that tell you about how your limit-entry process interacts with pre-market gaps? Every EOD "what we learned" field is blank this week: if the 15-minute review isn't happening, what would it take to make it the non-negotiable part of the day rather than the optional one?
+
+
+---
+
 ## [EOD] 2026-09-25 Friday
 **What happened.** No trades closed today. End equity $94,271, cash $33,537 (36% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
