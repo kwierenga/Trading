@@ -12,6 +12,12 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [AM] 2026-09-28 Monday
+**Open questions.** Screen produced no high-conviction setups today — is the market broadly extended, or are filters too tight? What would have to change for a setup to emerge tomorrow? With 5 open position(s), are any approaching their stops or targets? 
+**Today's plan.** Hold cash today — no high-conviction setups passed the screen. Patience is a position. Monitor 5 open position(s) for thesis-break, stop hits, or LTCG-approaching flags. 
+
+---
+
 ## [WEEK] 2026-09-15 → 2026-09-27
 
 _Sharpe -1.44, Sortino -1.77, MaxDD -9.1%, CAGR -18.2%, excess CAGR vs SPY -39.6% (quantstats, since inception)._
