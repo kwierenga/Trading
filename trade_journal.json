@@ -207,13 +207,13 @@
     "target_price": null,
     "rationale": "FUNDAMENTAL: Broadridge is a dominant financial infrastructure/proxy-services business with a near-monopoly on shareholder communications processing. ROE 40.9%, operating margin 24.6%, $1.2B FCF, low ",
     "source": "claude",
-    "status": "open",
-    "exit_price": null,
-    "exit_time": null,
-    "pnl": null,
-    "pnl_pct": null,
-    "duration_minutes": null,
-    "reason_exit": null
+    "status": "closed",
+    "exit_price": 159.94,
+    "exit_time": "2026-09-29T17:06:46.922692Z",
+    "pnl": -622.8,
+    "pnl_pct": -0.051308,
+    "duration_minutes": 28939.42250985,
+    "reason_exit": "stop_hit"
   },
   {
     "id": 13,

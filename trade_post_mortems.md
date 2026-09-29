@@ -708,3 +708,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-09-29 — BR closed (held 20.1d, -5.13%, $-622.80)
+<!-- pm-key: BR|2026-09-29T17:06:46|168.59 -->
+
+**Mechanical (auto-filled):**
+- Entry: $168.59 on 2026-09-09 → Exit: $159.94 on 2026-09-29 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: Broadridge is a dominant financial infrastructure/proxy-services business with a near-monopoly on shareholder communications processing. ROE 40.9%, operating margin 24.6%, $1.2B FCF, low
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
