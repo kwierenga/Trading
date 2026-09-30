@@ -250,5 +250,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 15,
+    "symbol": "IT",
+    "shares": 46,
+    "original_shares": 46,
+    "entry_price": 185.85,
+    "entry_time": "2026-09-30T14:33:59.072353+00:00",
+    "stop_loss": 170.5,
+    "initial_stop": 170.5,
+    "R": 15.349999999999994,
+    "current_stop": 170.5,
+    "target_price": 222.0,
+    "rationale": "FUNDAMENTAL: Gartner is an exceptional quality compounder \u2014 ROE 113.6%, operating margin 22.6%, FCF $1.1B, and fortress-like pricing power via subscription research contracts with near-100% renewal ra",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]

@@ -798,5 +798,17 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Technology sector would be 39.3% of equity (existing $27,769 + new $9,200 = $36,969); cap is 35%"
+  },
+  {
+    "date": "2026-09-30",
+    "timestamp": "2026-09-30T14:33:59.072164+00:00",
+    "symbol": "IT",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $170.50, target $222.00; submit status pending_new",
+    "shares": 46,
+    "entry_price": 185.85,
+    "order_id": "440174b1-6264-4e60-bbf0-f14e7cc85906",
+    "fill_status": "unknown"
   }
 ]
