@@ -1,44 +1,29 @@
 {
-  "analysis": "MARKET REGIME: SPY in uptrend with positive 20d slope \u2014 constructive backdrop, but not a license to force trades given the portfolio's deeply negative track record (9.1% win rate, 0.03 profit factor, Sortino -14.86). The primary job here is capital preservation and discipline, not manufacturing activity.\n\nEXISTING POSITION REVIEW:\n- NVDA: Only winner (+5.71%). On screened candidate list, uptrend intact, thesis holds. Hold and trail stop.\n- AMP: -9.31%, stopped out twice in prior cycles, NOT on today's screened candidate list (implies trend deterioration or quality flag). This is a thesis-break signal. The position is small ($9,427) but the pattern of repeated losses on this name is a red flag. Strongly consider exiting on any bounce to limit further erosion. No formal SELL trade proposed here as it falls outside the candidate universe, but this should be reviewed manually for an exit.\n- BR: -3.36%, not on screened list. Not in crisis but deserves monitoring; if it slips further below stop territory, exit cleanly.\n- FOXA: -0.93%, essentially flat. Not on screened list. Hold but watch.\n- MCO: -2.69%, not on screened list. Mild drawdown, thesis unclear from screening data.\n\nNEW TRADE: One high-conviction setup identified. IT (Gartner) ranks #1 on setup score \u2014 basing at 44% of 52-week range in confirmed uptrend, extremely attractive forward valuation (fwd P/E 11.35, PEG 0.75), strong ROE and FCF, positive EPS revisions (+6.9%). This is the clearest Stage 1-to-Stage 2 transition candidate on the list. The one trade fits within remaining headroom ($28,818) and keeps total positions at 6 which is slightly above preferred 3-5 \u2014 justified only because NVDA is a clear hold and one trade is being added with proper sizing. If AMP is exited, this returns to 5 positions.\n\nAll energy names (MPC, PSX, CVX, APA) are 80-87%+ of 52w range \u2014 late-cycle extended entries, avoided per rules. KEYS and ZBRA at 94% range also avoided. ADBE and BX below SMA50 materially \u2014 not confirmed uptrends. RMD was previously stopped at -4.82%; basing but marginally above SMA200, lower conviction. IT is the cleanest setup.",
+  "analysis": "MARKET & PORTFOLIO REVIEW: SPY is in a modest uptrend (+0.4% vs SMA50, slope +1.11%) \u2014 not euphoric, but supportive of selective long exposure. The honest self-assessment here is sobering: 8.3% win rate, Profit Factor 0.03x, Sortino -15.40. These are not statistical noise \u2014 the strategy has been forcing entries too early and/or in names without true asymmetry. The mandate is clear: protect capital, be highly selective, keep most cash idle. POSITION REVIEW: NVDA (+4.45%) is the only winner and thesis remains intact \u2014 AI capex cycle is strong, forward P/E 14.49, PEG 0.48, EPS revisions +22.4%. Hold. MCO (-3.47%) is within normal drawdown; thesis (financial data moat) intact; watch earnings. FOXA (-1.84%) is noise; small loss, hold unless thesis breaks at earnings. AMP (-9.05%) is the most concerning \u2014 this is the THIRD time we have entered AMP and been stopped out or badly underwater. Down 9%, already two prior stops hit. The thesis appears structurally challenged for this name. If current price is approaching the original stop level, exit discipline should prevail; at minimum, do NOT add to AMP. CANDIDATE SCREENING: Two names stand out from the 30-candidate list. IT (Gartner) is the single best setup: UPTREND basing at 44% of its 52-week range, forward P/E of 11.36 (extremely cheap for a high-quality compounder), PEG 0.74, ROE 113.6%, and EPS revisions +6.9% upward \u2014 analysts are upgrading estimates into what appears to be a durable demand inflection. The only concern is slightly negative revenue growth (-0.6%) and earnings in 34 days, but the valuation cushion is substantial. CRM (Salesforce) also has merit \u2014 strong FCF ($17.7B), forward P/E 14.08, PEG 0.76, UPTREND extending with +18% SMA50 slope \u2014 but at 66% of its 52-week range and already extended, it's not in the ideal basing entry window. Given the portfolio's poor track record and the directive to protect capital, I recommend ONE new position (IT) sized conservatively, keeping ~48% of equity in cash as a deliberate choice rather than a failure.",
   "confidence_target_pct": 52,
   "trades": [
     {
       "symbol": "IT",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $185.73 or better; accept fill up to $188 on strength. Prefer entry on a minor intraday pullback to the flat SMA50 zone rather than chasing.",
-      "entry_price": 185.73,
-      "stop_loss": 171.75,
-      "stop_loss_pct": 0.075,
-      "atr_multiple": 1.75,
-      "target": 214.0,
-      "target_gain_pct": 0.152,
-      "risk_reward_ratio": 2.02,
-      "conviction": 62,
+      "entry_strategy": "Limit order at $185.85 or better; will also accept entry on a 1-3% pullback toward $180-183 which would improve risk/reward. Do not chase above $192. Earnings on Nov 3 (34 days) \u2014 size is already conservative enough to hold through earnings unless price breaks stop first.",
+      "entry_price": 185.85,
+      "stop_loss": 170.5,
+      "stop_loss_pct": 0.0826,
+      "atr_multiple": 1.92,
+      "target": 222.0,
+      "target_gain_pct": 0.1944,
+      "risk_reward_ratio": 2.35,
+      "conviction": 68,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Gartner is a capital-light research and advisory business with durable competitive moat (switching costs, subscription model). Forward P/E of 11.35 and PEG of 0.75 represent a significant discount to quality peers. ROE of 113.6% reflects exceptional capital efficiency; FCF of $1.1B on an $11.7B market cap (~9.4% FCF yield) is attractive. EPS revisions of +6.9% over 60 days suggest analyst sentiment is improving. The negative revenue growth (-0.6%) is a watch item but is offset by margin expansion and share buybacks. TECHNICAL: Price at 44% of 52-week range \u2014 in the lower-half basing zone preferred by this strategy. Confirmed uptrend (above SMA50 +4.3%, SMA200 +6.7%) with SMA50 slope +13% showing momentum. Basing pattern suggests accumulation rather than distribution. ATR of 4.3% is healthy, allowing a 1.75x ATR stop at 7.5% below entry \u2014 within the 4-15% stop band. Earnings on Nov 3 (35 days) provide a catalyst window; entry now allows position to develop before the event.",
-      "exit_plan": "Exit on stop at $171.75 (hard rule). Exit if price closes below SMA50 on above-average volume before target. Reduce 50% into earnings (Nov 3) if position is profitable to avoid binary event risk on full size. Full exit if thesis breaks: revenue growth deteriorates materially further negative, or if management reduces forward guidance significantly at earnings. Time stop: reassess after 90 days if price has not moved toward target."
-    },
-    {
-      "symbol": "NVDA",
-      "direction": "BUY",
-      "entry_price": 230.0,
-      "stop_loss": 221.53,
-      "target": 276.0,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 5.430932703659977,
-      "rationale": "PYRAMID tranche 2: original lot held 17d at +5.8%; price $228.86 > SMA20 $222.23; adding $9,430 (41 sh) with combined break-even stop at $221.53.",
-      "entry_strategy": "Limit @ $230.00 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
+      "rationale": "FUNDAMENTAL: Gartner is an exceptional quality compounder \u2014 ROE 113.6%, operating margin 22.6%, FCF $1.1B, and fortress-like pricing power via subscription research contracts with near-100% renewal rates. The critical insight is the valuation: forward P/E of 11.36 with PEG 0.74 is deeply anomalous for a business of this quality. Analysts have raised EPS estimates +6.9% in the last 60 days suggesting an earnings inflection is in progress even as revenue growth is temporarily flat (-0.6% \u2014 likely mix shift, not demand erosion). Historically Gartner trades at 18-22x forward earnings; mean-reversion to 16x forward alone implies 40%+ upside. TECHNICAL: Price is in a confirmed UPTREND (basing) at 44% of its 52-week range \u2014 this is the preferred Stage 1-to-2 transition window. SMA50 slope is +12.6% (healthy acceleration), price is +3.8% above SMA50 (not extended), and it has recovered meaningfully from the $125.73 low without becoming overextended. ATR(14) is 4.3%, so a 1.92x ATR stop at $170.50 places the loss-control level below the recent basing structure.",
+      "exit_plan": "STOP: Hard stop at $170.50. THESIS BREAK: Exit if Gartner reports declining subscription renewal rates or meaningful EPS miss at Nov 3 earnings. TIME STOP: If price is flat or lower 90 days from entry with no fundamental progress, reassess and free capital. TARGET: Trim 50% at $222 (~19% gain), let remainder run toward $240-250 if momentum persists. LTCG consideration: If entry gains hold past 12 months and thesis intact, consider holding for tax efficiency \u2014 but capital protection takes priority over tax optimization."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "f80387b193a28d97",
-    "prompt_chars": 22084,
-    "generated_at": "2026-09-29T10:13:42.586690+00:00",
-    "code_sha": "b9cbde4a5f60"
+    "prompt_sha256": "c3c0cee0b873ae22",
+    "prompt_chars": 22003,
+    "generated_at": "2026-09-30T10:13:41.319308+00:00",
+    "code_sha": "a77697922b19"
   }
 }
