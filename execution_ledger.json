@@ -810,5 +810,13 @@
     "entry_price": 185.85,
     "order_id": "440174b1-6264-4e60-bbf0-f14e7cc85906",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-10-01",
+    "timestamp": "2026-10-01T14:33:50.674725+00:00",
+    "symbol": "NVDA",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 36.5% of equity (existing $25,161 + new $9,181 = $34,342); cap is 35%"
   }
 ]
