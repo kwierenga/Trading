@@ -818,5 +818,13 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Technology sector would be 36.5% of equity (existing $25,161 + new $9,181 = $34,342); cap is 35%"
+  },
+  {
+    "date": "2026-10-02",
+    "timestamp": "2026-10-02T14:33:53.363473+00:00",
+    "symbol": "NVDA",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 36.7% of equity (existing $25,305 + new $9,280 = $34,586); cap is 35%"
   }
 ]
