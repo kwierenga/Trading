@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-09-22 → 2026-10-04
+
+_Sharpe -1.50, Sortino -1.84, MaxDD -9.4%, CAGR -18.3%, excess CAGR vs SPY -38.0% (quantstats, since inception)._
+
+**What worked / what didn't.** The stop discipline functioned as designed: both AMP and BR were cut at roughly -3% and -5% in dollar terms after ~21 days, preventing larger drawdowns. That's the rule working. What didn't work is that AMP was re-entered and is now sitting at -10.3% unrealized — meaning the stop exit on AMP was followed almost immediately by a re-entry into the same name, which is now deeper underwater than when the stop was hit. That sequence deserves scrutiny independent of outcome. BR's loss at -5.1% closed out a position that had been open long enough to form a view; whether the thesis actually broke or the price just moved against is something only Klaas's notes can answer, and those EOD "what we learned" fields were left blank every single day this week.
+
+**What's puzzling or worth watching.** Cash is running at 51% of equity after two closes and two new entries — that's a meaningful shift from the 36% cash position at the start of the week, suggesting the new entries (IT, NVDA) are sized smaller than what was closed, or that one proposed entry didn't fill. NVDA appears in AM plans on both Tuesday and Friday, implying either it didn't fill Tuesday and was re-queued, or a second tranche was being added; the position now shows +7.1% and is the only profitable open trade, but the entry history is ambiguous from the journal. More structurally: every single EOD reflection field was left blank. That's not a one-day lapse — it's a full week of skipped post-market processing, which is the primary compounding mechanism for this kind of strategy.
+
+**Reflective prompts for Klaas.** The stop on AMP triggered, then AMP was re-entered and is now -10.3% — what specifically changed in the setup between the exit and the re-entry that justified going back in, and does that reasoning hold up now? The EOD "what we learned" sections were blank every day this week — is the 15-minute review actually happening and just not being written down, or is the review itself being skipped, and what does that pattern cost you in a week like this one? BR and AMP both hit stops after roughly 21 days at modest losses, which might mean the stops are positioned correctly or might mean these positions were entered without enough price confirmation — how would you distinguish between "the stop system protected me" and "I entered too early and the stop just limited the damage"?
+
+
+---
+
 ## [EOD] 2026-10-02 Friday
 **What happened.** No trades closed today. End equity $93,869, cash $48,206 (51% of equity), 4 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
