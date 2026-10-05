@@ -145,24 +145,6 @@
   },
   {
     "id": 9,
-    "symbol": "AMP",
-    "shares": 18,
-    "entry_price": 546.61,
-    "entry_time": "2026-09-01T15:33:27.776155Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "",
-    "source": "alpaca_reconciled",
-    "status": "closed",
-    "exit_price": 529.57,
-    "exit_time": "2026-09-22T13:33:41.182395Z",
-    "pnl": -306.72,
-    "pnl_pct": -0.031174,
-    "duration_minutes": 30120.22343733333,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 10,
     "symbol": "BR",
     "shares": 72,
     "entry_price": 168.59,
@@ -180,7 +162,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 11,
+    "id": 10,
     "symbol": "NVDA",
     "shares": 70,
     "entry_price": 218.34,
@@ -198,7 +180,7 @@
     "reason_exit": null
   },
   {
-    "id": 12,
+    "id": 11,
     "symbol": "FOXA",
     "shares": 184,
     "entry_price": 63.65,
@@ -216,7 +198,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 12,
     "symbol": "IT",
     "shares": 46,
     "entry_price": 184.54,
@@ -234,22 +216,16 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 13,
     "symbol": "ULTA",
     "shares": 21,
-    "original_shares": 21,
-    "entry_price": 543.0,
-    "entry_time": "2026-10-05T14:34:01.627994+00:00",
-    "stop_loss": 517.0,
-    "initial_stop": 517.0,
-    "R": 26.0,
-    "current_stop": 517.0,
-    "target_price": 630.0,
+    "entry_price": 542.94,
+    "entry_time": "2026-10-05T15:20:37.304225Z",
+    "stop_loss": null,
+    "target_price": null,
     "rationale": "FUNDAMENTAL: Ulta Beauty is a high-quality specialty retailer with a durable competitive moat in beauty \u2014 diversified product mix (mass + prestige), loyalty program with 42M members, and strong unit e",
     "source": "claude",
     "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
     "exit_price": null,
     "exit_time": null,
     "pnl": null,
