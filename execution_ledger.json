@@ -826,5 +826,33 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Technology sector would be 36.7% of equity (existing $25,305 + new $9,280 = $34,586); cap is 35%"
+  },
+  {
+    "date": "2026-10-05",
+    "timestamp": "2026-10-05T14:34:00.029279+00:00",
+    "symbol": "AMP",
+    "decision": "skipped",
+    "gate": "non_buy",
+    "detail": "SELL not auto-executed (manual via Alpaca UI)"
+  },
+  {
+    "date": "2026-10-05",
+    "timestamp": "2026-10-05T14:34:01.627795+00:00",
+    "symbol": "ULTA",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $517.00, target $630.00; submit status pending_new",
+    "shares": 21,
+    "entry_price": 543.0,
+    "order_id": "b4cefa17-2188-4ed1-b393-89a02312f81f",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-10-05",
+    "timestamp": "2026-10-05T14:34:01.886091+00:00",
+    "symbol": "NVDA",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 36.7% of equity (existing $25,155 + new $9,405 = $34,560); cap is 35%"
   }
 ]
