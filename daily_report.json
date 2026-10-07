@@ -5825,5 +5825,74 @@
       "noops": 0,
       "skipped_no_R": 4
     }
+  },
+  {
+    "timestamp": "2026-10-07T21:24:33.707501+00:00",
+    "date": "2026-10-07",
+    "equity": 94235.87,
+    "cash": 36804.75,
+    "positions": 5,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 6,
+      "avg_holding_days": 17.0646124251929,
+      "short_term_gains": 0.0,
+      "long_term_gains": 0.0,
+      "realized_gain": -3681.6499999999996,
+      "estimated_tax_owed": 0.0,
+      "tax_drag": 0.0
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 107403.47,
+      "shadow_return_pct": 0.0740346521350681,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 94235.87,
+      "strategy_return_pct": -0.057641300000000006,
+      "spread_pct": -0.1316759521350681
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "FOXA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "IT",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "NVDA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "ULTA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [
+        "AMP: no matching journal entry"
+      ],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 4
+    }
   }
 ]
