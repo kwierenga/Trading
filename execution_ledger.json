@@ -870,5 +870,21 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Technology sector would be 36.7% of equity (existing $25,175 + new $9,377 = $34,552); cap is 35%"
+  },
+  {
+    "date": "2026-10-08",
+    "timestamp": "2026-10-08T14:33:52.505991+00:00",
+    "symbol": "CRM",
+    "decision": "skipped",
+    "gate": "conviction",
+    "detail": "conviction 58% below 60% floor"
+  },
+  {
+    "date": "2026-10-08",
+    "timestamp": "2026-10-08T14:33:54.642507+00:00",
+    "symbol": "NVDA",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 36.5% of equity (existing $25,244 + new $9,308 = $34,552); cap is 35%"
   }
 ]
