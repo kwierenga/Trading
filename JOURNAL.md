@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-09-29 → 2026-10-11
+
+_Sharpe -1.24, Sortino -1.54, MaxDD -9.4%, CAGR -15.3%, excess CAGR vs SPY -37.1% (quantstats, since inception)._
+
+**What worked / what didn't.** The stop on BR did its job — $623 loss contained after 20 days, which is the system working as designed. Worth noting that BR was held for over three weeks before the stop triggered; that's a slow bleed, not a sharp gap-down, which raises a question about whether the thesis was already soft before the exit. On the open book, the picture is split: NVDA (+5%), ULTA (+5.1%), and IT (+3.6%) are behaving, but AMP is sitting at -8.5% unrealized, which is meaningful in a concentrated five-name portfolio. FOXA is a minor negative. The week produced no new closed positions despite multiple proposed entries across six of seven sessions — NVDA appeared as a candidate on at least five consecutive mornings without filling or surviving the 09:35 re-evaluation.
+
+**What's puzzling or worth watching.** The NVDA setup being regenerated day after day — Oct 1, 2, 5, 6, 7, 8, 9 — without ever executing is the most notable pattern this week. That's either a limit price that keeps getting away, a setup that keeps failing the open-price filter, or a signal that's noisier than it looks in the screener. Separately, cash has sat near 39–51% of equity all week with no deployment, which is a valid posture but also means the system is generating candidate ideas it isn't converting. The "What we learned" sections in every EOD journal are blank — that's a week of missed micro-observations that compound into nothing.
+
+**Reflective prompts for Klaas.** AMP is down 8.5% and is your largest unrealized loser — at what point does that position cross from "within normal drawdown" to "thesis needs re-examination," and have you written down what that threshold is in advance rather than deciding in the moment? NVDA surfaced as a candidate on roughly five consecutive mornings and never entered the portfolio — do you know specifically *why* it failed the 09:35 re-evaluation each day, and does that reason reflect a rule working correctly or a rule that's too tight for how this name moves? The EOD "What we learned" fields are blank every day this week — is the 15-minute review actually happening, and if not, what does that tell you about whether the journaling habit is load-bearing or ceremonial?
+
+
+---
+
 ## [EOD] 2026-10-09 Friday
 **What happened.** No trades closed today. End equity $94,619, cash $36,805 (39% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
