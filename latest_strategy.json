@@ -1,34 +1,34 @@
 {
-  "analysis": "MARKET REGIME: SPY in confirmed uptrend (+1.6% vs SMA50, slope +1.26%). Conditions are generally constructive for quality longs. However, our own track record demands humility \u2014 0W/9L with a -14.85 Sortino Ratio is a clear signal to be highly selective and protect what capital remains.\n\nEXISTING POSITIONS REVIEW:\n\u2022 NVDA (+5.2%), ULTA (+4.9%), IT (+3.6%): All working. Thesis intact. Hold.\n\u2022 FOXA (-1.95%): Minor loss, near entry, manageable. Hold with tight awareness.\n\u2022 AMP (-8.52%): THESIS BREAK FLAG. AMP was previously stopped out at -3.81% (1,011h held). We re-entered and are now -8.52% \u2014 a second consecutive loss in the same name. This pattern of re-entering a stopped position into continued weakness is exactly what must be avoided. AMP is NOT in the current screened candidate list, which itself is a signal the trend is not confirming. Recommend exiting AMP manually to stop the bleeding and reset.\n\nNEW TRADE CAPACITY: With 5/5 positions at the max, no new buy is appropriate unless AMP is first closed. Upon closing AMP (~$9.5K freed + thesis reset), we'd have 4 positions and meaningful headroom for one high-conviction replacement. CRM (Salesforce) is the strongest replacement candidate: UPTREND with momentum, only +1.9% above SMA50 (not extended), 69% of 52w range (not late-cycle), exceptional FCF ($17.7B), fwd P/E 14.30, PEG 0.82, +3.3% EPS revisions, and no earnings until December 2 (51 days of clean runway). Quality business at a fair price in a confirmed trend \u2014 exactly the mandate. The BUY below is predicated on AMP being exited first; do not add this position while holding AMP simultaneously.",
-  "confidence_target_pct": 52,
+  "analysis": "Portfolio review (mandatory per cycle): The 0% win rate across 9 losses (avg -4.96%) and Sortino of -15.09 is the loudest signal in this book \u2014 risk-adjusted performance is deeply negative and capital preservation must dominate every decision. Three positions are working (IT +5.2%, ULTA +4.5%, NVDA +2.9%) \u2014 theses intact, hold. FOXA at -1.7% is noise. AMP at -8.6% is a clear thesis-break: this is the SECOND entry in the same name after a prior stop-hit at -3.8%. AMP is absent from today's screened candidates entirely, confirming deteriorating technicals. The pattern of re-entering a falling stock and taking a second loss is exactly the discipline failure this strategy must avoid. RECOMMEND CUTTING AMP near current $500 in the analysis \u2014 doing so frees ~$9,500, reduces the re-entry trap, and drops concentration to 4 positions with intact theses. Market regime is SPY UPTREND (+1.5% vs SMA50), which is constructive for holding winners. The one genuinely asymmetric setup found is ADBE: Adobe trades at a historically cheap fwd P/E of 8.62 and ~10% FCF yield ($9.3B FCF on $92.7B market cap), at just 27% of its 52-week range. The AI-disruption fear that drove the selloff appears increasingly discounted while Adobe's own AI monetization (Firefly, GenStudio) is materializing in revenue. SMA50 slope just turned positive (+1.6%/month) suggesting Stage 1 base may be transitioning. Earnings not until Dec 9 (57 days) provides ample runway. Primary risk: price remains below both SMAs \u2014 this is a basing entry not a confirmed Stage 2 breakout. Sized conservatively to keep risk at ~1.5% of equity. This trade is conditional on cutting AMP first to stay within 3-5 position discipline. No other candidates meet the simultaneous quality + value + trend + earnings-runway + range-position bar at acceptable sizing.",
+  "confidence_target_pct": 53,
   "trades": [
     {
-      "symbol": "CRM",
+      "symbol": "ADBE",
       "direction": "BUY",
-      "entry_strategy": "Enter at market or on a minor intraday pullback toward $227-$229. Best execution after AMP is closed to avoid exceeding 5-position cap. Avoid chasing above $232.",
-      "entry_price": 229.13,
-      "stop_loss": 215.0,
-      "stop_loss_pct": 0.062,
-      "atr_multiple": 1.8,
-      "target": 260.0,
-      "target_gain_pct": 0.135,
-      "risk_reward_ratio": 2.18,
-      "conviction": 63,
+      "entry_strategy": "Limit order at $236.00 or better. If market opens above $240, wait for an intraday pullback to the $234-238 zone before entering. Do not chase above $242. Requires AMP to be closed first to maintain 3-5 position discipline.",
+      "entry_price": 236.0,
+      "stop_loss": 220.76,
+      "stop_loss_pct": 0.0645,
+      "atr_multiple": 2.0,
+      "target": 290.0,
+      "target_gain_pct": 0.228,
+      "risk_reward_ratio": 3.53,
+      "conviction": 60,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Salesforce is a dominant cloud CRM platform with exceptional FCF ($17.7B) relative to market cap ($188.6B), implying a ~9% FCF yield. Fwd P/E of 14.3x and PEG of 0.82 represent genuine value for a 21% operating margin, 19% ROE, 10.8% revenue growth business. EPS revisions trending up +3.3% over 60 days. No earnings until December 2 \u2014 51 days of clean air for the trade to develop without binary event risk. TECHNICAL: Price is in confirmed uptrend extending phase, but crucially only +1.9% above SMA50 (not stretched), with the SMA50 slope at a strong +13.4%. Range position at 69% of 52w range keeps us well clear of the >80% extended-entry rule. The setup is not a basing Stage 1\u21922 entry (slightly extended), but the quality of the fundamentals and trend momentum justifies a position-sized entry with a defined 1.8x ATR stop.",
-      "exit_plan": "Primary: Stop at $215.00 (1.8x ATR below entry). Target: $260 (near prior resistance and ~13.5% gain). Thesis-break conditions: SMA50 crossover to downside, EPS revisions turning materially negative, or competitive disruption to core CRM platform. Time stop: reassess at 90 days if <5% gain \u2014 do not hold a dead trade. Earnings Dec 2: reduce or exit into earnings if position is not already profitable, given historical tendency to sell the news."
+      "rationale": "Fundamental (the why): Adobe is a category-defining software franchise with 61.9% ROE, 34.8% operating margin, and $9.3B in annual FCF \u2014 yet trades at fwd P/E 8.62 and PEG 0.59, pricing in near-permanent disruption that is not materializing. Revenue growth of 12.9% and positive EPS revisions (+0.6%) suggest the business is stable. At 27% of 52-week range, most bad news appears discounted. FCF yield of ~10% provides a hard valuation floor. Technical (the when): SMA50 slope turned positive (+1.6%/20d) after months of decline \u2014 the trend is shifting from Stage 4 decay toward Stage 1 base. Price at $238 is at 27% of 52-week range (low-risk entry by range-position standard). ATR-based stop at 2x ATR ($15.24) gives a clean $220.76 stop with 3.5x reward-to-risk. Earnings not until Dec 9 (57 days) removes binary event risk during the base-building phase. Risk acknowledged: still below both SMA50 (~$257) and SMA200 (~$256) \u2014 this is a basing entry, not confirmed breakout. Position sized at ~22% of equity so worst-case stop hit costs ~1.5% of total portfolio.",
+      "exit_plan": "Exit thesis-break conditions: (1) price closes below $218 on volume (base failure); (2) revenue growth decelerates below 8% at next earnings (Dec 9); (3) management signals pricing pressure in AI segment. Time stop: reassess if no progress toward SMA50 reclaim within 8 weeks. Partial profit-taking at $265 (SMA50 reclaim zone) \u2014 trim 30% to lock gains and let remaining position ride toward $290 target. Hold past 1-year mark if thesis intact for LTCG treatment. Do not add to position unless price confirms above SMA50 with volume."
     },
     {
-      "symbol": "NVDA",
+      "symbol": "IT",
       "direction": "BUY",
-      "entry_price": 230.43,
-      "stop_loss": 221.69,
-      "target": 276.52,
+      "entry_price": 195.07,
+      "stop_loss": 188.97,
+      "target": 234.08,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 5.273455377574362,
-      "rationale": "PYRAMID tranche 2: original lot held 30d at +5.1%; price $229.28 > SMA20 $226.73; adding $9,448 (41 sh) with combined break-even stop at $221.69.",
-      "entry_strategy": "Limit @ $230.43 (current +0.5%)",
+      "risk_reward_ratio": 6.395081967213124,
+      "rationale": "PYRAMID tranche 2: original lot held 12d at +5.2%; price $194.10 > SMA20 $187.17; adding $9,363 (48 sh) with combined break-even stop at $188.97.",
+      "entry_strategy": "Limit @ $195.07 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -36,9 +36,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "30fb9907527df005",
-    "prompt_chars": 22032,
-    "generated_at": "2026-10-12T10:19:27.736649+00:00",
-    "code_sha": "13d49adbf337"
+    "prompt_sha256": "c9501d3dda4bec39",
+    "prompt_chars": 22075,
+    "generated_at": "2026-10-13T10:19:06.983242+00:00",
+    "code_sha": "f8950394a80c"
   }
 }
