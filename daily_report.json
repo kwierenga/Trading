@@ -6170,5 +6170,74 @@
       "noops": 0,
       "skipped_no_R": 4
     }
+  },
+  {
+    "timestamp": "2026-10-14T21:21:21.652826+00:00",
+    "date": "2026-10-14",
+    "equity": 94839.96,
+    "cash": 27571.15,
+    "positions": 5,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 2,
+      "avg_holding_days": 10.673802017216435,
+      "short_term_gains": 0.0,
+      "long_term_gains": 0.0,
+      "realized_gain": -1176.06,
+      "estimated_tax_owed": 0.0,
+      "tax_drag": 0.0
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 107023.02,
+      "shadow_return_pct": 0.07023020626516896,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 94839.96,
+      "strategy_return_pct": -0.05160039999999999,
+      "spread_pct": -0.12183060626516895
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "FOXA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "IT",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "NVDA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "ULTA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [
+        "AMP: no matching journal entry"
+      ],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 4
+    }
   }
 ]

@@ -3855,5 +3855,51 @@
         "unrealized_pl": 778.05
       }
     ]
+  },
+  {
+    "timestamp": "2026-10-14T21:21:21.653041+00:00",
+    "account": {
+      "equity": 94839.96,
+      "buying_power": 279553.03,
+      "cash": 27571.15,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "AMP",
+        "qty": 19.0,
+        "avg_entry_price": 547.121053,
+        "current_price": 495.82,
+        "unrealized_pl": -974.720007
+      },
+      {
+        "symbol": "FOXA",
+        "qty": 184.0,
+        "avg_entry_price": 63.65,
+        "current_price": 62.21,
+        "unrealized_pl": -264.96
+      },
+      {
+        "symbol": "IT",
+        "qty": 46.0,
+        "avg_entry_price": 184.54,
+        "current_price": 195.77,
+        "unrealized_pl": 516.58
+      },
+      {
+        "symbol": "NVDA",
+        "qty": 70.0,
+        "avg_entry_price": 218.34,
+        "current_price": 221.1,
+        "unrealized_pl": 193.2
+      },
+      {
+        "symbol": "ULTA",
+        "qty": 37.0,
+        "avg_entry_price": 557.711892,
+        "current_price": 592.41,
+        "unrealized_pl": 1283.829996
+      }
+    ]
   }
 ]
