@@ -926,5 +926,33 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Technology sector would be 36.2% of equity (existing $24,861 + new $9,363 = $34,224); cap is 35%"
+  },
+  {
+    "date": "2026-10-14",
+    "timestamp": "2026-10-14T14:33:57.996973+00:00",
+    "symbol": "ADBE",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 38.0% of equity (existing $24,737 + new $11,092 = $35,829); cap is 35%"
+  },
+  {
+    "date": "2026-10-14",
+    "timestamp": "2026-10-14T14:33:59.707688+00:00",
+    "symbol": "IT",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 36.1% of equity (existing $24,737 + new $9,303 = $34,040); cap is 35%"
+  },
+  {
+    "date": "2026-10-14",
+    "timestamp": "2026-10-14T14:34:01.143768+00:00",
+    "symbol": "ULTA",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $556.98, target $698.27; submit status pending_new",
+    "shares": 16,
+    "entry_price": 581.89,
+    "order_id": "9dc652e0-a592-44d2-8e16-504fb6957e87",
+    "fill_status": "unknown"
   }
 ]
