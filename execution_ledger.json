@@ -954,5 +954,21 @@
     "entry_price": 581.89,
     "order_id": "9dc652e0-a592-44d2-8e16-504fb6957e87",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-10-15",
+    "timestamp": "2026-10-15T14:33:57.446435+00:00",
+    "symbol": "ADBE",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 38.1% of equity (existing $24,654 + new $11,760 = $36,414); cap is 35%"
+  },
+  {
+    "date": "2026-10-15",
+    "timestamp": "2026-10-15T14:33:57.614299+00:00",
+    "symbol": "ULTA",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "ULTA would be 33.3% of equity (existing $22,322 + new $9,526 = $31,848); cap is 30%"
   }
 ]
