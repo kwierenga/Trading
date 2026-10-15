@@ -1,34 +1,34 @@
 {
-  "analysis": "PORTFOLIO REVIEW: Three winners working (IT +6.7%, ULTA +6.7%, NVDA +4.8%) but AMP is deeply concerning at -9.83% \u2014 this is the SECOND AMP position, the first was stopped at -3.81%. AMP is NOT appearing in today's screened candidates, which signals it has failed either the quality or (more likely) the trend filter, meaning it is in a confirmed downtrend. At -9.83% on an $9,373 position, the thesis appears broken. I strongly recommend manually exiting AMP; the rules prevent me from generating a formal SELL ticket for a name not on the screened list, but the plain-language advice is: close AMP. FOXA also does not appear in the screened list but is only -1.8% \u2014 watch closely. IT and ULTA are positive and likely simply outside the top-30 by setup score; hold both. NVDA remains in confirmed uptrend and is in the list \u2014 hold.\n\nMARKET REGIME: SPY uptrend, +1.4% vs SMA50, slope +1.35%. Constructive backdrop, but our 0% win rate (0W/9L) demands extreme selectivity. Cash is not a failure.\n\nNEW TRADE RATIONALE: ADBE is the single genuinely asymmetric setup. Fundamentally it is among the highest-quality franchises on the screen: ROE 61.9%, op margin 34.8%, FCF $9.3B, fwd P/E 8.59, PEG 0.58 \u2014 deeply discounted for a wide-moat software platform. The AI disruption fear has been priced in aggressively (stock down from $360 to $193 52w low). Technically it is basing at 26% of its 52-week range with the SMA50 slope just turning positive (+1.2%), which matches the preferred Stage 1\u2192Stage 2 basing criterion. Earnings are 56 days out (Dec 9), removing near-term binary event risk. Most other top-ranked candidates (EOG, MPC, MRVL, ADI, KEYS, AME) are at 80-100% of their 52-week range and explicitly excluded by the AVOID rule. TEL, GNRC, GEHC, HUBB all report earnings within 14 days \u2014 too risky to initiate. One focused position in ADBE, sized to risk 1.5% of equity, is the correct answer here. Return rest to cash.",
-  "confidence_target_pct": 52,
+  "analysis": "MARKET & PORTFOLIO REVIEW (2026-10-15): SPY remains in uptrend (+1.33% 20d slope), providing a constructive backdrop, but the portfolio's track record demands humility \u2014 0W/8L with a Sortino of -14.59 means the strategy has generated pure alpha destruction so far. Every new trade must clear a high bar.\n\nPOSITION-BY-POSITION REVIEW:\n\u2022 AMP (-9.38%, $9,421): Most urgent concern. AMP does NOT appear on the screened candidate list, suggesting its trend/quality posture has deteriorated. At -9.38% from avg cost of $547.12, price is at $495.82 \u2014 still above a ~15% stop (~$465) but well into pain territory. Unless the original stop has not been hit, the thesis-break signal (absence from screened universe) warrants a manual review and likely exit at next opportunity. This should NOT be held to zero \u2014 if it is not stopped out formally, consider a discretionary exit to recycle capital.\n\u2022 FOXA (-2.26%): Minor, within normal noise. Not on screened list but drawdown is immaterial. Monitor.\n\u2022 IT (+6.08%): Working. Not on screened list but position is profitable and thesis holds \u2014 let it run with a trailing mental stop.\n\u2022 NVDA (-0.70%): Essentially flat. Now appearing on screened list as MIXED/SIDEWAYS basing with exceptional fundamentals (ROE 117%, fwd P/E 13.9, rev growth 106%). Existing position thesis intact. No action needed.\n\u2022 ULTA (+5.61%): Working well. Not on screened list but profitable \u2014 continue to hold with a raised mental stop to protect gains.\n\nNEW TRADE RATIONALE: We are at 5 positions (max per strategy), with $22,850 of remaining headroom. Given AMP's deterioration, assuming a near-term exit frees ~$9,400 + remaining cash, capacity exists for one quality add. ADBE stands out as the single highest-conviction setup: fwd P/E of 8.75 and PEG of 0.57 for a business with 62% ROE, $9.3B FCF, and 34.8% operating margins \u2014 deeply discounted by the market for AI disruption fears that are increasingly priced in. At 28% of 52-week range and 55 days to next earnings, the risk/reward is asymmetric. Entry is contingent on AMP exit or available cash headroom. One trade only \u2014 the 0% win rate demands restraint, not desperation.",
+  "confidence_target_pct": 42,
   "trades": [
     {
       "symbol": "ADBE",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $236 or better; accept fills up to $238. Prefer entry on a flat-to-up day with volume confirmation. Do not chase if it gaps above $242.",
-      "entry_price": 236.0,
-      "stop_loss": 221.0,
-      "stop_loss_pct": 0.064,
-      "atr_multiple": 1.98,
-      "target": 275.0,
-      "target_gain_pct": 0.165,
-      "risk_reward_ratio": 2.58,
+      "entry_strategy": "Limit order at $240 or better. Enter in one tranche only. Do NOT chase if price moves above $248 before fill. Ideal entry on any 1-2% intraday pullback toward $238-240 support zone.",
+      "entry_price": 240.0,
+      "stop_loss": 225.5,
+      "stop_loss_pct": 0.0604,
+      "atr_multiple": 1.94,
+      "target": 295.0,
+      "target_gain_pct": 0.2292,
+      "risk_reward_ratio": 3.79,
       "conviction": 62,
-      "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Adobe is a best-in-class software franchise with 34.8% operating margins, 61.9% ROE, $9.3B FCF and a forward P/E of 8.59 with PEG 0.58 \u2014 historically cheap for this business quality. The market has over-discounted AI disruption risk; Adobe Firefly and AI integrations are already monetizing. TECHNICAL: At 26% of its 52-week range, ADBE is in the preferred lower-half basing zone. The SMA50 slope has just turned positive (+1.2%) after a prolonged decline from $360, suggesting exhaustion of the downtrend. Price is below both SMAs but basing \u2014 classic Stage 1 accumulation. No earnings until Dec 9 (56 days), removing binary event risk.",
-      "exit_plan": "Exit if: (1) stop at $221 is hit; (2) price closes two consecutive days below $215 (prior range low support); (3) earnings Dec 9 produce a fundamental downgrade (lower guidance, acceleration of AI competitive loss); (4) thesis intact at 12 months \u2192 consider holding for LTCG conversion. Trim 50% at $260 if it moves fast to lock partial gains before earnings."
+      "holding_period": "LTCG",
+      "rationale": "FUNDAMENTAL: Adobe is an extraordinary software franchise \u2014 62% ROE, $9.3B FCF, 34.8% operating margins, 13% revenue growth \u2014 trading at a forward P/E of 8.75 and PEG of 0.57. The market has severely de-rated ADBE on generative AI fears (Firefly cannibalization, new entrants), but Adobe's distribution moat, enterprise lock-in, and integration of AI into its own suite argue the discount is excessive. This is precisely the 'wonderful business at a fair price' definition the strategy seeks. TECHNICAL: Price is at 28% of its 52-week range ($193-$360), SMA50 slope has turned slightly positive (+0.8%) after a prolonged base, and the basing pattern is tightening. While ADBE is still -5.7% below SMA200 (not yet a confirmed Stage 2 breakout), the Weinstein framework allows entering a quality base before full confirmation when fundamentals are this compelling. Earnings are 55 days away (Dec 9), providing a clean runway. SIZE: 97 shares \u00d7 $240 = $23,280 (24.6% of equity, within 25% cap). Risk at stop: $1,407 (1.49% of equity, within 1-2% rule). Contingent on AMP exit freeing capital \u2014 do not add if still holding AMP.",
+      "exit_plan": "Exit if: (1) stop at $225.50 is hit (2x ATR, -6.0%); (2) ADBE closes two consecutive weeks below $220 (SMA200 technical breakdown); (3) earnings guidance cut materially at Dec 9 report (revenue deceleration below 10% or margin compression); (4) AI-native competitors demonstrate quantifiable enterprise share loss beyond current expectations. If thesis holds, target hold past 1 year for LTCG treatment. Raise mental stop to breakeven if ADBE reclaims SMA200 and position is up >10%."
     },
     {
       "symbol": "IT",
       "direction": "BUY",
-      "entry_price": 197.94,
-      "stop_loss": 190.36,
-      "target": 237.53,
+      "entry_price": 196.75,
+      "stop_loss": 189.76,
+      "target": 236.1,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 5.222955145118745,
-      "rationale": "PYRAMID tranche 2: original lot held 13d at +6.7%; price $196.96 > SMA20 $187.24; adding $9,303 (47 sh) with combined break-even stop at $190.36.",
-      "entry_strategy": "Limit @ $197.94 (current +0.5%)",
+      "risk_reward_ratio": 5.629470672389119,
+      "rationale": "PYRAMID tranche 2: original lot held 14d at +6.1%; price $195.77 > SMA20 $187.45; adding $9,247 (47 sh) with combined break-even stop at $189.76.",
+      "entry_strategy": "Limit @ $196.75 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -36,14 +36,14 @@
     {
       "symbol": "ULTA",
       "direction": "BUY",
-      "entry_price": 581.89,
-      "stop_loss": 556.98,
-      "target": 698.27,
+      "entry_price": 595.38,
+      "stop_loss": 565.73,
+      "target": 714.46,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 4.672019269369737,
-      "rationale": "PYRAMID tranche 2: original lot held 8d at +6.7%; price $579.00 > SMA20 $550.29; adding $9,310 (16 sh) with combined break-even stop at $556.98.",
-      "entry_strategy": "Limit @ $581.89 (current +0.5%)",
+      "risk_reward_ratio": 4.016188870151775,
+      "rationale": "PYRAMID tranche 2: original lot held 9d at +5.6%; price $592.42 > SMA20 $553.39; adding $8,931 (15 sh) with combined break-even stop at $565.73.",
+      "entry_strategy": "Limit @ $595.38 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -51,9 +51,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "efc86e56df101290",
-    "prompt_chars": 22118,
-    "generated_at": "2026-10-14T10:14:51.245918+00:00",
-    "code_sha": "c8ff4fee5447"
+    "prompt_sha256": "d45074fca34949b5",
+    "prompt_chars": 22003,
+    "generated_at": "2026-10-15T10:13:19.610956+00:00",
+    "code_sha": "8bd79999e867"
   }
 }
