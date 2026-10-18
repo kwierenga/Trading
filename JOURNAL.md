@@ -12,6 +12,25 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-10-06 → 2026-10-18
+
+_Sharpe -1.01, Sortino -1.27, MaxDD -9.4%, CAGR -12.7%, excess CAGR vs SPY -28.6% (quantstats, since inception)._
+
+**What worked / what didn't**
+
+The two clear bright spots are IT (+11.3%) and ULTA (+6.3%), both of which appear to have filled on limit entries mid-week after multiple days of proposed-but-not-filled status — IT was proposed from at least Oct 9, ULTA from at least Oct 14. That patience on entries seems to have paid off. AMP at -8.5% is the week's real problem: it's the largest unrealized loss in percentage terms, sitting in a portfolio that's already 4.7% below the implied starting equity, and there's no journal note indicating whether this decline triggered any thesis-review. NVDA filled somewhere this week (proposed Oct 8/9, now in the book at -1.9%) but never appeared in EOD commentary. The "What we learned" fields are blank on every single day, which means there's a week of market signal that went unrecorded.
+
+**What's puzzling or worth watching**
+
+The cash position tells a quiet story: it dropped from 39% to 29% of equity between Oct 13 and Oct 14, meaning ULTA and/or IT filled in that window, yet the EOD entries for Oct 14 and Oct 15 were left blank. That's a gap — something consequential happened and wasn't reflected on. More structurally: the system proposed entries on seven of the nine trading sessions (CRM, NVDA, ADBE, IT, ULTA in various combinations), but ADBE never made it into the book despite appearing three days running (Oct 13–15). That's either the limit discipline working correctly or the system repeatedly surfacing a setup that the market is rejecting — and it's worth knowing which. AMP has now been sitting at a meaningful loss with no journal mention; if the thesis is intact, that should be easy to state. If it's not easy to state, that's the signal.
+
+**Reflective prompts for Klaas**
+
+The "What we learned" section was left blank every day this week — is that because the days felt uneventful, because the habit hasn't stuck, or because you're uncertain what counts as worth writing down, and what does that blank line cost you when you look back a month from now? AMP is down 8.5% with no recorded thesis-check: what would have to be true about AMP's fundamentals or price action for you to decide the original thesis is broken rather than temporarily under pressure, and have you checked those conditions this week? ADBE was proposed three consecutive days and never filled: when a setup recurs that persistently without executing, do you treat that as the discipline working, as a signal to reassess the limit price, or as a reason to ask whether the setup has already passed?
+
+
+---
+
 ## [EOD] 2026-10-16 Friday
 **What happened.** No trades closed today. End equity $95,303, cash $27,571 (29% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
