@@ -986,5 +986,21 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "ULTA would be 32.6% of equity (existing $22,209 + new $9,184 = $31,393); cap is 30%"
+  },
+  {
+    "date": "2026-10-19",
+    "timestamp": "2026-10-19T14:33:55.979083+00:00",
+    "symbol": "IT",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 35.6% of equity (existing $24,486 + new $9,287 = $33,773); cap is 35%"
+  },
+  {
+    "date": "2026-10-19",
+    "timestamp": "2026-10-19T14:33:56.106216+00:00",
+    "symbol": "ULTA",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "ULTA would be 32.5% of equity (existing $21,895 + new $8,938 = $30,834); cap is 30%"
   }
 ]
