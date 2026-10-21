@@ -1018,5 +1018,41 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "ULTA would be 33.0% of equity (existing $22,285 + new $9,513 = $31,798); cap is 30%"
+  },
+  {
+    "date": "2026-10-21",
+    "timestamp": "2026-10-21T14:33:51.379134+00:00",
+    "symbol": "ADBE",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 38.8% of equity (existing $25,465 + new $12,066 = $37,531); cap is 35%"
+  },
+  {
+    "date": "2026-10-21",
+    "timestamp": "2026-10-21T14:33:53.500775+00:00",
+    "symbol": "FOXA",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $64.93, target $80.80; submit status pending_new",
+    "shares": 143,
+    "entry_price": 67.33,
+    "order_id": "aca402b8-bc07-4c6c-b991-41fe18ab5b7b",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-10-21",
+    "timestamp": "2026-10-21T14:33:55.640627+00:00",
+    "symbol": "IT",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 36.1% of equity (existing $25,465 + new $9,492 = $34,957); cap is 35%"
+  },
+  {
+    "date": "2026-10-21",
+    "timestamp": "2026-10-21T14:33:55.844108+00:00",
+    "symbol": "ULTA",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "ULTA would be 32.5% of equity (existing $22,360 + new $9,089 = $31,448); cap is 30%"
   }
 ]

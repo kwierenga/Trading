@@ -232,5 +232,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 14,
+    "symbol": "FOXA",
+    "shares": 143,
+    "original_shares": 143,
+    "entry_price": 67.33,
+    "entry_time": "2026-10-21T14:33:53.500940+00:00",
+    "stop_loss": 64.93,
+    "initial_stop": 64.93,
+    "R": 2.3999999999999915,
+    "current_stop": 64.93,
+    "target_price": 80.8,
+    "rationale": "PYRAMID tranche 2: original lot held 26d at +5.3%; price $67.00 > SMA20 $63.22; adding $9,628 (143 sh) with combined break-even stop at $64.93.",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
