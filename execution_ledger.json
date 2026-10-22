@@ -1054,5 +1054,33 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "ULTA would be 32.5% of equity (existing $22,360 + new $9,089 = $31,448); cap is 30%"
+  },
+  {
+    "date": "2026-10-22",
+    "timestamp": "2026-10-22T14:33:56.546195+00:00",
+    "symbol": "ADSK",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $233.00, target $295.00; submit status pending_new",
+    "shares": 49,
+    "entry_price": 244.84,
+    "order_id": "fea62f13-05a5-4149-8e87-c6ab60bb07bb",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-10-22",
+    "timestamp": "2026-10-22T14:33:58.487169+00:00",
+    "symbol": "IT",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 37.7% of equity (existing $27,027 + new $9,709 = $36,736); cap is 35%"
+  },
+  {
+    "date": "2026-10-22",
+    "timestamp": "2026-10-22T14:33:58.662757+00:00",
+    "symbol": "ULTA",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "ULTA would be 32.8% of equity (existing $22,805 + new $9,150 = $31,955); cap is 30%"
   }
 ]
