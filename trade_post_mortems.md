@@ -746,3 +746,41 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-10-22 — IT closed (held 22.0d, +20.31%, $+1,723.80)
+<!-- pm-key: IT|2026-10-22T13:35:15|184.54 -->
+
+**Mechanical (auto-filled):**
+- Entry: $184.54 on 2026-09-30 → Exit: $222.01 on 2026-10-22 via target_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: Gartner is an exceptional quality compounder — ROE 113.6%, operating margin 22.6%, FCF $1.1B, and fortress-like pricing power via subscription research contracts with near-100% renewal ra
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
+
+## 2026-10-22 — ULTA closed (held 17.0d, +16.03%, $+1,828.26)
+<!-- pm-key: ULTA|2026-10-22T15:26:49|542.94 -->
+
+**Mechanical (auto-filled):**
+- Entry: $542.94 on 2026-10-05 → Exit: $630.00 on 2026-10-22 via target_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: Ulta Beauty is a high-quality specialty retailer with a durable competitive moat in beauty — diversified product mix (mass + prestige), loyalty program with 42M members, and strong unit e
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
