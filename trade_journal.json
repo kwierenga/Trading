@@ -1,60 +1,6 @@
 [
   {
     "id": 1,
-    "symbol": "SYK",
-    "shares": 38,
-    "entry_price": 328.94,
-    "entry_time": "2026-08-24T15:36:47.285053Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "FUNDAMENTAL: Stryker is a best-in-class medical device compounder \u2014 Mako robotic surgery platform growing double-digits, diversified across ortho, neuro, and MedSurg, 27% operating margins, $4.1B FCF,",
-    "source": "claude",
-    "status": "closed",
-    "exit_price": 310.43,
-    "exit_time": "2026-09-03T14:07:25.143018Z",
-    "pnl": -703.38,
-    "pnl_pct": -0.056272,
-    "duration_minutes": 14310.630966083332,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 2,
-    "symbol": "ROP",
-    "shares": 30,
-    "entry_price": 411.14,
-    "entry_time": "2026-08-25T14:33:51.902188Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "FUNDAMENTAL: Roper Technologies is a capital-light, software-and-data compounder that acquires niche vertical-market software businesses \u2014 a Buffett-style wonderful business. 27.7% operating margins, ",
-    "source": "claude",
-    "status": "closed",
-    "exit_price": 394.276666,
-    "exit_time": "2026-09-08T13:39:28.40544Z",
-    "pnl": -505.9,
-    "pnl_pct": -0.041016,
-    "duration_minutes": 20105.608387533335,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 3,
-    "symbol": "IDXX",
-    "shares": 26,
-    "entry_price": 558.522692,
-    "entry_time": "2026-08-20T14:33:56.097926Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "FUNDAMENTAL: IDEXX is among the highest-quality businesses in the S&P 500. Veterinary diagnostics is a sticky, recurring-revenue model \u2014 pet owners do not defer cancer screenings for dogs the way they",
-    "source": "claude",
-    "status": "closed",
-    "exit_price": 519.01,
-    "exit_time": "2026-09-08T13:42:25.037604Z",
-    "pnl": -1027.33,
-    "pnl_pct": -0.070745,
-    "duration_minutes": 27308.482327966667,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 4,
     "symbol": "RMD",
     "shares": 54,
     "entry_price": 226.94,
@@ -72,7 +18,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 5,
+    "id": 2,
     "symbol": "TMUS",
     "shares": 66,
     "entry_price": 181.872728,
@@ -90,7 +36,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 6,
+    "id": 3,
     "symbol": "BR",
     "shares": 72,
     "entry_price": 168.59,
@@ -108,7 +54,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 7,
+    "id": 4,
     "symbol": "IT",
     "shares": 46,
     "entry_price": 184.54,
@@ -126,7 +72,7 @@
     "reason_exit": "target_hit"
   },
   {
-    "id": 8,
+    "id": 5,
     "symbol": "ULTA",
     "shares": 21,
     "entry_price": 542.94,
@@ -144,7 +90,7 @@
     "reason_exit": "target_hit"
   },
   {
-    "id": 9,
+    "id": 6,
     "symbol": "NVDA",
     "shares": 70,
     "entry_price": 218.34,
@@ -162,7 +108,7 @@
     "reason_exit": null
   },
   {
-    "id": 10,
+    "id": 7,
     "symbol": "FOXA",
     "shares": 184,
     "entry_price": 63.65,
@@ -180,7 +126,7 @@
     "reason_exit": null
   },
   {
-    "id": 11,
+    "id": 8,
     "symbol": "FOXA",
     "shares": 143,
     "entry_price": 65.89,
@@ -198,7 +144,7 @@
     "reason_exit": null
   },
   {
-    "id": 12,
+    "id": 9,
     "symbol": "ULTA",
     "shares": 16,
     "entry_price": 577.1,
@@ -216,22 +162,16 @@
     "reason_exit": null
   },
   {
-    "id": 13,
-    "symbol": "ADBE",
-    "shares": 45,
-    "original_shares": 45,
-    "entry_price": 268.0,
-    "entry_time": "2026-10-23T14:33:58.056260+00:00",
-    "stop_loss": 253.5,
-    "initial_stop": 253.5,
-    "R": 14.5,
-    "current_stop": 253.5,
-    "target_price": 325.0,
-    "rationale": "FUNDAMENTAL: Adobe is a dominant software franchise (Creative Cloud, Document Cloud, Experience Cloud) with a 34.8% operating margin, $9.3B in FCF, 61.9% ROE, and 12.9% revenue growth \u2014 yet it trades ",
+    "id": 10,
+    "symbol": "ULTA",
+    "shares": 15,
+    "entry_price": 623.84,
+    "entry_time": "2026-10-23T14:34:01.984525Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "PYRAMID tranche 2: original lot held 8d at +13.8%; price $635.01 > SMA20 $570.87; adding $9,573 (15 sh) with combined break-even stop at $593.67.",
     "source": "claude",
     "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
     "exit_price": null,
     "exit_time": null,
     "pnl": null,
@@ -240,22 +180,16 @@
     "reason_exit": null
   },
   {
-    "id": 14,
-    "symbol": "ULTA",
-    "shares": 15,
-    "original_shares": 15,
-    "entry_price": 638.19,
-    "entry_time": "2026-10-23T14:33:59.904935+00:00",
-    "stop_loss": 593.67,
-    "initial_stop": 593.67,
-    "R": 44.520000000000095,
-    "current_stop": 593.67,
-    "target_price": 765.83,
-    "rationale": "PYRAMID tranche 2: original lot held 8d at +13.8%; price $635.01 > SMA20 $570.87; adding $9,573 (15 sh) with combined break-even stop at $593.67.",
+    "id": 11,
+    "symbol": "ADBE",
+    "shares": 45,
+    "entry_price": 263.93,
+    "entry_time": "2026-10-23T14:33:59.22527Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "FUNDAMENTAL: Adobe is a dominant software franchise (Creative Cloud, Document Cloud, Experience Cloud) with a 34.8% operating margin, $9.3B in FCF, 61.9% ROE, and 12.9% revenue growth \u2014 yet it trades ",
     "source": "claude",
     "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
     "exit_price": null,
     "exit_time": null,
     "pnl": null,

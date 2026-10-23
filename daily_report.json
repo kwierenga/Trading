@@ -6661,5 +6661,74 @@
       "noops": 0,
       "skipped_no_R": 3
     }
+  },
+  {
+    "timestamp": "2026-10-23T21:22:03.960122+00:00",
+    "date": "2026-10-23",
+    "equity": 97489.88,
+    "cash": 20356.55,
+    "positions": 5,
+    "closed_trades": [],
+    "turnover": {
+      "period_days": 30,
+      "trades": 3,
+      "avg_holding_days": 19.686779338059413,
+      "short_term_gains": 3552.06,
+      "long_term_gains": 0.0,
+      "realized_gain": 2929.26,
+      "estimated_tax_owed": 1136.6592,
+      "tax_drag": 603.8502000000001
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 106821.78,
+      "shadow_return_pct": 0.06821775876825109,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 97489.88,
+      "strategy_return_pct": -0.025101199999999935,
+      "spread_pct": -0.09331895876825103
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "ADBE",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "FOXA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "NVDA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "ULTA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [
+        "AMP: no matching journal entry"
+      ],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 4
+    }
   }
 ]

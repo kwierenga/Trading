@@ -1093,7 +1093,7 @@
     "shares": 45,
     "entry_price": 268.0,
     "order_id": "a553722b-4b0e-4c5c-8485-31352d06b0e5",
-    "fill_status": "unknown"
+    "fill_status": "filled"
   },
   {
     "date": "2026-10-23",
@@ -1113,6 +1113,6 @@
     "shares": 15,
     "entry_price": 638.19,
     "order_id": "bc784be7-2b18-4d5b-b018-7d30177e5b9d",
-    "fill_status": "unknown"
+    "fill_status": "filled"
   }
 ]
