@@ -1082,5 +1082,37 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "ULTA would be 32.8% of equity (existing $22,805 + new $9,150 = $31,955); cap is 30%"
+  },
+  {
+    "date": "2026-10-23",
+    "timestamp": "2026-10-23T14:33:58.056079+00:00",
+    "symbol": "ADBE",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $253.50, target $325.00; submit status pending_new",
+    "shares": 45,
+    "entry_price": 268.0,
+    "order_id": "a553722b-4b0e-4c5c-8485-31352d06b0e5",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-10-23",
+    "timestamp": "2026-10-23T14:33:58.308698+00:00",
+    "symbol": "FOXA",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "FOXA would be 32.4% of equity (existing $21,881 + new $9,743 = $31,624); cap is 30%"
+  },
+  {
+    "date": "2026-10-23",
+    "timestamp": "2026-10-23T14:33:59.904713+00:00",
+    "symbol": "ULTA",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $593.67, target $765.83; submit status pending_new",
+    "shares": 15,
+    "entry_price": 638.19,
+    "order_id": "bc784be7-2b18-4d5b-b018-7d30177e5b9d",
+    "fill_status": "unknown"
   }
 ]
