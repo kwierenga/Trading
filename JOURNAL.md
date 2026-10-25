@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-10-13 → 2026-10-25
+
+_Sharpe -0.46, Sortino -0.60, MaxDD -9.4%, CAGR -6.6%, excess CAGR vs SPY -20.8% (quantstats, since inception)._
+
+**What worked / what didn't.** The two closes were clean: IT (+20.3%, 22 days) and ULTA (+16.0%, 17 days) both exited via target_hit, which means the entry thesis, sizing, and patience held long enough for the setup to resolve. That's the system working as designed. What's harder to assess is the re-entry into ULTA on 10/23 — you now hold a new ULTA position at +4.1% unrealized the same day you closed the original for +16%. That may be disciplined recycling of a working thesis, or it may be anchoring to a winner. The journal entries for the EOD slots are unfilled all week, so there's no recorded reasoning for either the re-entry or for how AMP's -10% drawdown is being processed.
+
+**What's puzzling or worth watching.** IT and ULTA appeared repeatedly in the AM proposed-entry lists from 10/15 through 10/22 — five or six consecutive days of "will these fill?" before they apparently did. That's either the limit-discipline working correctly (waiting for price to come to you) or a signal that the entry model is generating setups that are persistently slightly below market, which would mean fills are opportunistic rather than systematic. Worth distinguishing those two. Also notable: cash ran from 29% down to 19% mid-week, spiked to 42% on the close day, then dropped back to 21% after the 10/23 entries. That's a lot of cash movement without any recorded rationale in the journals, and AMP sitting at -10% unrealized through all of it raises a quiet question about selective deployment.
+
+**Reflective prompts for Klaas.** The EOD journal slots are blank every single day this week — what specifically is getting in the way of the 15-minute review, and is the AM planning loop actually useful without the EOD feedback closing the loop? AMP is down 10% unrealized while you deployed fresh capital into three new positions on 10/23 — what would have to be true about AMP's thesis for that capital-allocation sequence to be the right call, and have you checked whether that condition still holds? The ULTA re-entry on the same day as the ULTA exit is the most behaviorally interesting event of the week — before next week's review, can you write two sentences explaining why the new entry is a different trade rather than a continuation of attachment to the name?
+
+
+---
+
 ## [EOD] 2026-10-23 Friday
 **What happened.** No trades closed today. End equity $97,490, cash $20,357 (21% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
