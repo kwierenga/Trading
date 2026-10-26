@@ -1,59 +1,29 @@
 {
-  "analysis": "MARKET REGIME: SPY is mixed \u2014 slightly below SMA50 but with a positive 20-day slope, meaning the tape is indecisive. This is not an environment to aggressively deploy capital; selectivity is paramount.\n\nPORTFOLIO REVIEW:\n\u2022 AMP (-9.19%, $9,440): Critically, AMP does NOT appear in today's screened candidates \u2014 it likely failed the confirmed-downtrend filter. A stock absent from the quality+trend screen at -9.19% is a thesis-break signal. The original thesis needs hard scrutiny; if stop has not been hit yet, it should be tightened now to protect against further deterioration. Recommend reviewing stop placement and being prepared to exit.\n\u2022 NVDA (-2.33%, $14,928): In the candidate list as MIXED/SIDEWAYS extending, -4.7% below SMA50. Small loss, thesis intact (AI capex cycle), but technicals are soft. Hold with existing stop; do not add.\n\u2022 FOXA (+5.31%, $22,256): Working. Hold.\n\u2022 ULTA (+13.82%, $10,156): Working well, approaching prior target territory (ULTA previously hit +16% target). Consider trailing stop to lock in gains.\n\nPERFORMANCE CONTEXT: 25% win rate and 0.89 profit factor are sobering \u2014 the strategy is not creating alpha over baseline. This demands we be very selective and only act on genuinely asymmetric setups. The correct response is NOT to force activity but to apply strict discipline.\n\nNEW TRADES: One high-conviction setup stands out \u2014 ADBE. Forward P/E of 9.84 and PEG of 0.62 for a 34.8% operating margin, $9.3B FCF business is an extraordinary valuation dislocation. Price is basing above both SMA50 and SMA200 at 46% of 52w range. The SMA50 slope is barely negative (-0.6%), so entry should be staged \u2014 buy on mild pullback or as SMA50 slope turns positive. Earnings are 47 days out (Dec 9), allowing time for the position to develop before the next catalyst. No other candidate clears the bar of asymmetric setup + quality + reasonable trend. Energy names (VLO, MPC, APA, EOG, OXY) are all above 88% 52w range \u2014 late cycle, avoid. NTAP at 82% is borderline extended. CRM at 88% is too extended. Cash preservation remains the priority.",
-  "confidence_target_pct": 52,
+  "analysis": "PORTFOLIO REVIEW: Five positions are at the upper bound of the 3-5 concentrated target. Portfolio heat is a modest 1.58% but the Sortino of -10.57 signals the downside volatility is outsized relative to returns \u2014 capital preservation deserves priority. THESIS REVIEW \u2014 AMP (-10.04%): AMP is the most urgent concern. It has dropped meaningfully through what should have been a stop zone and, critically, it no longer appears on the screened candidate list, meaning it has failed the quality or trend filters this cycle. A position failing its trend screen while sitting at a 10% paper loss is a classic thesis-break signal. I strongly recommend a manual exit review on AMP outside this cycle's trade output. Freeing ~$9,352 from AMP would also create meaningful capacity for a better-quality replacement. ADBE (+0.35%): Essentially flat; the forward P/E of 9.59 and PEG of 0.64 remain compelling, but the SMA50 slope is slightly negative and earnings are 44 days out \u2014 hold but monitor. NVDA (-3.01%): On the screened list, still exceptional fundamentals; the -5.1% dip vs SMA50 is noise given the cycle. FOXA (+3.05%) and ULTA (+4.13%) are both healthy. MARKET REGIME: SPY is mixed \u2014 slightly below SMA50 but with a positive 20-day slope. Not a risk-on tape but not a confirmed downtrend either. Cash is 20%, which is appropriate. NEW BUY \u2014 TXN: Texas Instruments stands out as the one genuinely asymmetric setup this cycle. It passes every quality screen (ROE 39.7%, op margin 47.5%, PEG 0.94, EPS revision +14.4% over 60 days) and sits at 74% of its 52-week range \u2014 well clear of the extended-entry danger zone. The uptrend is confirmed and the SMA50 is rising. With only $15,477 headroom we can size a starter position at ~54 shares that risks under 1% of equity. If AMP is exited first, this position can be sized to the full 1.5% risk target (~85 shares). Cash remains a position \u2014 we propose exactly one trade, not more.",
+  "confidence_target_pct": 58,
   "trades": [
     {
-      "symbol": "ADBE",
+      "symbol": "TXN",
       "direction": "BUY",
-      "entry_strategy": "Limit at $268 on a mild pullback toward SMA50, or enter at market if price holds above SMA50 for 2+ consecutive sessions AND SMA50 20-day slope turns positive. Do not chase above $274.",
-      "entry_price": 268.0,
-      "stop_loss": 253.5,
-      "stop_loss_pct": 0.054,
-      "atr_multiple": 1.67,
-      "target": 325.0,
-      "target_gain_pct": 0.213,
-      "risk_reward_ratio": 3.93,
+      "entry_strategy": "Limit order at $284.00-$285.00. Prefer a minor intraday pullback to current price or the rising SMA20 rather than chasing. If price gaps above $290 before fill, skip the entry.",
+      "entry_price": 284.69,
+      "stop_loss": 268.26,
+      "stop_loss_pct": 0.0577,
+      "atr_multiple": 1.75,
+      "target": 330.0,
+      "target_gain_pct": 0.159,
+      "risk_reward_ratio": 2.76,
       "conviction": 68,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Adobe is a dominant software franchise (Creative Cloud, Document Cloud, Experience Cloud) with a 34.8% operating margin, $9.3B in FCF, 61.9% ROE, and 12.9% revenue growth \u2014 yet it trades at a forward P/E of 9.84 and a PEG of 0.62. This is an extreme valuation discount relative to business quality, likely reflecting AI-disruption fear that the market has over-priced in. The company is actively embedding AI (Firefly) into its moat-protected subscription base. Analyst EPS revisions are flat (+0.5%) but not deteriorating, and earnings are 47 days out \u2014 enough runway before the next catalyst. TECHNICAL: Price is at 46% of the 52-week range, above both SMA50 (+5.7%) and SMA200 (+7.1%), basing in MIXED/SIDEWAYS mode. SMA50 slope is barely negative at -0.6% \u2014 this is the transition zone between Stage 1 base and Stage 2 uptrend. Entry at a pullback to the $268 area offers an attractive risk/reward before trend confirmation is fully in place. The 'falling knife' risk is limited because price is already above SMA200 \u2014 this is a basing pattern, not a downtrend.",
-      "exit_plan": "Exit if: (1) price closes below $253.50 stop on volume; (2) thesis breaks \u2014 meaning FCF decelerates sharply, net revenue retention deteriorates materially, or AI substitution evidence becomes concrete in subscriber metrics; (3) December earnings reveal revenue miss + guidance cut, re-evaluate immediately post-print; (4) if position reaches $325 target, reassess \u2014 trail stop to entry if still in position. Time stop: if price is flat or lower 3 months post-entry with deteriorating technicals, exit regardless of price."
-    },
-    {
-      "symbol": "FOXA",
-      "direction": "BUY",
-      "entry_price": 68.61,
-      "stop_loss": 65.51,
-      "target": 82.33,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 4.425806451612911,
-      "rationale": "PYRAMID tranche 2: original lot held 28d at +5.3%; price $68.27 > SMA20 $63.54; adding $9,811 (143 sh) with combined break-even stop at $65.51.",
-      "entry_strategy": "Limit @ $68.61 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
-    },
-    {
-      "symbol": "ULTA",
-      "direction": "BUY",
-      "entry_price": 638.19,
-      "stop_loss": 593.67,
-      "target": 765.83,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 2.8670260557052947,
-      "rationale": "PYRAMID tranche 2: original lot held 8d at +13.8%; price $635.01 > SMA20 $570.87; adding $9,573 (15 sh) with combined break-even stop at $593.67.",
-      "entry_strategy": "Limit @ $638.19 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
+      "rationale": "FUNDAMENTAL: Texas Instruments is a dominant analog/embedded-processing franchise with structural pricing power. Op margin of 47.5%, ROE 39.7%, and a PEG of 0.94 make it one of the cheapest high-quality tech names in the S&P 500 on a growth-adjusted basis. Revenue growth of 27.7% and a +14.4% EPS upward revision in 60 days confirm the cycle is turning. FCF of $4.8B supports the dividend and buyback program. TECHNICAL: Price is in a confirmed uptrend at 74% of the 52-week range \u2014 not extended. It is +4.5% above SMA50 with the SMA50 slope still rising (+0.6%). This is a Stage 2 continuation, not a late-cycle chase. The 52-week low of $150.79 vs current ~$285 shows the stock has already made a large move and is consolidating, not topping. Entry sizing of ~54 shares within the $15,477 headroom risks ~0.91% of equity \u2014 below target but prudent given the 5-position count. Full 1.5% risk sizing (~85 shares) becomes available if AMP is exited.",
+      "exit_plan": "Exit if: (1) stop at $268.26 is hit on a closing basis; (2) price breaks back below SMA50 on heavy volume after entry; (3) EPS revision trend reverses materially (>5% downward cut); (4) thesis change \u2014 analog capex cycle reversal or management guidance cut. Target $330 over 3-6 months. If target is approached and thesis remains intact, consider holding for LTCG treatment past the one-year mark. Review position sizing after AMP decision."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "e47bb3a88db655c7",
-    "prompt_chars": 21724,
-    "generated_at": "2026-10-23T10:12:57.631953+00:00",
-    "code_sha": "324a3d17ac96"
+    "prompt_sha256": "6910f58ce469c479",
+    "prompt_chars": 21780,
+    "generated_at": "2026-10-26T10:17:19.144320+00:00",
+    "code_sha": "35ec7aaac950"
   }
 }
