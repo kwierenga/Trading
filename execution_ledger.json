@@ -1114,5 +1114,13 @@
     "entry_price": 638.19,
     "order_id": "bc784be7-2b18-4d5b-b018-7d30177e5b9d",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-10-26",
+    "timestamp": "2026-10-26T14:34:03.891108+00:00",
+    "symbol": "TXN",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 39.8% of equity (existing $26,799 + new $12,242 = $39,040); cap is 35%"
   }
 ]
