@@ -91,6 +91,24 @@
   },
   {
     "id": 6,
+    "symbol": "FOXA",
+    "shares": 143,
+    "entry_price": 63.65,
+    "entry_time": "2026-09-24T14:34:02.554622Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "FUNDAMENTAL: Fox Corporation trades at a compelling forward P/E of 10.94 with PEG of 1.15 despite 28.1% revenue growth and a 25.2% operating margin \u2014 this is a quality media franchise (news, sports ri",
+    "source": "claude",
+    "status": "closed",
+    "exit_price": 64.93,
+    "exit_time": "2026-10-26T19:45:04.209727Z",
+    "pnl": 183.04,
+    "pnl_pct": 0.02011,
+    "duration_minutes": 46391.027585083335,
+    "reason_exit": "stop_hit"
+  },
+  {
+    "id": 7,
     "symbol": "NVDA",
     "shares": 70,
     "entry_price": 218.34,
@@ -108,9 +126,9 @@
     "reason_exit": null
   },
   {
-    "id": 7,
+    "id": 8,
     "symbol": "FOXA",
-    "shares": 184,
+    "shares": 41,
     "entry_price": 63.65,
     "entry_time": "2026-09-24T14:34:02.554622Z",
     "stop_loss": null,
@@ -126,7 +144,7 @@
     "reason_exit": null
   },
   {
-    "id": 8,
+    "id": 9,
     "symbol": "FOXA",
     "shares": 143,
     "entry_price": 65.89,
@@ -144,7 +162,7 @@
     "reason_exit": null
   },
   {
-    "id": 9,
+    "id": 10,
     "symbol": "ULTA",
     "shares": 16,
     "entry_price": 577.1,
@@ -162,7 +180,7 @@
     "reason_exit": null
   },
   {
-    "id": 10,
+    "id": 11,
     "symbol": "ULTA",
     "shares": 15,
     "entry_price": 623.84,
@@ -180,7 +198,7 @@
     "reason_exit": null
   },
   {
-    "id": 11,
+    "id": 12,
     "symbol": "ADBE",
     "shares": 45,
     "entry_price": 263.93,

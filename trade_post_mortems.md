@@ -784,3 +784,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-10-26 — FOXA closed (held 32.2d, +2.01%, $+183.04)
+<!-- pm-key: FOXA|2026-10-26T19:45:04|63.65 -->
+
+**Mechanical (auto-filled):**
+- Entry: $63.65 on 2026-09-24 → Exit: $64.93 on 2026-10-26 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: Fox Corporation trades at a compelling forward P/E of 10.94 with PEG of 1.15 despite 28.1% revenue growth and a 25.2% operating margin — this is a quality media franchise (news, sports ri
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
