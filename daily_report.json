@@ -6807,5 +6807,82 @@
       "noops": 0,
       "skipped_no_R": 4
     }
+  },
+  {
+    "timestamp": "2026-10-27T21:16:11.648178+00:00",
+    "date": "2026-10-27",
+    "equity": 96769.19,
+    "cash": 29043.68,
+    "positions": 5,
+    "closed_trades": [
+      {
+        "symbol": "ADBE",
+        "pnl": -478.8,
+        "pnl_pct": -0.040314,
+        "reason_exit": "stop_hit",
+        "duration_minutes": 5707.35249165
+      }
+    ],
+    "turnover": {
+      "period_days": 30,
+      "trades": 5,
+      "avg_holding_days": 19.047953724604167,
+      "short_term_gains": 3735.1,
+      "long_term_gains": 0.0,
+      "realized_gain": 2633.5,
+      "estimated_tax_owed": 1195.232,
+      "tax_drag": 634.967
+    },
+    "shadow_report": {
+      "available": true,
+      "shadow_value": 107798.27,
+      "shadow_return_pct": 0.07798265538557891,
+      "start_date": "2026-05-04",
+      "initial_equity": 100000.0,
+      "strategy_equity": 96769.19,
+      "strategy_return_pct": -0.03230809999999995,
+      "spread_pct": -0.11029075538557886
+    },
+    "position_manager": {
+      "available": true,
+      "dry_run": true,
+      "actions": [
+        {
+          "symbol": "ADSK",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "FOXA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "NVDA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        },
+        {
+          "symbol": "ULTA",
+          "action": "skip_no_R",
+          "qty": 0,
+          "new_stop": null,
+          "rationale": "position predates R tracking (likely reconciled lot) \u2014 managed manually"
+        }
+      ],
+      "skips": [
+        "AMP: no matching journal entry"
+      ],
+      "scale_outs": 0,
+      "trails": 0,
+      "noops": 0,
+      "skipped_no_R": 4
+    }
   }
 ]

@@ -803,3 +803,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-10-27 — ADBE closed (held 4.0d, -4.03%, $-478.80)
+<!-- pm-key: ADBE|2026-10-27T13:41:20|263.93 -->
+
+**Mechanical (auto-filled):**
+- Entry: $263.93 on 2026-10-23 → Exit: $253.29 on 2026-10-27 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: Adobe is a dominant software franchise (Creative Cloud, Document Cloud, Experience Cloud) with a 34.8% operating margin, $9.3B in FCF, 61.9% ROE, and 12.9% revenue growth — yet it trades
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---

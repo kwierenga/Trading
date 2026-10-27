@@ -109,6 +109,24 @@
   },
   {
     "id": 7,
+    "symbol": "ADBE",
+    "shares": 45,
+    "entry_price": 263.93,
+    "entry_time": "2026-10-23T14:33:59.22527Z",
+    "stop_loss": null,
+    "target_price": null,
+    "rationale": "FUNDAMENTAL: Adobe is a dominant software franchise (Creative Cloud, Document Cloud, Experience Cloud) with a 34.8% operating margin, $9.3B in FCF, 61.9% ROE, and 12.9% revenue growth \u2014 yet it trades ",
+    "source": "claude",
+    "status": "closed",
+    "exit_price": 253.29,
+    "exit_time": "2026-10-27T13:41:20.374769Z",
+    "pnl": -478.8,
+    "pnl_pct": -0.040314,
+    "duration_minutes": 5707.35249165,
+    "reason_exit": "stop_hit"
+  },
+  {
+    "id": 8,
     "symbol": "NVDA",
     "shares": 70,
     "entry_price": 218.34,
@@ -126,7 +144,7 @@
     "reason_exit": null
   },
   {
-    "id": 8,
+    "id": 9,
     "symbol": "FOXA",
     "shares": 41,
     "entry_price": 63.65,
@@ -144,7 +162,7 @@
     "reason_exit": null
   },
   {
-    "id": 9,
+    "id": 10,
     "symbol": "FOXA",
     "shares": 143,
     "entry_price": 65.89,
@@ -162,7 +180,7 @@
     "reason_exit": null
   },
   {
-    "id": 10,
+    "id": 11,
     "symbol": "ULTA",
     "shares": 16,
     "entry_price": 577.1,
@@ -180,7 +198,7 @@
     "reason_exit": null
   },
   {
-    "id": 11,
+    "id": 12,
     "symbol": "ULTA",
     "shares": 15,
     "entry_price": 623.84,
@@ -198,15 +216,15 @@
     "reason_exit": null
   },
   {
-    "id": 12,
-    "symbol": "ADBE",
-    "shares": 45,
-    "entry_price": 263.93,
-    "entry_time": "2026-10-23T14:33:59.22527Z",
+    "id": 13,
+    "symbol": "ADSK",
+    "shares": 49,
+    "entry_price": 244.81,
+    "entry_time": "2026-10-27T13:43:19.678623Z",
     "stop_loss": null,
     "target_price": null,
-    "rationale": "FUNDAMENTAL: Adobe is a dominant software franchise (Creative Cloud, Document Cloud, Experience Cloud) with a 34.8% operating margin, $9.3B in FCF, 61.9% ROE, and 12.9% revenue growth \u2014 yet it trades ",
-    "source": "claude",
+    "rationale": "",
+    "source": "alpaca_reconciled",
     "status": "open",
     "exit_price": null,
     "exit_time": null,
