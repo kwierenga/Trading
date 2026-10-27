@@ -1,29 +1,29 @@
 {
-  "analysis": "PORTFOLIO REVIEW: Five positions are at the upper bound of the 3-5 concentrated target. Portfolio heat is a modest 1.58% but the Sortino of -10.57 signals the downside volatility is outsized relative to returns \u2014 capital preservation deserves priority. THESIS REVIEW \u2014 AMP (-10.04%): AMP is the most urgent concern. It has dropped meaningfully through what should have been a stop zone and, critically, it no longer appears on the screened candidate list, meaning it has failed the quality or trend filters this cycle. A position failing its trend screen while sitting at a 10% paper loss is a classic thesis-break signal. I strongly recommend a manual exit review on AMP outside this cycle's trade output. Freeing ~$9,352 from AMP would also create meaningful capacity for a better-quality replacement. ADBE (+0.35%): Essentially flat; the forward P/E of 9.59 and PEG of 0.64 remain compelling, but the SMA50 slope is slightly negative and earnings are 44 days out \u2014 hold but monitor. NVDA (-3.01%): On the screened list, still exceptional fundamentals; the -5.1% dip vs SMA50 is noise given the cycle. FOXA (+3.05%) and ULTA (+4.13%) are both healthy. MARKET REGIME: SPY is mixed \u2014 slightly below SMA50 but with a positive 20-day slope. Not a risk-on tape but not a confirmed downtrend either. Cash is 20%, which is appropriate. NEW BUY \u2014 TXN: Texas Instruments stands out as the one genuinely asymmetric setup this cycle. It passes every quality screen (ROE 39.7%, op margin 47.5%, PEG 0.94, EPS revision +14.4% over 60 days) and sits at 74% of its 52-week range \u2014 well clear of the extended-entry danger zone. The uptrend is confirmed and the SMA50 is rising. With only $15,477 headroom we can size a starter position at ~54 shares that risks under 1% of equity. If AMP is exited first, this position can be sized to the full 1.5% risk target (~85 shares). Cash remains a position \u2014 we propose exactly one trade, not more.",
-  "confidence_target_pct": 58,
+  "analysis": "Market regime is MIXED (SPY -0.2% vs SMA50, slope mildly positive at +0.83%) \u2014 not a strong bull environment but not a crash either. Cash is a viable position. Portfolio review: (1) AMP (-9.78% from cost) is the most urgent concern \u2014 it does NOT appear in today's screened candidates, meaning it has likely failed the trend confirmation filter and is in a confirmed downtrend. This is a thesis-break condition. The position should be exited at or near market open; holding further risks compounding the loss with no technical tailwind. Original stop has almost certainly been breached. (2) ADBE (-3.27%) appears in the screened list as MIXED/SIDEWAYS basing \u2014 thesis marginally intact, hold with discipline; earnings Dec 9 will be a key decision point. (3) FOXA (-0.09%) is essentially flat, thesis intact. (4) NVDA (-1.03%) is in a MIXED/SIDEWAYS extending pattern with massive analyst EPS upgrades (+22.2%); hold, do not add here given extension. (5) ULTA (+4.26%) is performing well; hold. The Sortino ratio of -11.29 is alarming and reflects downside dispersion from positions like AMP \u2014 another reason to cut that loss cleanly. With $24,789 headroom and after AMP exit proceeds (~$9,378), one high-conviction new position in ADSK makes sense. ADSK is a quality SaaS business basing in the lower half of its 52-week range \u2014 exactly the Stage 1 to Stage 2 transition the strategy targets. No other candidates combine quality + lower-half basing + reasonable valuation with sufficient asymmetry to justify a second new add in this mixed market regime. Cash remains the residual position after one new entry.",
+  "confidence_target_pct": 57,
   "trades": [
     {
-      "symbol": "TXN",
+      "symbol": "ADSK",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $284.00-$285.00. Prefer a minor intraday pullback to current price or the rising SMA20 rather than chasing. If price gaps above $290 before fill, skip the entry.",
-      "entry_price": 284.69,
-      "stop_loss": 268.26,
-      "stop_loss_pct": 0.0577,
+      "entry_strategy": "Limit at $249 or better on any intraday pullback toward the $245-250 zone. Accept fills up to $252 if price confirms above the SMA50 on volume. Do not chase above $253.",
+      "entry_price": 249.45,
+      "stop_loss": 236.36,
+      "stop_loss_pct": 0.0525,
       "atr_multiple": 1.75,
-      "target": 330.0,
-      "target_gain_pct": 0.159,
-      "risk_reward_ratio": 2.76,
+      "target": 295.0,
+      "target_gain_pct": 0.183,
+      "risk_reward_ratio": 3.49,
       "conviction": 68,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: Texas Instruments is a dominant analog/embedded-processing franchise with structural pricing power. Op margin of 47.5%, ROE 39.7%, and a PEG of 0.94 make it one of the cheapest high-quality tech names in the S&P 500 on a growth-adjusted basis. Revenue growth of 27.7% and a +14.4% EPS upward revision in 60 days confirm the cycle is turning. FCF of $4.8B supports the dividend and buyback program. TECHNICAL: Price is in a confirmed uptrend at 74% of the 52-week range \u2014 not extended. It is +4.5% above SMA50 with the SMA50 slope still rising (+0.6%). This is a Stage 2 continuation, not a late-cycle chase. The 52-week low of $150.79 vs current ~$285 shows the stock has already made a large move and is consolidating, not topping. Entry sizing of ~54 shares within the $15,477 headroom risks ~0.91% of equity \u2014 below target but prudent given the 5-position count. Full 1.5% risk sizing (~85 shares) becomes available if AMP is exited.",
-      "exit_plan": "Exit if: (1) stop at $268.26 is hit on a closing basis; (2) price breaks back below SMA50 on heavy volume after entry; (3) EPS revision trend reverses materially (>5% downward cut); (4) thesis change \u2014 analog capex cycle reversal or management guidance cut. Target $330 over 3-6 months. If target is approached and thesis remains intact, consider holding for LTCG treatment past the one-year mark. Review position sizing after AMP decision."
+      "rationale": "Fundamental: Autodesk is a high-quality capital-light SaaS platform (ROE 53.9%, op margin 29.2%, FCF $3.2B) executing a durable transition to subscription revenue. Revenue growth of 16.1% with a forward P/E of 17.57 and PEG of 0.85 represents genuine value for this quality tier \u2014 well below the historic average multiple. The business is highly recurring and defensible. Technical: Stock is basing at 49% of its 52-week range, the ideal Stage 1-to-2 transition territory per the strategy's Weinstein framework. SMA50 slope is flat (-0.3%), consistent with late basing rather than active downtrend. Price is 7.2% above SMA50 \u2014 acceptable. Entry in the lower half of the annual range with a confirmed sideways base offers a structurally asymmetric risk/reward. Earnings on Nov 27 (31 days) provide a reasonable window. Position sized at ~97 shares ($24,197) representing ~24.9% of equity, within the 25% cap. Worst-case stop-hit risk: $1,270 or ~1.31% of equity, within the 1-2% target.",
+      "exit_plan": "Exit if: (1) stop triggered at $236.36 (1.75x ATR below entry); (2) price closes below SMA200 on a weekly basis \u2014 structural breakdown; (3) earnings Nov 27 miss materially on revenue growth or management guides down \u2014 do not hold through a deteriorating thesis; (4) if stock rallies to $278-280 before earnings, consider trimming half the position to reduce binary event risk and lock partial gain; (5) time stop: reassess thesis if no meaningful progress by late January 2027."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "6910f58ce469c479",
-    "prompt_chars": 21780,
-    "generated_at": "2026-10-26T10:17:19.144320+00:00",
-    "code_sha": "35ec7aaac950"
+    "prompt_sha256": "239d90262d1364ef",
+    "prompt_chars": 21787,
+    "generated_at": "2026-10-27T10:14:17.843779+00:00",
+    "code_sha": "6114e10564d0"
   }
 }
