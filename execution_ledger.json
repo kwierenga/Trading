@@ -1130,5 +1130,17 @@
     "decision": "skipped",
     "gate": "sector",
     "detail": "Technology sector would be 40.4% of equity (existing $27,140 + new $11,974 = $39,114); cap is 35%"
+  },
+  {
+    "date": "2026-10-28",
+    "timestamp": "2026-10-28T14:33:51.480155+00:00",
+    "symbol": "UHS",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $168.81, target $220.00; submit status pending_new",
+    "shares": 101,
+    "entry_price": 177.32,
+    "order_id": "e693ab2c-5507-4565-bc52-0dd96c98c0ac",
+    "fill_status": "unknown"
   }
 ]

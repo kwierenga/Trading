@@ -232,5 +232,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 14,
+    "symbol": "UHS",
+    "shares": 101,
+    "original_shares": 101,
+    "entry_price": 177.32,
+    "entry_time": "2026-10-28T14:33:51.480362+00:00",
+    "stop_loss": 168.81,
+    "initial_stop": 168.81,
+    "R": 8.509999999999991,
+    "current_stop": 168.81,
+    "target_price": 220.0,
+    "rationale": "FUNDAMENTAL: UHS is a high-quality hospital operator with ROE of 20.9%, P/E of only 7.2x (fwd 7.4x), strong operating cash flow of $1.8B, and revenue growing +8.3%. Healthcare services are defensive a",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
