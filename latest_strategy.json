@@ -1,29 +1,45 @@
 {
-  "analysis": "MARKET & REGIME: SPY is in a mild uptrend (+0.4% vs SMA50, +0.77% 20d slope) \u2014 constructive but not aggressive. Deployment is at 70% equity in 5 positions with ~$24k headroom remaining before hitting the 95% gross cap. Portfolio heat (1.40%) is low, suggesting existing stops are reasonably tight.\n\nEXISTING POSITION REVIEW:\n\u2022 ULTA (+4.61%): Thesis intact, let it run. Not in today's screened list but this is a winning position \u2014 no action needed.\n\u2022 NVDA (+0.58%): Flat. Not in screened list. Monitor; thesis still intact fundamentally.\n\u2022 ADSK (-1.03%): In screened list as MIXED/SIDEWAYS basing. Earnings Nov 27 (30d) \u2014 hold but sized correctly already; no add before earnings.\n\u2022 FOXA (-1.79%): Small loss, not in screened list. Minor concern but manageable. Watch for thesis deterioration.\n\u2022 AMP (-9.92%): FLAG \u2014 down nearly 10% from entry and critically NOT appearing in the quality+trend screened universe (likely a confirmed downtrend or quality filter failure). This is a thesis-break signal. Recommend reviewing the stop immediately; if no hard stop is in place, consider exiting or tightening aggressively. The 1-2% portfolio heat rule suggests the stop may be triggered soon \u2014 do not let this drift further without a defined exit.\n\nNEW OPPORTUNITY: One genuinely asymmetric setup stands out \u2014 UHS (Universal Health Services). It is a high-quality hospital operator trading at a historically cheap valuation (P/E 7.2x, fwd P/E 7.4x), with solid ROE (20.9%), strong operating cash flow ($1.8B), and 8.3% revenue growth. Technically, it sits at 36% of its 52-week range with price essentially right at SMA50 (+0.1%), and the SMA50 slope is rising (+3.6%) \u2014 a classic Stage 1\u21922 Weinstein transition. No earnings within 3 weeks. This checks both fundamental (quality at fair price) and technical (base breakout) boxes. Capacity is exactly sufficient for one properly-sized position. No second trade is proposed \u2014 headroom is exhausted after UHS, and no other setup is asymmetric enough to displace cash discipline.",
+  "analysis": "PORTFOLIO REVIEW: Six positions at 88% deployment exceeds the 3-5 concentrated-position target and leaves only $6,376 gross headroom \u2014 effectively zero room for meaningful new buys. Three concerns dominate this cycle. (1) AMP is the clear outlier at -10.48% from cost ($547.12 \u2192 $489.80). A well-set stop at 1.5-2x ATR below entry would have been ~$505-515, meaning this position has traded through any rational stop. AMP does not appear in the current screened candidate list, suggesting it has failed trend or momentum filters. The original thesis (wealth management re-rating) has not materialized; holding further risks an additional -5% to the -15% hard ceiling. I recommend exiting in full. (2) ULTA is the only winner at +3.26% and has reached prior target territory \u2014 hold but trail the stop tighter. (3) ADSK, FOXA, NVDA, and UHS are all mildly underwater but within normal noise; their stops are intact and theses hold. STRATEGY: Selling AMP frees ~$9,306 in cash (total cash ~$20,455), reduces positions to 5, and creates room (~$15,000 headroom after AMP exit) for one quality replacement. WDAY (Workday) is the strongest candidate from the screened list: cloud HCM/financials leader, PEG 0.62 (undervalued vs. growth), $3B+ FCF, confirmed uptrend basing at 72% of 52-week range, SMA50 slope +5.7%, and EPS revisions +3%. The SELL AMP + BUY WDAY swap upgrades the book's quality and improves trend alignment. Market regime (SPY UPTREND) supports staying invested in quality names. No other new buys warranted \u2014 the remaining 5 positions fill the concentration target.",
   "confidence_target_pct": 58,
   "trades": [
     {
-      "symbol": "UHS",
+      "symbol": "AMP",
+      "direction": "SELL",
+      "entry_strategy": "Sell at market open to close the full 19-share position. No partial exit \u2014 the position has breached a rational ATR-based stop and no screened catalyst justifies holding. Execute before adding WDAY to confirm cash availability.",
+      "entry_price": 489.8,
+      "stop_loss": 514.0,
+      "stop_loss_pct": 0.049,
+      "atr_multiple": 1.7,
+      "target": 463.0,
+      "target_gain_pct": 0.053,
+      "risk_reward_ratio": 1.1,
+      "conviction": 68,
+      "holding_period": "swing",
+      "rationale": "Fundamental: AMP (Ameriprise Financial) has declined -10.48% from cost and is absent from the current screened candidate list, implying it has failed quality or trend filters on this cycle. No visible near-term catalyst for recovery; financial sector faces rate-sensitivity headwinds. Technical: Price of $489.80 has breached the zone of any 1.5-2x ATR stop that would have been set near entry at $547. The position is in a clear downtrend from cost. Holding to the -15% hard ceiling ($465) would destroy another ~$470 in equity versus cutting now. Exiting resets the book to 5 positions and frees capital for a higher-conviction setup.",
+      "exit_plan": "Full close at market. If AMP recovers above $514 in the next 10 days, flag for potential re-entry if it reappears on the screened list. No re-entry below $514 without a confirmed new uptrend on weekly chart."
+    },
+    {
+      "symbol": "WDAY",
       "direction": "BUY",
-      "entry_strategy": "Limit order at $177.32 or slight pullback to $174-177; buy at market open if price holds above SMA50. Do not chase above $180.",
-      "entry_price": 177.32,
-      "stop_loss": 168.81,
-      "stop_loss_pct": 0.048,
-      "atr_multiple": 1.5,
-      "target": 220.0,
-      "target_gain_pct": 0.241,
-      "risk_reward_ratio": 5.0,
-      "conviction": 72,
+      "entry_strategy": "Limit order at $202-204 (current price or slight intraday pullback to SMA10 support). Fund from AMP proceeds. Do not chase above $208 \u2014 wait for a quiet entry near the basing zone.",
+      "entry_price": 204.36,
+      "stop_loss": 192.5,
+      "stop_loss_pct": 0.058,
+      "atr_multiple": 1.76,
+      "target": 241.0,
+      "target_gain_pct": 0.18,
+      "risk_reward_ratio": 3.1,
+      "conviction": 67,
       "holding_period": "position",
-      "rationale": "FUNDAMENTAL: UHS is a high-quality hospital operator with ROE of 20.9%, P/E of only 7.2x (fwd 7.4x), strong operating cash flow of $1.8B, and revenue growing +8.3%. Healthcare services are defensive and structurally growing. At 36% of its 52-week range (52w high $243, low $141), UHS is deeply undervalued on both an absolute and relative basis \u2014 well below Buffett's 'fair price' threshold. PEG of 1.25 is reasonable. TECHNICAL: Price is consolidating at exactly the SMA50 (+0.1%), confirming a Weinstein Stage 1\u21922 basing setup. SMA50 slope is rising at +3.6% \u2014 the base is tightening and trending up. 52-week range position at 36% means plenty of runway before prior resistance. ATR(14) is 3.2%, enabling a stop 1.5x ATR below entry (4.8%) that is both tight enough to protect capital and wide enough to avoid noise. No near-term earnings risk. Analyst EPS revisions are essentially flat (-0.7%) \u2014 no negative catalyst imminent. Position sizing: ~136 shares * $177.32 = ~$24,115, within the $24,198 headroom and below the 25% concentration cap ($24,229). Worst-case risk: 136 * $8.51 = $1,157 = 1.19% of equity \u2014 within the 1-2% heat rule.",
-      "exit_plan": "Exit on stop hit at $168.81 (thesis invalid if Stage 2 fails to materialize). Exit if AMP-style deterioration occurs \u2014 meaning price falls back below 52w low with no fundamental catalyst change. Time stop: if price is flat after 3 months with no progress toward SMA200 ($177 region), reassess. Partial trim at $200 (+13%) to lock in gains and trail stop. Full target $220 represents roughly 60% of the gap to 52-week high \u2014 conservative. Hold past 1 year if thesis is intact for LTCG treatment. Exit immediately if a negative earnings surprise (next cycle, ~Feb 2027) breaks the fundamental thesis on margin compression or census decline."
+      "rationale": "Fundamental: Workday is a dominant cloud HCM and financial management platform with a near-monopoly in enterprise HR workflows. PEG of 0.62 signals meaningful undervaluation relative to 12.8% revenue growth trajectory. FCF of $3.0B and Op CF of $3.1B demonstrate capital-light compounding. Operating margins expanding steadily. EPS revisions +3.0% over 60 days \u2014 analysts lifting numbers. Technical: Confirmed uptrend, basing pattern (not extended), at 72% of 52-week range \u2014 classic Stage 1 to Stage 2 transition zone. SMA50 slope +5.7% shows improving momentum. Price is +5.3% above SMA50 (not over-extended) and +31.3% above SMA200 (strong structural trend). Low ATR-relative to position risk makes sizing tractable. Position sizing: ~75 shares \u00d7 $204.36 = ~$15,327 (16% of equity, well under 25% cap). Risk: 75 \u00d7 $11.86 = $889 = 0.93% of equity heat.",
+      "exit_plan": "Primary exit: target $241 (18% gain, ~2-3 months). Stop: $192.50 on close below SMA50. Thesis-break conditions: revenue growth decelerates below 10% in next earnings report, or management guides down materially. Time stop: reassess after 90 days if neither target nor stop triggered. If held past one year with thesis intact, convert to LTCG hold and raise stop to breakeven."
     }
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "474f12a821ae90c8",
-    "prompt_chars": 21659,
-    "generated_at": "2026-10-28T10:12:43.515817+00:00",
-    "code_sha": "7e9f8fb264fe"
+    "prompt_sha256": "3c408efaa0395410",
+    "prompt_chars": 21644,
+    "generated_at": "2026-10-29T10:13:39.307141+00:00",
+    "code_sha": "b262996bea10"
   }
 }
