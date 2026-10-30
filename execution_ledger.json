@@ -1142,5 +1142,29 @@
     "entry_price": 177.32,
     "order_id": "e693ab2c-5507-4565-bc52-0dd96c98c0ac",
     "fill_status": "filled"
+  },
+  {
+    "date": "2026-10-30",
+    "timestamp": "2026-10-30T14:33:57.663878+00:00",
+    "symbol": "AMP",
+    "decision": "skipped",
+    "gate": "non_buy",
+    "detail": "SELL not auto-executed (manual via Alpaca UI)"
+  },
+  {
+    "date": "2026-10-30",
+    "timestamp": "2026-10-30T14:34:00.593164+00:00",
+    "symbol": "TEL",
+    "decision": "skipped",
+    "gate": "sector",
+    "detail": "Technology sector would be 40.0% of equity (existing $26,644 + new $12,029 = $38,673); cap is 35%"
+  },
+  {
+    "date": "2026-10-30",
+    "timestamp": "2026-10-30T14:34:01.607460+00:00",
+    "symbol": "ULTA",
+    "decision": "skipped",
+    "gate": "gross",
+    "detail": "ULTA would push gross to 97.9% of equity (current $85,449 + new $9,121 = $94,570); cap is 95% ($91,768), headroom $6,319. NO margin on the automated path."
   }
 ]
