@@ -822,3 +822,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-10-30 — NVDA closed (held 48.9d, -7.03%, $-1,075.14)
+<!-- pm-key: NVDA|2026-10-30T17:33:24|218.34 -->
+
+**Mechanical (auto-filled):**
+- Entry: $218.34 on 2026-09-11 → Exit: $202.98 on 2026-10-30 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: NVDA is the dominant picks-and-shovels play on the AI infrastructure buildout — 106% revenue growth, 66% operating margin, 117% ROE, $41.8B FCF, and the highest positive EPS revision (+22
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
