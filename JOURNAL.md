@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-10-20 → 2026-11-01
+
+_Sharpe -0.68, Sortino -0.89, MaxDD -9.4%, CAGR -9.4%, excess CAGR vs SPY -21.8% (quantstats, since inception)._
+
+**What worked / what didn't.** The two target-hit exits—IT (+20.3%, 22 days) and ULTA (+16.0%, 17 days)—validated the core thesis: quality names held long enough reached their targets cleanly. The stop discipline also held mechanically on ADBE and NVDA, which is worth noting separately from whether those exits were right. What didn't work is harder to pin down at this sample size, but NVDA stands out: 49 days held, -7%, stopped out. That's a long time to be wrong, and the hold duration suggests either the thesis stayed alive longer than the price action warranted, or the stop was set too wide. FOXA closed at +2% after 32 days—essentially flat, a long tie-up of capital that ended on a stop, not a target. One week, five closes, but those two patterns—long hold / small loss, long hold / marginal gain—both point at position endurance rather than entry quality.
+
+**What's puzzling or worth watching.** ULTA appears in both the closed trades (sold +16% via target) and the open positions (+6.8% unrealized). That means Klaas re-entered ULTA within days of exiting it at target. That's not automatically wrong, but it's worth being clear-eyed about: was that a new setup with a fresh thesis, or did it feel uncomfortable to have sold something that kept moving? FOXA is similarly doubled—closed Monday at +2%, and it's back in the book at -3.3% unrealized by Friday. Two re-entries into recently exited names in one week is a pattern the daily emails won't flag. AMP sits at -10.3% unrealized and was entered this week; it's already under meaningful pressure and was proposed alongside WDAY on Thursday. Cash swung from 42% mid-week down to 11% by Thursday before bouncing back to 26%—the portfolio was nearly fully deployed at one point, which is aggressive for a concentrated book.
+
+**Reflective prompts for Klaas.** NVDA was held nearly 50 days before the stop hit—what was the thesis check you ran at day 30, and did the answer then justify continuing to hold, or did you extend it implicitly without re-evaluating? Re-entering ULTA and FOXA within days of exiting them: do you have a written rule about re-entry cooling-off periods, and if not, what would a rule need to look like to distinguish a genuine new setup from anchoring to a name you already know? AMP is down 10.3% unrealized shortly after entry and is your second-largest open position by dollar size—what specific price level or fundamental event would tell you the original thesis is broken rather than just under pressure?
+
+
+---
+
 ## [EOD] 2026-10-30 Friday
 **What happened.** Closed: NVDA (-7.0%). End equity $96,185, cash $25,358 (26% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
