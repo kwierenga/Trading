@@ -1166,5 +1166,13 @@
     "decision": "skipped",
     "gate": "gross",
     "detail": "ULTA would push gross to 97.9% of equity (current $85,449 + new $9,121 = $94,570); cap is 95% ($91,768), headroom $6,319. NO margin on the automated path."
+  },
+  {
+    "date": "2026-11-02",
+    "timestamp": "2026-11-02T14:34:19.755425+00:00",
+    "symbol": "ULTA",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "ULTA would be 30.5% of equity (existing $19,859 + new $9,654 = $29,514); cap is 30%"
   }
 ]
