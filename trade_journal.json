@@ -250,5 +250,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 15,
+    "symbol": "NXPI",
+    "shares": 41,
+    "original_shares": 41,
+    "entry_price": 257.24,
+    "entry_time": "2026-11-03T14:33:59.414111+00:00",
+    "stop_loss": 240.0,
+    "initial_stop": 240.0,
+    "R": 17.24000000000001,
+    "current_stop": 240.0,
+    "target_price": 295.0,
+    "rationale": "FUNDAMENTAL: NXP Semiconductors is the most attractively valued quality name on the screen. PEG of 0.52, forward P/E of 14, ROE of 28.7%, and operating margin of 32.3% reflect a high-quality semicondu",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]
