@@ -1,24 +1,6 @@
 [
   {
     "id": 1,
-    "symbol": "RMD",
-    "shares": 54,
-    "entry_price": 226.94,
-    "entry_time": "2026-09-04T14:33:53.825642Z",
-    "stop_loss": null,
-    "target_price": null,
-    "rationale": "FUNDAMENTAL: ResMed is the dominant global player in CPAP devices and cloud-connected respiratory care software. The GLP-1 / Ozempic overhang that crushed the stock from $280+ to $182 in 2023\u201324 is no",
-    "source": "claude",
-    "status": "closed",
-    "exit_price": 216.0,
-    "exit_time": "2026-09-10T13:32:49.832002Z",
-    "pnl": -590.76,
-    "pnl_pct": -0.048207,
-    "duration_minutes": 8578.933439333334,
-    "reason_exit": "stop_hit"
-  },
-  {
-    "id": 2,
     "symbol": "TMUS",
     "shares": 66,
     "entry_price": 181.872728,
@@ -36,7 +18,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 3,
+    "id": 2,
     "symbol": "BR",
     "shares": 72,
     "entry_price": 168.59,
@@ -54,7 +36,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 4,
+    "id": 3,
     "symbol": "IT",
     "shares": 46,
     "entry_price": 184.54,
@@ -72,7 +54,7 @@
     "reason_exit": "target_hit"
   },
   {
-    "id": 5,
+    "id": 4,
     "symbol": "ULTA",
     "shares": 21,
     "entry_price": 542.94,
@@ -90,7 +72,7 @@
     "reason_exit": "target_hit"
   },
   {
-    "id": 6,
+    "id": 5,
     "symbol": "FOXA",
     "shares": 143,
     "entry_price": 63.65,
@@ -108,7 +90,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 7,
+    "id": 6,
     "symbol": "ADBE",
     "shares": 45,
     "entry_price": 263.93,
@@ -126,7 +108,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 8,
+    "id": 7,
     "symbol": "NVDA",
     "shares": 70,
     "entry_price": 218.34,
@@ -144,7 +126,7 @@
     "reason_exit": "stop_hit"
   },
   {
-    "id": 9,
+    "id": 8,
     "symbol": "FOXA",
     "shares": 41,
     "entry_price": 63.65,
@@ -162,7 +144,7 @@
     "reason_exit": null
   },
   {
-    "id": 10,
+    "id": 9,
     "symbol": "FOXA",
     "shares": 143,
     "entry_price": 65.89,
@@ -180,7 +162,7 @@
     "reason_exit": null
   },
   {
-    "id": 11,
+    "id": 10,
     "symbol": "ULTA",
     "shares": 16,
     "entry_price": 577.1,
@@ -198,7 +180,7 @@
     "reason_exit": null
   },
   {
-    "id": 12,
+    "id": 11,
     "symbol": "ULTA",
     "shares": 15,
     "entry_price": 623.84,
@@ -216,7 +198,7 @@
     "reason_exit": null
   },
   {
-    "id": 13,
+    "id": 12,
     "symbol": "ADSK",
     "shares": 49,
     "entry_price": 244.81,
@@ -234,7 +216,7 @@
     "reason_exit": null
   },
   {
-    "id": 14,
+    "id": 13,
     "symbol": "UHS",
     "shares": 101,
     "entry_price": 177.17,
@@ -244,30 +226,6 @@
     "rationale": "FUNDAMENTAL: UHS is a high-quality hospital operator with ROE of 20.9%, P/E of only 7.2x (fwd 7.4x), strong operating cash flow of $1.8B, and revenue growing +8.3%. Healthcare services are defensive a",
     "source": "claude",
     "status": "open",
-    "exit_price": null,
-    "exit_time": null,
-    "pnl": null,
-    "pnl_pct": null,
-    "duration_minutes": null,
-    "reason_exit": null
-  },
-  {
-    "id": 15,
-    "symbol": "NXPI",
-    "shares": 41,
-    "original_shares": 41,
-    "entry_price": 257.24,
-    "entry_time": "2026-11-03T14:33:59.414111+00:00",
-    "stop_loss": 240.0,
-    "initial_stop": 240.0,
-    "R": 17.24000000000001,
-    "current_stop": 240.0,
-    "target_price": 295.0,
-    "rationale": "FUNDAMENTAL: NXP Semiconductors is the most attractively valued quality name on the screen. PEG of 0.52, forward P/E of 14, ROE of 28.7%, and operating margin of 32.3% reflect a high-quality semicondu",
-    "source": "claude",
-    "status": "open",
-    "scaled_25_at_1r": false,
-    "scaled_25_at_2r": false,
     "exit_price": null,
     "exit_time": null,
     "pnl": null,
