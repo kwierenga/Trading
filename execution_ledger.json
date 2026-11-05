@@ -1194,5 +1194,33 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "ULTA would be 30.2% of equity (existing $19,581 + new $9,611 = $29,193); cap is 30%"
+  },
+  {
+    "date": "2026-11-05",
+    "timestamp": "2026-11-05T14:34:01.428551+00:00",
+    "symbol": "TEL",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $206.35, target $260.00; submit status pending_new",
+    "shares": 55,
+    "entry_price": 220.22,
+    "order_id": "a71c2ee3-ba12-490a-b1a7-13ff890bd398",
+    "fill_status": "unknown"
+  },
+  {
+    "date": "2026-11-05",
+    "timestamp": "2026-11-05T14:34:05.358862+00:00",
+    "symbol": "FOXA",
+    "decision": "skipped",
+    "gate": "gross",
+    "detail": "FOXA would push gross to 97.1% of equity (current $89,727 + new $10,290 = $100,017); cap is 95% ($97,824), headroom $8,097. NO margin on the automated path."
+  },
+  {
+    "date": "2026-11-05",
+    "timestamp": "2026-11-05T14:34:09.717344+00:00",
+    "symbol": "UHS",
+    "decision": "skipped",
+    "gate": "gross",
+    "detail": "UHS would push gross to 97.1% of equity (current $89,727 + new $10,267 = $99,994); cap is 95% ($97,824), headroom $8,097. NO margin on the automated path."
   }
 ]
