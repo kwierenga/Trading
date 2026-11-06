@@ -4598,5 +4598,58 @@
         "unrealized_pl": 1890.500001
       }
     ]
+  },
+  {
+    "timestamp": "2026-11-06T01:30:16.081273+00:00",
+    "account": {
+      "equity": 99434.6,
+      "buying_power": 285759.95,
+      "cash": 14069.23,
+      "status": "ACTIVE"
+    },
+    "positions": [
+      {
+        "symbol": "ADSK",
+        "qty": 49.0,
+        "avg_entry_price": 244.81,
+        "current_price": 261.5,
+        "unrealized_pl": 817.81
+      },
+      {
+        "symbol": "AMP",
+        "qty": 19.0,
+        "avg_entry_price": 547.121053,
+        "current_price": 509.32,
+        "unrealized_pl": -718.220007
+      },
+      {
+        "symbol": "FOXA",
+        "qty": 184.0,
+        "avg_entry_price": 65.39087,
+        "current_price": 67.67,
+        "unrealized_pl": 419.35992
+      },
+      {
+        "symbol": "NXPI",
+        "qty": 41.0,
+        "avg_entry_price": 257.10122,
+        "current_price": 249.32,
+        "unrealized_pl": -319.03002
+      },
+      {
+        "symbol": "UHS",
+        "qty": 101.0,
+        "avg_entry_price": 177.17,
+        "current_price": 198.59,
+        "unrealized_pl": 2163.42
+      },
+      {
+        "symbol": "ULTA",
+        "qty": 31.0,
+        "avg_entry_price": 599.716129,
+        "current_price": 649.8,
+        "unrealized_pl": 1552.600001
+      }
+    ]
   }
 ]

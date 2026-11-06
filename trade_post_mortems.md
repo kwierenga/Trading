@@ -841,3 +841,22 @@ eventually, to RULEBOOK.md.
 - What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
 
 ---
+
+## 2026-11-05 — TEL closed (held 0.3d, -6.18%, $-747.22)
+<!-- pm-key: TEL|2026-11-05T20:57:48|219.859454 -->
+
+**Mechanical (auto-filled):**
+- Entry: $219.86 on 2026-11-05 → Exit: $206.27 on 2026-11-05 via stop_hit
+- Tax bucket: STCG
+- Pre-trade rationale: FUNDAMENTAL: TE Connectivity is a high-quality industrial/technology connector manufacturer with ROE of 24.6%, operating margin of 21.1%, and revenue growth of 11.9%. Forward P/E of 14.49 and PEG of 1
+
+**Reflective (fill within 24h):**
+- What I expected to happen: _(fill in within 24h)_
+- What actually happened: _(fill in within 24h)_
+- What surprised me: _(fill in within 24h)_
+- Entry timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Exit timing right in retrospect? (Y/N + why): _(fill in within 24h)_
+- Did I override the system anywhere? (size/stop/hold/exit + why): _(fill in within 24h)_
+- What would I do differently? (or "nothing — process worked"): _(fill in within 24h)_
+
+---
