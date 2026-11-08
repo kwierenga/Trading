@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-10-27 → 2026-11-08
+
+_Sharpe -0.14, Sortino -0.20, MaxDD -9.4%, CAGR -3.3%, excess CAGR vs SPY -9.6% (quantstats, since inception)._
+
+**What worked / what didn't.** The two largest winners this week — UHS (+10.3%) and ULTA (+7.5%) — both entered late in the week via limit orders after appearing in the candidate queue for several days (ULTA was proposed as far back as Monday before filling). Patience on entry appears to have paid off there. Against that, all three closes were stop-hits: NVDA held nearly 49 days and gave back enough to close at -7%, which is a different kind of failure than TEL, which stopped out in under a day — roughly 7 hours. Those two shouldn't be lumped together as the same outcome. ADBE's 4-day, -4% stop is the middling case. The stops worked as a mechanical backstop, but the NVDA exit after 49 days at -7% raises a question about whether the trail was wide enough for the hold period, or whether the thesis had already softened before the stop triggered.
+
+**What's puzzling or worth watching.** The journal's "What we learned" fields are blank for every EOD entry this week without exception. That's not a formatting oversight — it's a pattern. The AM entries show real pre-trade thinking (fill risk, confidence levels, overnight news checks), but the EOD reflection loop isn't closing. That asymmetry means hypotheses get formed but never scored. Separately, AMP is now sitting at -8.3% unrealized — the largest open loss in the book — and it was first proposed on Oct 30, meaning it has been underwater essentially from entry. It hasn't stopped out, so the rules are being followed, but it deserves scrutiny as the week opens.
+
+**Reflective prompts for Klaas.** NVDA was held 49 days through what was presumably a range of market conditions — at what point during that hold did the original momentum thesis stop being true, and was there a moment where you noticed but deferred to the stop rather than the thesis? TEL stopped out in under a day: looking back at the AM entry for Nov 5, what in the setup should have flagged that the entry timing was poor, or was this genuinely unforeseeable given what was known at 09:35? The EOD "What we learned" sections are blank all week — what would it take to make that two-sentence habit feel worth doing on days when nothing closed?
+
+
+---
+
 ## [EOD] 2026-11-06 Friday
 **What happened.** No trades closed today. End equity $98,615, cash $14,069 (14% of equity), 6 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
