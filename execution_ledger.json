@@ -1278,5 +1278,21 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "ULTA would be 30.0% of equity (existing $20,617 + new $9,358 = $29,975); cap is 30%"
+  },
+  {
+    "date": "2026-11-11",
+    "timestamp": "2026-11-11T14:33:51.472157+00:00",
+    "symbol": "UHS",
+    "decision": "skipped",
+    "gate": "gross",
+    "detail": "UHS would push gross to 95.7% of equity (current $85,863 + new $9,820 = $95,683); cap is 95% ($94,936), headroom $9,072. NO margin on the automated path."
+  },
+  {
+    "date": "2026-11-11",
+    "timestamp": "2026-11-11T14:33:53.804555+00:00",
+    "symbol": "ULTA",
+    "decision": "skipped",
+    "gate": "gross",
+    "detail": "ULTA would push gross to 95.3% of equity (current $85,863 + new $9,348 = $95,212); cap is 95% ($94,936), headroom $9,072. NO margin on the automated path."
   }
 ]
