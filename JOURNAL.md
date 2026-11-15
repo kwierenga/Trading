@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-11-03 → 2026-11-15
+
+_Sharpe +0.12, Sortino +0.18, MaxDD -9.4%, CAGR +0.6%, excess CAGR vs SPY -10.5% (quantstats, since inception)._
+
+**What worked / what didn't.** The stop on TEL did exactly what it was supposed to — cut a losing position in 0.3 days for a defined $747 loss before it could compound. That's the rule working, not a failure. What didn't work is harder to pin down with one closed trade, but the TEL entry itself deserves scrutiny: it was flagged at 62% confidence alongside FOXA on the same morning, FOXA is now +4.6%, and TEL was stopped out the same day. Same screen, same session, opposite outcomes. That's not a process indictment, but it's worth understanding what differentiated them in the setup, if anything. AMP at -5.1% unrealized is the live position to watch — it's the only one below entry and not yet at a stop.
+
+**What's puzzling or worth watching.** The journal's "What we learned" fields are blank every single day this week. The AM questions about UHS and ULTA repeat verbatim across five consecutive mornings — same phrasing, same open questions — which suggests the limit orders either kept not filling or the reflection habit hasn't been engaged at all. That's a data gap, not a minor bookkeeping issue. It means there's no recorded reasoning for why UHS and ULTA eventually filled when they did, or what changed between Nov 6 and whenever they entered. The concentration in the two largest positions — ULTA and UHS together represent roughly 40% of equity — arrived quietly, without a journal trace of the decision.
+
+**Reflective prompts for Klaas.** The EOD "What we learned" field was blank all week — what would it take to treat that 15-minute review as non-negotiable rather than optional, and what specifically got in the way this week? TEL and FOXA were entered on the same morning with similar confidence; do you have a clear account of why one held and one didn't, or does the distinction only look obvious in hindsight? AMP is sitting at -5.1% with no recorded thesis update — at what point does unrealized loss require you to re-examine whether the original thesis is still intact rather than simply waiting for the stop?
+
+
+---
+
 ## [EOD] 2026-11-13 Friday
 **What happened.** No trades closed today. End equity $100,267, cash $14,069 (14% of equity), 6 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
