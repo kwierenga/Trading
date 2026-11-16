@@ -1342,5 +1342,29 @@
     "decision": "skipped",
     "gate": "concentration",
     "detail": "ULTA would be 30.0% of equity (existing $20,217 + new $9,813 = $30,030); cap is 30%"
+  },
+  {
+    "date": "2026-11-16",
+    "timestamp": "2026-11-16T14:33:46.578297+00:00",
+    "symbol": "ADSK",
+    "decision": "skipped",
+    "gate": "gross",
+    "detail": "ADSK would push gross to 95.8% of equity (current $86,646 + new $9,832 = $96,479); cap is 95% ($95,679), headroom $9,033. NO margin on the automated path."
+  },
+  {
+    "date": "2026-11-16",
+    "timestamp": "2026-11-16T14:33:47.094124+00:00",
+    "symbol": "UHS",
+    "decision": "skipped",
+    "gate": "gross",
+    "detail": "UHS would push gross to 95.9% of equity (current $86,646 + new $9,947 = $96,593); cap is 95% ($95,679), headroom $9,033. NO margin on the automated path."
+  },
+  {
+    "date": "2026-11-16",
+    "timestamp": "2026-11-16T14:33:47.240969+00:00",
+    "symbol": "ULTA",
+    "decision": "skipped",
+    "gate": "concentration",
+    "detail": "ULTA would be 30.3% of equity (existing $20,581 + new $9,959 = $30,540); cap is 30%"
   }
 ]
