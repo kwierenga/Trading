@@ -268,5 +268,29 @@
     "pnl_pct": null,
     "duration_minutes": null,
     "reason_exit": null
+  },
+  {
+    "id": 16,
+    "symbol": "ULTA",
+    "shares": 14,
+    "original_shares": 14,
+    "entry_price": 651.75,
+    "entry_time": "2026-11-19T14:33:57.345914+00:00",
+    "stop_loss": 612.82,
+    "initial_stop": 612.82,
+    "R": 38.92999999999995,
+    "current_stop": 612.82,
+    "target_price": 782.1,
+    "rationale": "PYRAMID tranche 2: original lot held 35d at +8.1%; price $648.51 > SMA20 $644.44; adding $9,124 (14 sh) with combined break-even stop at $612.82.",
+    "source": "claude",
+    "status": "open",
+    "scaled_25_at_1r": false,
+    "scaled_25_at_2r": false,
+    "exit_price": null,
+    "exit_time": null,
+    "pnl": null,
+    "pnl_pct": null,
+    "duration_minutes": null,
+    "reason_exit": null
   }
 ]

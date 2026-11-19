@@ -1390,5 +1390,17 @@
     "decision": "skipped",
     "gate": "gross",
     "detail": "UHS would push gross to 95.5% of equity (current $83,593 + new $9,647 = $93,240); cap is 95% ($92,779), headroom $9,186. NO margin on the automated path."
+  },
+  {
+    "date": "2026-11-19",
+    "timestamp": "2026-11-19T14:33:57.345728+00:00",
+    "symbol": "ULTA",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $612.82, target $782.10; submit status pending_new",
+    "shares": 14,
+    "entry_price": 651.75,
+    "order_id": "25c10be3-a7ef-4ef2-80af-b4777b94af01",
+    "fill_status": "unknown"
   }
 ]
