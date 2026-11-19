@@ -1,18 +1,18 @@
 {
-  "analysis": "MARKET REGIME: SPY is in a confirmed broad downtrend (-4.0% vs SMA50, 20d slope -0.57%). This is the single most important input today \u2014 quality-value strategies suffer their worst drawdowns during market-wide selloffs, not from bad stock picks. Rule is clear: prefer cash or materially smaller sizing in this environment.\n\nPORTFOLIO REVIEW: At 86% deployed with only $9,170 headroom remaining (gross cap 95%), the book is already near-full. Any new position would be too small (~$9k) to move the needle and would add market exposure precisely when the regime argues for less.\n\nPOSITION-BY-POSITION:\n- UHS (+8.36%): Thesis intact; still on screened list with solid uptrend, basing near 52w midpoint, fwd P/E 8x. Hold. Largest position at ~20% of equity but within cap.\n- ULTA (+6.05%): Consumer discretionary holding up well. Still in screened universe. Hold.\n- ADSK (+4.24%): Small positive cushion, hold and monitor.\n- FOXA (+1.59%): Small gain, thesis intact for media/content play. Hold.\n- NXPI (-0.77%): Essentially flat; still on screened list in uptrend basing. Fwd P/E 13.76 is reasonable for a semi. Hold but watch closely \u2014 semis are macro-sensitive in a downtrend.\n- AMP (-7.56%, $505.77 vs avg $547.12): THIS IS THE CONCERN. AMP does NOT appear on this cycle's screened candidate list, which strongly implies it has failed either the trend or quality filter. A -7.56% unrealized loss on a position that is now outside the investable universe is a classic thesis-break signal. The stock needs to be on watchlist for a stop-hit or manual exit if the name confirms a downtrend. At $547 entry with a ~10-12% stop, the stop level would be ~$480-$493. We are not at stop yet, but this position should be on a short leash. If AMP cannot recover above its cost basis as the market stabilizes, it should be exited.\n\nNEW TRADES: Zero trades proposed. Rationale: (1) Confirmed market downtrend argues against adding gross long exposure. (2) Remaining headroom of only $9,170 makes meaningful position sizing impossible \u2014 any new buy would be a ~9% of equity micro-position that cannot be properly risk-managed per the 1-2% heat formula. (3) The best candidates (ISRG, DOV, NXPI already held) are legitimate quality businesses but none offer a materially asymmetric entry in a downtrending tape. (4) With a Sortino of -9.15 and profit factor of only 1.07x, capital preservation \u2014 not trade generation \u2014 is the priority. Holding the $14k cash buffer and refusing to force trades IS the edge here. Revisit when SPY reclaims SMA50 or when AMP is exited and cash is freed for a properly sized new idea.",
+  "analysis": "MARKET REGIME: SPY is in a confirmed downtrend (-4.2% vs SMA50, -0.66% 20d slope). This is the single most important input today. The strategy explicitly calls for preferring cash or materially smaller size in broad downtrends. Quality-value's deepest drawdowns are market-wide, not name-specific \u2014 adding equity exposure now means fighting the tape.\n\nPORTFOLIO REVIEW:\n\u2022 ULTA (+8.06%) and UHS (+5.02%) are performing well; theses intact, hold.\n\u2022 ADSK (+3.44%) grinding upward, holding above cost; thesis intact.\n\u2022 NXPI (+0.70%) essentially flat but basing, still in screened candidates with improving technicals; hold.\n\u2022 FOXA (+0.64%) basically flat; low-volatility position, no action needed.\n\u2022 AMP (-7.70%) is the concern flag. It does NOT appear in this cycle's screened candidates \u2014 meaning it has either slipped into a downtrend or failed a quality filter. Down nearly 8% from cost in a down-market environment with financial services under pressure. This position warrants a close review: if AMP is now in a confirmed downtrend or its SMA50 slope has turned negative, the thesis may be breaking. The existing stop-loss should be respected; if not already set, a stop at approximately $465 (~8% below current, within ATR tolerance) is appropriate to protect remaining capital.\n\nCAPACITY ANALYSIS: With 86% of equity deployed across 6 positions and only $9,185 of remaining headroom before hitting the 95% gross cap, any new position would be capped at roughly 9.4% of equity. At that size, even a 2:1 R/R trade contributes less than 1% to portfolio alpha while adding market beta in a downtrend. The math does not support forcing an entry.\n\nSCREENED CANDIDATES: Several candidates look interesting fundamentally (TXN with +14.6% EPS revision and strong momentum; TKO with +29.1% EPS revision; DOV basing near fair value) but: (1) TXN is at 80% of 52w range and extending \u2014 borderline overextended entry; (2) TKO is MIXED/SIDEWAYS with negative SMA50 slope; (3) DOV is fine but adds industrial sector exposure with no capacity advantage. None clear the bar of 'genuinely asymmetric' given the regime headwind and position-sizing constraints.\n\nDECISION: Zero new trades. Cash is a position. The highest-probability action is to protect the existing book, monitor AMP for stop execution, let the market regime clarify, and deploy the $9,185 headroom only when a clear Stage-1-to-Stage-2 breakout appears in a market that has stabilized. A quiet, mostly-deployed book that avoids adding beta into a downtrend is the correct posture here.",
   "confidence_target_pct": 52,
   "trades": [
     {
-      "symbol": "UHS",
+      "symbol": "ULTA",
       "direction": "BUY",
-      "entry_price": 192.94,
-      "stop_loss": 181.48,
-      "target": 231.53,
+      "entry_price": 651.75,
+      "stop_loss": 612.82,
+      "target": 782.1,
       "conviction": 75,
       "holding_period": "swing",
-      "risk_reward_ratio": 3.367364746945897,
-      "rationale": "PYRAMID tranche 2: original lot held 20d at +8.4%; price $191.98 > SMA20 $188.06; adding $9,647 (50 sh) with combined break-even stop at $181.48.",
-      "entry_strategy": "Limit @ $192.94 (current +0.5%)",
+      "risk_reward_ratio": 3.3483174929360437,
+      "rationale": "PYRAMID tranche 2: original lot held 35d at +8.1%; price $648.51 > SMA20 $644.44; adding $9,124 (14 sh) with combined break-even stop at $612.82.",
+      "entry_strategy": "Limit @ $651.75 (current +0.5%)",
       "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
       "is_pyramid": true,
       "tranche": 2
@@ -20,9 +20,9 @@
   ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "4f5339bbd5118916",
-    "prompt_chars": 21654,
-    "generated_at": "2026-11-18T10:25:24.853105+00:00",
-    "code_sha": "d30e3fcfd823"
+    "prompt_sha256": "e62342c2a75880b8",
+    "prompt_chars": 21772,
+    "generated_at": "2026-11-19T10:26:42.350105+00:00",
+    "code_sha": "5fd65d614f00"
   }
 }
