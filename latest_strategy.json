@@ -1,28 +1,12 @@
 {
-  "analysis": "MARKET REGIME: SPY is in a confirmed downtrend (-4.2% vs SMA50, -0.66% 20d slope). This is the single most important input today. The strategy explicitly calls for preferring cash or materially smaller size in broad downtrends. Quality-value's deepest drawdowns are market-wide, not name-specific \u2014 adding equity exposure now means fighting the tape.\n\nPORTFOLIO REVIEW:\n\u2022 ULTA (+8.06%) and UHS (+5.02%) are performing well; theses intact, hold.\n\u2022 ADSK (+3.44%) grinding upward, holding above cost; thesis intact.\n\u2022 NXPI (+0.70%) essentially flat but basing, still in screened candidates with improving technicals; hold.\n\u2022 FOXA (+0.64%) basically flat; low-volatility position, no action needed.\n\u2022 AMP (-7.70%) is the concern flag. It does NOT appear in this cycle's screened candidates \u2014 meaning it has either slipped into a downtrend or failed a quality filter. Down nearly 8% from cost in a down-market environment with financial services under pressure. This position warrants a close review: if AMP is now in a confirmed downtrend or its SMA50 slope has turned negative, the thesis may be breaking. The existing stop-loss should be respected; if not already set, a stop at approximately $465 (~8% below current, within ATR tolerance) is appropriate to protect remaining capital.\n\nCAPACITY ANALYSIS: With 86% of equity deployed across 6 positions and only $9,185 of remaining headroom before hitting the 95% gross cap, any new position would be capped at roughly 9.4% of equity. At that size, even a 2:1 R/R trade contributes less than 1% to portfolio alpha while adding market beta in a downtrend. The math does not support forcing an entry.\n\nSCREENED CANDIDATES: Several candidates look interesting fundamentally (TXN with +14.6% EPS revision and strong momentum; TKO with +29.1% EPS revision; DOV basing near fair value) but: (1) TXN is at 80% of 52w range and extending \u2014 borderline overextended entry; (2) TKO is MIXED/SIDEWAYS with negative SMA50 slope; (3) DOV is fine but adds industrial sector exposure with no capacity advantage. None clear the bar of 'genuinely asymmetric' given the regime headwind and position-sizing constraints.\n\nDECISION: Zero new trades. Cash is a position. The highest-probability action is to protect the existing book, monitor AMP for stop execution, let the market regime clarify, and deploy the $9,185 headroom only when a clear Stage-1-to-Stage-2 breakout appears in a market that has stabilized. A quiet, mostly-deployed book that avoids adding beta into a downtrend is the correct posture here.",
-  "confidence_target_pct": 52,
-  "trades": [
-    {
-      "symbol": "ULTA",
-      "direction": "BUY",
-      "entry_price": 651.75,
-      "stop_loss": 612.82,
-      "target": 782.1,
-      "conviction": 75,
-      "holding_period": "swing",
-      "risk_reward_ratio": 3.3483174929360437,
-      "rationale": "PYRAMID tranche 2: original lot held 35d at +8.1%; price $648.51 > SMA20 $644.44; adding $9,124 (14 sh) with combined break-even stop at $612.82.",
-      "entry_strategy": "Limit @ $651.75 (current +0.5%)",
-      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
-      "is_pyramid": true,
-      "tranche": 2
-    }
-  ],
+  "analysis": "MARKET REGIME: SPY is in a confirmed BROAD DOWNTREND (-6.0% vs SMA50, 20-day slope -0.75%). This is the single most important factor today \u2014 quality-value strategies suffer their deepest drawdowns during market-wide selloffs, not from name-specific issues. The regime alone argues strongly for no new exposure.\n\nPORTFOLIO CAPACITY: With $5,005.93 cash and only $298 of remaining headroom within our gross-cap constraint, the book is essentially full at 95% deployed across 6 positions. There is no meaningful capacity to initiate new buys without first exiting something. Forcing a new position using margin in a downtrend would be a double error.\n\nEXISTING POSITION REVIEW:\n- ULTA (+2.18%, $28,258): Only winner; thesis intact. ULTA appears on the screened candidate list as well. Hold.\n- UHS (-1.23%, $17,675): Modest loss, within noise. Healthcare tends to be defensive. Hold and monitor.\n- ADSK (-1.18%, $11,855): Slight loss. Watch for further deterioration given tech sector pressure. No action yet.\n- FOXA (-2.36%, $11,748): Slight loss. Media sector, manageable drawdown. Hold.\n- NXPI (-2.65%, $10,262): Slight loss. NXPI still appears on the quality+trend screener (UPTREND basing), which is reassuring \u2014 the stock is holding up despite the market. Hold.\n- AMP (-10.01%, $9,355): THIS IS THE CONCERN. At -10% from avg cost of $547.12, AMP is approaching the zone where the original thesis must be reexamined. If the stop was set at ~15% below entry (~$465), there is still buffer, but AMP has underperformed badly in a down market when defensive financial names should be holding better. Watch closely \u2014 a close below $470 or further earnings-driven deterioration should trigger exit regardless of the technical stop level.\n\nSortino ratio of -13.72 reflects genuine pain across the book. The right response is not to compound the problem by deploying the remaining $298 of headroom into more risk during a downtrend.\n\nCONCLUSION: Zero new trades. Cash is a position. With no capacity, a hostile market regime, and several positions needing monitoring (especially AMP), the disciplined move is to hold, manage existing risk, and wait for the market to prove a base before adding exposure. The objective is capital preservation on a risk-adjusted basis \u2014 sitting tight in a downtrend IS the strategy working correctly.",
+  "confidence_target_pct": 62,
+  "trades": [],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "e62342c2a75880b8",
-    "prompt_chars": 21772,
-    "generated_at": "2026-11-19T10:26:42.350105+00:00",
-    "code_sha": "5fd65d614f00"
+    "prompt_sha256": "a32be2de6f9ae70d",
+    "prompt_chars": 21638,
+    "generated_at": "2026-11-20T10:25:31.984376+00:00",
+    "code_sha": "6c3c0d8c3a12"
   }
 }
