@@ -12,6 +12,19 @@ Cap: 3 sentences per section. If you need more, it belongs in a memo, not the jo
 
 ---
 
+## [WEEK] 2026-11-10 → 2026-11-22
+
+_Sharpe -0.98, Sortino -1.35, MaxDD -10.6%, CAGR -16.0%, excess CAGR vs SPY -10.7% (quantstats, since inception)._
+
+**What worked / what didn't.** The stop on NXPI did its job — it capped a loss at -6.8% / $712 after 15 days, which is the system working as designed. What's harder to assess is whether the stop level itself was well-placed or just got picked off in noise; without knowing where NXPI went after exit, that question stays open. The new entries (ADSK, UHS, ULTA) all took multiple days to fill from their first appearance in the queue on Nov 12-13, which suggests limit discipline is real but also raises the question of whether the fills came at genuinely better prices or just during broad market weakness — AMP at -12.2% unrealized argues for the latter possibility on at least one name.
+
+**What's puzzling or worth watching.** AMP is the outlier that the journal doesn't address at all — a -12.2% unrealized loss on a $9,126 position is the single largest drag on the book right now, and there's no mention of it in any AM or EOD entry this week. Either it's within the predefined stop range and therefore not yet requiring a decision, or it's being passively held without active monitoring. That silence is worth noticing. Separately, cash swung from 5% (Nov 19) to 16% (Nov 20) in a single day solely because NXPI was stopped out — the portfolio is concentrated enough that one exit materially changes the risk profile overnight.
+
+**Reflective prompts for Klaas.** The journal's "What we learned" fields are blank for every single EOD entry this week — is the 15-minute review actually happening, or is the template being treated as a formality, and what would it take to make that section earn its place? AMP is sitting at -12.2% with no written thesis-check recorded; at what unrealized loss level does a position require an explicit written re-examination of the original thesis, separate from the stop trigger? ADSK, FOXA, and ULTA entered the queue simultaneously three days before they filled — when a setup lingers in the queue across multiple re-evaluations, does repeated survival strengthen conviction or just reflect that nothing has actively disqualified it?
+
+
+---
+
 ## [EOD] 2026-11-20 Friday
 **What happened.** Closed: NXPI (-6.8%). End equity $92,437, cash $14,835 (16% of equity), 5 open position(s). 
 **What we learned.** [Add 1-2 sentences during your 15-min review: what surprised you today, what hypothesis got confirmed or refuted, or what you noticed about the market.] 
