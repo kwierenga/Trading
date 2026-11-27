@@ -1402,5 +1402,17 @@
     "entry_price": 651.75,
     "order_id": "25c10be3-a7ef-4ef2-80af-b4777b94af01",
     "fill_status": "unknown"
+  },
+  {
+    "date": "2026-11-27",
+    "timestamp": "2026-11-27T14:33:52.113395+00:00",
+    "symbol": "UHS",
+    "decision": "placed",
+    "gate": "submitted",
+    "detail": "bracket gtc; stop $181.01, target $229.82; submit status pending_new",
+    "shares": 50,
+    "entry_price": 191.52,
+    "order_id": "53ccaa9f-c793-4003-82eb-a9dc723b70ee",
+    "fill_status": "unknown"
   }
 ]
