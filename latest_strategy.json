@@ -1,12 +1,28 @@
 {
-  "analysis": "MARKET REGIME \u2014 DOWNTREND ACTIVE: SPY is -5.2% below its 50-day SMA with a negative 20d slope (-1.06%). This is the single most important input today. Quality-value strategies suffer their worst drawdowns during broad market selloffs, not from name-specific blowups. Deploying new capital aggressively into a confirmed downtrend is the surest way to destroy the account's compounding baseline.\n\nPORTFOLIO REVIEW \u2014 Five positions consuming 84% of equity with only $10,051 of headroom remaining for new buys. That alone argues for a quiet hand.\n\n(1) AMP (-9.01%, $9,458): This is the most urgent flag. Ameriprise is down 9% from average cost in a deteriorating macro environment for financials/wealth management. Broad market weakness compounds the drawdown risk here. If the original stop was placed around 12-15% below entry (~$464-$478), it has not been technically triggered yet, but the position is in drawdown territory that warrants active monitoring. The thesis relied on a basing setup continuing \u2014 with SPY in confirmed downtrend and AMP approaching its lower bound, holders should ask whether the original trend premise still holds. No action today because the stop has not been hit, but this is a 'one more leg down and exit' situation.\n\n(2) ULTA (+4.31%): Largest position ($28,845 / ~30% of equity \u2014 right at the 25% hard cap on market value). Already a winner; let it run but be alert to any thesis break.\n\n(3) UHS (+3.40%): Also in the screened candidate list showing uptrend with basing. Performing well relative to market. No action needed.\n\n(4) FOXA (-0.60%): Essentially flat. No action needed.\n\n(5) ADSK (+0.71%): Barely positive. No action needed.\n\nNEW BUYS \u2014 Zero new trades proposed. Three compounding reasons: (a) market regime is DOWNTREND \u2014 the base rate for new longs initiated in confirmed downtrends is unfavorable; (b) only $10,051 of deployment headroom remains, too thin to size any position with proper risk management (1.5% portfolio heat formula yields $1,435 risk budget; at ~5% typical stop that implies a $28,700 position, almost 3x available cash); (c) the portfolio's Sortino ratio of -11.77 and 1.05 profit factor tell us edge is marginal at best \u2014 this is exactly the environment where sitting on cash is the alpha. No candidate clears the hurdle of genuinely asymmetric setup + adequate sizing capacity + favorable macro backdrop simultaneously. Cash is the position.",
+  "analysis": "MARKET REGIME: SPY is in a confirmed broad downtrend (-5.4% vs SMA50, slope -1.17%). This is the single most important input today. Quality-value strategies experience their deepest drawdowns in market-wide selloffs, not name-specific ones. Deploying more capital into this environment would be disciplined violation, not opportunity-seeking.\n\nPORTFOLIO REVIEW:\n- ULTA (+4.57%, $28.9k): Largest position, holding well. Not in screened candidates this cycle \u2014 monitor whether trend filters have changed, but no thesis-break evident from price action.\n- UHS (+7.56%, $19.2k): In screened candidates, uptrend basing confirmed, thesis intact. EPS revisions -4.8% is a mild flag worth watching next earnings (Jan 2026 est). No action needed.\n- ADSK (+2.41%, $12.3k): Small gain, thesis intact. Not in screened candidates \u2014 verify trend status hasn't deteriorated.\n- FOXA (-1.13%, $11.9k): Slight loss, within normal noise. Not in screened candidates. Keep stop discipline in place.\n- AMP (-7.70%, $9.6k): This is the most concerning position. Down 7.7% from avg cost of $547.12, now $504.99. AMP did NOT appear in this cycle's screened candidates, suggesting it may have failed trend or quality filters. At -7.7% the position is approaching meaningful loss territory. Recommend checking whether original stop has been hit or is close \u2014 if AMP is in a confirmed downtrend per filters, the thesis may be broken. Flag for immediate stop review.\n\nCAPACITY: 85% deployed in 5 positions. Only ~$10k headroom remains before hitting the 95% gross cap. This is insufficient to size even a half-sized position properly (a 15%-stop position needs ~$5k risk buffer minimum, meaning position size ~$33k at 1.5% equity risk \u2014 well above remaining headroom). Proper sizing is impossible without first reducing existing exposure.\n\nNEW TRADES: Zero. Three overlapping reasons: (1) Market downtrend \u2014 most screened candidates are fighting the tide; (2) Capacity exhausted \u2014 $10k headroom cannot support a properly-sized new position; (3) Several candidates extended well above SMA50 (APP +21.4%, PNR +21.3%) violating entry timing rules, and high-range-position names (LLY 91%, HST 88%, CBOE 82%) exceed the 80% threshold. The most attractive basing setups (NOC at 29% 52w range, ZTS at 23%) are overshadowed by the macro downtrend. Sitting in cash and monitoring is the highest-quality action available today. The Sortino of -10.46 signals the current book is generating negative risk-adjusted returns \u2014 adding to that pressure is contraindicated.",
   "confidence_target_pct": 52,
-  "trades": [],
+  "trades": [
+    {
+      "symbol": "UHS",
+      "direction": "BUY",
+      "entry_price": 191.52,
+      "stop_loss": 181.01,
+      "target": 229.82,
+      "conviction": 75,
+      "holding_period": "swing",
+      "risk_reward_ratio": 3.6441484300665947,
+      "rationale": "PYRAMID tranche 2: original lot held 29d at +7.6%; price $190.57 > SMA20 $188.28; adding $9,576 (50 sh) with combined break-even stop at $181.01.",
+      "entry_strategy": "Limit @ $191.52 (current +0.5%)",
+      "exit_plan": "Bracket; trail-managed after +1R by position_manager.",
+      "is_pyramid": true,
+      "tranche": 2
+    }
+  ],
   "_meta": {
     "model": "claude-sonnet-4-6",
-    "prompt_sha256": "cd908f8cea4a6d40",
-    "prompt_chars": 22100,
-    "generated_at": "2026-11-25T10:27:03.181335+00:00",
-    "code_sha": "ebb2d8f6e1f2"
+    "prompt_sha256": "caf784d7b6496bc6",
+    "prompt_chars": 22157,
+    "generated_at": "2026-11-27T10:25:32.233171+00:00",
+    "code_sha": "0ac9f6357ad8"
   }
 }
